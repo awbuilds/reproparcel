@@ -18,6 +18,7 @@ no proprietary-linking exception. Read [LICENSE](LICENSE) and the
 ## Current scope
 
 - Local-first Android reporter: explicit capture, review, manual export.
+- Encrypted app-private drafts and narrow FileProvider/SAF export.
 - No mandatory backend, telemetry, ads, background recording or runtime LLM.
 - Screenshot/semantic collection is off until the host supplies a policy.
 - Explicit host-registered evidence is the baseline; automatic Compose

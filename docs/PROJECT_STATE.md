@@ -4,12 +4,14 @@ Updated: 2026-11-11.
 
 ## Current stage
 
-**Phase 1 core gate passed locally; Phase 2 next.**
-The module graph, schema v1, explicit runtime, redaction, bounded evidence and
-CI gates are implemented and tested. Phase 1 is a foundation gate, not Android
-v1: the reporter UI, capture pipeline, encrypted drafts and export are Phase 2;
-the desktop tools are Phase 4. Phase 0 external adopter validation and physical
-device evidence remain blocked.
+**Phases 2–3 core flows implemented; Phase 4 next.**
+The module graph, schema v1, runtime, reporter UI, capture controller, encrypted
+drafts, export, breadcrumbs/logs, OkHttp metadata and explicit semantics are
+implemented and tested on API 26/30/37 emulators. Phase 2/3 exit gaps (race
+fixtures, process death, TalkBack, full golden matrix, measured overhead) are
+recorded. The desktop CLI/viewer/read-only MCP is Phase 4. Phase 0 external
+adopter validation, physical-device performance and legal/Maven gates remain
+blocked.
 
 No release, tag, publication, deployment, `main` branch or private-adopter
 integration exists.
@@ -20,9 +22,9 @@ integration exists.
   local-first reviewed evidence parcels; read-only local agent consumption.
 - [AGENTS.md](../AGENTS.md) — engineering contract, public-repository hygiene,
   exception boundaries, standards and handoff protocol.
-- [Latest handoff](handoffs/0003-2026-11-11-phase-1-core.md).
-- [Traceability ledger](traceability/prd-lines.jsonl), [Phase 0 audit](audits/phase-0-audit.md)
-  and [Phase 1 audit](audits/phase-1-audit.md).
+- [Latest handoff](handoffs/0005-2026-11-11-phase-3-adapters.md).
+- [Traceability ledger](traceability/prd-lines.jsonl), [Phase 0 audit](audits/phase-0-audit.md),
+  [Phase 1 audit](audits/phase-1-audit.md) and [Phase 3 audit](audits/phase-3-audit.md).
 
 ## Completed locally
 
@@ -33,12 +35,15 @@ integration exists.
   protected-window omission, rotation and semantics observation.
 - Phase 1 modules: core, android, compose, okhttp, sample app.
 - Core schema v1, JSON budgets, limits, redaction, state machine, typed outcomes,
-  parcel validation and synthetic fixtures.
+  parcel validation/writer and synthetic fixtures.
 - Explicit runtime: idempotent init, default-off collection, enable/disable,
-  supervised scope, bounded breadcrumbs/logs and provider isolation.
-- CI: hygiene, dependency allowlist, compile, JVM tests, API check, lint and
-  sample debug/release builds.
-- ADRs 0001–0009, threat-model draft, Phase 0/1 go/no-go records and evidence.
+  supervised scope, bounded breadcrumbs/logs/network, explicit semantics and
+  provider isolation.
+- Compose reporter: form, image editor, review, encrypted drafts, SAF/FileProvider
+  export and exact-preview binding.
+- CI: hygiene, dependency allowlist, compile, JVM/API checks, lint and sample
+  debug/release builds.
+- ADRs 0001–0012, threat-model draft, phase decisions and evidence.
 
 ## Key decisions
 
@@ -53,20 +58,19 @@ integration exists.
 
 ## Verification status
 
-Phase 1: 37 core JVM tests, 11 Android runtime tests on API 26/30/37, 2 sample
-UI tests on API 26/30/37 and `scripts/ci.sh` pass. Phase 0: 10 capture tests on
-API 26/30/37 plus minified API 26/37 smoke. Exact commands and evidence are in
-`docs/evidence/` and the latest handoff. External interviews, physical-device
+Phase 2/3: 40 core JVM tests, 2 OkHttp tests, 25 Android runtime tests, 2
+reporter tests and 2 sample tests on API 26/30/37; `scripts/ci.sh` passes.
+Phase 0: 10 capture tests on API 26/30/37 plus minified API 26/37 smoke. Exact
+commands and evidence are in `docs/evidence/` and the latest handoff. External interviews, physical-device
 tests, legal/trademark review, Sonatype verification, Maven publication,
 independent security review, pilot and external integrations remain blocked.
 Emulator success is not release evidence.
 
 ## Next exact action
 
-Begin Phase 2: write failing tests for the reporter flow, secure/denied capture,
-opaque mask races, encrypted draft key failure, process death, SAF cancellation
-and duplicate-export prevention. Implement `docs/security/phase-2-capture-contract.md`
-before enabling image collection.
+Implement Phase 4: streaming/bounded parcel validator, CLI inspect/validate,
+offline viewer, and read-only stdio MCP with an explicit import root. Then close
+Phase 2/3 evidence gaps and run the Phase 5 release matrix.
 
 ## Safety boundaries
 

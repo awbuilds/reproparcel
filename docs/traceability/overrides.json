@@ -108,6 +108,18 @@
     "notes": "",
     "status": "IN_PROGRESS"
   },
+  "199": {
+    "artifact": "reproparcel-compose ReporterActivity",
+    "evidence": "Text/image review and privacy note; full category/retention panel incomplete",
+    "notes": "",
+    "status": "IN_PROGRESS"
+  },
+  "202": {
+    "artifact": "docs/adr/0011-export-share-outcomes.md",
+    "evidence": "FileSaved vs ShareLaunched; UI text; tests",
+    "notes": "",
+    "status": "PASS"
+  },
   "265": {
     "artifact": "docs/adr/0007-public-api-and-runtime.md",
     "evidence": "API ADR and tested runtime",
@@ -156,6 +168,12 @@
     "notes": "",
     "status": "PASS"
   },
+  "360": {
+    "artifact": "reproparcel-compose ReporterActivity",
+    "evidence": "Accessible manual entry; sample UI test",
+    "notes": "Foreground shake remains optional and unshipped.",
+    "status": "PASS"
+  },
   "361": {
     "artifact": "reproparcel-core SessionStateMachine",
     "evidence": "Transition tests; lifecycle integration Phase 2",
@@ -167,6 +185,36 @@
     "evidence": "Basic capture/secure/rotation tests; bounded geometry/timeout tests deferred",
     "notes": "FR-04 P0/P2; Phase 0 proves basic path, Phase 2 completes bounded/race contract.",
     "status": "IN_PROGRESS"
+  },
+  "363": {
+    "artifact": "reproparcel-compose Annotation.kt",
+    "evidence": "Pen/arrow/mask/undo and mask flatten test",
+    "notes": "Pen/arrow final-pixel tests not yet added.",
+    "status": "IN_PROGRESS"
+  },
+  "364": {
+    "artifact": "reproparcel-compose ReporterActivity",
+    "evidence": "Form, review, image category toggle",
+    "notes": "Full category-removal/accessibility matrix incomplete.",
+    "status": "IN_PROGRESS"
+  },
+  "365": {
+    "artifact": "reproparcel-android ReproParcel",
+    "evidence": "Safe breadcrumb API + redaction test",
+    "notes": "",
+    "status": "PASS"
+  },
+  "366": {
+    "artifact": "reproparcel-android ReproParcel",
+    "evidence": "Bounded log API + tests",
+    "notes": "",
+    "status": "PASS"
+  },
+  "367": {
+    "artifact": "reproparcel-okhttp",
+    "evidence": "MockWebServer pass-through tests",
+    "notes": "",
+    "status": "PASS"
   },
   "368": {
     "artifact": "docs/adr/0003-semantics-strategy.md",
@@ -185,6 +233,18 @@
     "evidence": "Typed outcomes; no raw messages",
     "notes": "",
     "status": "PASS"
+  },
+  "371": {
+    "artifact": "reproparcel-android DraftStore",
+    "evidence": "Round-trip, key failure, corruption, quota, TTL tests",
+    "notes": "Process-death/full-disk cases remain manual.",
+    "status": "IN_PROGRESS"
+  },
+  "372": {
+    "artifact": "reproparcel-android ExportManager",
+    "evidence": "FileProvider write test; parcel writer test; outcome messages",
+    "notes": "SAF cancellation and chooser automation remain manual.",
+    "status": "IN_PROGRESS"
   },
   "375": {
     "artifact": "docs/adr/0006-public-repository-license-and-git.md",
@@ -463,11 +523,71 @@
     "notes": "Reporter UI/capture explicitly unfinished.",
     "status": "PASS"
   },
+  "606": {
+    "artifact": "docs/decisions/phase-2-go-no-go.md",
+    "evidence": "Reporter flow implemented",
+    "notes": "",
+    "status": "PASS"
+  },
+  "608": {
+    "artifact": "docs/PRD.md",
+    "evidence": "Work-package heading",
+    "notes": "",
+    "status": "PASS"
+  },
   "61": {
     "artifact": "spike/capture-lab",
     "evidence": "spike/capture-lab/build.gradle.kts namespace",
     "notes": "Package name exercised in the spike.",
     "status": "PASS"
+  },
+  "610": {
+    "artifact": "reproparcel-compose ReporterActivity",
+    "evidence": "Manual reporter and UI test",
+    "notes": "Foreground shake and full lifecycle recovery not implemented.",
+    "status": "IN_PROGRESS"
+  },
+  "611": {
+    "artifact": "CaptureController",
+    "evidence": "Eligible/secure/surface/mask tests; capture-before-reporter",
+    "notes": "Timeout/stale-frame race fixtures still needed.",
+    "status": "IN_PROGRESS"
+  },
+  "612": {
+    "artifact": "CaptureController",
+    "evidence": "Opaque mask full-region test; policy surface omission",
+    "notes": "",
+    "status": "PASS"
+  },
+  "613": {
+    "artifact": "reproparcel-compose Annotation.kt",
+    "evidence": "Pen/arrow/mask tools, undo, flatten; mask pixel test",
+    "notes": "",
+    "status": "PASS"
+  },
+  "614": {
+    "artifact": "ReporterActivity",
+    "evidence": "Exact preview + image inclusion toggle + approval reset",
+    "notes": "Accessibility/validation matrix incomplete.",
+    "status": "IN_PROGRESS"
+  },
+  "615": {
+    "artifact": "DraftStore",
+    "evidence": "Encrypted drafts, key failure, quota/TTL",
+    "notes": "Process death and full disk remain manual.",
+    "status": "IN_PROGRESS"
+  },
+  "616": {
+    "artifact": "ExportManager",
+    "evidence": "Narrow FileProvider path + SAF write + outcome messages",
+    "notes": "",
+    "status": "PASS"
+  },
+  "618": {
+    "artifact": "docs/evidence/phase-2",
+    "evidence": "Offline text flow; API 26/30/37 tests; manual font/rotation",
+    "notes": "TalkBack, capture cost and race matrix incomplete.",
+    "status": "IN_PROGRESS"
   },
   "62": {
     "artifact": "docs/research/naming-and-namespace.md",
@@ -475,11 +595,77 @@
     "notes": "Requires namespace ownership verification.",
     "status": "BLOCKED"
   },
+  "620": {
+    "artifact": "docs/decisions/phase-2-go-no-go.md",
+    "evidence": "Denied capture text-only; encrypted drafts; no raw saved state code",
+    "notes": "Scroll/dialog/late-callback races, process death, TalkBack and 200% full editor not fully verified.",
+    "status": "IN_PROGRESS"
+  },
+  "624": {
+    "artifact": "docs/integration/evidence-adapters.md",
+    "evidence": "Adapters implemented",
+    "notes": "",
+    "status": "PASS"
+  },
+  "626": {
+    "artifact": "docs/PRD.md",
+    "evidence": "Work-package heading",
+    "notes": "",
+    "status": "PASS"
+  },
+  "628": {
+    "artifact": "ReproParcel.recordBreadcrumb",
+    "evidence": "Safe IDs/attributes; no args/input",
+    "notes": "",
+    "status": "PASS"
+  },
+  "629": {
+    "artifact": "ReproParcel.recordLog",
+    "evidence": "Allowlist before buffer",
+    "notes": "",
+    "status": "PASS"
+  },
   "63": {
     "artifact": "docs/adr/0001-module-architecture.md",
     "evidence": "ADR 0001",
     "notes": "Artifact plan recorded.",
     "status": "PASS"
+  },
+  "630": {
+    "artifact": "reproparcel-okhttp MetadataInterceptor",
+    "evidence": "Pass-through and sink-failure tests; no bodies/headers/raw URLs",
+    "notes": "",
+    "status": "PASS"
+  },
+  "631": {
+    "artifact": "docs/adr/0012-bounded-evidence-adapters.md",
+    "evidence": "Explicit registry; automatic adapter not shipped",
+    "notes": "",
+    "status": "PASS"
+  },
+  "632": {
+    "artifact": "ReproParcel.semanticSnapshot",
+    "evidence": "Provider status types and snapshot bounds",
+    "notes": "Time/provenance consistency matrix incomplete.",
+    "status": "IN_PROGRESS"
+  },
+  "633": {
+    "artifact": "reproparcel-core tests",
+    "evidence": "Seeded redaction/network/semantics tests; malicious text treated as data",
+    "notes": "",
+    "status": "PASS"
+  },
+  "635": {
+    "artifact": "docs/integration/evidence-adapters.md",
+    "evidence": "Adapters + docs",
+    "notes": "Golden parcels are produced by Phase 4.",
+    "status": "PASS"
+  },
+  "637": {
+    "artifact": "docs/decisions/phase-3-go-no-go.md",
+    "evidence": "Bounds and pass-through tests; explicit semantics omission",
+    "notes": "Coverage matrix and full golden parcel set remain.",
+    "status": "IN_PROGRESS"
   },
   "64": {
     "artifact": "docs/adr/0004-desktop-runtime.md",

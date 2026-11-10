@@ -209,6 +209,15 @@ public data class StructuredLogEvent(
 )
 
 @Serializable
+public data class NetworkMetadata(
+    val method: String,
+    val statusCode: Int,
+    val durationMs: Long,
+    val routeTemplate: String? = null,
+    val outcome: String = "completed",
+)
+
+@Serializable
 public data class Bounds(
     val left: Int,
     val top: Int,

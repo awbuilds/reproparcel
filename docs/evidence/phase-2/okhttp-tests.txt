@@ -1,0 +1,1 @@
+reproparcel-okhttp/build/test-results/testDebugUnitTest/TEST-com.awbuilds.reproparcel.okhttp.MetadataInterceptorTest.xml:<testsuite name="com.awbuilds.reproparcel.okhttp.MetadataInterceptorTest" tests="2" skipped="0" failures="0" errors="0"

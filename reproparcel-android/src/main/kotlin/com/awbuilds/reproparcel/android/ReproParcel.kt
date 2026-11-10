@@ -7,10 +7,14 @@ import android.os.Looper
 import androidx.annotation.MainThread
 import com.awbuilds.reproparcel.core.buffer.BoundedEventBuffer
 import com.awbuilds.reproparcel.core.buffer.BoundedLogBuffer
+import com.awbuilds.reproparcel.core.buffer.BoundedNetworkBuffer
 import com.awbuilds.reproparcel.core.config.ConfigValidation
 import com.awbuilds.reproparcel.core.config.ConfigValidator
 import com.awbuilds.reproparcel.core.config.ReproParcelConfig
 import com.awbuilds.reproparcel.core.model.OmissionReason
+import com.awbuilds.reproparcel.core.model.NetworkMetadata
+import com.awbuilds.reproparcel.core.model.SemanticNode
+import com.awbuilds.reproparcel.core.model.SemanticsSnapshot
 import com.awbuilds.reproparcel.core.model.ReportEvent
 import com.awbuilds.reproparcel.core.model.StructuredLogEvent
 import com.awbuilds.reproparcel.core.privacy.Redactor
@@ -82,6 +86,8 @@ public object ReproParcel {
     private var scope: CoroutineScope? = null
     private var eventBuffer: BoundedEventBuffer? = null
     private var logBuffer: BoundedLogBuffer? = null
+    private var networkBuffer: BoundedNetworkBuffer? = null
+    private val semanticNodes = linkedMapOf<String, SemanticNode>()
     private var sequence: Long = 0L
     private var stateMachine = SessionStateMachine()
     private val providers = linkedMapOf<String, ProviderRegistration>()
@@ -117,6 +123,7 @@ public object ReproParcel {
             this.dispatchers = dispatchers
             this.eventBuffer = BoundedEventBuffer()
             this.logBuffer = BoundedLogBuffer()
+            this.networkBuffer = BoundedNetworkBuffer()
             if (config.enabled) {
                 enableLocked()
             } else {
@@ -147,6 +154,18 @@ public object ReproParcel {
     public fun isEnabled(): Boolean = synchronized(lock) {
         runtimeState == RuntimeState.ENABLED
     }
+
+    public fun currentCapturePolicy(): com.awbuilds.reproparcel.core.config.CapturePolicy? =
+        synchronized(lock) { config?.capturePolicy }
+
+    public fun currentBuildInfo(): com.awbuilds.reproparcel.core.model.BuildInfo? =
+        synchronized(lock) { config?.buildInfo }
+
+    public fun currentRetentionPolicy(): com.awbuilds.reproparcel.core.config.RetentionPolicy? =
+        synchronized(lock) { config?.retention }
+
+    public fun currentCollectionConfigurationId(): String? =
+        synchronized(lock) { config?.let(ConfigValidator::collectionConfigurationId) }
 
     @MainThread
     public fun showReporter(activity: Activity): SdkResult {
@@ -249,6 +268,99 @@ public object ReproParcel {
         }
     }
 
+    public fun recordNetworkMetadata(metadata: NetworkMetadata): SdkResult {
+        synchronized(lock) {
+            if (runtimeState == RuntimeState.UNINITIALIZED) return SdkResult.NotInitialized
+            if (runtimeState == RuntimeState.DISABLED) return SdkResult.Disabled
+            val method = Redactor.sanitize(SafeAttribute.HTTP_METHOD, metadata.method)
+                ?: return SdkResult.Omission(OmissionReason.POLICY_DISABLED)
+            val route = metadata.routeTemplate?.let {
+                Redactor.sanitize(SafeAttribute.ROUTE_TEMPLATE, it)
+            }
+            val safe = NetworkMetadata(
+                method = method,
+                statusCode = metadata.statusCode.coerceIn(100, 599),
+                durationMs = metadata.durationMs.coerceAtLeast(0),
+                routeTemplate = route,
+                outcome = metadata.outcome.take(32),
+            )
+            return if (networkBuffer?.add(safe) == true) SdkResult.Success
+            else SdkResult.Failure(ErrorCode.LIMIT_EXCEEDED)
+        }
+    }
+
+    public fun registerSemanticNode(node: SemanticNode): SdkResult {
+        synchronized(lock) {
+            if (runtimeState == RuntimeState.UNINITIALIZED) return SdkResult.NotInitialized
+            if (runtimeState == RuntimeState.DISABLED) return SdkResult.Disabled
+            if (node.nodeId.isBlank() || node.nodeId.length > 64 ||
+                node.role.isBlank() || node.role.length > 64 ||
+                node.bounds.left < 0 || node.bounds.top < 0 ||
+                node.bounds.right <= node.bounds.left || node.bounds.bottom <= node.bounds.top
+            ) {
+                return SdkResult.Failure(ErrorCode.INVALID_CONFIG)
+            }
+            if (semanticNodes.size >= com.awbuilds.reproparcel.core.limits.Limits.MAX_SEMANTIC_NODES &&
+                !semanticNodes.containsKey(node.nodeId)
+            ) {
+                return SdkResult.Failure(ErrorCode.LIMIT_EXCEEDED)
+            }
+            val safe = if (node.sensitive) {
+                node.copy(label = null, testTag = null, state = emptyMap())
+            } else {
+                node.copy(
+                    label = node.label?.take(120),
+                    testTag = node.testTag?.take(120),
+                    state = Redactor.sanitizeAttributes(node.state),
+                )
+            }
+            semanticNodes[node.nodeId] = safe
+            return SdkResult.Success
+        }
+    }
+
+    public fun semanticSnapshot(): SemanticsSnapshot {
+        synchronized(lock) {
+            var truncated = false
+            val bounded = semanticNodes.values.filter { node ->
+                var depth = 0
+                var parent = node.parentId
+                while (parent != null && depth <= com.awbuilds.reproparcel.core.limits.Limits.MAX_SEMANTIC_DEPTH) {
+                    depth += 1
+                    parent = semanticNodes[parent]?.parentId
+                }
+                if (depth > com.awbuilds.reproparcel.core.limits.Limits.MAX_SEMANTIC_DEPTH) {
+                    truncated = true
+                    false
+                } else {
+                    true
+                }
+            }.toMutableList()
+            while (bounded.isNotEmpty()) {
+                val candidate = SemanticsSnapshot(bounded, truncated)
+                val bytes = com.awbuilds.reproparcel.core.serialization.ReproParcelJson.json
+                    .encodeToString(SemanticsSnapshot.serializer(), candidate)
+                    .toByteArray(Charsets.UTF_8).size
+                if (bytes <= com.awbuilds.reproparcel.core.limits.Limits.MAX_SEMANTIC_BYTES) {
+                    return candidate
+                }
+                truncated = true
+                bounded.removeAt(bounded.lastIndex)
+            }
+            return SemanticsSnapshot(emptyList(), truncated)
+        }
+    }
+
+    public fun clearSemanticEvidence(): SdkResult {
+        synchronized(lock) {
+            semanticNodes.clear()
+            return SdkResult.Success
+        }
+    }
+
+    internal fun networkSnapshotForTest(): List<NetworkMetadata> =
+        synchronized(lock) { networkBuffer?.snapshot().orEmpty() }
+
     public fun deleteLocalReports(): SdkResult {
         synchronized(lock) {
             if (runtimeState == RuntimeState.UNINITIALIZED) return SdkResult.NotInitialized
@@ -291,6 +403,8 @@ public object ReproParcel {
             appContext = null
             eventBuffer = null
             logBuffer = null
+            networkBuffer = null
+            semanticNodes.clear()
             providers.clear()
             sequence = 0L
             stateMachine = SessionStateMachine()

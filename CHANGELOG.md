@@ -18,6 +18,10 @@ All notable changes are documented here. This project is not yet released.
 - 37 core JVM tests, 11 runtime tests and 2 sample UI tests on API 26/30/37.
 - CI with public hygiene, dependency allowlist, API check, schema conformance
   and lint.
+- Phase 2 Compose reporter, safe capture controller, opaque mask editor,
+  encrypted Keystore drafts, FileProvider/SAF export and parcel writer.
+- Phase 3 safe breadcrumbs/logs, OkHttp metadata adapter and explicit semantic
+  registration with bounds.
 
 ### Known limitations
 

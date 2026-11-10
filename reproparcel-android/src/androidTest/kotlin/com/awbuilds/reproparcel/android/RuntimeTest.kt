@@ -8,7 +8,10 @@ import com.awbuilds.reproparcel.core.config.CapturePolicy
 import com.awbuilds.reproparcel.core.config.EvidenceConfig
 import com.awbuilds.reproparcel.core.config.ReproParcelConfig
 import com.awbuilds.reproparcel.core.model.BuildInfo
+import com.awbuilds.reproparcel.core.model.Bounds
+import com.awbuilds.reproparcel.core.model.NetworkMetadata
 import com.awbuilds.reproparcel.core.model.OmissionReason
+import com.awbuilds.reproparcel.core.model.SemanticNode
 import com.awbuilds.reproparcel.core.result.ErrorCode
 import com.awbuilds.reproparcel.core.result.SdkResult
 import com.awbuilds.reproparcel.core.state.SessionEvent
@@ -200,6 +203,65 @@ class RuntimeTest {
             ProviderResult.Omitted(OmissionReason.PROVIDER_FAILED),
             ReproParcel.collectProviderForTest("slow"),
         )
+    }
+
+    @Test
+    fun networkMetadataKeepsSafeRouteAndDropsQuery() {
+        assertEquals(SdkResult.Success, ReproParcel.initialize(context, config(enabled = true)))
+        assertEquals(
+            SdkResult.Success,
+            ReproParcel.recordNetworkMetadata(
+                NetworkMetadata("GET", 200, 12, "/orders/{id}"),
+            ),
+        )
+        val metadata = ReproParcel.networkSnapshotForTest().single()
+        assertEquals("/orders/{id}", metadata.routeTemplate)
+        assertEquals(SdkResult.Success, ReproParcel.recordNetworkMetadata(
+            NetworkMetadata("GET", 200, 12, "/orders?id=secret"),
+        ))
+        assertEquals(2, ReproParcel.networkSnapshotForTest().size)
+        assertEquals(null, ReproParcel.networkSnapshotForTest().last().routeTemplate)
+    }
+
+    @Test
+    fun explicitSemanticsBoundsAndSensitiveNodesAreSafe() {
+        assertEquals(SdkResult.Success, ReproParcel.initialize(context, config(enabled = true)))
+        assertEquals(
+            SdkResult.Success,
+            ReproParcel.registerSemanticNode(
+                SemanticNode(
+                    nodeId = "n1",
+                    role = "button",
+                    label = "Save",
+                    bounds = Bounds(10, 10, 100, 50),
+                ),
+            ),
+        )
+        assertEquals(
+            SdkResult.Success,
+            ReproParcel.registerSemanticNode(
+                SemanticNode(
+                    nodeId = "n2",
+                    role = "input",
+                    label = "Synthetic secret",
+                    testTag = "secret",
+                    bounds = Bounds(10, 60, 100, 90),
+                    sensitive = true,
+                ),
+            ),
+        )
+        val snapshot = ReproParcel.semanticSnapshot()
+        assertEquals(2, snapshot.nodes.size)
+        assertEquals(null, snapshot.nodes.single { it.nodeId == "n2" }.label)
+        assertEquals(null, snapshot.nodes.single { it.nodeId == "n2" }.testTag)
+        assertEquals(
+            SdkResult.Failure(ErrorCode.INVALID_CONFIG),
+            ReproParcel.registerSemanticNode(
+                SemanticNode("bad", "button", bounds = Bounds(10, 10, 10, 20)),
+            ),
+        )
+        assertEquals(SdkResult.Success, ReproParcel.clearSemanticEvidence())
+        assertTrue(ReproParcel.semanticSnapshot().nodes.isEmpty())
     }
 
     @Test
