@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<testsuites tests="11" failures="0" errors="0" skipped="0" time="0.000" timestamp="2026-11-10T21:33:26" hostname="localhost">
+  <testsuite name="com.awbuilds.reproparcel.android.RuntimeTest" tests="11" failures="0" errors="0" skipped="0" time="0.040" timestamp="2026-11-10T21:33:26" hostname="localhost">
+    <properties>
+      <property name="device" value="emulator-5554" />
+    </properties>
+    <testcase name="disabledDefaultHasNoCollectionOrActiveJobs" classname="com.awbuilds.reproparcel.android.RuntimeTest" time="0.018" />
+    <testcase name="sessionStateFollowsExplicitEnableAndDisable" classname="com.awbuilds.reproparcel.android.RuntimeTest" time="0.001" />
+    <testcase name="deleteLocalReportsIsExplicitAndSafe" classname="com.awbuilds.reproparcel.android.RuntimeTest" time="0.001" />
+    <testcase name="invalidConfigReturnsTypedFailureAndStaysUninitialized" classname="com.awbuilds.reproparcel.android.RuntimeTest" time="0.000" />
+    <testcase name="disableCancelsSdkOwnedJob" classname="com.awbuilds.reproparcel.android.RuntimeTest" time="0.002" />
+    <testcase name="enableStartsExplicitCollectionAndDisableStopsIt" classname="com.awbuilds.reproparcel.android.RuntimeTest" time="0.002" />
+    <testcase name="providerByteLimitIsEnforced" classname="com.awbuilds.reproparcel.android.RuntimeTest" time="0.002" />
+    <testcase name="unsafeAttributesAreNotBuffered" classname="com.awbuilds.reproparcel.android.RuntimeTest" time="0.002" />
+    <testcase name="providerTimeoutIsAnOmission" classname="com.awbuilds.reproparcel.android.RuntimeTest" time="0.011" />
+    <testcase name="repeatedInitializeIsIdempotentAndConfigMismatchIsTyped" classname="com.awbuilds.reproparcel.android.RuntimeTest" time="0.001" />
+    <testcase name="providerFailureIsIsolatedAndTyped" classname="com.awbuilds.reproparcel.android.RuntimeTest" time="0.000" />
+  </testsuite>
+</testsuites>

@@ -47,6 +47,42 @@
     "notes": "Later phases; entry conditions apply.",
     "status": "GATED"
   },
+  "165": {
+    "artifact": "reproparcel-compose",
+    "evidence": "Module scaffold only",
+    "notes": "Reporter UI is Phase 2.",
+    "status": "IN_PROGRESS"
+  },
+  "166": {
+    "artifact": "docs/PRD.md",
+    "evidence": "Manual entry is Phase 2",
+    "notes": "Shake is opt-in Phase 2.",
+    "status": "IN_PROGRESS"
+  },
+  "167": {
+    "artifact": "docs/security/phase-2-capture-contract.md",
+    "evidence": "Capture contract defined; production path not implemented",
+    "notes": "Phase 2 gate.",
+    "status": "IN_PROGRESS"
+  },
+  "168": {
+    "artifact": "reproparcel-android/ReproParcel.kt",
+    "evidence": "Safe breadcrumb API + sanitizer tests",
+    "notes": "Framework adapters Phase 3.",
+    "status": "PASS"
+  },
+  "169": {
+    "artifact": "reproparcel-android/ReproParcel.kt",
+    "evidence": "Bounded structured log API + tests",
+    "notes": "Host logger adapter Phase 3.",
+    "status": "PASS"
+  },
+  "171": {
+    "artifact": "docs/adr/0003-semantics-strategy.md",
+    "evidence": "Explicit registration selected",
+    "notes": "Registry implementation Phase 3.",
+    "status": "IN_PROGRESS"
+  },
   "172": {
     "artifact": "docs/adr/0003-semantics-strategy.md",
     "evidence": "Capability-gated decision; explicit registration baseline",
@@ -54,11 +90,77 @@
     "phase": "0",
     "status": "PASS"
   },
+  "173": {
+    "artifact": "reproparcel-core BuildInfo",
+    "evidence": "Config validation, honest gitCommit null",
+    "notes": "Device provenance Phase 3.",
+    "status": "PASS"
+  },
+  "174": {
+    "artifact": "docs/PRD.md",
+    "evidence": "Encrypted drafts are Phase 2",
+    "notes": "",
+    "status": "IN_PROGRESS"
+  },
+  "175": {
+    "artifact": "docs/adr/0004-desktop-runtime.md",
+    "evidence": "Desktop runtime selected; tools Phase 4",
+    "notes": "",
+    "status": "IN_PROGRESS"
+  },
+  "265": {
+    "artifact": "docs/adr/0007-public-api-and-runtime.md",
+    "evidence": "API ADR and tested runtime",
+    "notes": "",
+    "status": "PASS"
+  },
+  "269": {
+    "artifact": "reproparcel-android/ReproParcel.kt",
+    "evidence": "Redactor + RuntimeTest unsafeAttributesAreNotBuffered",
+    "notes": "",
+    "status": "PASS"
+  },
   "283": {
     "artifact": "docs/adr/0003-semantics-strategy.md",
     "evidence": "Phase 0 spike comparison + Compose semantics test",
     "notes": "Compared app-level public traversal with host-registered strategy; automatic extraction not proven.",
     "status": "PASS"
+  },
+  "287": {
+    "artifact": "docs/security/phase-2-capture-contract.md",
+    "evidence": "Temporal contract defined; implementation Phase 2",
+    "notes": "",
+    "status": "IN_PROGRESS"
+  },
+  "293": {
+    "artifact": "docs/PRD.md",
+    "evidence": "Keystore draft storage is Phase 2",
+    "notes": "",
+    "status": "IN_PROGRESS"
+  },
+  "295": {
+    "artifact": "docs/PRD.md",
+    "evidence": "Saved-state/editor rules are Phase 2",
+    "notes": "",
+    "status": "IN_PROGRESS"
+  },
+  "342": {
+    "artifact": "reproparcel-core BuildInfo",
+    "evidence": "Git commit syntax validation + unknown null",
+    "notes": "",
+    "status": "PASS"
+  },
+  "359": {
+    "artifact": "reproparcel-core tests",
+    "evidence": "Config/idempotency/disable tests; RuntimeTest",
+    "notes": "",
+    "status": "PASS"
+  },
+  "361": {
+    "artifact": "reproparcel-core SessionStateMachine",
+    "evidence": "Transition tests; lifecycle integration Phase 2",
+    "notes": "",
+    "status": "IN_PROGRESS"
   },
   "362": {
     "artifact": "docs/adr/0002-capture-feasibility-and-temporal-privacy.md",
@@ -72,6 +174,18 @@
     "notes": "FR-10 P0/P3; capability-gated adapter remains unimplemented.",
     "status": "IN_PROGRESS"
   },
+  "369": {
+    "artifact": "reproparcel-core BuildInfo",
+    "evidence": "Build provenance implemented; device info Phase 2/3",
+    "notes": "",
+    "status": "IN_PROGRESS"
+  },
+  "370": {
+    "artifact": "reproparcel-core Outcomes",
+    "evidence": "Typed outcomes; no raw messages",
+    "notes": "",
+    "status": "PASS"
+  },
   "375": {
     "artifact": "docs/adr/0006-public-repository-license-and-git.md",
     "evidence": "LICENSE present; notices checklist pending",
@@ -82,6 +196,96 @@
     "artifact": "docs/impact/0001-phase-0-feasibility.md",
     "evidence": "Impact brief and handoff process",
     "notes": "Process followed from the first session.",
+    "status": "PASS"
+  },
+  "389": {
+    "artifact": "docs/adr/0009-consent-capture-policy.md",
+    "evidence": "Policy default-off; semantics contract",
+    "notes": "Extraction implementation Phase 3.",
+    "status": "PASS"
+  },
+  "391": {
+    "artifact": "docs/security/phase-2-capture-contract.md",
+    "evidence": "Masking contract defined; implementation Phase 2",
+    "notes": "",
+    "status": "IN_PROGRESS"
+  },
+  "392": {
+    "artifact": "docs/adr/0009-consent-capture-policy.md",
+    "evidence": "Fail-closed policy; typed outcomes",
+    "notes": "",
+    "status": "PASS"
+  },
+  "403": {
+    "artifact": "docs/security/threat-model.md",
+    "evidence": "Threat table present",
+    "notes": "Structural heading.",
+    "status": "PASS"
+  },
+  "419": {
+    "artifact": "docs/PRD.md",
+    "evidence": "Phase 6 only",
+    "notes": "",
+    "status": "GATED"
+  },
+  "427": {
+    "artifact": "reproparcel-android/ReproParcel.kt",
+    "evidence": "No empty catch/Throwable catch; cancellation rethrown",
+    "notes": "",
+    "status": "PASS"
+  },
+  "431": {
+    "artifact": "reproparcel-android/ReproParcel.kt",
+    "evidence": "Typed boundaries and provider isolation tests",
+    "notes": "",
+    "status": "PASS"
+  },
+  "434": {
+    "artifact": "reproparcel-android/ReproParcel.kt",
+    "evidence": "No Throwable/OOM recovery",
+    "notes": "",
+    "status": "PASS"
+  },
+  "436": {
+    "artifact": "reproparcel-android/ReproParcel.kt",
+    "evidence": "Provider timeout/byte/failure tests",
+    "notes": "",
+    "status": "PASS"
+  },
+  "440": {
+    "artifact": "reproparcel-compose",
+    "evidence": "Localized reporter errors are Phase 2",
+    "notes": "",
+    "status": "IN_PROGRESS"
+  },
+  "441": {
+    "artifact": "reproparcel-compose",
+    "evidence": "Compose UI is Phase 2",
+    "notes": "",
+    "status": "IN_PROGRESS"
+  },
+  "459": {
+    "artifact": "docs/PRD.md",
+    "evidence": "Provider failure/timeout tests; full fault injection Phase 2",
+    "notes": "",
+    "status": "IN_PROGRESS"
+  },
+  "463": {
+    "artifact": "docs/adr/0005-toolchain-and-min-sdk.md",
+    "evidence": "Stable toolchain verified",
+    "notes": "",
+    "status": "PASS"
+  },
+  "465": {
+    "artifact": "docs/PRD.md",
+    "evidence": "Standards table reviewed",
+    "notes": "Structural heading.",
+    "status": "PASS"
+  },
+  "468": {
+    "artifact": "docs/adr/0005-toolchain-and-min-sdk.md",
+    "evidence": "minSdk 26; compile/target 37; API 26 tests",
+    "notes": "",
     "status": "PASS"
   },
   "488": {
@@ -187,10 +391,76 @@
     "notes": "Image scope retained only with fail-closed controls.",
     "status": "PASS"
   },
+  "588": {
+    "artifact": "docs/decisions/phase-1-go-no-go.md",
+    "evidence": "Phase 1 goal reviewed",
+    "notes": "",
+    "status": "PASS"
+  },
+  "590": {
+    "artifact": "docs/PRD.md",
+    "evidence": "Work-package heading",
+    "notes": "Structural heading.",
+    "status": "PASS"
+  },
+  "592": {
+    "artifact": "settings.gradle.kts",
+    "evidence": "Modules + sample + catalog + pinned versions",
+    "notes": "",
+    "status": "PASS"
+  },
+  "593": {
+    "artifact": "reproparcel-core, schema/v1",
+    "evidence": "Schema, limits, outcomes, fixtures, tests",
+    "notes": "",
+    "status": "PASS"
+  },
+  "594": {
+    "artifact": "reproparcel-android/ReproParcel.kt",
+    "evidence": "Explicit init, no-op, enable/disable, tests",
+    "notes": "",
+    "status": "PASS"
+  },
+  "595": {
+    "artifact": "reproparcel-core tests",
+    "evidence": "Redaction, bounds, no-default tests",
+    "notes": "",
+    "status": "PASS"
+  },
+  "596": {
+    "artifact": "sample-app",
+    "evidence": "Synthetic BuildInfo; no personal paths",
+    "notes": "",
+    "status": "PASS"
+  },
+  "597": {
+    "artifact": "scripts/ci.sh, .github/workflows/ci.yml",
+    "evidence": "Compile/JVM/lint/API/schema/hygiene/dependency gates",
+    "notes": "",
+    "status": "PASS"
+  },
+  "598": {
+    "artifact": "docs/adr/0004/0007/0008/0009",
+    "evidence": "ADRs for capture, consent, desktop runtime",
+    "notes": "",
+    "status": "PASS"
+  },
   "60": {
     "artifact": "repository",
     "evidence": "gh repo view awbuilds/reproparcel --json name,visibility,isEmpty,url; git ls-remote returned no refs on the empty remote",
     "notes": "Remote exists and is empty; no extra reservation claimed.",
+    "status": "PASS"
+  },
+  "600": {
+    "artifact": "docs/handoffs/0003-2026-11-11-phase-1-core.md",
+    "evidence": "Deliverables recorded",
+    "notes": "",
+    "status": "PASS"
+  },
+  "602": {
+    "artifact": "docs/evidence/phase-1, reproparcel-core tests",
+    "evidence": "Invalid config/provider errors typed; no collectors; limits/redaction/cancellation; schema fixtures; state accurate",
+    "notes": "Reporter UI/capture explicitly unfinished.",
     "status": "PASS"
   },
   "61": {

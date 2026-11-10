@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://reproparcel.dev/schema/v1/semantics.schema.json",
+  "title": "ReproParcel semantics v1",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["nodes"],
+  "properties": {
+    "truncated": { "type": "boolean", "default": false },
+    "omission": { "type": ["string", "null"], "maxLength": 64 },
+    "nodes": {
+      "type": "array",
+      "maxItems": 500,
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["nodeId", "role", "bounds"],
+        "properties": {
+          "nodeId": { "type": "string", "minLength": 1, "maxLength": 64 },
+          "role": { "type": "string", "minLength": 1, "maxLength": 64 },
+          "label": { "type": ["string", "null"], "maxLength": 120 },
+          "testTag": { "type": ["string", "null"], "maxLength": 120 },
+          "parentId": { "type": ["string", "null"], "maxLength": 64 },
+          "sensitive": { "type": "boolean", "default": false },
+          "state": {
+            "type": "object",
+            "maxProperties": 16,
+            "additionalProperties": { "type": "string", "maxLength": 256 }
+          },
+          "bounds": {
+            "type": "object",
+            "additionalProperties": true,
+            "required": ["left", "top", "right", "bottom"],
+            "properties": {
+              "left": { "type": "integer" },
+              "top": { "type": "integer" },
+              "right": { "type": "integer" },
+              "bottom": { "type": "integer" },
+              "coordinateSpace": { "type": "string", "maxLength": 32, "default": "window" }
+            }
+          }
+        }
+      }
+    }
+  }
+}

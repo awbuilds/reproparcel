@@ -1,0 +1,12 @@
+{
+  "title": "Synthetic checkout button overlap",
+  "description": "The synthetic checkout button overlaps the total label.",
+  "expectedBehavior": "The button is fully visible and tappable.",
+  "actualBehavior": "The button overlaps the total label.",
+  "reproSteps": "Open the synthetic checkout screen and rotate to landscape.",
+  "screenId": "checkout_review",
+  "evidence": [
+    { "state": "collected" },
+    { "state": "omitted", "reason": "secure_window" }
+  ]
+}

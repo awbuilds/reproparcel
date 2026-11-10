@@ -13,6 +13,11 @@ All notable changes are documented here. This project is not yet released.
   Phase 0 evidence.
 - PixelCopy capture, opaque mask, protected-window omission and rotation tests
   on API 26/30/37 emulators.
+- Phase 1 module graph, schema v1, typed runtime, allowlisted redaction, bounded
+  buffers, state machine and synthetic sample.
+- 37 core JVM tests, 11 runtime tests and 2 sample UI tests on API 26/30/37.
+- CI with public hygiene, dependency allowlist, API check, schema conformance
+  and lint.
 
 ### Known limitations
 

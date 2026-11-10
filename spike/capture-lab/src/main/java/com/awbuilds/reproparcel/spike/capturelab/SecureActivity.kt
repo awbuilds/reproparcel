@@ -5,6 +5,7 @@ package com.awbuilds.reproparcel.spike.capturelab
 import android.os.Bundle
 import android.view.WindowManager
 import androidx.activity.ComponentActivity
+import androidx.activity.compose.LocalActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Arrangement
@@ -21,7 +22,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
 
@@ -40,7 +40,7 @@ class SecureActivity : ComponentActivity() {
 
 @Composable
 private fun SecureScreen() {
-    val activity = LocalContext.current as? SecureActivity
+    val activity = LocalActivity.current
     val scope = rememberCoroutineScope()
     var status by remember { mutableStateOf("FLAG_SECURE is set") }
 
