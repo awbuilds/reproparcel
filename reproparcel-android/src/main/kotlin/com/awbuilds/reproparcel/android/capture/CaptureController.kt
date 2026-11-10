@@ -21,6 +21,7 @@ import com.awbuilds.reproparcel.core.limits.ImageBudget
 import com.awbuilds.reproparcel.core.limits.Limits
 import com.awbuilds.reproparcel.core.model.OmissionReason
 import com.awbuilds.reproparcel.core.result.ErrorCode
+import com.awbuilds.reproparcel.android.ReproParcel
 import java.util.Collections
 import java.util.WeakHashMap
 import java.util.concurrent.atomic.AtomicLong
@@ -35,6 +36,7 @@ public sealed interface CaptureOutcome {
         public val bitmap: Bitmap,
         public val elapsedMs: Long,
         public val generation: Long,
+        public val attemptToken: String,
     ) : CaptureOutcome
 
     public data class Omitted(public val reason: OmissionReason) : CaptureOutcome
@@ -76,11 +78,22 @@ public object CaptureController {
         if (width <= 0 || height <= 0) {
             return CaptureOutcome.Omitted(OmissionReason.UNSUPPORTED_SURFACE)
         }
-        if (ImageBudget.decodedBytes(width, height) > Limits.MAX_CAPTURE_PEAK_BYTES) {
+        if (ImageBudget.decodedBytes(width, height) > Limits.MAX_DECODED_IMAGE_BYTES ||
+            maxOf(width, height) > Limits.MAX_IMAGE_LONG_EDGE_PX * 4
+        ) {
             return CaptureOutcome.Omitted(OmissionReason.SIZE_LIMIT)
+        }
+        if (policy.maskRegions.any {
+                it.left < 0 || it.top < 0 || it.right > width || it.bottom > height
+            }
+        ) {
+            return CaptureOutcome.Omitted(OmissionReason.UNSUPPORTED_SURFACE)
         }
 
         val generation = generationOf(decor)
+        val attemptToken = java.util.UUID.randomUUID().toString()
+        val windowToken = decor.windowToken
+        val policyVersion = policy.policyVersion
         val started = SystemClock.elapsedRealtime()
         val bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
         val handler = Handler(Looper.getMainLooper())
@@ -108,10 +121,10 @@ public object CaptureController {
             // The callback owns the destination if it arrives late.
             return CaptureOutcome.Omitted(OmissionReason.CAPTURE_TIMEOUT)
         } catch (_: IllegalArgumentException) {
-            if (callbackCompleted) bitmap.recycle()
+            bitmap.recycle()
             return CaptureOutcome.Omitted(OmissionReason.UNSUPPORTED_SURFACE)
         } catch (_: SecurityException) {
-            if (callbackCompleted) bitmap.recycle()
+            bitmap.recycle()
             return CaptureOutcome.Omitted(OmissionReason.SECURE_WINDOW)
         } catch (cancelled: kotlinx.coroutines.CancellationException) {
             if (callbackCompleted) bitmap.recycle()
@@ -124,12 +137,18 @@ public object CaptureController {
             return CaptureOutcome.Failed(ErrorCode.INTERNAL_SAFE_FAILURE)
         }
         if (generationOf(decor) != generation ||
+            decor.windowToken != windowToken ||
+            policy.policyVersion != policyVersion ||
             isSecure(window) ||
             activity.isFinishing ||
             activity.isDestroyed
         ) {
             bitmap.recycle()
             return CaptureOutcome.Omitted(OmissionReason.STALE_FRAME)
+        }
+        if (!ReproParcel.isEnabled()) {
+            bitmap.recycle()
+            return CaptureOutcome.Omitted(OmissionReason.POLICY_DISABLED)
         }
 
         applyMasks(bitmap, policy)
@@ -138,6 +157,7 @@ public object CaptureController {
             bitmap = bounded,
             elapsedMs = elapsed,
             generation = generation,
+            attemptToken = attemptToken,
         )
     }
 

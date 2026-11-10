@@ -77,7 +77,7 @@ img { max-width: 100%; height: auto; border: 1px solid #8886; border-radius: 8px
 <p><strong>Report ID:</strong> <code>${escapeHtml(manifest.reportId)}</code></p>
 <p><strong>Created:</strong> ${escapeHtml(manifest.createdAt)}</p>
 <p><strong>App:</strong> ${escapeHtml(manifest.app.packageName)} ${escapeHtml(manifest.app.versionName)} (${escapeHtml(manifest.app.variant)})</p>
-<p><strong>Device:</strong> ${escapeHtml(manifest.device.manufacturer)} ${escapeHtml(manifest.device.model)}, API ${manifest.device.apiLevel}, ${manifest.device.windowWidthPx}×${manifest.device.windowHeightPx}</p>
+<p><strong>Device:</strong> ${escapeHtml(manifest.device.manufacturer)} ${escapeHtml(manifest.device.model)}, API ${escapeHtml(String(manifest.device.apiLevel))}, ${escapeHtml(String(manifest.device.windowWidthPx))}×${escapeHtml(String(manifest.device.windowHeightPx))}</p>
 <p><strong>Privacy policy:</strong> ${escapeHtml(manifest.privacy.policyVersion)} / ${escapeHtml(manifest.privacy.redactionMode)}</p>
 <p class="muted">This page renders report content as untrusted text. It does not execute scripts or load external URLs.</p>
 </div>

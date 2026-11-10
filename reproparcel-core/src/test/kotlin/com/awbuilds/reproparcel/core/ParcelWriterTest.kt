@@ -60,6 +60,15 @@ class ParcelWriterTest {
     }
 
     @Test
+    fun aggregateUncompressedBudgetIsRejected() {
+        val payload = ParcelPayload(
+            report = Report(description = "Synthetic"),
+            imagePng = ByteArray(10 * 1024 * 1024) { 1 },
+        )
+        assertEquals(null, ParcelWriter.writeToBytes(loadManifest(), payload))
+    }
+
+    @Test
     fun oversizedEntryIsRejected() {
         val payload = ParcelPayload(
             report = Report(description = "x".repeat(2_100_000)),

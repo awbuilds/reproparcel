@@ -1,0 +1,5 @@
+analyzer:
+  exclude:
+    # Reference MethodChannel bridge requires a Flutter host/plugin that is not
+    # built in this repository. Pure Dart contracts are analyzed and tested.
+    - lib/reproparcel_channel.dart

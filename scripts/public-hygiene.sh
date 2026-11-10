@@ -103,6 +103,17 @@ if [[ -f "$DENYLIST" ]]; then
   done < "$DENYLIST"
 fi
 
+# Private identifiers must not survive in history either.
+if git rev-parse --is-inside-work-tree >/dev/null 2>&1 && [[ -f "$DENYLIST" ]]; then
+  while IFS= read -r term; do
+    [[ -z "$term" || "$term" == \#* ]] && continue
+    if git log -p --all -- . 2>/dev/null | grep -iF "$term" >/dev/null 2>&1; then
+      echo "PUBLIC-HYGIENE: private term found in Git history" >&2
+      FAIL=1
+    fi
+  done < "$DENYLIST"
+fi
+
 # Commit identity must be project-neutral.
 if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
   while IFS='|' read -r an ae cn ce; do

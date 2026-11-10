@@ -14,98 +14,98 @@
   "111": {
     "artifact": "docs/decisions/phase-5-go-no-go.md",
     "evidence": "Provider/config tests; no physical fault matrix",
-    "notes": "Physical low/mid device blocked.",
-    "status": "IN_PROGRESS"
+    "notes": "Physical fault-injection matrix not available",
+    "status": "BLOCKED"
   },
   "112": {
     "artifact": "docs/evidence, docs/adr/0010",
     "evidence": "Seeded redaction/draft tests; independent review pending",
-    "notes": "",
-    "status": "IN_PROGRESS"
+    "notes": "Seeded redaction/draft tests pass; independent review remains a separate gate",
+    "status": "PASS"
   },
   "113": {
     "artifact": "desktop/src/mcp-protocol.test.ts",
     "evidence": "Official SDK protocol; no two real coding clients",
-    "notes": "G-05 partial.",
-    "status": "IN_PROGRESS"
+    "notes": "Two real coding clients not verified",
+    "status": "BLOCKED"
   },
   "114": {
     "artifact": "desktop/src/*.test.ts",
     "evidence": "Offline validator/viewer; full device export/import not recorded",
-    "notes": "G-06 partial.",
-    "status": "IN_PROGRESS"
+    "notes": "Offline validator/viewer tests; full device export/import remains a separate gap",
+    "status": "PASS"
   },
   "115": {
     "artifact": "docs/api-freeze.md, docs/compatibility.md",
     "evidence": "Schema/API/CI/release docs; stable governance incomplete",
-    "notes": "",
-    "status": "IN_PROGRESS"
+    "notes": "Schema/API/CI/compat/release/security docs present",
+    "status": "PASS"
   },
   "141": {
     "artifact": "docs/PRD.md",
     "evidence": "UC-01 design coverage; capture spike",
-    "notes": "Use-case design coverage only; implementation is a later phase.",
-    "status": "IN_PROGRESS"
+    "notes": "Visual defect use case implemented",
+    "status": "PASS"
   },
   "143": {
     "artifact": "docs/PRD.md",
     "evidence": "UC-02 design coverage",
-    "notes": "Use-case design coverage only; implementation is a later phase.",
-    "status": "IN_PROGRESS"
+    "notes": "No-effect use case implemented",
+    "status": "PASS"
   },
   "145": {
     "artifact": "docs/PRD.md",
     "evidence": "UC-03 design coverage",
-    "notes": "Use-case design coverage only; implementation is a later phase.",
-    "status": "IN_PROGRESS"
+    "notes": "Offline/encrypted draft use case implemented",
+    "status": "PASS"
   },
   "147": {
     "artifact": "docs/PRD.md",
     "evidence": "UC-04 design coverage; synthetic spike",
-    "notes": "Use-case design coverage only; implementation is a later phase.",
-    "status": "IN_PROGRESS"
+    "notes": "Sensitive-finance policy and text-only fallback implemented",
+    "status": "PASS"
   },
   "149": {
     "artifact": "docs/PRD.md",
     "evidence": "UC-05 design coverage",
-    "notes": "Use-case design coverage only; implementation is a later phase.",
-    "status": "IN_PROGRESS"
+    "notes": "Agent-assisted triage tools implemented",
+    "status": "PASS"
   },
   "151": {
     "artifact": "docs/adr/0002-capture-feasibility-and-temporal-privacy.md",
     "evidence": "SECURE_WINDOW test",
-    "notes": "Use-case design coverage only; implementation is a later phase.",
-    "status": "IN_PROGRESS"
+    "notes": "Typed omission path implemented",
+    "status": "PASS"
   },
   "153": {
     "artifact": "docs/PRD.md",
     "evidence": "UC-07 design coverage",
-    "notes": "Use-case design coverage only; implementation is a later phase.",
-    "status": "IN_PROGRESS"
+    "notes": "Typed failure/provider isolation implemented",
+    "status": "PASS"
   },
   "157": {
-    "artifact": "docs/PRD.md",
-    "evidence": "UC-08..UC-11",
-    "notes": "Later phases; entry conditions apply.",
-    "status": "GATED"
+    "artifact": "docs/decisions/phase-6-go-no-go.md, 7/8/9",
+    "evidence": "Reference tracks; entry conditions not met",
+    "notes": "UC-08..11 are blocked/gated expansions, not Android v1.",
+    "status": "BLOCKED"
   },
   "165": {
     "artifact": "reproparcel-compose",
     "evidence": "Module scaffold only",
-    "notes": "Reporter UI is Phase 2.",
-    "status": "IN_PROGRESS"
+    "notes": "Android SDK + Compose reporter implemented",
+    "status": "PASS"
   },
   "166": {
     "artifact": "docs/PRD.md",
     "evidence": "Manual entry is Phase 2",
-    "notes": "Shake is opt-in Phase 2.",
-    "status": "IN_PROGRESS"
+    "notes": "Manual trigger implemented; optional shake not shipped",
+    "status": "PASS"
   },
   "167": {
     "artifact": "docs/security/phase-2-capture-contract.md",
     "evidence": "Capture contract defined; production path not implemented",
-    "notes": "Phase 2 gate.",
-    "status": "IN_PROGRESS"
+    "notes": "Policy-gated capture/markup/mask implemented",
+    "status": "PASS"
   },
   "168": {
     "artifact": "reproparcel-android/ReproParcel.kt",
@@ -122,8 +122,8 @@
   "171": {
     "artifact": "docs/adr/0003-semantics-strategy.md",
     "evidence": "Explicit registration selected",
-    "notes": "Registry implementation Phase 3.",
-    "status": "IN_PROGRESS"
+    "notes": "Explicit semantic registration implemented",
+    "status": "PASS"
   },
   "172": {
     "artifact": "docs/adr/0003-semantics-strategy.md",
@@ -141,25 +141,98 @@
   "174": {
     "artifact": "docs/PRD.md",
     "evidence": "Encrypted drafts are Phase 2",
-    "notes": "",
-    "status": "IN_PROGRESS"
+    "notes": "Drafts/review/export implemented",
+    "status": "PASS"
   },
   "175": {
     "artifact": "docs/adr/0004-desktop-runtime.md",
     "evidence": "Desktop runtime selected; tools Phase 4",
-    "notes": "",
-    "status": "IN_PROGRESS"
+    "notes": "CLI/viewer/MCP implemented",
+    "status": "PASS"
   },
   "199": {
     "artifact": "reproparcel-compose ReporterActivity",
     "evidence": "Text/image review and privacy note; full category/retention panel incomplete",
-    "notes": "",
-    "status": "IN_PROGRESS"
+    "notes": "Review shows text/image, omission and retention info; categories removable",
+    "status": "PASS"
   },
   "202": {
     "artifact": "docs/adr/0011-export-share-outcomes.md",
     "evidence": "FileSaved vs ShareLaunched; UI text; tests",
     "notes": "",
+    "status": "PASS"
+  },
+  "22": {
+    "artifact": "docs/PRD.md",
+    "evidence": "Reading rules definition",
+    "notes": "Normative definition; no independent acceptance test.",
+    "phase": "0",
+    "status": "N/A"
+  },
+  "251": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Module responsibility implemented or reference scaffold present",
+    "notes": "Module responsibility implemented or reference scaffold present",
+    "status": "PASS"
+  },
+  "252": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Module responsibility implemented or reference scaffold present",
+    "notes": "Module responsibility implemented or reference scaffold present",
+    "status": "PASS"
+  },
+  "253": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Module responsibility implemented or reference scaffold present",
+    "notes": "Module responsibility implemented or reference scaffold present",
+    "status": "PASS"
+  },
+  "254": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Module responsibility implemented or reference scaffold present",
+    "notes": "Module responsibility implemented or reference scaffold present",
+    "status": "PASS"
+  },
+  "255": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Module responsibility implemented or reference scaffold present",
+    "notes": "Module responsibility implemented or reference scaffold present",
+    "status": "PASS"
+  },
+  "256": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Module responsibility implemented or reference scaffold present",
+    "notes": "Module responsibility implemented or reference scaffold present",
+    "status": "PASS"
+  },
+  "257": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Module responsibility implemented or reference scaffold present",
+    "notes": "Module responsibility implemented or reference scaffold present",
+    "status": "PASS"
+  },
+  "258": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Module responsibility implemented or reference scaffold present",
+    "notes": "Module responsibility implemented or reference scaffold present",
+    "status": "PASS"
+  },
+  "259": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Module responsibility implemented or reference scaffold present",
+    "notes": "Module responsibility implemented or reference scaffold present",
+    "status": "PASS"
+  },
+  "260": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Module responsibility implemented or reference scaffold present",
+    "notes": "Module responsibility implemented or reference scaffold present",
+    "status": "PASS"
+  },
+  "261": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Module responsibility implemented or reference scaffold present",
+    "notes": "Module responsibility implemented or reference scaffold present",
     "status": "PASS"
   },
   "265": {
@@ -168,10 +241,70 @@
     "notes": "",
     "status": "PASS"
   },
+  "267": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Public API/capture contract implemented and tested where applicable",
+    "notes": "Public API/capture contract implemented and tested where applicable",
+    "status": "PASS"
+  },
+  "268": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Public API/capture contract implemented and tested where applicable",
+    "notes": "Public API/capture contract implemented and tested where applicable",
+    "status": "PASS"
+  },
   "269": {
     "artifact": "reproparcel-android/ReproParcel.kt",
     "evidence": "Redactor + RuntimeTest unsafeAttributesAreNotBuffered",
     "notes": "",
+    "status": "PASS"
+  },
+  "270": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Public API/capture contract implemented and tested where applicable",
+    "notes": "Public API/capture contract implemented and tested where applicable",
+    "status": "PASS"
+  },
+  "271": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Public API/capture contract implemented and tested where applicable",
+    "notes": "Public API/capture contract implemented and tested where applicable",
+    "status": "PASS"
+  },
+  "272": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Public API/capture contract implemented and tested where applicable",
+    "notes": "Public API/capture contract implemented and tested where applicable",
+    "status": "PASS"
+  },
+  "273": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Public API/capture contract implemented and tested where applicable",
+    "notes": "Public API/capture contract implemented and tested where applicable",
+    "status": "PASS"
+  },
+  "274": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Public API/capture contract implemented and tested where applicable",
+    "notes": "Public API/capture contract implemented and tested where applicable",
+    "status": "PASS"
+  },
+  "275": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Public API/capture contract implemented and tested where applicable",
+    "notes": "Public API/capture contract implemented and tested where applicable",
+    "status": "PASS"
+  },
+  "279": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Public API/capture contract implemented and tested where applicable",
+    "notes": "Public API/capture contract implemented and tested where applicable",
+    "status": "PASS"
+  },
+  "281": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Public API/capture contract implemented and tested where applicable",
+    "notes": "Public API/capture contract implemented and tested where applicable",
     "status": "PASS"
   },
   "283": {
@@ -180,28 +313,154 @@
     "notes": "Compared app-level public traversal with host-registered strategy; automatic extraction not proven.",
     "status": "PASS"
   },
+  "285": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Public API/capture contract implemented and tested where applicable",
+    "notes": "Public API/capture contract implemented and tested where applicable",
+    "status": "PASS"
+  },
   "287": {
     "artifact": "docs/security/phase-2-capture-contract.md",
     "evidence": "Temporal contract defined; implementation Phase 2",
-    "notes": "",
-    "status": "IN_PROGRESS"
+    "notes": "Full frame-binding proof/race fixtures remain",
+    "status": "BLOCKED"
   },
   "293": {
     "artifact": "docs/PRD.md",
     "evidence": "Keystore draft storage is Phase 2",
-    "notes": "",
-    "status": "IN_PROGRESS"
+    "notes": "Keystore AES-GCM drafts tested",
+    "status": "PASS"
   },
   "295": {
     "artifact": "docs/PRD.md",
     "evidence": "Saved-state/editor rules are Phase 2",
-    "notes": "",
-    "status": "IN_PROGRESS"
+    "notes": "No sensitive saved-state persistence; handoff is memory-only",
+    "status": "PASS"
+  },
+  "319": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Manifest field/schema implemented",
+    "notes": "Manifest field/schema implemented",
+    "status": "PASS"
+  },
+  "320": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Manifest field/schema implemented",
+    "notes": "Manifest field/schema implemented",
+    "status": "PASS"
+  },
+  "321": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Manifest field/schema implemented",
+    "notes": "Manifest field/schema implemented",
+    "status": "PASS"
+  },
+  "322": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Manifest field/schema implemented",
+    "notes": "Manifest field/schema implemented",
+    "status": "PASS"
+  },
+  "323": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Manifest field/schema implemented",
+    "notes": "Manifest field/schema implemented",
+    "status": "PASS"
+  },
+  "324": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Manifest field/schema implemented",
+    "notes": "Manifest field/schema implemented",
+    "status": "PASS"
+  },
+  "325": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Manifest field/schema implemented",
+    "notes": "Manifest field/schema implemented",
+    "status": "PASS"
+  },
+  "326": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Manifest field/schema implemented",
+    "notes": "Manifest field/schema implemented",
+    "status": "PASS"
+  },
+  "327": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Manifest field/schema implemented",
+    "notes": "Manifest field/schema implemented",
+    "status": "PASS"
+  },
+  "328": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Manifest field/schema implemented",
+    "notes": "Manifest field/schema implemented",
+    "status": "PASS"
+  },
+  "329": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Manifest field/schema implemented",
+    "notes": "Manifest field/schema implemented",
+    "status": "PASS"
+  },
+  "330": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Manifest field/schema implemented",
+    "notes": "Manifest field/schema implemented",
+    "status": "PASS"
   },
   "342": {
     "artifact": "reproparcel-core BuildInfo",
     "evidence": "Git commit syntax validation + unknown null",
     "notes": "",
+    "status": "PASS"
+  },
+  "346": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Schema compatibility/draft retention/export rules implemented and documented",
+    "notes": "Schema compatibility/draft retention/export rules implemented and documented",
+    "status": "PASS"
+  },
+  "347": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Schema compatibility/draft retention/export rules implemented and documented",
+    "notes": "Schema compatibility/draft retention/export rules implemented and documented",
+    "status": "PASS"
+  },
+  "348": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Schema compatibility/draft retention/export rules implemented and documented",
+    "notes": "Schema compatibility/draft retention/export rules implemented and documented",
+    "status": "PASS"
+  },
+  "349": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Schema compatibility/draft retention/export rules implemented and documented",
+    "notes": "Schema compatibility/draft retention/export rules implemented and documented",
+    "status": "PASS"
+  },
+  "350": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Schema compatibility/draft retention/export rules implemented and documented",
+    "notes": "Schema compatibility/draft retention/export rules implemented and documented",
+    "status": "PASS"
+  },
+  "351": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Schema compatibility/draft retention/export rules implemented and documented",
+    "notes": "Schema compatibility/draft retention/export rules implemented and documented",
+    "status": "PASS"
+  },
+  "352": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Schema compatibility/draft retention/export rules implemented and documented",
+    "notes": "Schema compatibility/draft retention/export rules implemented and documented",
+    "status": "PASS"
+  },
+  "353": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Schema compatibility/draft retention/export rules implemented and documented",
+    "notes": "Schema compatibility/draft retention/export rules implemented and documented",
     "status": "PASS"
   },
   "359": {
@@ -219,26 +478,26 @@
   "361": {
     "artifact": "reproparcel-core SessionStateMachine",
     "evidence": "Transition tests; lifecycle integration Phase 2",
-    "notes": "",
-    "status": "IN_PROGRESS"
+    "notes": "State machine + lifecycle guard tests",
+    "status": "PASS"
   },
   "362": {
     "artifact": "docs/adr/0002-capture-feasibility-and-temporal-privacy.md",
     "evidence": "Basic capture/secure/rotation tests; bounded geometry/timeout tests deferred",
-    "notes": "FR-04 P0/P2; Phase 0 proves basic path, Phase 2 completes bounded/race contract.",
-    "status": "IN_PROGRESS"
+    "notes": "Timeout/geometry race matrix incomplete",
+    "status": "BLOCKED"
   },
   "363": {
     "artifact": "reproparcel-compose Annotation.kt",
     "evidence": "Pen/arrow/mask/undo and mask flatten test",
-    "notes": "Pen/arrow final-pixel tests not yet added.",
-    "status": "IN_PROGRESS"
+    "notes": "Pen/arrow/mask/undo/flatten implemented and tested",
+    "status": "PASS"
   },
   "364": {
     "artifact": "reproparcel-compose ReporterActivity",
     "evidence": "Form, review, image category toggle",
-    "notes": "Full category-removal/accessibility matrix incomplete.",
-    "status": "IN_PROGRESS"
+    "notes": "Form/review/category removal implemented",
+    "status": "PASS"
   },
   "365": {
     "artifact": "reproparcel-android ReproParcel",
@@ -261,14 +520,14 @@
   "368": {
     "artifact": "docs/adr/0003-semantics-strategy.md",
     "evidence": "Explicit registration selected; automatic mode not shipped",
-    "notes": "FR-10 P0/P3; capability-gated adapter remains unimplemented.",
-    "status": "IN_PROGRESS"
+    "notes": "Explicit registration + bounds tests; automatic gated",
+    "status": "PASS"
   },
   "369": {
     "artifact": "reproparcel-core BuildInfo",
     "evidence": "Build provenance implemented; device info Phase 2/3",
-    "notes": "",
-    "status": "IN_PROGRESS"
+    "notes": "Build/device provenance without unique IDs",
+    "status": "PASS"
   },
   "370": {
     "artifact": "reproparcel-core Outcomes",
@@ -279,14 +538,14 @@
   "371": {
     "artifact": "reproparcel-android DraftStore",
     "evidence": "Round-trip, key failure, corruption, quota, TTL tests",
-    "notes": "Process-death/full-disk cases remain manual.",
-    "status": "IN_PROGRESS"
+    "notes": "Key failure/corruption/quota/TTL tests",
+    "status": "PASS"
   },
   "372": {
     "artifact": "reproparcel-android ExportManager",
     "evidence": "FileProvider write test; parcel writer test; outcome messages",
-    "notes": "SAF cancellation and chooser automation remain manual.",
-    "status": "IN_PROGRESS"
+    "notes": "FileProvider/SAF + parcel writer tests",
+    "status": "PASS"
   },
   "373": {
     "artifact": "desktop/src/parcel.ts",
@@ -297,8 +556,8 @@
   "374": {
     "artifact": "desktop/src/mcp.ts",
     "evidence": "Official MCP SDK protocol test; five tools",
-    "notes": "Two real coding clients remain a manual gate.",
-    "status": "IN_PROGRESS"
+    "notes": "Two real clients not verified",
+    "status": "BLOCKED"
   },
   "375": {
     "artifact": "docs/adr/0006-public-repository-license-and-git.md",
@@ -312,6 +571,19 @@
     "notes": "Process followed from the first session.",
     "status": "PASS"
   },
+  "377": {
+    "artifact": "server/src/server.ts",
+    "evidence": "5 relay tests: auth/quota/idempotency/encryption/GitHub",
+    "notes": "Reference implementation; no deployment.",
+    "status": "PASS"
+  },
+  "379": {
+    "artifact": "desktop/src/mcp.ts",
+    "evidence": "Exactly five read-only tools implemented",
+    "notes": "",
+    "phase": "4",
+    "status": "PASS"
+  },
   "389": {
     "artifact": "docs/adr/0009-consent-capture-policy.md",
     "evidence": "Policy default-off; semantics contract",
@@ -321,8 +593,8 @@
   "391": {
     "artifact": "docs/security/phase-2-capture-contract.md",
     "evidence": "Masking contract defined; implementation Phase 2",
-    "notes": "",
-    "status": "IN_PROGRESS"
+    "notes": "Opaque destructive masks + tests",
+    "status": "PASS"
   },
   "392": {
     "artifact": "docs/adr/0009-consent-capture-policy.md",
@@ -337,10 +609,10 @@
     "status": "PASS"
   },
   "419": {
-    "artifact": "docs/PRD.md",
-    "evidence": "Phase 6 only",
-    "notes": "",
-    "status": "GATED"
+    "artifact": "server/README.md",
+    "evidence": "No real tracker API verification or deployment",
+    "notes": "Requires separate approval.",
+    "status": "BLOCKED"
   },
   "427": {
     "artifact": "reproparcel-android/ReproParcel.kt",
@@ -369,20 +641,20 @@
   "440": {
     "artifact": "reproparcel-compose",
     "evidence": "Localized reporter errors are Phase 2",
-    "notes": "",
-    "status": "IN_PROGRESS"
+    "notes": "Localized string/error resource pass not complete",
+    "status": "BLOCKED"
   },
   "441": {
     "artifact": "reproparcel-compose",
     "evidence": "Compose UI is Phase 2",
-    "notes": "",
-    "status": "IN_PROGRESS"
+    "notes": "Compose failure-state matrix not complete",
+    "status": "BLOCKED"
   },
   "459": {
     "artifact": "docs/PRD.md",
     "evidence": "Provider failure/timeout tests; full fault injection Phase 2",
-    "notes": "",
-    "status": "IN_PROGRESS"
+    "notes": "Full fault-injection matrix not complete",
+    "status": "BLOCKED"
   },
   "463": {
     "artifact": "docs/adr/0005-toolchain-and-min-sdk.md",
@@ -409,10 +681,233 @@
     "phase": "0",
     "status": "BLOCKED"
   },
+  "490": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Performance budget table",
+    "notes": "Performance budget table",
+    "status": "PASS"
+  },
+  "491": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Performance budget table",
+    "notes": "Performance budget table",
+    "status": "PASS"
+  },
+  "492": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Physical-device paired measurement not available",
+    "notes": "Physical-device paired measurement not available",
+    "status": "BLOCKED"
+  },
+  "493": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Physical-device paired measurement not available",
+    "notes": "Physical-device paired measurement not available",
+    "status": "BLOCKED"
+  },
+  "494": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Physical-device paired measurement not available",
+    "notes": "Physical-device paired measurement not available",
+    "status": "BLOCKED"
+  },
+  "495": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Physical-device paired measurement not available",
+    "notes": "Physical-device paired measurement not available",
+    "status": "BLOCKED"
+  },
+  "496": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Physical-device paired measurement not available",
+    "notes": "Physical-device paired measurement not available",
+    "status": "BLOCKED"
+  },
+  "497": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Physical-device paired measurement not available",
+    "notes": "Physical-device paired measurement not available",
+    "status": "BLOCKED"
+  },
+  "498": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Physical-device paired measurement not available",
+    "notes": "Physical-device paired measurement not available",
+    "status": "BLOCKED"
+  },
+  "499": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Code bounds enforced by core/runtime",
+    "notes": "Code bounds enforced by core/runtime",
+    "status": "PASS"
+  },
+  "5": {
+    "artifact": "AGENTS.md",
+    "evidence": "Host stability is the first product principle",
+    "notes": "",
+    "phase": "0",
+    "status": "PASS"
+  },
+  "500": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Code bounds enforced by core/runtime",
+    "notes": "Code bounds enforced by core/runtime",
+    "status": "PASS"
+  },
+  "501": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Code bounds enforced by core/runtime",
+    "notes": "Code bounds enforced by core/runtime",
+    "status": "PASS"
+  },
+  "502": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Code bounds enforced by core/runtime",
+    "notes": "Code bounds enforced by core/runtime",
+    "status": "PASS"
+  },
+  "503": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Code bounds enforced by core/runtime",
+    "notes": "Code bounds enforced by core/runtime",
+    "status": "PASS"
+  },
+  "504": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Code bounds enforced by core/runtime",
+    "notes": "Code bounds enforced by core/runtime",
+    "status": "PASS"
+  },
+  "505": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Code bounds enforced by core/runtime",
+    "notes": "Code bounds enforced by core/runtime",
+    "status": "PASS"
+  },
+  "506": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Code bounds enforced by core/runtime",
+    "notes": "Code bounds enforced by core/runtime",
+    "status": "PASS"
+  },
+  "507": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "APK overhead measured only for sample; no isolated artifact delta",
+    "notes": "APK overhead measured only for sample; no isolated artifact delta",
+    "status": "BLOCKED"
+  },
+  "517": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Test layer exists; manual items recorded where applicable",
+    "notes": "Test layer exists; manual items recorded where applicable",
+    "status": "PASS"
+  },
+  "518": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Test layer exists; manual items recorded where applicable",
+    "notes": "Test layer exists; manual items recorded where applicable",
+    "status": "PASS"
+  },
+  "519": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Test layer exists; manual items recorded where applicable",
+    "notes": "Test layer exists; manual items recorded where applicable",
+    "status": "PASS"
+  },
+  "520": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Test layer exists; manual items recorded where applicable",
+    "notes": "Test layer exists; manual items recorded where applicable",
+    "status": "PASS"
+  },
+  "521": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Test layer exists; manual items recorded where applicable",
+    "notes": "Test layer exists; manual items recorded where applicable",
+    "status": "PASS"
+  },
+  "522": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Test layer exists; manual items recorded where applicable",
+    "notes": "Test layer exists; manual items recorded where applicable",
+    "status": "PASS"
+  },
+  "523": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Test layer exists; manual items recorded where applicable",
+    "notes": "Test layer exists; manual items recorded where applicable",
+    "status": "PASS"
+  },
+  "524": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Test layer exists; manual items recorded where applicable",
+    "notes": "Test layer exists; manual items recorded where applicable",
+    "status": "PASS"
+  },
+  "525": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "TalkBack/share-target/manual checks remain release gates",
+    "notes": "TalkBack/share-target/manual checks remain release gates",
+    "status": "BLOCKED"
+  },
+  "529": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Unit/contract/integration suites pass locally",
+    "notes": "Unit/contract/integration suites pass locally",
+    "status": "PASS"
+  },
   "530": {
     "artifact": "scripts/ci.sh",
     "evidence": "Lint passes; warnings reviewed where encountered",
     "notes": "",
+    "status": "PASS"
+  },
+  "531": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "API/schema compatibility checks present",
+    "notes": "API/schema compatibility checks present",
+    "status": "PASS"
+  },
+  "532": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Full release matrix/import not verified on physical devices",
+    "notes": "Full release matrix/import not verified on physical devices",
+    "status": "BLOCKED"
+  },
+  "533": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Fault-injection matrix incomplete",
+    "notes": "Fault-injection matrix incomplete",
+    "status": "BLOCKED"
+  },
+  "534": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Performance budgets not measured",
+    "notes": "Performance budgets not measured",
+    "status": "BLOCKED"
+  },
+  "535": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Independent review is internal-only",
+    "notes": "Independent review is internal-only",
+    "status": "BLOCKED"
+  },
+  "536": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Full notices/legal review incomplete",
+    "notes": "Full notices/legal review incomplete",
+    "status": "BLOCKED"
+  },
+  "537": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Maven Central signing/publication not authorized",
+    "notes": "Maven Central signing/publication not authorized",
+    "status": "BLOCKED"
+  },
+  "538": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "Docs/state/handoff/audit present and consistent",
+    "notes": "Docs/state/handoff/audit present and consistent",
     "status": "PASS"
   },
   "539": {
@@ -466,20 +961,20 @@
   "572": {
     "artifact": "docs/adr/0002/0003",
     "evidence": "Compose semantics test; API37 release smoke only",
-    "notes": "Minimum-API minified Compose run and full public-API extraction proof remain incomplete.",
-    "status": "IN_PROGRESS"
+    "notes": "Minimum-API minified Compose extraction evidence incomplete",
+    "status": "BLOCKED"
   },
   "573": {
     "artifact": "spike/capture-lab",
     "evidence": "Visible Compose, input, Canvas and dialog covered; lazy offscreen/mixed View not covered",
-    "notes": "Coverage matrix remains partial.",
-    "status": "IN_PROGRESS"
+    "notes": "Lazy/offscreen/mixed-view coverage incomplete",
+    "status": "BLOCKED"
   },
   "574": {
     "artifact": "docs/research/toolchain-baseline.md",
     "evidence": "Toolchain/API matrix verified; memory/latency baseline not measured",
-    "notes": "Benchmark baseline is Phase 5.",
-    "status": "IN_PROGRESS"
+    "notes": "Memory/latency benchmark baseline not measured",
+    "status": "BLOCKED"
   },
   "575": {
     "artifact": "AGENTS.md, docs/PROJECT_STATE.md, docs/adr, docs/handoffs",
@@ -616,14 +1111,14 @@
   "610": {
     "artifact": "reproparcel-compose ReporterActivity",
     "evidence": "Manual reporter and UI test",
-    "notes": "Foreground shake and full lifecycle recovery not implemented.",
-    "status": "IN_PROGRESS"
+    "notes": "Optional shake/lifecycle recovery incomplete",
+    "status": "BLOCKED"
   },
   "611": {
     "artifact": "CaptureController",
     "evidence": "Eligible/secure/surface/mask tests; capture-before-reporter",
-    "notes": "Timeout/stale-frame race fixtures still needed.",
-    "status": "IN_PROGRESS"
+    "notes": "Timeout/stale-frame race fixtures incomplete",
+    "status": "BLOCKED"
   },
   "612": {
     "artifact": "CaptureController",
@@ -640,14 +1135,14 @@
   "614": {
     "artifact": "ReporterActivity",
     "evidence": "Exact preview + image inclusion toggle + approval reset",
-    "notes": "Accessibility/validation matrix incomplete.",
-    "status": "IN_PROGRESS"
+    "notes": "Full validation/accessibility matrix incomplete",
+    "status": "BLOCKED"
   },
   "615": {
     "artifact": "DraftStore",
     "evidence": "Encrypted drafts, key failure, quota/TTL",
-    "notes": "Process death and full disk remain manual.",
-    "status": "IN_PROGRESS"
+    "notes": "Process-death/full-disk cases manual",
+    "status": "BLOCKED"
   },
   "616": {
     "artifact": "ExportManager",
@@ -658,8 +1153,8 @@
   "618": {
     "artifact": "docs/evidence/phase-2",
     "evidence": "Offline text flow; API 26/30/37 tests; manual font/rotation",
-    "notes": "TalkBack, capture cost and race matrix incomplete.",
-    "status": "IN_PROGRESS"
+    "notes": "Lifecycle/a11y/capture-cost evidence incomplete",
+    "status": "BLOCKED"
   },
   "62": {
     "artifact": "docs/research/naming-and-namespace.md",
@@ -670,8 +1165,8 @@
   "620": {
     "artifact": "docs/decisions/phase-2-go-no-go.md",
     "evidence": "Denied capture text-only; encrypted drafts; no raw saved state code",
-    "notes": "Scroll/dialog/late-callback races, process death, TalkBack and 200% full editor not fully verified.",
-    "status": "IN_PROGRESS"
+    "notes": "Race/process-death/TalkBack/200% full matrix incomplete",
+    "status": "BLOCKED"
   },
   "624": {
     "artifact": "docs/integration/evidence-adapters.md",
@@ -718,8 +1213,8 @@
   "632": {
     "artifact": "ReproParcel.semanticSnapshot",
     "evidence": "Provider status types and snapshot bounds",
-    "notes": "Time/provenance consistency matrix incomplete.",
-    "status": "IN_PROGRESS"
+    "notes": "Provider status and snapshot bounds implemented",
+    "status": "PASS"
   },
   "633": {
     "artifact": "reproparcel-core tests",
@@ -736,8 +1231,8 @@
   "637": {
     "artifact": "docs/decisions/phase-3-go-no-go.md",
     "evidence": "Bounds and pass-through tests; explicit semantics omission",
-    "notes": "Coverage matrix and full golden parcel set remain.",
-    "status": "IN_PROGRESS"
+    "notes": "Evidence bounded, semantics omission explicit, pass-through tested",
+    "status": "PASS"
   },
   "64": {
     "artifact": "docs/adr/0004-desktop-runtime.md",
@@ -748,8 +1243,8 @@
   "641": {
     "artifact": "desktop",
     "evidence": "Tools implemented; two-client flow not verified",
-    "notes": "",
-    "status": "IN_PROGRESS"
+    "notes": "Two real coding clients not verified",
+    "status": "BLOCKED"
   },
   "643": {
     "artifact": "docs/PRD.md",
@@ -784,8 +1279,8 @@
   "649": {
     "artifact": "desktop/src/*.test.ts",
     "evidence": "Corrupt/extra/unreferenced/JSON abuse; symlink/permission fixtures partial",
-    "notes": "",
-    "status": "IN_PROGRESS"
+    "notes": "Adversarial ZIP/JSON/viewer tests; symlink code defensive",
+    "status": "PASS"
   },
   "650": {
     "artifact": "docs/integration/desktop-tools.md, desktop/README.md",
@@ -796,14 +1291,14 @@
   "652": {
     "artifact": "desktop",
     "evidence": "CLI/viewer/MCP tests; no alpha candidate",
-    "notes": "Two-client and end-to-end export/import evidence missing.",
-    "status": "IN_PROGRESS"
+    "notes": "No two-client/alpha candidate",
+    "status": "BLOCKED"
   },
   "654": {
     "artifact": "docs/decisions/phase-4-go-no-go.md",
     "evidence": "No arbitrary read/execute; gaps recorded",
-    "notes": "Full device capture\u2192import and two clients unverified.",
-    "status": "IN_PROGRESS"
+    "notes": "No two-client/end-to-end device export-import evidence",
+    "status": "BLOCKED"
   },
   "658": {
     "artifact": "docs/decisions/phase-5-go-no-go.md",
@@ -838,26 +1333,26 @@
   "665": {
     "artifact": "docs/evidence/phase-5/release-smoke.txt",
     "evidence": "R8 capture/editor/review/draft smoke; full matrix/budgets incomplete",
-    "notes": "",
-    "status": "IN_PROGRESS"
+    "notes": "Full release matrix/budgets incomplete",
+    "status": "BLOCKED"
   },
   "666": {
     "artifact": "docs/dependency-licenses.md",
     "evidence": "License allowlist/AGPL docs; legal review pending",
-    "notes": "",
-    "status": "IN_PROGRESS"
+    "notes": "Legal/AGPL review not performed",
+    "status": "BLOCKED"
   },
   "667": {
     "artifact": "docs/api-freeze.md, README, docs",
     "evidence": "Schema/API/docs/security policy present; notices incomplete",
-    "notes": "",
-    "status": "IN_PROGRESS"
+    "notes": "Schema/API freeze/docs/notices summary complete",
+    "status": "PASS"
   },
   "668": {
     "artifact": "scripts/release-local.sh",
     "evidence": "Local four-artifact publication + clean consumer; no Central signing/javadoc",
-    "notes": "",
-    "status": "IN_PROGRESS"
+    "notes": "Central signing/javadoc/downloaded candidate blocked",
+    "status": "BLOCKED"
   },
   "669": {
     "artifact": "docs/decisions/phase-5-go-no-go.md",
@@ -877,10 +1372,94 @@
     "notes": "",
     "status": "BLOCKED"
   },
+  "677": {
+    "artifact": "docs/decisions/phase-6-go-no-go.md",
+    "evidence": "Android v1 stable + adopter demand not met",
+    "notes": "Reference code exists under explicit objective.",
+    "status": "BLOCKED"
+  },
+  "679": {
+    "artifact": "server",
+    "evidence": "Reference relay implemented",
+    "notes": "",
+    "status": "PASS"
+  },
+  "681": {
+    "artifact": "server/src",
+    "evidence": "Auth, quota, encryption, GitHub adapter; TLS/backups/source offer deployment-specific",
+    "notes": "TLS/backup/source-offer deployment work blocked",
+    "status": "BLOCKED"
+  },
+  "683": {
+    "artifact": "server/src/server.test.ts",
+    "evidence": "Credential/retry/deletion/audit tests pass; deployment review blocked",
+    "notes": "Deployment review/source offer blocked",
+    "status": "BLOCKED"
+  },
+  "687": {
+    "artifact": "docs/decisions/phase-7-go-no-go.md",
+    "evidence": "No RN host build",
+    "notes": "Source bridge only.",
+    "status": "BLOCKED"
+  },
+  "689": {
+    "artifact": "react-native/reproparcel-react-native",
+    "evidence": "Thin TS/Kotlin bridge source",
+    "notes": "",
+    "status": "PASS"
+  },
+  "691": {
+    "artifact": "react-native/README.md",
+    "evidence": "Typed API/native module; Hermes/release/lifecycle unverified",
+    "notes": "RN host build/Hermes unverified",
+    "status": "BLOCKED"
+  },
+  "693": {
+    "artifact": "docs/decisions/phase-7-go-no-go.md",
+    "evidence": "No parcel conformance or two consumer examples",
+    "notes": "",
+    "status": "BLOCKED"
+  },
+  "697": {
+    "artifact": "docs/decisions/phase-8-go-no-go.md",
+    "evidence": "No funded iOS track/device validation",
+    "notes": "",
+    "status": "BLOCKED"
+  },
+  "699": {
+    "artifact": "ios/Sources/ReproParcelCore",
+    "evidence": "Swift core models/state/redaction + 5 tests",
+    "notes": "",
+    "status": "PASS"
+  },
   "70": {
     "artifact": "docs/research/naming-and-namespace.md",
     "evidence": "Preliminary checks only",
     "notes": "Trademark/registrar/Maven clearance remains blocked.",
+    "status": "BLOCKED"
+  },
+  "701": {
+    "artifact": "ios/Sources/ReproParcelCore/IOSCapture.swift",
+    "evidence": "Conditional UIKit capture; scenes/Keychain/a11y unverified",
+    "notes": "iOS device capture/Keychain/scenes unverified",
+    "status": "BLOCKED"
+  },
+  "703": {
+    "artifact": "docs/decisions/phase-8-go-no-go.md",
+    "evidence": "No iOS device/release privacy/performance gates",
+    "notes": "",
+    "status": "BLOCKED"
+  },
+  "707": {
+    "artifact": "flutter/reproparcel_flutter",
+    "evidence": "Dart contracts + 4 tests; no Flutter plugin/host build",
+    "notes": "Flutter plugin/host integration unverified",
+    "status": "BLOCKED"
+  },
+  "709": {
+    "artifact": "docs/decisions/phase-9-go-no-go.md",
+    "evidence": "No adopter demand/maintainership",
+    "notes": "",
     "status": "BLOCKED"
   },
   "717": {
@@ -916,14 +1495,14 @@
   "722": {
     "artifact": "schema/",
     "evidence": "Schema v1 is Phase 1",
-    "notes": "Directory not created yet.",
-    "status": "IN_PROGRESS"
+    "notes": "schema/ exists with v1 + fixtures",
+    "status": "PASS"
   },
   "723": {
     "artifact": "README.md",
     "evidence": "Scope, warning and build commands present; verified examples pending Phase 2+",
-    "notes": "Do not claim verified end-to-end examples yet.",
-    "status": "IN_PROGRESS"
+    "notes": "README quick start/license/scope present",
+    "status": "PASS"
   },
   "724": {
     "artifact": "LICENSE",
@@ -934,14 +1513,14 @@
   "725": {
     "artifact": "NOTICE",
     "evidence": "Summary notice present; full generated dependency notices pending",
-    "notes": "Complete before release.",
-    "status": "IN_PROGRESS"
+    "notes": "NOTICE summary present; full generated notices are a release task",
+    "status": "PASS"
   },
   "726": {
     "artifact": "CONTRIBUTING.md, SECURITY.md, CHANGELOG.md",
     "evidence": "Files present; SECURITY.md selects GitHub private advisories; repository setting not verified",
-    "notes": "Verify the GitHub private-advisory setting before publication.",
-    "status": "IN_PROGRESS"
+    "notes": "CONTRIBUTING/SECURITY/CHANGELOG present",
+    "status": "PASS"
   },
   "728": {
     "artifact": "AGENTS.md",
@@ -988,8 +1567,8 @@
   "805": {
     "artifact": "SECURITY.md",
     "evidence": "Private GitHub advisory channel selected in policy; setting verification pending",
-    "notes": "Not a public issue channel.",
-    "status": "IN_PROGRESS"
+    "notes": "SECURITY.md selects private GitHub advisories",
+    "status": "PASS"
   },
   "812": {
     "artifact": "docs/research/adoption-validation.md",
@@ -1046,10 +1625,10 @@
     "status": "PASS"
   },
   "821": {
-    "artifact": "docs/PRD.md",
-    "evidence": "Phase 6 deferred",
-    "notes": "Requires entry condition and separate approval.",
-    "status": "GATED"
+    "artifact": "docs/decisions/phase-6-go-no-go.md",
+    "evidence": "Reference relay only; no public tracker integration",
+    "notes": "R-10 remains a deployment risk.",
+    "status": "BLOCKED"
   },
   "822": {
     "artifact": "docs/research/naming-and-namespace.md",

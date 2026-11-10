@@ -120,6 +120,12 @@ def main() -> int:
         if section == 7 and "Phase 0" in text:
             phase = "0"
             normative = True
+        # Requirement-bearing tables and API/contract lists must not be hidden
+        # in the narrative bucket.
+        if section in {7, 8, 13, 14} and kind in {"TABLE", "LIST"}:
+            normative = True
+        if section == 7 and 265 <= number <= 287:
+            normative = True
         for ident in identifiers:
             if ident in FR_PHASE:
                 phase = FR_PHASE[ident]

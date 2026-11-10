@@ -55,7 +55,7 @@ class MainActivity : ComponentActivity() {
             evidence = EvidenceConfig(
                 screenshotEnabled = true,
                 semanticTextEnabled = false,
-                structuredLogsEnabled = false,
+                structuredLogsEnabled = true,
                 networkMetadataEnabled = false,
             ),
         )
@@ -134,7 +134,7 @@ private fun SampleScreen() {
 
         Button(onClick = {
             status = when (ReproParcel.deleteLocalReports()) {
-                SdkResult.Success -> "Local draft deletion completed (0 drafts)"
+                SdkResult.Success -> "Local drafts and export cache deleted"
                 else -> "Deletion unavailable"
             }
         }) { Text("Delete local reports") }

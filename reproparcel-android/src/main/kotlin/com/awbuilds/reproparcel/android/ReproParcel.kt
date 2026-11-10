@@ -158,6 +158,12 @@ public object ReproParcel {
     public fun currentCapturePolicy(): com.awbuilds.reproparcel.core.config.CapturePolicy? =
         synchronized(lock) { config?.capturePolicy }
 
+    public fun isScreenshotCollectionEnabled(): Boolean = synchronized(lock) {
+        runtimeState == RuntimeState.ENABLED &&
+            config?.evidence?.screenshotEnabled == true &&
+            config?.capturePolicy?.screenshotEnabled == true
+    }
+
     public fun currentBuildInfo(): com.awbuilds.reproparcel.core.model.BuildInfo? =
         synchronized(lock) { config?.buildInfo }
 
@@ -232,14 +238,20 @@ public object ReproParcel {
             val safeScreen = breadcrumb.screenId?.let {
                 if (it.matches(Regex("^[A-Za-z0-9_.:-]{1,128}$"))) it else null
             }
+            val safeCategory = breadcrumb.category.takeIf {
+                it.matches(Regex("^[A-Za-z0-9_.:-]{1,64}$"))
+            } ?: return SdkResult.Failure(ErrorCode.INVALID_CONFIG)
+            val safeOutcome = breadcrumb.outcome?.takeIf {
+                it.matches(Regex("^[A-Za-z0-9_.:-]{1,64}$"))
+            }
             val event = ReportEvent(
                 sequence = ++sequence,
                 offsetMs = 0L,
-                category = breadcrumb.category.take(64),
+                category = safeCategory,
                 actionId = safeAction,
                 screenId = safeScreen,
                 attributes = Redactor.sanitizeAttributes(breadcrumb.attributes),
-                outcome = breadcrumb.outcome?.take(64),
+                outcome = safeOutcome,
             )
             return if (eventBuffer?.add(event) == true) SdkResult.Success
             else SdkResult.Failure(ErrorCode.LIMIT_EXCEEDED)
@@ -250,6 +262,7 @@ public object ReproParcel {
         synchronized(lock) {
             if (runtimeState == RuntimeState.UNINITIALIZED) return SdkResult.NotInitialized
             if (runtimeState == RuntimeState.DISABLED) return SdkResult.Disabled
+            if (config?.evidence?.structuredLogsEnabled != true) return SdkResult.Disabled
             val safeLevel = event.level.lowercase().takeIf {
                 it in setOf("debug", "info", "warn", "error")
             } ?: "info"
@@ -272,6 +285,7 @@ public object ReproParcel {
         synchronized(lock) {
             if (runtimeState == RuntimeState.UNINITIALIZED) return SdkResult.NotInitialized
             if (runtimeState == RuntimeState.DISABLED) return SdkResult.Disabled
+            if (config?.evidence?.networkMetadataEnabled != true) return SdkResult.Disabled
             val method = Redactor.sanitize(SafeAttribute.HTTP_METHOD, metadata.method)
                 ?: return SdkResult.Omission(OmissionReason.POLICY_DISABLED)
             val route = metadata.routeTemplate?.let {
@@ -282,7 +296,9 @@ public object ReproParcel {
                 statusCode = metadata.statusCode.coerceIn(100, 599),
                 durationMs = metadata.durationMs.coerceAtLeast(0),
                 routeTemplate = route,
-                outcome = metadata.outcome.take(32),
+                outcome = metadata.outcome.takeIf {
+                    it.matches(Regex("^[A-Za-z0-9_.:-]{1,32}$"))
+                } ?: "unknown",
             )
             return if (networkBuffer?.add(safe) == true) SdkResult.Success
             else SdkResult.Failure(ErrorCode.LIMIT_EXCEEDED)
@@ -293,6 +309,11 @@ public object ReproParcel {
         synchronized(lock) {
             if (runtimeState == RuntimeState.UNINITIALIZED) return SdkResult.NotInitialized
             if (runtimeState == RuntimeState.DISABLED) return SdkResult.Disabled
+            if (config?.evidence?.semanticTextEnabled != true ||
+                config?.capturePolicy?.semanticTextEnabled != true
+            ) {
+                return SdkResult.Disabled
+            }
             if (node.nodeId.isBlank() || node.nodeId.length > 64 ||
                 node.role.isBlank() || node.role.length > 64 ||
                 node.bounds.left < 0 || node.bounds.top < 0 ||
@@ -358,15 +379,26 @@ public object ReproParcel {
         }
     }
 
-    internal fun networkSnapshotForTest(): List<NetworkMetadata> =
-        synchronized(lock) { networkBuffer?.snapshot().orEmpty() }
-
     public fun deleteLocalReports(): SdkResult {
-        synchronized(lock) {
+        val context = synchronized(lock) {
             if (runtimeState == RuntimeState.UNINITIALIZED) return SdkResult.NotInitialized
-            // Draft storage is delivered in Phase 2. This is an explicit,
-            // side-effect-free operation until then.
-            return SdkResult.Success
+            appContext
+        } ?: return SdkResult.NotInitialized
+        return try {
+            val retention = synchronized(lock) { config?.retention } ?: return SdkResult.Failure(ErrorCode.STORAGE_FAILED)
+            com.awbuilds.reproparcel.android.draft.DraftStore(context, retention).deleteAll()
+            com.awbuilds.reproparcel.android.export.ExportManager(context).clearExports()
+            synchronized(lock) {
+                eventBuffer?.clear()
+                logBuffer?.clear()
+                networkBuffer?.clear()
+                semanticNodes.clear()
+            }
+            SdkResult.Success
+        } catch (_: java.io.IOException) {
+            SdkResult.Failure(ErrorCode.STORAGE_FAILED)
+        } catch (_: SecurityException) {
+            SdkResult.Failure(ErrorCode.STORAGE_FAILED)
         }
     }
 
@@ -382,11 +414,20 @@ public object ReproParcel {
         }
     }
 
-    internal fun eventSnapshotForTest(): List<ReportEvent> =
+    public fun eventSnapshot(): List<ReportEvent> =
         synchronized(lock) { eventBuffer?.snapshot().orEmpty() }
 
-    internal fun logSnapshotForTest(): List<StructuredLogEvent> =
+    public fun logSnapshot(): List<StructuredLogEvent> =
         synchronized(lock) { logBuffer?.snapshot().orEmpty() }
+
+    public fun networkSnapshot(): List<NetworkMetadata> =
+        synchronized(lock) { networkBuffer?.snapshot().orEmpty() }
+
+    internal fun eventSnapshotForTest(): List<ReportEvent> = eventSnapshot()
+
+    internal fun logSnapshotForTest(): List<StructuredLogEvent> = logSnapshot()
+
+    internal fun networkSnapshotForTest(): List<NetworkMetadata> = networkSnapshot()
 
     internal fun hasActiveScopeForTest(): Boolean =
         synchronized(lock) { scope != null }
@@ -424,6 +465,10 @@ public object ReproParcel {
     private fun disableLocked() {
         scope?.cancel()
         scope = null
+        eventBuffer?.clear()
+        logBuffer?.clear()
+        networkBuffer?.clear()
+        semanticNodes.clear()
         runtimeState = RuntimeState.DISABLED
         stateMachine.transition(SessionEvent.Disable)
         _sessionState.value = SessionState.DISABLED

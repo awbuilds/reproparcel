@@ -37,3 +37,17 @@ local-evidence/
 desktop/node_modules/
 desktop/dist/
 desktop/coverage/
+
+# Relay tooling
+server/node_modules/
+server/dist/
+server/*.sqlite
+server/*.sqlite-*
+
+# Swift/Dart/RN build caches
+ios/.build/
+**/.build/
+.dart_tool/
+**/.dart_tool/
+react-native/**/node_modules/
+react-native/**/build/

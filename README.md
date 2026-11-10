@@ -4,7 +4,7 @@ ReproParcel is a native Android Kotlin/Compose reporter that turns a user's bug
 report into a portable, privacy-reviewed evidence parcel for humans and coding
 agents.
 
-**Status: Phase 0 local feasibility gate passed with explicit limitations; external validation and a stable release do not exist.**
+**Status: source candidate; external validation, physical-device evidence and a stable release do not exist.**
 The repository is under active implementation on `dev`. Do not assume that a
 planned feature is shipped because it appears in the PRD.
 
@@ -23,7 +23,7 @@ no proprietary-linking exception. Read [LICENSE](LICENSE) and the
 - Screenshot/semantic collection is off until the host supplies a policy.
 - Explicit host-registered evidence is the baseline; automatic Compose
   extraction is not shipped.
-- Read-only local tools and MCP are planned for Phase 4.
+- Offline validator/viewer and read-only MCP are implemented in `desktop/`.
 
 ## Repository layout
 

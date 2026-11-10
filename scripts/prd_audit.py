@@ -77,6 +77,21 @@ def main() -> int:
                 f"line {record['line']} [{record.get('phase')}]: {status} "
                 f"({record.get('text', '')[:100]})"
             )
+        if args.final and status in {"IN_PROGRESS", "GATED"}:
+            errors.append(
+                f"line {record['line']} [{record.get('phase')}]: {status} is not final "
+                f"({record.get('text', '')[:100]})"
+            )
+        if (
+            args.final
+            and status == "N/A"
+            and record.get("normative")
+            and record.get("kind") in {"PROSE", "LIST", "TABLE"}
+            and not record.get("notes")
+        ):
+            errors.append(
+                f"line {record['line']}: normative N/A without a reason"
+            )
         if status == "PASS" and not record.get("evidence"):
             errors.append(f"line {record['line']}: PASS without evidence")
 

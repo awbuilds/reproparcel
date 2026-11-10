@@ -69,12 +69,22 @@ public object ParcelWriter {
             return SdkResult.Failure(ErrorCode.VALIDATION_FAILED)
         }
         val manifestBytes = encode(Manifest.serializer(), finalManifest) ?: return failure()
+        val uncompressedTotal = manifestBytes.size.toLong() + entries.values.sumOf { it.size.toLong() }
+        if (uncompressedTotal > Limits.MAX_PARCEL_UNCOMPRESSED_BYTES) {
+            return SdkResult.Failure(ErrorCode.LIMIT_EXCEEDED)
+        }
 
         return try {
-            ZipOutputStream(destination).use { zip ->
+            val buffer = ByteArrayOutputStream()
+            ZipOutputStream(buffer).use { zip ->
                 writeEntry(zip, "manifest.json", manifestBytes)
                 entries.forEach { (path, bytes) -> writeEntry(zip, path, bytes) }
             }
+            val compressed = buffer.toByteArray()
+            if (compressed.size > Limits.MAX_PARCEL_COMPRESSED_BYTES) {
+                return SdkResult.Failure(ErrorCode.LIMIT_EXCEEDED)
+            }
+            destination.write(compressed)
             SdkResult.Success
         } catch (_: java.io.IOException) {
             SdkResult.Failure(ErrorCode.EXPORT_FAILED)

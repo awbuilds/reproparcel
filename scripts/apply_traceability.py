@@ -13,10 +13,12 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 LEDGER = ROOT / "docs" / "traceability" / "prd-lines.jsonl"
 OVERRIDES = ROOT / "docs" / "traceability" / "overrides.json"
+LOCK = ROOT / "docs" / "traceability" / "overrides.lock.json"
 
 
 def main() -> int:
     overrides = json.loads(OVERRIDES.read_text(encoding="utf-8"))
+    lock = json.loads(LOCK.read_text(encoding="utf-8")) if LOCK.is_file() else {}
     rows = []
     with LEDGER.open(encoding="utf-8") as handle:
         for line in handle:
@@ -28,6 +30,11 @@ def main() -> int:
         override = overrides.get(str(row["line"]))
         if not override:
             continue
+        expected = lock.get(str(row["line"]))
+        if expected and expected != row["text_sha256"]:
+            raise SystemExit(
+                f"override line {row['line']} no longer matches the PRD text; review it"
+            )
         row.update(override)
         applied += 1
 

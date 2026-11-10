@@ -7,7 +7,7 @@ NOT achieved.** External and physical-device gates remain blocked.
 ## Local evidence
 
 - Core: 40 JVM tests, API check, schema conformance.
-- Android runtime: 25 instrumentation tests on API 26/30/37.
+- Android runtime: 27 instrumentation tests on API 26/30/37.
 - Reporter: 2 tests on API 26/30/37.
 - Sample: 2 UI tests on API 26/30/37.
 - OkHttp: 2 pass-through tests.
