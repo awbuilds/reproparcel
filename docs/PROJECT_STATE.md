@@ -4,14 +4,12 @@ Updated: 2026-11-11.
 
 ## Current stage
 
-**Phases 2–3 core flows implemented; Phase 4 next.**
-The module graph, schema v1, runtime, reporter UI, capture controller, encrypted
-drafts, export, breadcrumbs/logs, OkHttp metadata and explicit semantics are
-implemented and tested on API 26/30/37 emulators. Phase 2/3 exit gaps (race
-fixtures, process death, TalkBack, full golden matrix, measured overhead) are
-recorded. The desktop CLI/viewer/read-only MCP is Phase 4. Phase 0 external
-adopter validation, physical-device performance and legal/Maven gates remain
-blocked.
+**Phase 4 offline tools implemented; Phase 5 release hardening next.**
+The Android runtime, reporter, capture, encrypted drafts, export, evidence
+adapters and the desktop validator/inspector/viewer/read-only MCP are implemented
+and tested. Phase 2/3/4 exit gaps (race fixtures, process death, TalkBack, real
+two-client evidence, physical-device performance) are recorded. Stable release,
+tag, Maven publication and `main` remain untouched.
 
 No release, tag, publication, deployment, `main` branch or private-adopter
 integration exists.
@@ -22,7 +20,7 @@ integration exists.
   local-first reviewed evidence parcels; read-only local agent consumption.
 - [AGENTS.md](../AGENTS.md) — engineering contract, public-repository hygiene,
   exception boundaries, standards and handoff protocol.
-- [Latest handoff](handoffs/0005-2026-11-11-phase-3-adapters.md).
+- [Latest handoff](handoffs/0006-2026-11-11-phase-4-desktop-tools.md).
 - [Traceability ledger](traceability/prd-lines.jsonl), [Phase 0 audit](audits/phase-0-audit.md),
   [Phase 1 audit](audits/phase-1-audit.md) and [Phase 3 audit](audits/phase-3-audit.md).
 
@@ -41,9 +39,10 @@ integration exists.
   provider isolation.
 - Compose reporter: form, image editor, review, encrypted drafts, SAF/FileProvider
   export and exact-preview binding.
+- Desktop bounded validator, CLI inspect/render, inert viewer and read-only MCP.
 - CI: hygiene, dependency allowlist, compile, JVM/API checks, lint and sample
   debug/release builds.
-- ADRs 0001–0012, threat-model draft, phase decisions and evidence.
+- ADRs 0001–0013, threat-model draft, phase decisions and evidence.
 
 ## Key decisions
 
@@ -59,7 +58,8 @@ integration exists.
 ## Verification status
 
 Phase 2/3: 40 core JVM tests, 2 OkHttp tests, 25 Android runtime tests, 2
-reporter tests and 2 sample tests on API 26/30/37; `scripts/ci.sh` passes.
+reporter tests and 2 sample tests on API 26/30/37. Phase 4: 14 desktop tests
+including the real MCP SDK protocol. `scripts/ci.sh` passes.
 Phase 0: 10 capture tests on API 26/30/37 plus minified API 26/37 smoke. Exact
 commands and evidence are in `docs/evidence/` and the latest handoff. External interviews, physical-device
 tests, legal/trademark review, Sonatype verification, Maven publication,
@@ -68,9 +68,10 @@ Emulator success is not release evidence.
 
 ## Next exact action
 
-Implement Phase 4: streaming/bounded parcel validator, CLI inspect/validate,
-offline viewer, and read-only stdio MCP with an explicit import root. Then close
-Phase 2/3 evidence gaps and run the Phase 5 release matrix.
+Run Phase 5 release hardening: close Phase 2/3/4 gaps, validate R8 release
+Keystore/capture/masking/export/import across API 26/30/37, measure performance,
+freeze schema/API, add Maven-local/clean-consumer checks, finalize notices/docs,
+run independent review and the final traceability audit. Do not release.
 
 ## Safety boundaries
 

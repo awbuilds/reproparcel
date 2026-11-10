@@ -28,6 +28,9 @@ echo "== compile and JVM tests =="
   :sample-app:assembleDebug \
   :sample-app:assembleRelease
 
+echo "== desktop tests =="
+(cd desktop && npm test)
+
 echo "== lint =="
 ./gradlew lint
 

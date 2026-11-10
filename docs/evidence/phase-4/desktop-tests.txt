@@ -1,0 +1,30 @@
+
+> reproparcel-desktop@0.0.1-SNAPSHOT test
+> npm run build && node --test dist/*.test.js
+
+
+> reproparcel-desktop@0.0.1-SNAPSHOT build
+> tsc -p tsconfig.json
+
+✔ CLI validates a synthetic parcel as JSON (197.598458ms)
+✔ CLI returns a non-zero exit for a corrupt parcel (176.678792ms)
+✔ CLI renders an offline viewer (175.148ms)
+✔ MCP protocol exposes only the read-only report tools (51.907125ms)
+✔ repository lists and returns report IDs without arbitrary paths (51.974083ms)
+✔ repository rejects traversal-shaped report IDs (1.571125ms)
+✔ reads a valid synthetic parcel and sanitizes the PNG (39.397791ms)
+✔ supports a text-only parcel (4.021917ms)
+✔ rejects a checksum mismatch (3.6225ms)
+✔ rejects an unreferenced entry (3.332667ms)
+✔ rejects an unsupported extra entry (6.161417ms)
+✔ json budget rejects depth and node abuse (0.68625ms)
+✔ renders inert HTML with CSP and escaped report text (41.148333ms)
+✔ text-only viewer does not point at a missing image (4.738375ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 681.205625
