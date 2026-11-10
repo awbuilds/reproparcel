@@ -22,4 +22,5 @@ dependencies {
     api(project(":reproparcel-core"))
     implementation(libs.okhttp)
     testImplementation(libs.junit)
+    testImplementation(libs.okhttp.mockwebserver)
 }

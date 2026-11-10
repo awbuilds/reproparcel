@@ -22,21 +22,34 @@ public final class com/awbuilds/reproparcel/core/buffer/BoundedLogBuffer {
 	public static synthetic fun snapshot$default (Lcom/awbuilds/reproparcel/core/buffer/BoundedLogBuffer;JILjava/lang/Object;)Ljava/util/List;
 }
 
+public final class com/awbuilds/reproparcel/core/buffer/BoundedNetworkBuffer {
+	public fun <init> ()V
+	public fun <init> (IJ)V
+	public synthetic fun <init> (IJILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun add (Lcom/awbuilds/reproparcel/core/model/NetworkMetadata;)Z
+	public final fun clear ()V
+	public final fun getApproximateBytes ()J
+	public final fun getSize ()I
+	public final fun snapshot ()Ljava/util/List;
+}
+
 public final class com/awbuilds/reproparcel/core/config/CapturePolicy {
 	public static final field Companion Lcom/awbuilds/reproparcel/core/config/CapturePolicy$Companion;
-	public fun <init> (Ljava/lang/String;ZZLjava/util/Set;Ljava/util/Set;Ljava/util/Set;)V
-	public synthetic fun <init> (Ljava/lang/String;ZZLjava/util/Set;Ljava/util/Set;Ljava/util/Set;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/String;ZZLjava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/util/List;)V
+	public synthetic fun <init> (Ljava/lang/String;ZZLjava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component2 ()Z
 	public final fun component3 ()Z
 	public final fun component4 ()Ljava/util/Set;
 	public final fun component5 ()Ljava/util/Set;
 	public final fun component6 ()Ljava/util/Set;
-	public final fun copy (Ljava/lang/String;ZZLjava/util/Set;Ljava/util/Set;Ljava/util/Set;)Lcom/awbuilds/reproparcel/core/config/CapturePolicy;
-	public static synthetic fun copy$default (Lcom/awbuilds/reproparcel/core/config/CapturePolicy;Ljava/lang/String;ZZLjava/util/Set;Ljava/util/Set;Ljava/util/Set;ILjava/lang/Object;)Lcom/awbuilds/reproparcel/core/config/CapturePolicy;
+	public final fun component7 ()Ljava/util/List;
+	public final fun copy (Ljava/lang/String;ZZLjava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/util/List;)Lcom/awbuilds/reproparcel/core/config/CapturePolicy;
+	public static synthetic fun copy$default (Lcom/awbuilds/reproparcel/core/config/CapturePolicy;Ljava/lang/String;ZZLjava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/util/List;ILjava/lang/Object;)Lcom/awbuilds/reproparcel/core/config/CapturePolicy;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getEligibleSurfaces ()Ljava/util/Set;
 	public final fun getExcludedSurfaces ()Ljava/util/Set;
+	public final fun getMaskRegions ()Ljava/util/List;
 	public final fun getPolicyVersion ()Ljava/lang/String;
 	public final fun getScreenshotEnabled ()Z
 	public final fun getSemanticTextEnabled ()Z
@@ -155,6 +168,39 @@ public final synthetic class com/awbuilds/reproparcel/core/config/EvidenceConfig
 }
 
 public final class com/awbuilds/reproparcel/core/config/EvidenceConfig$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/awbuilds/reproparcel/core/config/MaskRegion {
+	public static final field Companion Lcom/awbuilds/reproparcel/core/config/MaskRegion$Companion;
+	public fun <init> (IIII)V
+	public final fun component1 ()I
+	public final fun component2 ()I
+	public final fun component3 ()I
+	public final fun component4 ()I
+	public final fun copy (IIII)Lcom/awbuilds/reproparcel/core/config/MaskRegion;
+	public static synthetic fun copy$default (Lcom/awbuilds/reproparcel/core/config/MaskRegion;IIIIILjava/lang/Object;)Lcom/awbuilds/reproparcel/core/config/MaskRegion;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBottom ()I
+	public final fun getLeft ()I
+	public final fun getRight ()I
+	public final fun getTop ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class com/awbuilds/reproparcel/core/config/MaskRegion$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcom/awbuilds/reproparcel/core/config/MaskRegion$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/awbuilds/reproparcel/core/config/MaskRegion;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/awbuilds/reproparcel/core/config/MaskRegion;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/awbuilds/reproparcel/core/config/MaskRegion$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -601,6 +647,42 @@ public final class com/awbuilds/reproparcel/core/model/ModelKt {
 	public static final field SCHEMA_VERSION I
 }
 
+public final class com/awbuilds/reproparcel/core/model/NetworkMetadata {
+	public static final field Companion Lcom/awbuilds/reproparcel/core/model/NetworkMetadata$Companion;
+	public fun <init> (Ljava/lang/String;IJLjava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;IJLjava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()I
+	public final fun component3 ()J
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;IJLjava/lang/String;Ljava/lang/String;)Lcom/awbuilds/reproparcel/core/model/NetworkMetadata;
+	public static synthetic fun copy$default (Lcom/awbuilds/reproparcel/core/model/NetworkMetadata;Ljava/lang/String;IJLjava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/awbuilds/reproparcel/core/model/NetworkMetadata;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDurationMs ()J
+	public final fun getMethod ()Ljava/lang/String;
+	public final fun getOutcome ()Ljava/lang/String;
+	public final fun getRouteTemplate ()Ljava/lang/String;
+	public final fun getStatusCode ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class com/awbuilds/reproparcel/core/model/NetworkMetadata$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcom/awbuilds/reproparcel/core/model/NetworkMetadata$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/awbuilds/reproparcel/core/model/NetworkMetadata;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/awbuilds/reproparcel/core/model/NetworkMetadata;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/awbuilds/reproparcel/core/model/NetworkMetadata$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class com/awbuilds/reproparcel/core/model/OmissionReason : java/lang/Enum {
 	public static final field CAPABILITY_UNSUPPORTED Lcom/awbuilds/reproparcel/core/model/OmissionReason;
 	public static final field CAPTURE_CANCELLED Lcom/awbuilds/reproparcel/core/model/OmissionReason;
@@ -970,6 +1052,31 @@ public final class com/awbuilds/reproparcel/core/parcel/ManifestValidator {
 public final class com/awbuilds/reproparcel/core/parcel/ParcelPathPolicy {
 	public static final field INSTANCE Lcom/awbuilds/reproparcel/core/parcel/ParcelPathPolicy;
 	public final fun validate (Ljava/lang/String;)Lcom/awbuilds/reproparcel/core/parcel/ValidationIssue;
+}
+
+public final class com/awbuilds/reproparcel/core/parcel/ParcelPayload {
+	public fun <init> (Lcom/awbuilds/reproparcel/core/model/Report;Ljava/util/List;Lcom/awbuilds/reproparcel/core/model/SemanticsSnapshot;[B)V
+	public synthetic fun <init> (Lcom/awbuilds/reproparcel/core/model/Report;Ljava/util/List;Lcom/awbuilds/reproparcel/core/model/SemanticsSnapshot;[BILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lcom/awbuilds/reproparcel/core/model/Report;
+	public final fun component2 ()Ljava/util/List;
+	public final fun component3 ()Lcom/awbuilds/reproparcel/core/model/SemanticsSnapshot;
+	public final fun component4 ()[B
+	public final fun copy (Lcom/awbuilds/reproparcel/core/model/Report;Ljava/util/List;Lcom/awbuilds/reproparcel/core/model/SemanticsSnapshot;[B)Lcom/awbuilds/reproparcel/core/parcel/ParcelPayload;
+	public static synthetic fun copy$default (Lcom/awbuilds/reproparcel/core/parcel/ParcelPayload;Lcom/awbuilds/reproparcel/core/model/Report;Ljava/util/List;Lcom/awbuilds/reproparcel/core/model/SemanticsSnapshot;[BILjava/lang/Object;)Lcom/awbuilds/reproparcel/core/parcel/ParcelPayload;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getEvents ()Ljava/util/List;
+	public final fun getImagePng ()[B
+	public final fun getReport ()Lcom/awbuilds/reproparcel/core/model/Report;
+	public final fun getSemantics ()Lcom/awbuilds/reproparcel/core/model/SemanticsSnapshot;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/awbuilds/reproparcel/core/parcel/ParcelWriter {
+	public static final field INSTANCE Lcom/awbuilds/reproparcel/core/parcel/ParcelWriter;
+	public final fun sha256 ([B)Ljava/lang/String;
+	public final fun write (Lcom/awbuilds/reproparcel/core/model/Manifest;Lcom/awbuilds/reproparcel/core/parcel/ParcelPayload;Ljava/io/OutputStream;)Lcom/awbuilds/reproparcel/core/result/SdkResult;
+	public final fun writeToBytes (Lcom/awbuilds/reproparcel/core/model/Manifest;Lcom/awbuilds/reproparcel/core/parcel/ParcelPayload;)[B
 }
 
 public final class com/awbuilds/reproparcel/core/parcel/Rfc3339 {
@@ -1386,3 +1493,4 @@ public final class com/awbuilds/reproparcel/core/time/SystemClock : com/awbuilds
 	public static final field INSTANCE Lcom/awbuilds/reproparcel/core/time/SystemClock;
 	public fun nowMs ()J
 }
+

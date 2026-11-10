@@ -19,8 +19,11 @@ The public runtime entry point is `ReproParcel` in `reproparcel-android`:
 - `setEnabled(true/false)` explicitly starts or stops SDK-owned work. Disabling
   cancels the supervised scope. It does not delete drafts; deletion is separate.
 - `showReporter(activity)` is main-thread checked. Without a usable foreground
-  activity it returns `HostUnavailable`. Phase 1 returns `Unsupported` because
-  the Compose reporter is Phase 2; it never pretends a session started.
+  activity it returns `HostUnavailable`. In Phase 2 the Compose artifact exposes
+  `ReproParcelCompose.showReporter(activity, surfaceId)`, which captures the
+  eligible host window before opening `ReporterActivity`. The android-only
+  stub remains `Unsupported` until a Compose launcher is registered; it never
+  pretends a session started.
 - `recordBreadcrumb` and `recordLog` accept only bounded, allowlisted structured
   fields. Unknown/unsafe attributes are dropped before buffering.
 - `deleteLocalReports()` is an explicit operation. It is a safe no-op until

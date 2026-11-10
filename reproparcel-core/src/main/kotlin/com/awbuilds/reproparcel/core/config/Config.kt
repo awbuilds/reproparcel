@@ -13,6 +13,14 @@ public data class RetentionPolicy(
 )
 
 @Serializable
+public data class MaskRegion(
+    val left: Int,
+    val top: Int,
+    val right: Int,
+    val bottom: Int,
+)
+
+@Serializable
 public data class CapturePolicy(
     val policyVersion: String,
     val screenshotEnabled: Boolean = false,
@@ -20,6 +28,7 @@ public data class CapturePolicy(
     val eligibleSurfaces: Set<String> = emptySet(),
     val sensitiveSurfaces: Set<String> = emptySet(),
     val excludedSurfaces: Set<String> = emptySet(),
+    val maskRegions: List<MaskRegion> = emptyList(),
 )
 
 @Serializable
@@ -123,6 +132,12 @@ public object ConfigValidator {
             }
             if (policy.excludedSurfaces.any { it in policy.eligibleSurfaces }) {
                 errors += ConfigError(ConfigErrorCode.SURFACE_OVERLAP, "capturePolicy.excludedSurfaces")
+            }
+            if (policy.maskRegions.size > 32 || policy.maskRegions.any {
+                    it.left < 0 || it.top < 0 || it.right <= it.left || it.bottom <= it.top
+                }
+            ) {
+                errors += ConfigError(ConfigErrorCode.INVALID_CAPTURE_POLICY, "capturePolicy.maskRegions")
             }
         }
 

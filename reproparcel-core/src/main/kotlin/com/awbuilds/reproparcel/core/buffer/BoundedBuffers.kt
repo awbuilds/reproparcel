@@ -129,3 +129,37 @@ public class BoundedLogBuffer(
         return size
     }
 }
+
+public class BoundedNetworkBuffer(
+    private val maxEntries: Int = Limits.MAX_NETWORK_ENTRIES,
+    private val maxBytes: Long = Limits.MAX_NETWORK_BYTES,
+) {
+    private data class Entry(val metadata: com.awbuilds.reproparcel.core.model.NetworkMetadata, val bytes: Long)
+
+    private val entries = ArrayDeque<Entry>()
+    private var bytes: Long = 0
+
+    public fun add(metadata: com.awbuilds.reproparcel.core.model.NetworkMetadata): Boolean {
+        val size = 32L + metadata.method.length +
+            (metadata.routeTemplate?.length ?: 0) + metadata.outcome.length
+        if (size > maxBytes) return false
+        entries.addLast(Entry(metadata, size))
+        bytes += size
+        while (entries.size > maxEntries || bytes > maxBytes) {
+            val removed = entries.removeFirstOrNull() ?: break
+            bytes -= removed.bytes
+        }
+        return true
+    }
+
+    public fun snapshot(): List<com.awbuilds.reproparcel.core.model.NetworkMetadata> =
+        entries.map { it.metadata }
+
+    public fun clear() {
+        entries.clear()
+        bytes = 0
+    }
+
+    public val size: Int get() = entries.size
+    public val approximateBytes: Long get() = bytes
+}

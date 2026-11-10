@@ -26,6 +26,7 @@ import androidx.compose.ui.unit.dp
 import com.awbuilds.reproparcel.android.Breadcrumb
 import com.awbuilds.reproparcel.android.LogEvent
 import com.awbuilds.reproparcel.android.ReproParcel
+import com.awbuilds.reproparcel.compose.ReproParcelCompose
 import com.awbuilds.reproparcel.core.config.CapturePolicy
 import com.awbuilds.reproparcel.core.config.EvidenceConfig
 import com.awbuilds.reproparcel.core.config.ReproParcelConfig
@@ -126,9 +127,9 @@ private fun SampleScreen() {
         }) { Text("Record synthetic log") }
 
         Button(onClick = {
-            val result = activity?.let(ReproParcel::showReporter) ?: SdkResult.HostUnavailable
-            status = "Reporter: $result (Phase 2)"
-        }) { Text("Show reporter (stub)") }
+            val result = activity?.let { ReproParcelCompose.showReporter(it) } ?: SdkResult.HostUnavailable
+            status = "Reporter: $result"
+        }) { Text("Open reporter") }
 
         Button(onClick = {
             status = when (ReproParcel.deleteLocalReports()) {

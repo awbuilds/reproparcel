@@ -1,0 +1,40 @@
+# Phase 2 manual accessibility/rotation check
+
+Date: 2026-11-11
+Device: API 37.2 emulator (synthetic sample app; no real data)
+
+Commands:
+
+```sh
+adb shell settings put system font_scale 2.0
+adb shell am force-stop com.awbuilds.reproparcel.sample
+adb shell am start -n com.awbuilds.reproparcel.sample/.MainActivity
+# Enable SDK, open reporter
+adb shell uiautomator dump ...
+```
+
+Observed at 200% font scale:
+
+- `Report a problem`, privacy notice, omission reason, all five form labels and
+  `Review text-only report` were present in the accessibility hierarchy.
+- The form remained scrollable; no crash or blank screen.
+
+Rotation check:
+
+```sh
+adb shell settings put system accelerometer_rotation 0
+adb shell settings put system user_rotation 1
+```
+
+Observed: the reporter remained usable in landscape with the form labels
+present. Font scale and rotation were restored to 1.0/portrait after the check.
+
+## Not verified
+
+- TalkBack spoken order/verbosity and switch/keyboard navigation were not
+  automated in this session; they remain a manual release check.
+- The 48 dp target measurement and 200% clipping were inspected only through
+  the accessibility hierarchy, not a pixel-perfect visual test.
+- The full image editor was not exercised at 200% scale.
+
+This is supporting evidence, not a complete accessibility certification.

@@ -30,8 +30,10 @@ jobs:
             :reproparcel-core:test \
             :reproparcel-core:apiCheck \
             :reproparcel-android:assembleDebug \
+            :reproparcel-android:assembleDebugAndroidTest \
             :reproparcel-android:testDebugUnitTest \
             :reproparcel-compose:assembleDebug \
+            :reproparcel-compose:assembleDebugAndroidTest \
             :reproparcel-okhttp:assembleDebug \
             :sample-app:assembleDebug \
             :sample-app:assembleRelease \
