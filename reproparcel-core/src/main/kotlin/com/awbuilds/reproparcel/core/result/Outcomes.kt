@@ -22,6 +22,7 @@ public enum class ErrorCode {
     EXPORT_FAILED,
     DUPLICATE_EXPORT,
     WRONG_THREAD,
+    REPORTER_BUSY,
     INTERNAL_SAFE_FAILURE,
 }
 

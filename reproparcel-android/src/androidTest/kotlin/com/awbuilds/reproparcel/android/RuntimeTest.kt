@@ -8,6 +8,9 @@ import com.awbuilds.reproparcel.core.config.CapturePolicy
 import com.awbuilds.reproparcel.core.config.EvidenceConfig
 import com.awbuilds.reproparcel.core.config.ReproParcelConfig
 import com.awbuilds.reproparcel.core.model.BuildInfo
+import com.awbuilds.reproparcel.core.model.Report
+import com.awbuilds.reproparcel.core.config.RetentionPolicy
+import com.awbuilds.reproparcel.android.draft.DraftStore
 import com.awbuilds.reproparcel.core.model.Bounds
 import com.awbuilds.reproparcel.core.model.NetworkMetadata
 import com.awbuilds.reproparcel.core.model.OmissionReason
@@ -43,9 +46,13 @@ class RuntimeTest {
         capturePolicy = CapturePolicy(
             policyVersion = "synthetic-v1",
             screenshotEnabled = false,
-            semanticTextEnabled = false,
+            semanticTextEnabled = true,
         ),
-        evidence = EvidenceConfig(),
+        evidence = EvidenceConfig(
+            structuredLogsEnabled = true,
+            networkMetadataEnabled = true,
+            semanticTextEnabled = true,
+        ),
     )
 
     @Before
@@ -273,9 +280,48 @@ class RuntimeTest {
     }
 
     @Test
-    fun deleteLocalReportsIsExplicitAndSafe() {
-        assertEquals(SdkResult.NotInitialized, ReproParcel.deleteLocalReports())
-        assertEquals(SdkResult.Success, ReproParcel.initialize(context, config()))
+    fun optionalCollectorsRespectDisabledFlags() {
+        assertEquals(
+            SdkResult.Success,
+            ReproParcel.initialize(context, config(enabled = true).copy(evidence = EvidenceConfig())),
+        )
+        assertEquals(SdkResult.Disabled, ReproParcel.recordLog(LogEvent("info", "sample")))
+        assertEquals(
+            SdkResult.Disabled,
+            ReproParcel.recordNetworkMetadata(NetworkMetadata("GET", 200, 1)),
+        )
+        assertEquals(
+            SdkResult.Disabled,
+            ReproParcel.registerSemanticNode(
+                SemanticNode("n1", "button", bounds = Bounds(0, 0, 10, 10)),
+            ),
+        )
+    }
+
+    @Test
+    fun deleteLocalReportsActuallyRemovesDraftsAndBuffers() {
+        val store = DraftStore(context, RetentionPolicy())
+        store.deleteAll()
+        assertTrue(store.save(Report(description = "synthetic draft")).toString().contains("Saved"))
+        assertEquals(SdkResult.Success, ReproParcel.initialize(context, config(enabled = true)))
+        assertEquals(SdkResult.Success, ReproParcel.recordBreadcrumb(Breadcrumb("navigation", actionId = "open")))
         assertEquals(SdkResult.Success, ReproParcel.deleteLocalReports())
+        assertTrue(store.list().isEmpty())
+        assertTrue(ReproParcel.eventSnapshotForTest().isEmpty())
+    }
+
+    @Test
+    fun disableClearsBuffersAndSemantics() {
+        assertEquals(SdkResult.Success, ReproParcel.initialize(context, config(enabled = true)))
+        assertEquals(SdkResult.Success, ReproParcel.recordBreadcrumb(Breadcrumb("navigation", actionId = "open")))
+        assertEquals(
+            SdkResult.Success,
+            ReproParcel.registerSemanticNode(
+                SemanticNode("n1", "button", bounds = Bounds(0, 0, 10, 10)),
+            ),
+        )
+        assertEquals(SdkResult.Success, ReproParcel.setEnabled(false))
+        assertTrue(ReproParcel.eventSnapshotForTest().isEmpty())
+        assertTrue(ReproParcel.semanticSnapshot().nodes.isEmpty())
     }
 }

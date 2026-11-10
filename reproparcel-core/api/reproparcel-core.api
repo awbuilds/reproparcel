@@ -1211,6 +1211,7 @@ public final class com/awbuilds/reproparcel/core/result/ErrorCode : java/lang/En
 	public static final field NOT_INITIALIZED Lcom/awbuilds/reproparcel/core/result/ErrorCode;
 	public static final field PROVIDER_FAILED Lcom/awbuilds/reproparcel/core/result/ErrorCode;
 	public static final field PROVIDER_TIMEOUT Lcom/awbuilds/reproparcel/core/result/ErrorCode;
+	public static final field REPORTER_BUSY Lcom/awbuilds/reproparcel/core/result/ErrorCode;
 	public static final field SERIALIZATION_FAILED Lcom/awbuilds/reproparcel/core/result/ErrorCode;
 	public static final field STORAGE_FAILED Lcom/awbuilds/reproparcel/core/result/ErrorCode;
 	public static final field UNSUPPORTED Lcom/awbuilds/reproparcel/core/result/ErrorCode;

@@ -43,7 +43,7 @@ class ReporterFlowTest {
                     screenshotEnabled = false,
                     semanticTextEnabled = false,
                 ),
-                evidence = EvidenceConfig(),
+                evidence = EvidenceConfig(structuredLogsEnabled = true),
             ),
         )
     }

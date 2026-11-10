@@ -51,7 +51,7 @@ class DraftStoreTest {
         assertEquals(report, loaded.report)
         assertTrue(image.contentEquals(loaded.imagePng))
 
-        val encrypted = java.io.File(context.filesDir, "reproparcel/drafts/${saved.id}/report.enc")
+        val encrypted = java.io.File(context.noBackupFilesDir, "reproparcel/drafts/${saved.id}/report.enc")
             .readBytes()
         assertFalse(encrypted.toString(Charsets.ISO_8859_1).contains("Synthetic secret", ignoreCase = true))
     }
@@ -59,7 +59,7 @@ class DraftStoreTest {
     @Test
     fun tamperedCiphertextFailsClosed() {
         val saved = store.save(Report(description = "synthetic")) as DraftSaveResult.Saved
-        val file = java.io.File(context.filesDir, "reproparcel/drafts/${saved.id}/report.enc")
+        val file = java.io.File(context.noBackupFilesDir, "reproparcel/drafts/${saved.id}/report.enc")
         val bytes = file.readBytes()
         bytes[bytes.lastIndex] = (bytes.last().toInt() xor 0x7f).toByte()
         file.writeBytes(bytes)

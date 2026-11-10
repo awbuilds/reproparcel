@@ -8,7 +8,13 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import com.awbuilds.reproparcel.core.config.CapturePolicy
 import com.awbuilds.reproparcel.core.config.MaskRegion
+import com.awbuilds.reproparcel.android.ReproParcel
 import com.awbuilds.reproparcel.core.model.OmissionReason
+import com.awbuilds.reproparcel.core.config.ReproParcelConfig
+import com.awbuilds.reproparcel.core.config.EvidenceConfig
+import com.awbuilds.reproparcel.core.model.BuildInfo
+import org.junit.After
+import org.junit.Before
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
@@ -20,6 +26,34 @@ import org.junit.runner.RunWith
 @RunWith(AndroidJUnit4::class)
 class CaptureControllerTest {
     private val instrumentation = InstrumentationRegistry.getInstrumentation()
+
+    @Before
+    fun setUp() {
+        ReproParcel.resetForTest()
+        ReproParcel.initialize(
+            androidx.test.core.app.ApplicationProvider.getApplicationContext(),
+            ReproParcelConfig(
+                enabled = true,
+                buildInfo = BuildInfo(
+                    packageName = "com.awbuilds.reproparcel.synthetic",
+                    versionName = "1.0.0",
+                    versionCode = 1,
+                    variant = "debug",
+                ),
+                capturePolicy = CapturePolicy(
+                    policyVersion = "synthetic-test",
+                    screenshotEnabled = true,
+                    eligibleSurfaces = setOf("capture_test"),
+                ),
+                evidence = EvidenceConfig(screenshotEnabled = true),
+            ),
+        )
+    }
+
+    @After
+    fun tearDown() {
+        ReproParcel.resetForTest()
+    }
 
     private fun policy(
         enabled: Boolean = true,

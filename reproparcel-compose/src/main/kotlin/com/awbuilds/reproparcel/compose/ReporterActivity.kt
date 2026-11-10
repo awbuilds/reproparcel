@@ -74,6 +74,7 @@ import com.awbuilds.reproparcel.core.model.PrivacyInfo
 import com.awbuilds.reproparcel.core.model.ProducerInfo
 import com.awbuilds.reproparcel.core.model.ProviderStatus
 import com.awbuilds.reproparcel.core.model.Report
+import com.awbuilds.reproparcel.core.model.ReportEvent
 import com.awbuilds.reproparcel.core.parcel.ParcelPayload
 import java.time.Instant
 import java.util.UUID
@@ -106,11 +107,12 @@ private enum class ReporterStep {
 private fun ReporterScreen() {
     val context = LocalContext.current
     val activity = LocalActivity.current
+    val surfaceId = activity?.intent?.getStringExtra("reproparcel_surface_id")
     val handoff = remember { ReporterHandoff.take() }
     val capturedBitmap = (handoff as? HandoffCapture.Captured)?.bitmap
     val omission = (handoff as? HandoffCapture.Omitted)?.reason
-    val reportId = remember { UUID.randomUUID().toString() }
-    val createdAt = remember { Instant.now().toString() }
+    var reportId by remember { mutableStateOf(UUID.randomUUID().toString()) }
+    var createdAt by remember { mutableStateOf(Instant.now().toString()) }
     val annotations = remember { mutableStateListOf<Annotation>() }
     val draftStore = remember {
         DraftStore(
@@ -138,7 +140,7 @@ private fun ReporterScreen() {
         onDispose { capturedBitmap?.recycle() }
     }
 
-    LaunchedEffect(description, expected, actual, repro, finalPng, includeImage) {
+    LaunchedEffect(title, description, expected, actual, repro, finalPng, includeImage) {
         reviewed = false
     }
 
@@ -149,7 +151,7 @@ private fun ReporterScreen() {
             expectedBehavior = expected.take(20_000),
             actualBehavior = actual.take(20_000),
             reproSteps = repro.take(20_000).ifBlank { null },
-            screenId = null,
+            screenId = surfaceId,
             evidence = listOf(
                 EvidenceStatus(
                     state = if (capturedBitmap != null && includeImage) EvidenceState.COLLECTED else EvidenceState.OMITTED,
@@ -181,7 +183,7 @@ private fun ReporterScreen() {
             privacy = PrivacyInfo(
                 policyVersion = policy?.policyVersion ?: "none",
                 redactionMode = "opaque-and-user-annotations",
-                reviewedCategories = setOf("description", "expected", "actual", "image"),
+                reviewedCategories = setOf("title", "description", "expected", "actual", "repro", "image"),
             ),
             capture = CaptureInfo(
                 capturedAt = createdAt,
@@ -201,10 +203,37 @@ private fun ReporterScreen() {
         )
     }
 
-    fun buildPayload(): ParcelPayload = ParcelPayload(
-        buildReport(),
-        imagePng = if (includeImage) finalPng else null,
-    )
+    fun buildPayload(): ParcelPayload {
+        val logs = ReproParcel.logSnapshot().map { log ->
+            ReportEvent(
+                sequence = 1_000_000 + log.sequence,
+                offsetMs = log.offsetMs,
+                category = "log",
+                attributes = log.attributes + mapOf("level" to log.level, "code" to log.code),
+            )
+        }
+        val network = ReproParcel.networkSnapshot().mapIndexed { index, item ->
+            ReportEvent(
+                sequence = 2_000_000L + index,
+                offsetMs = 0,
+                category = "network",
+                attributes = buildMap {
+                    put("http_method", item.method)
+                    put("status_code", item.statusCode.toString())
+                    put("duration_ms", item.durationMs.toString())
+                    item.routeTemplate?.let { put("route_template", it) }
+                    put("result", item.outcome)
+                },
+            )
+        }
+        val snapshot = ReproParcel.semanticSnapshot()
+        return ParcelPayload(
+            report = buildReport(),
+            events = ReproParcel.eventSnapshot() + logs + network,
+            semantics = snapshot.takeIf { it.nodes.isNotEmpty() },
+            imagePng = if (includeImage) finalPng else null,
+        )
+    }
 
     fun handleOutcome(outcome: ExportOutcome) {
         status = when (outcome) {
@@ -243,6 +272,11 @@ private fun ReporterScreen() {
         Text("Report a problem", style = MaterialTheme.typography.headlineSmall)
         Text(
             "Only the reviewed content below leaves the app. No automatic upload occurs.",
+            style = MaterialTheme.typography.bodySmall,
+        )
+        Text(
+            "Drafts: encrypted locally, default 72h, at most 10 reports/25 MiB. " +
+                "Shared files cannot be recalled.",
             style = MaterialTheme.typography.bodySmall,
         )
         if (status.isNotBlank()) {
@@ -360,9 +394,11 @@ private fun ReporterScreen() {
                     } else {
                         Text("Text-only report")
                     }
+                    if (title.isNotBlank()) Text("Title: $title")
                     Text("Description: $description")
                     if (expected.isNotBlank()) Text("Expected: $expected")
                     if (actual.isNotBlank()) Text("Actual: $actual")
+                    if (repro.isNotBlank()) Text("Steps: $repro")
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Checkbox(checked = reviewed, onCheckedChange = { reviewed = it })
                         Text("I reviewed the exact content above.")
@@ -402,7 +438,7 @@ private fun ReporterScreen() {
                             if (manifest == null) {
                                 status = "Manifest unavailable."
                             } else {
-                                status = when (val result = draftStore.save(buildReport(), finalPng)) {
+                                status = when (val result = draftStore.save(buildReport(), if (includeImage) finalPng else null)) {
                                     is DraftSaveResult.Saved -> "Encrypted draft saved locally."
                                     is DraftSaveResult.Failure -> "Draft failed (${result.code}); no plaintext fallback."
                                 }
@@ -417,6 +453,16 @@ private fun ReporterScreen() {
                             exported = false
                             reviewed = false
                             status = ""
+                            title = ""
+                            description = ""
+                            expected = ""
+                            actual = ""
+                            repro = ""
+                            annotations.clear()
+                            finalPng = null
+                            includeImage = false
+                            reportId = UUID.randomUUID().toString()
+                            createdAt = Instant.now().toString()
                             step = ReporterStep.FORM
                         }) { Text("New report") }
                     }

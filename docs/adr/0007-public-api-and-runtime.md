@@ -26,8 +26,9 @@ The public runtime entry point is `ReproParcel` in `reproparcel-android`:
   pretends a session started.
 - `recordBreadcrumb` and `recordLog` accept only bounded, allowlisted structured
   fields. Unknown/unsafe attributes are dropped before buffering.
-- `deleteLocalReports()` is an explicit operation. It is a safe no-op until
-  encrypted drafts exist in Phase 2.
+- `deleteLocalReports()` is an explicit operation. It deletes encrypted drafts
+  and the SDK export cache; it does not touch host data or previously shared
+  files.
 - `advanceSession(event)` exposes the deterministic session state machine for
   tests and Phase 2 integration.
 

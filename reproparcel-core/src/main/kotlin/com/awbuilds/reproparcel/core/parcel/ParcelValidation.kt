@@ -133,6 +133,9 @@ public object ManifestValidator {
         if (manifest.entries.none { it.path == "report.json" }) {
             issues += ValidationIssue(ValidationCode.MISSING_FIELD, "report.json")
         }
+        if (manifest.entries.sumOf { it.uncompressedSize } > Limits.MAX_PARCEL_UNCOMPRESSED_BYTES) {
+            issues += ValidationIssue(ValidationCode.ENTRY_TOO_LARGE, "entries", "aggregate uncompressed budget exceeded")
+        }
         manifest.capture.providers.forEach { provider ->
             if (provider.status.state == EvidenceState.OMITTED && provider.status.reason == null) {
                 issues += ValidationIssue(ValidationCode.INVALID_EVIDENCE_STATE, "capture.providers")

@@ -59,7 +59,7 @@ public class DraftStore(
     private val retention: RetentionPolicy = RetentionPolicy(),
     private val clock: Clock = SystemClock,
 ) {
-    private val root: File = File(context.applicationContext.filesDir, "reproparcel/drafts")
+    private val root: File = File(context.applicationContext.noBackupFilesDir, "reproparcel/drafts")
     private val indexFile: File = File(root, "index.json")
     private val aad = "reproparcel-draft-v1".toByteArray(Charsets.UTF_8)
 
@@ -204,6 +204,7 @@ public class DraftStore(
                 .setBlockModes(KeyProperties.BLOCK_MODE_GCM)
                 .setEncryptionPaddings(KeyProperties.ENCRYPTION_PADDING_NONE)
                 .setRandomizedEncryptionRequired(true)
+                .setKeySize(256)
                 .build(),
         )
         return generator.generateKey()

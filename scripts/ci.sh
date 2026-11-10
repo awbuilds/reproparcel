@@ -31,6 +31,9 @@ echo "== compile and JVM tests =="
 echo "== desktop tests =="
 (cd desktop && npm test)
 
+echo "== relay tests =="
+(cd server && npm test)
+
 echo "== lint =="
 ./gradlew lint
 

@@ -4,13 +4,13 @@ Updated: 2026-11-11.
 
 ## Current stage
 
-**Phase 5 source candidate hardened; stable Android v1 NOT achieved.**
+**Phases 0–9 reference implementations present; stable Android v1 NOT achieved.**
 The Android runtime/reporter/capture/drafts/export, evidence adapters, desktop
-validator/viewer/read-only MCP and local Maven candidate with clean consumer are
-implemented and tested. The minified release sample passed capture → editor →
-review → encrypted draft save. External pilot/interviews, physical devices,
-independent review, two real clients, legal review and Maven Central remain
-blocked. Phases 6–9 reference tracks are next.
+validator/viewer/read-only MCP, local Maven candidate, relay reference and
+RN/iOS/Flutter reference tracks are implemented or scaffolded and tested where
+the local toolchain permits. External pilot/interviews, physical devices,
+independent review, two real clients, legal review, deployment and Maven Central
+remain blocked.
 
 No release, tag, publication, deployment, `main` branch or private-adopter
 integration exists.
@@ -21,9 +21,10 @@ integration exists.
   local-first reviewed evidence parcels; read-only local agent consumption.
 - [AGENTS.md](../AGENTS.md) — engineering contract, public-repository hygiene,
   exception boundaries, standards and handoff protocol.
-- [Latest handoff](handoffs/0007-2026-11-11-phase-5-release-hardening.md).
+- [Latest handoff](handoffs/0009-2026-11-11-final-audit-corrections.md).
 - [Traceability ledger](traceability/prd-lines.jsonl), [Phase 0 audit](audits/phase-0-audit.md),
-  [Phase 1 audit](audits/phase-1-audit.md) and [Phase 3 audit](audits/phase-3-audit.md).
+  [Phase 1 audit](audits/phase-1-audit.md), [Phase 3 audit](audits/phase-3-audit.md) and
+  [Final audit](audits/final-audit.md).
 
 ## Completed locally
 
@@ -44,7 +45,12 @@ integration exists.
 - CI: hygiene, dependency allowlist, compile, JVM/API checks, lint and sample
   debug/release builds.
 - Local Maven candidate + clean consumer smoke; R8-minified release flow.
-- ADRs 0001–0013, threat-model draft, phase decisions and evidence.
+- Phase 6 relay reference; Phase 7 RN bridge source; Phase 8 Swift core; Phase 9
+  Dart core.
+- Final audit corrections: consent-surface fields, new-report reset, real
+  draft/cache deletion, evidence in parcels, optional-flag enforcement,
+  noBackup drafts, aggregate parcel bounds and capture identity checks.
+- ADRs 0001–0014, threat-model draft, phase decisions and evidence.
 
 ## Key decisions
 
@@ -59,10 +65,11 @@ integration exists.
 
 ## Verification status
 
-Phase 2/3: 40 core JVM tests, 2 OkHttp tests, 25 Android runtime tests, 2
+Phase 2/3: 40 core JVM tests, 2 OkHttp tests, 27 Android runtime tests, 2
 reporter tests and 2 sample tests on API 26/30/37. Phase 4: 14 desktop tests.
 Phase 5: local four-artifact publication, clean consumer assemble, R8 release
-flow and 1.2 MiB sample APK. `scripts/ci.sh` passes.
+flow and 1.2 MiB sample APK. Phase 6 relay: 5 Node tests. Phase 8 Swift: 5
+XCTest tests. Phase 9 Dart: 4 tests + analyzer. `scripts/ci.sh` passes.
 Phase 0: 10 capture tests on API 26/30/37 plus minified API 26/37 smoke. Exact
 commands and evidence are in `docs/evidence/` and the latest handoff. External interviews, physical-device
 tests, legal/trademark review, Sonatype verification, Maven publication,
@@ -71,9 +78,10 @@ Emulator success is not release evidence.
 
 ## Next exact action
 
-Implement the Phase 6–9 reference tracks under their recorded gates, close the
-remaining Phase 2–5 evidence gaps, run independent review and the final
-traceability audit. Do not tag, release, publish or merge `main`.
+Run independent review and the final traceability audit. Close remaining
+evidence gaps where possible, mark external/deployment/platform gates BLOCKED
+with exact actions, and keep the source candidate on `dev`. Do not tag, release,
+publish, deploy or merge `main`.
 
 ## Safety boundaries
 

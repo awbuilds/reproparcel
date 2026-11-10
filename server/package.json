@@ -1,0 +1,20 @@
+{
+  "name": "reproparcel-server",
+  "version": "0.0.1-SNAPSHOT",
+  "private": true,
+  "type": "module",
+  "description": "Reference self-hosted ingestion for ReproParcel. Not deployed.",
+  "license": "AGPL-3.0-only",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test dist/*.test.js",
+    "start": "node dist/main.js"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "typescript": "^5.9.0"
+  }
+}
