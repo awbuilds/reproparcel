@@ -1,0 +1,43 @@
+#!/usr/bin/env python3
+# SPDX-License-Identifier: AGPL-3.0-only
+"""Apply manual traceability dispositions to the generated ledger.
+
+Overrides are keyed by PRD line number. Re-run the generator first if the PRD
+text changed, then apply overrides.
+"""
+from __future__ import annotations
+
+import json
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+LEDGER = ROOT / "docs" / "traceability" / "prd-lines.jsonl"
+OVERRIDES = ROOT / "docs" / "traceability" / "overrides.json"
+
+
+def main() -> int:
+    overrides = json.loads(OVERRIDES.read_text(encoding="utf-8"))
+    rows = []
+    with LEDGER.open(encoding="utf-8") as handle:
+        for line in handle:
+            if line.strip():
+                rows.append(json.loads(line))
+
+    applied = 0
+    for row in rows:
+        override = overrides.get(str(row["line"]))
+        if not override:
+            continue
+        row.update(override)
+        applied += 1
+
+    with LEDGER.open("w", encoding="utf-8") as handle:
+        for row in rows:
+            handle.write(json.dumps(row, ensure_ascii=False, sort_keys=True) + "\n")
+
+    print(f"applied {applied} overrides to {LEDGER.relative_to(ROOT)}")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

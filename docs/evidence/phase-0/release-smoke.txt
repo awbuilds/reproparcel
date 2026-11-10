@@ -1,0 +1,33 @@
+# Release-minified smoke — disposable capture-lab
+
+APK: spike/capture-lab/build/outputs/apk/release/capture-lab-release.apk
+Signed with the debug key for local testing only; not a production release.
+
+## API 37.2 emulator (Android_17, 1080x2400)
+
+Command path: install release APK, launch MainActivity, UI automation tap Capture.
+
+Observed:
+capture: SUCCESS 1080x2400 in 15ms; masked=#FF000000; saved=true
+
+## API 26 emulator (rp-api26, 1080x1920)
+
+Observed:
+capture: SUCCESS 1080x1920 in 21ms; masked=#FF000000; saved=true
+
+## Protected window policy (API 37.2)
+
+Observed:
+respect=true -> SECURE_WINDOW FLAG_SECURE is set; capture omitted
+
+Raw experiment (spike-only bypass):
+respect=false -> SUCCESS bytes=10368000 center=#FFFAFAFA
+
+The raw observation is why the production SDK must pre-check FLAG_SECURE and
+must not expose a caller-controlled bypass.
+
+## Limitation
+
+The release JUnit test-APK path was unstable under R8, so this smoke used the
+minified app with UI automation. A stable release-device harness is Phase 5
+work. The app proguard file now contains no broad first-party/Kotlin keep rules.

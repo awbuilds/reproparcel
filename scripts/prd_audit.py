@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: AGPL-3.0-only
 """Audit the PRD traceability ledger.
 
 Checks that every PRD line is present and that every line applicable to the

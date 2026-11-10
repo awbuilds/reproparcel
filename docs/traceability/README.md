@@ -14,7 +14,13 @@ Regenerate after any PRD edit:
 
 ```sh
 python3 scripts/generate_prd_ledger.py
+python3 scripts/apply_traceability.py
 ```
+
+`overrides.json` is keyed by PRD line number. If the PRD changes, review every
+override against the regenerated line text before committing; a shifted line
+can silently apply a disposition to the wrong requirement. The audit checks the
+line text hash, but it cannot infer the intended requirement after a move.
 
 Audit a phase:
 

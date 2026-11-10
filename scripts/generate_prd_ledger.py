@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: AGPL-3.0-only
 """Generate the line-level PRD traceability ledger.
 
 Every physical line of docs/PRD.md receives one JSON object in
@@ -110,10 +111,24 @@ def main() -> int:
         phase = SECTION_PHASE.get(section, "unassigned")
         if phase_section is not None:
             phase = str(phase_section)
+            # Work packages, deliverables and exit criteria under a phase
+            # heading are obligations even when they do not contain MUST/SHOULD.
+            if kind in {"LIST", "PROSE", "TABLE"}:
+                normative = True
+        # A Phase 0 comparison inside an earlier architecture section is Phase 0
+        # acceptance work.
+        if section == 7 and "Phase 0" in text:
+            phase = "0"
+            normative = True
         for ident in identifiers:
             if ident in FR_PHASE:
                 phase = FR_PHASE[ident]
                 break
+        # FR-04/FR-10 are labelled P0/P2 and P0/P3; score the earliest phase.
+        phase_labels = re.findall(r"\bP(\d)\b", text)
+        if phase_labels and identifiers:
+            phase = min(phase_labels)
+            normative = True
 
         if kind == "BLANK":
             status = "N/A"
