@@ -1,0 +1,34 @@
+# Build and tooling output
+.gradle/
+.kotlin/
+build/
+**/build/
+.cxx/
+*.apk
+*.aab
+*.aar
+*.hprof
+*.log
+captures/
+
+# Local configuration and secrets
+local.properties
+.env
+.env.*
+*.jks
+*.keystore
+*.p12
+*.pem
+secrets.properties
+
+# IDE and OS files
+.idea/
+*.iml
+.DS_Store
+Thumbs.db
+
+# Local evidence that must never be committed
+*.reproparcel
+!schema/fixtures/**/*.reproparcel
+!desktop/fixtures/**/*.reproparcel
+local-evidence/
