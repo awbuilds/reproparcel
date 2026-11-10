@@ -246,6 +246,18 @@
     "notes": "SAF cancellation and chooser automation remain manual.",
     "status": "IN_PROGRESS"
   },
+  "373": {
+    "artifact": "desktop/src/parcel.ts",
+    "evidence": "14 desktop tests incl. valid/corrupt/extra/unreferenced",
+    "notes": "",
+    "status": "PASS"
+  },
+  "374": {
+    "artifact": "desktop/src/mcp.ts",
+    "evidence": "Official MCP SDK protocol test; five tools",
+    "notes": "Two real coding clients remain a manual gate.",
+    "status": "IN_PROGRESS"
+  },
   "375": {
     "artifact": "docs/adr/0006-public-repository-license-and-git.md",
     "evidence": "LICENSE present; notices checklist pending",
@@ -672,6 +684,66 @@
     "evidence": "ADR 0004",
     "notes": "Command surface designed; implementation is Phase 4.",
     "status": "PASS"
+  },
+  "641": {
+    "artifact": "desktop",
+    "evidence": "Tools implemented; two-client flow not verified",
+    "notes": "",
+    "status": "IN_PROGRESS"
+  },
+  "643": {
+    "artifact": "docs/PRD.md",
+    "evidence": "Work-package heading",
+    "notes": "",
+    "status": "PASS"
+  },
+  "645": {
+    "artifact": "desktop/src/cli.ts",
+    "evidence": "Streaming bounded validator + JSON/human output",
+    "notes": "",
+    "status": "PASS"
+  },
+  "646": {
+    "artifact": "desktop/src/viewer.ts",
+    "evidence": "CSP/escaping/local image tests",
+    "notes": "",
+    "status": "PASS"
+  },
+  "647": {
+    "artifact": "desktop/src/mcp.ts",
+    "evidence": "Stdio server, report IDs, five read-only tools",
+    "notes": "",
+    "status": "PASS"
+  },
+  "648": {
+    "artifact": "desktop/src/mcp-protocol.test.ts",
+    "evidence": "Real SDK client/server protocol",
+    "notes": "",
+    "status": "PASS"
+  },
+  "649": {
+    "artifact": "desktop/src/*.test.ts",
+    "evidence": "Corrupt/extra/unreferenced/JSON abuse; symlink/permission fixtures partial",
+    "notes": "",
+    "status": "IN_PROGRESS"
+  },
+  "650": {
+    "artifact": "docs/integration/desktop-tools.md, desktop/README.md",
+    "evidence": "Recipe + AGPL warning",
+    "notes": "",
+    "status": "PASS"
+  },
+  "652": {
+    "artifact": "desktop",
+    "evidence": "CLI/viewer/MCP tests; no alpha candidate",
+    "notes": "Two-client and end-to-end export/import evidence missing.",
+    "status": "IN_PROGRESS"
+  },
+  "654": {
+    "artifact": "docs/decisions/phase-4-go-no-go.md",
+    "evidence": "No arbitrary read/execute; gaps recorded",
+    "notes": "Full device capture\u2192import and two clients unverified.",
+    "status": "IN_PROGRESS"
   },
   "70": {
     "artifact": "docs/research/naming-and-namespace.md",

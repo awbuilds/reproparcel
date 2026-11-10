@@ -20,6 +20,16 @@ jobs:
           distribution: temurin
           java-version: "21"
       - uses: gradle/actions/setup-gradle@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: npm
+          cache-dependency-path: desktop/package-lock.json
+      - name: Desktop install and tests
+        run: |
+          cd desktop
+          npm ci
+          npm test
       - name: Public hygiene
         run: ./scripts/public-hygiene.sh --all
       - name: Dependency allowlist
