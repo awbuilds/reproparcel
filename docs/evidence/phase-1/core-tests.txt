@@ -1,0 +1,7 @@
+reproparcel-core/build/test-results/test/TEST-com.awbuilds.reproparcel.core.SessionStateMachineTest.xml:<testsuite name="com.awbuilds.reproparcel.core.SessionStateMachineTest" tests="6" skipped="0" failures="0" errors="0"
+reproparcel-core/build/test-results/test/TEST-com.awbuilds.reproparcel.core.ImageBudgetTest.xml:<testsuite name="com.awbuilds.reproparcel.core.ImageBudgetTest" tests="4" skipped="0" failures="0" errors="0"
+reproparcel-core/build/test-results/test/TEST-com.awbuilds.reproparcel.core.ConfigValidatorTest.xml:<testsuite name="com.awbuilds.reproparcel.core.ConfigValidatorTest" tests="5" skipped="0" failures="0" errors="0"
+reproparcel-core/build/test-results/test/TEST-com.awbuilds.reproparcel.core.ParcelValidationTest.xml:<testsuite name="com.awbuilds.reproparcel.core.ParcelValidationTest" tests="11" skipped="0" failures="0" errors="0"
+reproparcel-core/build/test-results/test/TEST-com.awbuilds.reproparcel.core.RedactorTest.xml:<testsuite name="com.awbuilds.reproparcel.core.RedactorTest" tests="4" skipped="0" failures="0" errors="0"
+reproparcel-core/build/test-results/test/TEST-com.awbuilds.reproparcel.core.SchemaConformanceTest.xml:<testsuite name="com.awbuilds.reproparcel.core.SchemaConformanceTest" tests="3" skipped="0" failures="0" errors="0"
+reproparcel-core/build/test-results/test/TEST-com.awbuilds.reproparcel.core.BoundedBufferTest.xml:<testsuite name="com.awbuilds.reproparcel.core.BoundedBufferTest" tests="4" skipped="0" failures="0" errors="0"

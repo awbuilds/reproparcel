@@ -2,13 +2,13 @@
 
 package com.awbuilds.reproparcel.spike.capturelab
 
-import android.app.Activity
 import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.graphics.Paint
 import android.graphics.Rect
 import android.os.Bundle
 import androidx.activity.ComponentActivity
+import androidx.activity.compose.LocalActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Canvas
@@ -68,7 +68,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 private fun CaptureLabScreen() {
     val context = LocalContext.current
-    val activity = context as? Activity
+    val activity = LocalActivity.current
     val scope = rememberCoroutineScope()
     val listState = rememberLazyListState()
     var status by remember { mutableStateOf("Ready") }

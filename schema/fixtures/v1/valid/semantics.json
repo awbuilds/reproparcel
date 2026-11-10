@@ -1,0 +1,23 @@
+{
+  "truncated": false,
+  "omission": null,
+  "nodes": [
+    {
+      "nodeId": "n1",
+      "role": "screen",
+      "label": "Checkout",
+      "bounds": { "left": 0, "top": 0, "right": 1080, "bottom": 1920 },
+      "coordinateSpace": "window"
+    },
+    {
+      "nodeId": "n2",
+      "role": "button",
+      "label": "Save",
+      "testTag": "save_button",
+      "parentId": "n1",
+      "sensitive": false,
+      "bounds": { "left": 100, "top": 1500, "right": 980, "bottom": 1600 },
+      "color": "ignored-unknown-field"
+    }
+  ]
+}

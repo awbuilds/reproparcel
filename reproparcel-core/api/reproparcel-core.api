@@ -1,0 +1,1388 @@
+public final class com/awbuilds/reproparcel/core/buffer/BoundedEventBuffer {
+	public fun <init> ()V
+	public fun <init> (IJJLcom/awbuilds/reproparcel/core/time/Clock;)V
+	public synthetic fun <init> (IJJLcom/awbuilds/reproparcel/core/time/Clock;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun add (Lcom/awbuilds/reproparcel/core/model/ReportEvent;)Z
+	public final fun clear ()V
+	public final fun getApproximateBytes ()J
+	public final fun getSize ()I
+	public final fun snapshot (J)Ljava/util/List;
+	public static synthetic fun snapshot$default (Lcom/awbuilds/reproparcel/core/buffer/BoundedEventBuffer;JILjava/lang/Object;)Ljava/util/List;
+}
+
+public final class com/awbuilds/reproparcel/core/buffer/BoundedLogBuffer {
+	public fun <init> ()V
+	public fun <init> (IJJLcom/awbuilds/reproparcel/core/time/Clock;)V
+	public synthetic fun <init> (IJJLcom/awbuilds/reproparcel/core/time/Clock;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun add (Lcom/awbuilds/reproparcel/core/model/StructuredLogEvent;)Z
+	public final fun clear ()V
+	public final fun getApproximateBytes ()J
+	public final fun getSize ()I
+	public final fun snapshot (J)Ljava/util/List;
+	public static synthetic fun snapshot$default (Lcom/awbuilds/reproparcel/core/buffer/BoundedLogBuffer;JILjava/lang/Object;)Ljava/util/List;
+}
+
+public final class com/awbuilds/reproparcel/core/config/CapturePolicy {
+	public static final field Companion Lcom/awbuilds/reproparcel/core/config/CapturePolicy$Companion;
+	public fun <init> (Ljava/lang/String;ZZLjava/util/Set;Ljava/util/Set;Ljava/util/Set;)V
+	public synthetic fun <init> (Ljava/lang/String;ZZLjava/util/Set;Ljava/util/Set;Ljava/util/Set;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Z
+	public final fun component3 ()Z
+	public final fun component4 ()Ljava/util/Set;
+	public final fun component5 ()Ljava/util/Set;
+	public final fun component6 ()Ljava/util/Set;
+	public final fun copy (Ljava/lang/String;ZZLjava/util/Set;Ljava/util/Set;Ljava/util/Set;)Lcom/awbuilds/reproparcel/core/config/CapturePolicy;
+	public static synthetic fun copy$default (Lcom/awbuilds/reproparcel/core/config/CapturePolicy;Ljava/lang/String;ZZLjava/util/Set;Ljava/util/Set;Ljava/util/Set;ILjava/lang/Object;)Lcom/awbuilds/reproparcel/core/config/CapturePolicy;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getEligibleSurfaces ()Ljava/util/Set;
+	public final fun getExcludedSurfaces ()Ljava/util/Set;
+	public final fun getPolicyVersion ()Ljava/lang/String;
+	public final fun getScreenshotEnabled ()Z
+	public final fun getSemanticTextEnabled ()Z
+	public final fun getSensitiveSurfaces ()Ljava/util/Set;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class com/awbuilds/reproparcel/core/config/CapturePolicy$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcom/awbuilds/reproparcel/core/config/CapturePolicy$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/awbuilds/reproparcel/core/config/CapturePolicy;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/awbuilds/reproparcel/core/config/CapturePolicy;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/awbuilds/reproparcel/core/config/CapturePolicy$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/awbuilds/reproparcel/core/config/Checksums {
+	public static final field INSTANCE Lcom/awbuilds/reproparcel/core/config/Checksums;
+	public final fun isSha256Hex (Ljava/lang/String;)Z
+	public final fun sha256 ([B)Ljava/lang/String;
+}
+
+public final class com/awbuilds/reproparcel/core/config/ConfigError {
+	public fun <init> (Lcom/awbuilds/reproparcel/core/config/ConfigErrorCode;Ljava/lang/String;)V
+	public final fun component1 ()Lcom/awbuilds/reproparcel/core/config/ConfigErrorCode;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Lcom/awbuilds/reproparcel/core/config/ConfigErrorCode;Ljava/lang/String;)Lcom/awbuilds/reproparcel/core/config/ConfigError;
+	public static synthetic fun copy$default (Lcom/awbuilds/reproparcel/core/config/ConfigError;Lcom/awbuilds/reproparcel/core/config/ConfigErrorCode;Ljava/lang/String;ILjava/lang/Object;)Lcom/awbuilds/reproparcel/core/config/ConfigError;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCode ()Lcom/awbuilds/reproparcel/core/config/ConfigErrorCode;
+	public final fun getField ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/awbuilds/reproparcel/core/config/ConfigErrorCode : java/lang/Enum {
+	public static final field INVALID_CAPTURE_POLICY Lcom/awbuilds/reproparcel/core/config/ConfigErrorCode;
+	public static final field INVALID_GIT_COMMIT Lcom/awbuilds/reproparcel/core/config/ConfigErrorCode;
+	public static final field INVALID_PACKAGE Lcom/awbuilds/reproparcel/core/config/ConfigErrorCode;
+	public static final field INVALID_RETENTION Lcom/awbuilds/reproparcel/core/config/ConfigErrorCode;
+	public static final field INVALID_VARIANT Lcom/awbuilds/reproparcel/core/config/ConfigErrorCode;
+	public static final field INVALID_VERSION_CODE Lcom/awbuilds/reproparcel/core/config/ConfigErrorCode;
+	public static final field INVALID_VERSION_NAME Lcom/awbuilds/reproparcel/core/config/ConfigErrorCode;
+	public static final field MISSING_PACKAGE Lcom/awbuilds/reproparcel/core/config/ConfigErrorCode;
+	public static final field SCREENSHOT_WITHOUT_POLICY Lcom/awbuilds/reproparcel/core/config/ConfigErrorCode;
+	public static final field SEMANTICS_WITHOUT_POLICY Lcom/awbuilds/reproparcel/core/config/ConfigErrorCode;
+	public static final field SURFACE_OVERLAP Lcom/awbuilds/reproparcel/core/config/ConfigErrorCode;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/awbuilds/reproparcel/core/config/ConfigErrorCode;
+	public static fun values ()[Lcom/awbuilds/reproparcel/core/config/ConfigErrorCode;
+}
+
+public abstract interface class com/awbuilds/reproparcel/core/config/ConfigValidation {
+}
+
+public final class com/awbuilds/reproparcel/core/config/ConfigValidation$Invalid : com/awbuilds/reproparcel/core/config/ConfigValidation {
+	public fun <init> (Ljava/util/List;)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun copy (Ljava/util/List;)Lcom/awbuilds/reproparcel/core/config/ConfigValidation$Invalid;
+	public static synthetic fun copy$default (Lcom/awbuilds/reproparcel/core/config/ConfigValidation$Invalid;Ljava/util/List;ILjava/lang/Object;)Lcom/awbuilds/reproparcel/core/config/ConfigValidation$Invalid;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getErrors ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/awbuilds/reproparcel/core/config/ConfigValidation$Valid : com/awbuilds/reproparcel/core/config/ConfigValidation {
+	public static final field INSTANCE Lcom/awbuilds/reproparcel/core/config/ConfigValidation$Valid;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/awbuilds/reproparcel/core/config/ConfigValidator {
+	public static final field INSTANCE Lcom/awbuilds/reproparcel/core/config/ConfigValidator;
+	public final fun collectionConfigurationId (Lcom/awbuilds/reproparcel/core/config/ReproParcelConfig;)Ljava/lang/String;
+	public final fun validate (Lcom/awbuilds/reproparcel/core/config/ReproParcelConfig;)Lcom/awbuilds/reproparcel/core/config/ConfigValidation;
+}
+
+public final class com/awbuilds/reproparcel/core/config/EvidenceConfig {
+	public static final field Companion Lcom/awbuilds/reproparcel/core/config/EvidenceConfig$Companion;
+	public fun <init> ()V
+	public fun <init> (ZZZZ)V
+	public synthetic fun <init> (ZZZZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Z
+	public final fun component2 ()Z
+	public final fun component3 ()Z
+	public final fun component4 ()Z
+	public final fun copy (ZZZZ)Lcom/awbuilds/reproparcel/core/config/EvidenceConfig;
+	public static synthetic fun copy$default (Lcom/awbuilds/reproparcel/core/config/EvidenceConfig;ZZZZILjava/lang/Object;)Lcom/awbuilds/reproparcel/core/config/EvidenceConfig;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getNetworkMetadataEnabled ()Z
+	public final fun getScreenshotEnabled ()Z
+	public final fun getSemanticTextEnabled ()Z
+	public final fun getStructuredLogsEnabled ()Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class com/awbuilds/reproparcel/core/config/EvidenceConfig$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcom/awbuilds/reproparcel/core/config/EvidenceConfig$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/awbuilds/reproparcel/core/config/EvidenceConfig;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/awbuilds/reproparcel/core/config/EvidenceConfig;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/awbuilds/reproparcel/core/config/EvidenceConfig$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/awbuilds/reproparcel/core/config/ReproParcelConfig {
+	public static final field Companion Lcom/awbuilds/reproparcel/core/config/ReproParcelConfig$Companion;
+	public fun <init> (ZLcom/awbuilds/reproparcel/core/model/BuildInfo;Lcom/awbuilds/reproparcel/core/config/CapturePolicy;Lcom/awbuilds/reproparcel/core/config/RetentionPolicy;Lcom/awbuilds/reproparcel/core/config/EvidenceConfig;)V
+	public synthetic fun <init> (ZLcom/awbuilds/reproparcel/core/model/BuildInfo;Lcom/awbuilds/reproparcel/core/config/CapturePolicy;Lcom/awbuilds/reproparcel/core/config/RetentionPolicy;Lcom/awbuilds/reproparcel/core/config/EvidenceConfig;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Z
+	public final fun component2 ()Lcom/awbuilds/reproparcel/core/model/BuildInfo;
+	public final fun component3 ()Lcom/awbuilds/reproparcel/core/config/CapturePolicy;
+	public final fun component4 ()Lcom/awbuilds/reproparcel/core/config/RetentionPolicy;
+	public final fun component5 ()Lcom/awbuilds/reproparcel/core/config/EvidenceConfig;
+	public final fun copy (ZLcom/awbuilds/reproparcel/core/model/BuildInfo;Lcom/awbuilds/reproparcel/core/config/CapturePolicy;Lcom/awbuilds/reproparcel/core/config/RetentionPolicy;Lcom/awbuilds/reproparcel/core/config/EvidenceConfig;)Lcom/awbuilds/reproparcel/core/config/ReproParcelConfig;
+	public static synthetic fun copy$default (Lcom/awbuilds/reproparcel/core/config/ReproParcelConfig;ZLcom/awbuilds/reproparcel/core/model/BuildInfo;Lcom/awbuilds/reproparcel/core/config/CapturePolicy;Lcom/awbuilds/reproparcel/core/config/RetentionPolicy;Lcom/awbuilds/reproparcel/core/config/EvidenceConfig;ILjava/lang/Object;)Lcom/awbuilds/reproparcel/core/config/ReproParcelConfig;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBuildInfo ()Lcom/awbuilds/reproparcel/core/model/BuildInfo;
+	public final fun getCapturePolicy ()Lcom/awbuilds/reproparcel/core/config/CapturePolicy;
+	public final fun getEnabled ()Z
+	public final fun getEvidence ()Lcom/awbuilds/reproparcel/core/config/EvidenceConfig;
+	public final fun getRetention ()Lcom/awbuilds/reproparcel/core/config/RetentionPolicy;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class com/awbuilds/reproparcel/core/config/ReproParcelConfig$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcom/awbuilds/reproparcel/core/config/ReproParcelConfig$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/awbuilds/reproparcel/core/config/ReproParcelConfig;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/awbuilds/reproparcel/core/config/ReproParcelConfig;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/awbuilds/reproparcel/core/config/ReproParcelConfig$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/awbuilds/reproparcel/core/config/RetentionPolicy {
+	public static final field Companion Lcom/awbuilds/reproparcel/core/config/RetentionPolicy$Companion;
+	public fun <init> ()V
+	public fun <init> (IJI)V
+	public synthetic fun <init> (IJIILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()I
+	public final fun component2 ()J
+	public final fun component3 ()I
+	public final fun copy (IJI)Lcom/awbuilds/reproparcel/core/config/RetentionPolicy;
+	public static synthetic fun copy$default (Lcom/awbuilds/reproparcel/core/config/RetentionPolicy;IJIILjava/lang/Object;)Lcom/awbuilds/reproparcel/core/config/RetentionPolicy;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getMaxBytes ()J
+	public final fun getMaxReports ()I
+	public final fun getTtlHours ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class com/awbuilds/reproparcel/core/config/RetentionPolicy$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcom/awbuilds/reproparcel/core/config/RetentionPolicy$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/awbuilds/reproparcel/core/config/RetentionPolicy;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/awbuilds/reproparcel/core/config/RetentionPolicy;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/awbuilds/reproparcel/core/config/RetentionPolicy$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/awbuilds/reproparcel/core/limits/ImageBudget {
+	public static final field INSTANCE Lcom/awbuilds/reproparcel/core/limits/ImageBudget;
+	public final fun decodedBytes (II)J
+	public final fun isWithinDecodedBudget (IIJ)Z
+	public static synthetic fun isWithinDecodedBudget$default (Lcom/awbuilds/reproparcel/core/limits/ImageBudget;IIJILjava/lang/Object;)Z
+	public final fun scaledToLongestEdge (III)Lcom/awbuilds/reproparcel/core/limits/ImageDimensions;
+	public static synthetic fun scaledToLongestEdge$default (Lcom/awbuilds/reproparcel/core/limits/ImageBudget;IIIILjava/lang/Object;)Lcom/awbuilds/reproparcel/core/limits/ImageDimensions;
+}
+
+public final class com/awbuilds/reproparcel/core/limits/ImageDimensions {
+	public fun <init> (II)V
+	public final fun component1 ()I
+	public final fun component2 ()I
+	public final fun copy (II)Lcom/awbuilds/reproparcel/core/limits/ImageDimensions;
+	public static synthetic fun copy$default (Lcom/awbuilds/reproparcel/core/limits/ImageDimensions;IIILjava/lang/Object;)Lcom/awbuilds/reproparcel/core/limits/ImageDimensions;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getHeight ()I
+	public final fun getLongestEdge ()I
+	public final fun getWidth ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/awbuilds/reproparcel/core/limits/Limits {
+	public static final field DEFAULT_DRAFT_TTL_MS J
+	public static final field INSTANCE Lcom/awbuilds/reproparcel/core/limits/Limits;
+	public static final field MAX_ACTIONS I
+	public static final field MAX_ACTION_AGE_MS J
+	public static final field MAX_ATTRIBUTE_LENGTH I
+	public static final field MAX_CAPTURE_PEAK_BYTES J
+	public static final field MAX_COMPRESSION_RATIO I
+	public static final field MAX_CONCURRENT_DECODED_IMAGE_BYTES J
+	public static final field MAX_DECODED_IMAGE_BYTES J
+	public static final field MAX_DRAFTS I
+	public static final field MAX_DRAFT_BYTES J
+	public static final field MAX_ENTRY_PATH_LENGTH I
+	public static final field MAX_EVENTS I
+	public static final field MAX_EVIDENCE_BUFFER_BYTES J
+	public static final field MAX_FREE_TEXT_LENGTH I
+	public static final field MAX_IMAGE_LONG_EDGE_PX I
+	public static final field MAX_JSON_BYTES J
+	public static final field MAX_JSON_DEPTH I
+	public static final field MAX_JSON_NODES I
+	public static final field MAX_LOGS I
+	public static final field MAX_LOG_BYTES J
+	public static final field MAX_NETWORK_BYTES J
+	public static final field MAX_NETWORK_ENTRIES I
+	public static final field MAX_PARCEL_COMPRESSED_BYTES J
+	public static final field MAX_PARCEL_ENTRIES I
+	public static final field MAX_PARCEL_UNCOMPRESSED_BYTES J
+	public static final field MAX_SEMANTIC_BYTES J
+	public static final field MAX_SEMANTIC_DEPTH I
+	public static final field MAX_SEMANTIC_NODES I
+}
+
+public final class com/awbuilds/reproparcel/core/model/AppInfo {
+	public static final field Companion Lcom/awbuilds/reproparcel/core/model/AppInfo$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;JLjava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;JLjava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()J
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;JLjava/lang/String;Ljava/lang/String;)Lcom/awbuilds/reproparcel/core/model/AppInfo;
+	public static synthetic fun copy$default (Lcom/awbuilds/reproparcel/core/model/AppInfo;Ljava/lang/String;Ljava/lang/String;JLjava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/awbuilds/reproparcel/core/model/AppInfo;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getGitCommit ()Ljava/lang/String;
+	public final fun getPackageName ()Ljava/lang/String;
+	public final fun getVariant ()Ljava/lang/String;
+	public final fun getVersionCode ()J
+	public final fun getVersionName ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class com/awbuilds/reproparcel/core/model/AppInfo$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcom/awbuilds/reproparcel/core/model/AppInfo$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/awbuilds/reproparcel/core/model/AppInfo;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/awbuilds/reproparcel/core/model/AppInfo;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/awbuilds/reproparcel/core/model/AppInfo$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/awbuilds/reproparcel/core/model/Bounds {
+	public static final field Companion Lcom/awbuilds/reproparcel/core/model/Bounds$Companion;
+	public fun <init> (IIIILjava/lang/String;)V
+	public synthetic fun <init> (IIIILjava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()I
+	public final fun component2 ()I
+	public final fun component3 ()I
+	public final fun component4 ()I
+	public final fun component5 ()Ljava/lang/String;
+	public final fun copy (IIIILjava/lang/String;)Lcom/awbuilds/reproparcel/core/model/Bounds;
+	public static synthetic fun copy$default (Lcom/awbuilds/reproparcel/core/model/Bounds;IIIILjava/lang/String;ILjava/lang/Object;)Lcom/awbuilds/reproparcel/core/model/Bounds;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBottom ()I
+	public final fun getCoordinateSpace ()Ljava/lang/String;
+	public final fun getHeight ()I
+	public final fun getLeft ()I
+	public final fun getRight ()I
+	public final fun getTop ()I
+	public final fun getWidth ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class com/awbuilds/reproparcel/core/model/Bounds$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcom/awbuilds/reproparcel/core/model/Bounds$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/awbuilds/reproparcel/core/model/Bounds;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/awbuilds/reproparcel/core/model/Bounds;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/awbuilds/reproparcel/core/model/Bounds$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/awbuilds/reproparcel/core/model/BuildInfo {
+	public static final field Companion Lcom/awbuilds/reproparcel/core/model/BuildInfo$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;JLjava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;JLjava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()J
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;JLjava/lang/String;Ljava/lang/String;)Lcom/awbuilds/reproparcel/core/model/BuildInfo;
+	public static synthetic fun copy$default (Lcom/awbuilds/reproparcel/core/model/BuildInfo;Ljava/lang/String;Ljava/lang/String;JLjava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/awbuilds/reproparcel/core/model/BuildInfo;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getGitCommit ()Ljava/lang/String;
+	public final fun getPackageName ()Ljava/lang/String;
+	public final fun getVariant ()Ljava/lang/String;
+	public final fun getVersionCode ()J
+	public final fun getVersionName ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class com/awbuilds/reproparcel/core/model/BuildInfo$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcom/awbuilds/reproparcel/core/model/BuildInfo$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/awbuilds/reproparcel/core/model/BuildInfo;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/awbuilds/reproparcel/core/model/BuildInfo;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/awbuilds/reproparcel/core/model/BuildInfo$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/awbuilds/reproparcel/core/model/CaptureInfo {
+	public static final field Companion Lcom/awbuilds/reproparcel/core/model/CaptureInfo$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/util/Set;Ljava/lang/Long;Ljava/lang/Long;Ljava/util/List;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/util/Set;Ljava/lang/Long;Ljava/lang/Long;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/util/Set;
+	public final fun component3 ()Ljava/lang/Long;
+	public final fun component4 ()Ljava/lang/Long;
+	public final fun component5 ()Ljava/util/List;
+	public final fun copy (Ljava/lang/String;Ljava/util/Set;Ljava/lang/Long;Ljava/lang/Long;Ljava/util/List;)Lcom/awbuilds/reproparcel/core/model/CaptureInfo;
+	public static synthetic fun copy$default (Lcom/awbuilds/reproparcel/core/model/CaptureInfo;Ljava/lang/String;Ljava/util/Set;Ljava/lang/Long;Ljava/lang/Long;Ljava/util/List;ILjava/lang/Object;)Lcom/awbuilds/reproparcel/core/model/CaptureInfo;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCapturedAt ()Ljava/lang/String;
+	public final fun getCollectionModes ()Ljava/util/Set;
+	public final fun getProviders ()Ljava/util/List;
+	public final fun getSnapshotCutoffMs ()Ljava/lang/Long;
+	public final fun getTriggerOffsetMs ()Ljava/lang/Long;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class com/awbuilds/reproparcel/core/model/CaptureInfo$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcom/awbuilds/reproparcel/core/model/CaptureInfo$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/awbuilds/reproparcel/core/model/CaptureInfo;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/awbuilds/reproparcel/core/model/CaptureInfo;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/awbuilds/reproparcel/core/model/CaptureInfo$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/awbuilds/reproparcel/core/model/DeviceInfo {
+	public static final field Companion Lcom/awbuilds/reproparcel/core/model/DeviceInfo$Companion;
+	public fun <init> (ILjava/lang/String;Ljava/lang/String;IIILjava/lang/String;FLjava/lang/String;)V
+	public final fun component1 ()I
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()I
+	public final fun component5 ()I
+	public final fun component6 ()I
+	public final fun component7 ()Ljava/lang/String;
+	public final fun component8 ()F
+	public final fun component9 ()Ljava/lang/String;
+	public final fun copy (ILjava/lang/String;Ljava/lang/String;IIILjava/lang/String;FLjava/lang/String;)Lcom/awbuilds/reproparcel/core/model/DeviceInfo;
+	public static synthetic fun copy$default (Lcom/awbuilds/reproparcel/core/model/DeviceInfo;ILjava/lang/String;Ljava/lang/String;IIILjava/lang/String;FLjava/lang/String;ILjava/lang/Object;)Lcom/awbuilds/reproparcel/core/model/DeviceInfo;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getApiLevel ()I
+	public final fun getDensityDpi ()I
+	public final fun getFontScale ()F
+	public final fun getLocale ()Ljava/lang/String;
+	public final fun getManufacturer ()Ljava/lang/String;
+	public final fun getModel ()Ljava/lang/String;
+	public final fun getOrientation ()Ljava/lang/String;
+	public final fun getWindowHeightPx ()I
+	public final fun getWindowWidthPx ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class com/awbuilds/reproparcel/core/model/DeviceInfo$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcom/awbuilds/reproparcel/core/model/DeviceInfo$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/awbuilds/reproparcel/core/model/DeviceInfo;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/awbuilds/reproparcel/core/model/DeviceInfo;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/awbuilds/reproparcel/core/model/DeviceInfo$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/awbuilds/reproparcel/core/model/EntryInfo {
+	public static final field Companion Lcom/awbuilds/reproparcel/core/model/EntryInfo$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;JLjava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()J
+	public final fun component4 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;JLjava/lang/String;)Lcom/awbuilds/reproparcel/core/model/EntryInfo;
+	public static synthetic fun copy$default (Lcom/awbuilds/reproparcel/core/model/EntryInfo;Ljava/lang/String;Ljava/lang/String;JLjava/lang/String;ILjava/lang/Object;)Lcom/awbuilds/reproparcel/core/model/EntryInfo;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getMediaType ()Ljava/lang/String;
+	public final fun getPath ()Ljava/lang/String;
+	public final fun getSha256 ()Ljava/lang/String;
+	public final fun getUncompressedSize ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class com/awbuilds/reproparcel/core/model/EntryInfo$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcom/awbuilds/reproparcel/core/model/EntryInfo$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/awbuilds/reproparcel/core/model/EntryInfo;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/awbuilds/reproparcel/core/model/EntryInfo;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/awbuilds/reproparcel/core/model/EntryInfo$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/awbuilds/reproparcel/core/model/EvidenceState : java/lang/Enum {
+	public static final field COLLECTED Lcom/awbuilds/reproparcel/core/model/EvidenceState;
+	public static final field Companion Lcom/awbuilds/reproparcel/core/model/EvidenceState$Companion;
+	public static final field OMITTED Lcom/awbuilds/reproparcel/core/model/EvidenceState;
+	public static final field TRUNCATED Lcom/awbuilds/reproparcel/core/model/EvidenceState;
+	public static final field UNSUPPORTED Lcom/awbuilds/reproparcel/core/model/EvidenceState;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/awbuilds/reproparcel/core/model/EvidenceState;
+	public static fun values ()[Lcom/awbuilds/reproparcel/core/model/EvidenceState;
+}
+
+public final class com/awbuilds/reproparcel/core/model/EvidenceState$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/awbuilds/reproparcel/core/model/EvidenceStatus {
+	public static final field Companion Lcom/awbuilds/reproparcel/core/model/EvidenceStatus$Companion;
+	public fun <init> (Lcom/awbuilds/reproparcel/core/model/EvidenceState;Lcom/awbuilds/reproparcel/core/model/OmissionReason;Ljava/lang/String;)V
+	public synthetic fun <init> (Lcom/awbuilds/reproparcel/core/model/EvidenceState;Lcom/awbuilds/reproparcel/core/model/OmissionReason;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lcom/awbuilds/reproparcel/core/model/EvidenceState;
+	public final fun component2 ()Lcom/awbuilds/reproparcel/core/model/OmissionReason;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun copy (Lcom/awbuilds/reproparcel/core/model/EvidenceState;Lcom/awbuilds/reproparcel/core/model/OmissionReason;Ljava/lang/String;)Lcom/awbuilds/reproparcel/core/model/EvidenceStatus;
+	public static synthetic fun copy$default (Lcom/awbuilds/reproparcel/core/model/EvidenceStatus;Lcom/awbuilds/reproparcel/core/model/EvidenceState;Lcom/awbuilds/reproparcel/core/model/OmissionReason;Ljava/lang/String;ILjava/lang/Object;)Lcom/awbuilds/reproparcel/core/model/EvidenceStatus;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDetail ()Ljava/lang/String;
+	public final fun getReason ()Lcom/awbuilds/reproparcel/core/model/OmissionReason;
+	public final fun getState ()Lcom/awbuilds/reproparcel/core/model/EvidenceState;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class com/awbuilds/reproparcel/core/model/EvidenceStatus$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcom/awbuilds/reproparcel/core/model/EvidenceStatus$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/awbuilds/reproparcel/core/model/EvidenceStatus;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/awbuilds/reproparcel/core/model/EvidenceStatus;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/awbuilds/reproparcel/core/model/EvidenceStatus$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/awbuilds/reproparcel/core/model/Manifest {
+	public static final field Companion Lcom/awbuilds/reproparcel/core/model/Manifest$Companion;
+	public fun <init> (ILjava/lang/String;Ljava/lang/String;Lcom/awbuilds/reproparcel/core/model/ProducerInfo;Lcom/awbuilds/reproparcel/core/model/AppInfo;Lcom/awbuilds/reproparcel/core/model/DeviceInfo;Lcom/awbuilds/reproparcel/core/model/PrivacyInfo;Lcom/awbuilds/reproparcel/core/model/CaptureInfo;Ljava/util/List;Lcom/awbuilds/reproparcel/core/model/ParcelLimits;)V
+	public synthetic fun <init> (ILjava/lang/String;Ljava/lang/String;Lcom/awbuilds/reproparcel/core/model/ProducerInfo;Lcom/awbuilds/reproparcel/core/model/AppInfo;Lcom/awbuilds/reproparcel/core/model/DeviceInfo;Lcom/awbuilds/reproparcel/core/model/PrivacyInfo;Lcom/awbuilds/reproparcel/core/model/CaptureInfo;Ljava/util/List;Lcom/awbuilds/reproparcel/core/model/ParcelLimits;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()I
+	public final fun component10 ()Lcom/awbuilds/reproparcel/core/model/ParcelLimits;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Lcom/awbuilds/reproparcel/core/model/ProducerInfo;
+	public final fun component5 ()Lcom/awbuilds/reproparcel/core/model/AppInfo;
+	public final fun component6 ()Lcom/awbuilds/reproparcel/core/model/DeviceInfo;
+	public final fun component7 ()Lcom/awbuilds/reproparcel/core/model/PrivacyInfo;
+	public final fun component8 ()Lcom/awbuilds/reproparcel/core/model/CaptureInfo;
+	public final fun component9 ()Ljava/util/List;
+	public final fun copy (ILjava/lang/String;Ljava/lang/String;Lcom/awbuilds/reproparcel/core/model/ProducerInfo;Lcom/awbuilds/reproparcel/core/model/AppInfo;Lcom/awbuilds/reproparcel/core/model/DeviceInfo;Lcom/awbuilds/reproparcel/core/model/PrivacyInfo;Lcom/awbuilds/reproparcel/core/model/CaptureInfo;Ljava/util/List;Lcom/awbuilds/reproparcel/core/model/ParcelLimits;)Lcom/awbuilds/reproparcel/core/model/Manifest;
+	public static synthetic fun copy$default (Lcom/awbuilds/reproparcel/core/model/Manifest;ILjava/lang/String;Ljava/lang/String;Lcom/awbuilds/reproparcel/core/model/ProducerInfo;Lcom/awbuilds/reproparcel/core/model/AppInfo;Lcom/awbuilds/reproparcel/core/model/DeviceInfo;Lcom/awbuilds/reproparcel/core/model/PrivacyInfo;Lcom/awbuilds/reproparcel/core/model/CaptureInfo;Ljava/util/List;Lcom/awbuilds/reproparcel/core/model/ParcelLimits;ILjava/lang/Object;)Lcom/awbuilds/reproparcel/core/model/Manifest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getApp ()Lcom/awbuilds/reproparcel/core/model/AppInfo;
+	public final fun getCapture ()Lcom/awbuilds/reproparcel/core/model/CaptureInfo;
+	public final fun getCreatedAt ()Ljava/lang/String;
+	public final fun getDevice ()Lcom/awbuilds/reproparcel/core/model/DeviceInfo;
+	public final fun getEntries ()Ljava/util/List;
+	public final fun getLimits ()Lcom/awbuilds/reproparcel/core/model/ParcelLimits;
+	public final fun getPrivacy ()Lcom/awbuilds/reproparcel/core/model/PrivacyInfo;
+	public final fun getProducer ()Lcom/awbuilds/reproparcel/core/model/ProducerInfo;
+	public final fun getReportId ()Ljava/lang/String;
+	public final fun getSchemaVersion ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class com/awbuilds/reproparcel/core/model/Manifest$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcom/awbuilds/reproparcel/core/model/Manifest$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/awbuilds/reproparcel/core/model/Manifest;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/awbuilds/reproparcel/core/model/Manifest;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/awbuilds/reproparcel/core/model/Manifest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/awbuilds/reproparcel/core/model/ModelKt {
+	public static final field SCHEMA_VERSION I
+}
+
+public final class com/awbuilds/reproparcel/core/model/OmissionReason : java/lang/Enum {
+	public static final field CAPABILITY_UNSUPPORTED Lcom/awbuilds/reproparcel/core/model/OmissionReason;
+	public static final field CAPTURE_CANCELLED Lcom/awbuilds/reproparcel/core/model/OmissionReason;
+	public static final field CAPTURE_TIMEOUT Lcom/awbuilds/reproparcel/core/model/OmissionReason;
+	public static final field Companion Lcom/awbuilds/reproparcel/core/model/OmissionReason$Companion;
+	public static final field DISABLED Lcom/awbuilds/reproparcel/core/model/OmissionReason;
+	public static final field ENCRYPTION_UNAVAILABLE Lcom/awbuilds/reproparcel/core/model/OmissionReason;
+	public static final field HOST_UNAVAILABLE Lcom/awbuilds/reproparcel/core/model/OmissionReason;
+	public static final field INVALID_CONFIG Lcom/awbuilds/reproparcel/core/model/OmissionReason;
+	public static final field NOT_INITIALIZED Lcom/awbuilds/reproparcel/core/model/OmissionReason;
+	public static final field POLICY_CHANGED Lcom/awbuilds/reproparcel/core/model/OmissionReason;
+	public static final field POLICY_DISABLED Lcom/awbuilds/reproparcel/core/model/OmissionReason;
+	public static final field PROVIDER_FAILED Lcom/awbuilds/reproparcel/core/model/OmissionReason;
+	public static final field SECURE_WINDOW Lcom/awbuilds/reproparcel/core/model/OmissionReason;
+	public static final field SERIALIZATION_FAILED Lcom/awbuilds/reproparcel/core/model/OmissionReason;
+	public static final field SIZE_LIMIT Lcom/awbuilds/reproparcel/core/model/OmissionReason;
+	public static final field STALE_FRAME Lcom/awbuilds/reproparcel/core/model/OmissionReason;
+	public static final field UNSUPPORTED_SURFACE Lcom/awbuilds/reproparcel/core/model/OmissionReason;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/awbuilds/reproparcel/core/model/OmissionReason;
+	public static fun values ()[Lcom/awbuilds/reproparcel/core/model/OmissionReason;
+}
+
+public final class com/awbuilds/reproparcel/core/model/OmissionReason$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/awbuilds/reproparcel/core/model/ParcelLimits {
+	public static final field Companion Lcom/awbuilds/reproparcel/core/model/ParcelLimits$Companion;
+	public fun <init> ()V
+	public fun <init> (JJIIIJJJII)V
+	public synthetic fun <init> (JJIIIJJJIIILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()J
+	public final fun component10 ()I
+	public final fun component2 ()J
+	public final fun component3 ()I
+	public final fun component4 ()I
+	public final fun component5 ()I
+	public final fun component6 ()J
+	public final fun component7 ()J
+	public final fun component8 ()J
+	public final fun component9 ()I
+	public final fun copy (JJIIIJJJII)Lcom/awbuilds/reproparcel/core/model/ParcelLimits;
+	public static synthetic fun copy$default (Lcom/awbuilds/reproparcel/core/model/ParcelLimits;JJIIIJJJIIILjava/lang/Object;)Lcom/awbuilds/reproparcel/core/model/ParcelLimits;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getMaxCompressedBytes ()J
+	public final fun getMaxCompressionRatio ()I
+	public final fun getMaxConcurrentDecodedImageBytes ()J
+	public final fun getMaxDecodedImageBytes ()J
+	public final fun getMaxEntries ()I
+	public final fun getMaxImageLongEdgePx ()I
+	public final fun getMaxJsonBytes ()J
+	public final fun getMaxJsonDepth ()I
+	public final fun getMaxJsonNodes ()I
+	public final fun getMaxUncompressedBytes ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class com/awbuilds/reproparcel/core/model/ParcelLimits$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcom/awbuilds/reproparcel/core/model/ParcelLimits$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/awbuilds/reproparcel/core/model/ParcelLimits;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/awbuilds/reproparcel/core/model/ParcelLimits;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/awbuilds/reproparcel/core/model/ParcelLimits$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/awbuilds/reproparcel/core/model/PrivacyInfo {
+	public static final field Companion Lcom/awbuilds/reproparcel/core/model/PrivacyInfo$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/util/Set;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;Ljava/lang/String;)Lcom/awbuilds/reproparcel/core/model/PrivacyInfo;
+	public static synthetic fun copy$default (Lcom/awbuilds/reproparcel/core/model/PrivacyInfo;Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;Ljava/lang/String;ILjava/lang/Object;)Lcom/awbuilds/reproparcel/core/model/PrivacyInfo;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getPolicyVersion ()Ljava/lang/String;
+	public final fun getPreviewContentHash ()Ljava/lang/String;
+	public final fun getRedactionMode ()Ljava/lang/String;
+	public final fun getReviewedCategories ()Ljava/util/Set;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class com/awbuilds/reproparcel/core/model/PrivacyInfo$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcom/awbuilds/reproparcel/core/model/PrivacyInfo$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/awbuilds/reproparcel/core/model/PrivacyInfo;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/awbuilds/reproparcel/core/model/PrivacyInfo;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/awbuilds/reproparcel/core/model/PrivacyInfo$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/awbuilds/reproparcel/core/model/ProducerInfo {
+	public static final field Companion Lcom/awbuilds/reproparcel/core/model/ProducerInfo$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/awbuilds/reproparcel/core/model/ProducerInfo;
+	public static synthetic fun copy$default (Lcom/awbuilds/reproparcel/core/model/ProducerInfo;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/awbuilds/reproparcel/core/model/ProducerInfo;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCollectionConfigurationId ()Ljava/lang/String;
+	public final fun getPlatform ()Ljava/lang/String;
+	public final fun getSdkVersion ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class com/awbuilds/reproparcel/core/model/ProducerInfo$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcom/awbuilds/reproparcel/core/model/ProducerInfo$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/awbuilds/reproparcel/core/model/ProducerInfo;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/awbuilds/reproparcel/core/model/ProducerInfo;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/awbuilds/reproparcel/core/model/ProducerInfo$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/awbuilds/reproparcel/core/model/ProviderStatus {
+	public static final field Companion Lcom/awbuilds/reproparcel/core/model/ProviderStatus$Companion;
+	public fun <init> (Ljava/lang/String;Lcom/awbuilds/reproparcel/core/model/EvidenceStatus;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Lcom/awbuilds/reproparcel/core/model/EvidenceStatus;
+	public final fun copy (Ljava/lang/String;Lcom/awbuilds/reproparcel/core/model/EvidenceStatus;)Lcom/awbuilds/reproparcel/core/model/ProviderStatus;
+	public static synthetic fun copy$default (Lcom/awbuilds/reproparcel/core/model/ProviderStatus;Ljava/lang/String;Lcom/awbuilds/reproparcel/core/model/EvidenceStatus;ILjava/lang/Object;)Lcom/awbuilds/reproparcel/core/model/ProviderStatus;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getProviderId ()Ljava/lang/String;
+	public final fun getStatus ()Lcom/awbuilds/reproparcel/core/model/EvidenceStatus;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class com/awbuilds/reproparcel/core/model/ProviderStatus$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcom/awbuilds/reproparcel/core/model/ProviderStatus$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/awbuilds/reproparcel/core/model/ProviderStatus;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/awbuilds/reproparcel/core/model/ProviderStatus;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/awbuilds/reproparcel/core/model/ProviderStatus$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/awbuilds/reproparcel/core/model/Report {
+	public static final field Companion Lcom/awbuilds/reproparcel/core/model/Report$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun component6 ()Ljava/lang/String;
+	public final fun component7 ()Ljava/util/List;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)Lcom/awbuilds/reproparcel/core/model/Report;
+	public static synthetic fun copy$default (Lcom/awbuilds/reproparcel/core/model/Report;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;ILjava/lang/Object;)Lcom/awbuilds/reproparcel/core/model/Report;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActualBehavior ()Ljava/lang/String;
+	public final fun getDescription ()Ljava/lang/String;
+	public final fun getEvidence ()Ljava/util/List;
+	public final fun getExpectedBehavior ()Ljava/lang/String;
+	public final fun getReproSteps ()Ljava/lang/String;
+	public final fun getScreenId ()Ljava/lang/String;
+	public final fun getTitle ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class com/awbuilds/reproparcel/core/model/Report$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcom/awbuilds/reproparcel/core/model/Report$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/awbuilds/reproparcel/core/model/Report;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/awbuilds/reproparcel/core/model/Report;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/awbuilds/reproparcel/core/model/Report$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/awbuilds/reproparcel/core/model/ReportEvent {
+	public static final field Companion Lcom/awbuilds/reproparcel/core/model/ReportEvent$Companion;
+	public fun <init> (JJLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Ljava/lang/String;)V
+	public synthetic fun <init> (JJLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()J
+	public final fun component2 ()J
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun component6 ()Ljava/util/Map;
+	public final fun component7 ()Ljava/lang/String;
+	public final fun copy (JJLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Ljava/lang/String;)Lcom/awbuilds/reproparcel/core/model/ReportEvent;
+	public static synthetic fun copy$default (Lcom/awbuilds/reproparcel/core/model/ReportEvent;JJLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Ljava/lang/String;ILjava/lang/Object;)Lcom/awbuilds/reproparcel/core/model/ReportEvent;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActionId ()Ljava/lang/String;
+	public final fun getAttributes ()Ljava/util/Map;
+	public final fun getCategory ()Ljava/lang/String;
+	public final fun getOffsetMs ()J
+	public final fun getOutcome ()Ljava/lang/String;
+	public final fun getScreenId ()Ljava/lang/String;
+	public final fun getSequence ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class com/awbuilds/reproparcel/core/model/ReportEvent$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcom/awbuilds/reproparcel/core/model/ReportEvent$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/awbuilds/reproparcel/core/model/ReportEvent;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/awbuilds/reproparcel/core/model/ReportEvent;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/awbuilds/reproparcel/core/model/ReportEvent$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/awbuilds/reproparcel/core/model/SemanticNode {
+	public static final field Companion Lcom/awbuilds/reproparcel/core/model/SemanticNode$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/awbuilds/reproparcel/core/model/Bounds;Ljava/util/Map;Ljava/lang/String;Z)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/awbuilds/reproparcel/core/model/Bounds;Ljava/util/Map;Ljava/lang/String;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Lcom/awbuilds/reproparcel/core/model/Bounds;
+	public final fun component6 ()Ljava/util/Map;
+	public final fun component7 ()Ljava/lang/String;
+	public final fun component8 ()Z
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/awbuilds/reproparcel/core/model/Bounds;Ljava/util/Map;Ljava/lang/String;Z)Lcom/awbuilds/reproparcel/core/model/SemanticNode;
+	public static synthetic fun copy$default (Lcom/awbuilds/reproparcel/core/model/SemanticNode;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/awbuilds/reproparcel/core/model/Bounds;Ljava/util/Map;Ljava/lang/String;ZILjava/lang/Object;)Lcom/awbuilds/reproparcel/core/model/SemanticNode;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBounds ()Lcom/awbuilds/reproparcel/core/model/Bounds;
+	public final fun getLabel ()Ljava/lang/String;
+	public final fun getNodeId ()Ljava/lang/String;
+	public final fun getParentId ()Ljava/lang/String;
+	public final fun getRole ()Ljava/lang/String;
+	public final fun getSensitive ()Z
+	public final fun getState ()Ljava/util/Map;
+	public final fun getTestTag ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class com/awbuilds/reproparcel/core/model/SemanticNode$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcom/awbuilds/reproparcel/core/model/SemanticNode$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/awbuilds/reproparcel/core/model/SemanticNode;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/awbuilds/reproparcel/core/model/SemanticNode;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/awbuilds/reproparcel/core/model/SemanticNode$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/awbuilds/reproparcel/core/model/SemanticsSnapshot {
+	public static final field Companion Lcom/awbuilds/reproparcel/core/model/SemanticsSnapshot$Companion;
+	public fun <init> (Ljava/util/List;ZLcom/awbuilds/reproparcel/core/model/OmissionReason;)V
+	public synthetic fun <init> (Ljava/util/List;ZLcom/awbuilds/reproparcel/core/model/OmissionReason;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun component2 ()Z
+	public final fun component3 ()Lcom/awbuilds/reproparcel/core/model/OmissionReason;
+	public final fun copy (Ljava/util/List;ZLcom/awbuilds/reproparcel/core/model/OmissionReason;)Lcom/awbuilds/reproparcel/core/model/SemanticsSnapshot;
+	public static synthetic fun copy$default (Lcom/awbuilds/reproparcel/core/model/SemanticsSnapshot;Ljava/util/List;ZLcom/awbuilds/reproparcel/core/model/OmissionReason;ILjava/lang/Object;)Lcom/awbuilds/reproparcel/core/model/SemanticsSnapshot;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getNodes ()Ljava/util/List;
+	public final fun getOmission ()Lcom/awbuilds/reproparcel/core/model/OmissionReason;
+	public final fun getTruncated ()Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class com/awbuilds/reproparcel/core/model/SemanticsSnapshot$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcom/awbuilds/reproparcel/core/model/SemanticsSnapshot$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/awbuilds/reproparcel/core/model/SemanticsSnapshot;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/awbuilds/reproparcel/core/model/SemanticsSnapshot;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/awbuilds/reproparcel/core/model/SemanticsSnapshot$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/awbuilds/reproparcel/core/model/StructuredLogEvent {
+	public static final field Companion Lcom/awbuilds/reproparcel/core/model/StructuredLogEvent$Companion;
+	public fun <init> (JJLjava/lang/String;Ljava/lang/String;Ljava/util/Map;)V
+	public synthetic fun <init> (JJLjava/lang/String;Ljava/lang/String;Ljava/util/Map;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()J
+	public final fun component2 ()J
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Ljava/util/Map;
+	public final fun copy (JJLjava/lang/String;Ljava/lang/String;Ljava/util/Map;)Lcom/awbuilds/reproparcel/core/model/StructuredLogEvent;
+	public static synthetic fun copy$default (Lcom/awbuilds/reproparcel/core/model/StructuredLogEvent;JJLjava/lang/String;Ljava/lang/String;Ljava/util/Map;ILjava/lang/Object;)Lcom/awbuilds/reproparcel/core/model/StructuredLogEvent;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAttributes ()Ljava/util/Map;
+	public final fun getCode ()Ljava/lang/String;
+	public final fun getLevel ()Ljava/lang/String;
+	public final fun getOffsetMs ()J
+	public final fun getSequence ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class com/awbuilds/reproparcel/core/model/StructuredLogEvent$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcom/awbuilds/reproparcel/core/model/StructuredLogEvent$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/awbuilds/reproparcel/core/model/StructuredLogEvent;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/awbuilds/reproparcel/core/model/StructuredLogEvent;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/awbuilds/reproparcel/core/model/StructuredLogEvent$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/awbuilds/reproparcel/core/parcel/ManifestValidator {
+	public static final field INSTANCE Lcom/awbuilds/reproparcel/core/parcel/ManifestValidator;
+	public final fun entryFor (Ljava/lang/String;Ljava/lang/String;[B)Lcom/awbuilds/reproparcel/core/model/EntryInfo;
+	public final fun validate (Lcom/awbuilds/reproparcel/core/model/Manifest;)Lcom/awbuilds/reproparcel/core/parcel/ValidationResult;
+	public final fun validateSemantics (IIJ)Lcom/awbuilds/reproparcel/core/parcel/ValidationResult;
+}
+
+public final class com/awbuilds/reproparcel/core/parcel/ParcelPathPolicy {
+	public static final field INSTANCE Lcom/awbuilds/reproparcel/core/parcel/ParcelPathPolicy;
+	public final fun validate (Ljava/lang/String;)Lcom/awbuilds/reproparcel/core/parcel/ValidationIssue;
+}
+
+public final class com/awbuilds/reproparcel/core/parcel/Rfc3339 {
+	public static final field INSTANCE Lcom/awbuilds/reproparcel/core/parcel/Rfc3339;
+	public final fun isUtcInstant (Ljava/lang/String;)Z
+	public final fun parseToEpochMs (Ljava/lang/String;)Ljava/lang/Long;
+}
+
+public final class com/awbuilds/reproparcel/core/parcel/ValidationCode : java/lang/Enum {
+	public static final field ABSOLUTE_PATH Lcom/awbuilds/reproparcel/core/parcel/ValidationCode;
+	public static final field DUPLICATE_PATH Lcom/awbuilds/reproparcel/core/parcel/ValidationCode;
+	public static final field ENTRY_TOO_LARGE Lcom/awbuilds/reproparcel/core/parcel/ValidationCode;
+	public static final field INVALID_BOUNDS Lcom/awbuilds/reproparcel/core/parcel/ValidationCode;
+	public static final field INVALID_CHECKSUM Lcom/awbuilds/reproparcel/core/parcel/ValidationCode;
+	public static final field INVALID_EVIDENCE_STATE Lcom/awbuilds/reproparcel/core/parcel/ValidationCode;
+	public static final field INVALID_PATH Lcom/awbuilds/reproparcel/core/parcel/ValidationCode;
+	public static final field INVALID_TIMESTAMP Lcom/awbuilds/reproparcel/core/parcel/ValidationCode;
+	public static final field MISSING_FIELD Lcom/awbuilds/reproparcel/core/parcel/ValidationCode;
+	public static final field PATH_TRAVERSAL Lcom/awbuilds/reproparcel/core/parcel/ValidationCode;
+	public static final field SEMANTIC_DEPTH_EXCEEDED Lcom/awbuilds/reproparcel/core/parcel/ValidationCode;
+	public static final field TOO_MANY_ENTRIES Lcom/awbuilds/reproparcel/core/parcel/ValidationCode;
+	public static final field TOO_MANY_SEMANTIC_NODES Lcom/awbuilds/reproparcel/core/parcel/ValidationCode;
+	public static final field UNREFERENCED_ENTRY Lcom/awbuilds/reproparcel/core/parcel/ValidationCode;
+	public static final field UNSUPPORTED_MEDIA_TYPE Lcom/awbuilds/reproparcel/core/parcel/ValidationCode;
+	public static final field UNSUPPORTED_SCHEMA Lcom/awbuilds/reproparcel/core/parcel/ValidationCode;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/awbuilds/reproparcel/core/parcel/ValidationCode;
+	public static fun values ()[Lcom/awbuilds/reproparcel/core/parcel/ValidationCode;
+}
+
+public final class com/awbuilds/reproparcel/core/parcel/ValidationIssue {
+	public fun <init> (Lcom/awbuilds/reproparcel/core/parcel/ValidationCode;Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Lcom/awbuilds/reproparcel/core/parcel/ValidationCode;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lcom/awbuilds/reproparcel/core/parcel/ValidationCode;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun copy (Lcom/awbuilds/reproparcel/core/parcel/ValidationCode;Ljava/lang/String;Ljava/lang/String;)Lcom/awbuilds/reproparcel/core/parcel/ValidationIssue;
+	public static synthetic fun copy$default (Lcom/awbuilds/reproparcel/core/parcel/ValidationIssue;Lcom/awbuilds/reproparcel/core/parcel/ValidationCode;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/awbuilds/reproparcel/core/parcel/ValidationIssue;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCode ()Lcom/awbuilds/reproparcel/core/parcel/ValidationCode;
+	public final fun getPath ()Ljava/lang/String;
+	public final fun getSafeDetail ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/awbuilds/reproparcel/core/parcel/ValidationResult {
+}
+
+public final class com/awbuilds/reproparcel/core/parcel/ValidationResult$Invalid : com/awbuilds/reproparcel/core/parcel/ValidationResult {
+	public fun <init> (Ljava/util/List;)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun copy (Ljava/util/List;)Lcom/awbuilds/reproparcel/core/parcel/ValidationResult$Invalid;
+	public static synthetic fun copy$default (Lcom/awbuilds/reproparcel/core/parcel/ValidationResult$Invalid;Ljava/util/List;ILjava/lang/Object;)Lcom/awbuilds/reproparcel/core/parcel/ValidationResult$Invalid;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getIssues ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/awbuilds/reproparcel/core/parcel/ValidationResult$Valid : com/awbuilds/reproparcel/core/parcel/ValidationResult {
+	public static final field INSTANCE Lcom/awbuilds/reproparcel/core/parcel/ValidationResult$Valid;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/awbuilds/reproparcel/core/privacy/Redactor {
+	public static final field INSTANCE Lcom/awbuilds/reproparcel/core/privacy/Redactor;
+	public final fun safeDiagnosticClass (Ljava/lang/String;)Ljava/lang/String;
+	public final fun sanitize (Lcom/awbuilds/reproparcel/core/privacy/SafeAttribute;Ljava/lang/String;)Ljava/lang/String;
+	public final fun sanitizeAttributes (Ljava/util/Map;)Ljava/util/Map;
+}
+
+public final class com/awbuilds/reproparcel/core/privacy/SafeAttribute : java/lang/Enum {
+	public static final field ACTION_ID Lcom/awbuilds/reproparcel/core/privacy/SafeAttribute;
+	public static final field API_LEVEL Lcom/awbuilds/reproparcel/core/privacy/SafeAttribute;
+	public static final field APP_VERSION Lcom/awbuilds/reproparcel/core/privacy/SafeAttribute;
+	public static final field CATEGORY Lcom/awbuilds/reproparcel/core/privacy/SafeAttribute;
+	public static final field COMPONENT Lcom/awbuilds/reproparcel/core/privacy/SafeAttribute;
+	public static final field Companion Lcom/awbuilds/reproparcel/core/privacy/SafeAttribute$Companion;
+	public static final field DENSITY Lcom/awbuilds/reproparcel/core/privacy/SafeAttribute;
+	public static final field DURATION_MS Lcom/awbuilds/reproparcel/core/privacy/SafeAttribute;
+	public static final field ERROR_CODE Lcom/awbuilds/reproparcel/core/privacy/SafeAttribute;
+	public static final field FONT_SCALE Lcom/awbuilds/reproparcel/core/privacy/SafeAttribute;
+	public static final field GIT_COMMIT Lcom/awbuilds/reproparcel/core/privacy/SafeAttribute;
+	public static final field HTTP_METHOD Lcom/awbuilds/reproparcel/core/privacy/SafeAttribute;
+	public static final field MANUFACTURER Lcom/awbuilds/reproparcel/core/privacy/SafeAttribute;
+	public static final field MODEL Lcom/awbuilds/reproparcel/core/privacy/SafeAttribute;
+	public static final field ORIENTATION Lcom/awbuilds/reproparcel/core/privacy/SafeAttribute;
+	public static final field RESULT Lcom/awbuilds/reproparcel/core/privacy/SafeAttribute;
+	public static final field ROUTE_TEMPLATE Lcom/awbuilds/reproparcel/core/privacy/SafeAttribute;
+	public static final field SCREEN_ID Lcom/awbuilds/reproparcel/core/privacy/SafeAttribute;
+	public static final field STATUS_CODE Lcom/awbuilds/reproparcel/core/privacy/SafeAttribute;
+	public static final field VARIANT Lcom/awbuilds/reproparcel/core/privacy/SafeAttribute;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getWireName ()Ljava/lang/String;
+	public static fun valueOf (Ljava/lang/String;)Lcom/awbuilds/reproparcel/core/privacy/SafeAttribute;
+	public static fun values ()[Lcom/awbuilds/reproparcel/core/privacy/SafeAttribute;
+}
+
+public final class com/awbuilds/reproparcel/core/privacy/SafeAttribute$Companion {
+	public final fun fromWireName (Ljava/lang/String;)Lcom/awbuilds/reproparcel/core/privacy/SafeAttribute;
+}
+
+public final class com/awbuilds/reproparcel/core/result/Diagnostic {
+	public fun <init> (Lcom/awbuilds/reproparcel/core/result/ErrorCode;Ljava/lang/String;)V
+	public synthetic fun <init> (Lcom/awbuilds/reproparcel/core/result/ErrorCode;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lcom/awbuilds/reproparcel/core/result/ErrorCode;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Lcom/awbuilds/reproparcel/core/result/ErrorCode;Ljava/lang/String;)Lcom/awbuilds/reproparcel/core/result/Diagnostic;
+	public static synthetic fun copy$default (Lcom/awbuilds/reproparcel/core/result/Diagnostic;Lcom/awbuilds/reproparcel/core/result/ErrorCode;Ljava/lang/String;ILjava/lang/Object;)Lcom/awbuilds/reproparcel/core/result/Diagnostic;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCode ()Lcom/awbuilds/reproparcel/core/result/ErrorCode;
+	public final fun getSafeDetail ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/awbuilds/reproparcel/core/result/ErrorCode : java/lang/Enum {
+	public static final field ALREADY_INITIALIZED Lcom/awbuilds/reproparcel/core/result/ErrorCode;
+	public static final field CONFIG_MISMATCH Lcom/awbuilds/reproparcel/core/result/ErrorCode;
+	public static final field DISABLED Lcom/awbuilds/reproparcel/core/result/ErrorCode;
+	public static final field DUPLICATE_EXPORT Lcom/awbuilds/reproparcel/core/result/ErrorCode;
+	public static final field ENCRYPTION_UNAVAILABLE Lcom/awbuilds/reproparcel/core/result/ErrorCode;
+	public static final field EXPORT_FAILED Lcom/awbuilds/reproparcel/core/result/ErrorCode;
+	public static final field HOST_UNAVAILABLE Lcom/awbuilds/reproparcel/core/result/ErrorCode;
+	public static final field INTERNAL_SAFE_FAILURE Lcom/awbuilds/reproparcel/core/result/ErrorCode;
+	public static final field INVALID_CONFIG Lcom/awbuilds/reproparcel/core/result/ErrorCode;
+	public static final field INVALID_TRANSITION Lcom/awbuilds/reproparcel/core/result/ErrorCode;
+	public static final field LIMIT_EXCEEDED Lcom/awbuilds/reproparcel/core/result/ErrorCode;
+	public static final field NOT_INITIALIZED Lcom/awbuilds/reproparcel/core/result/ErrorCode;
+	public static final field PROVIDER_FAILED Lcom/awbuilds/reproparcel/core/result/ErrorCode;
+	public static final field PROVIDER_TIMEOUT Lcom/awbuilds/reproparcel/core/result/ErrorCode;
+	public static final field SERIALIZATION_FAILED Lcom/awbuilds/reproparcel/core/result/ErrorCode;
+	public static final field STORAGE_FAILED Lcom/awbuilds/reproparcel/core/result/ErrorCode;
+	public static final field UNSUPPORTED Lcom/awbuilds/reproparcel/core/result/ErrorCode;
+	public static final field VALIDATION_FAILED Lcom/awbuilds/reproparcel/core/result/ErrorCode;
+	public static final field WRONG_THREAD Lcom/awbuilds/reproparcel/core/result/ErrorCode;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/awbuilds/reproparcel/core/result/ErrorCode;
+	public static fun values ()[Lcom/awbuilds/reproparcel/core/result/ErrorCode;
+}
+
+public abstract interface class com/awbuilds/reproparcel/core/result/SdkResult {
+}
+
+public final class com/awbuilds/reproparcel/core/result/SdkResult$Cancelled : com/awbuilds/reproparcel/core/result/SdkResult {
+	public static final field INSTANCE Lcom/awbuilds/reproparcel/core/result/SdkResult$Cancelled;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/awbuilds/reproparcel/core/result/SdkResult$Disabled : com/awbuilds/reproparcel/core/result/SdkResult {
+	public static final field INSTANCE Lcom/awbuilds/reproparcel/core/result/SdkResult$Disabled;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/awbuilds/reproparcel/core/result/SdkResult$Failure : com/awbuilds/reproparcel/core/result/SdkResult {
+	public fun <init> (Lcom/awbuilds/reproparcel/core/result/ErrorCode;)V
+	public final fun component1 ()Lcom/awbuilds/reproparcel/core/result/ErrorCode;
+	public final fun copy (Lcom/awbuilds/reproparcel/core/result/ErrorCode;)Lcom/awbuilds/reproparcel/core/result/SdkResult$Failure;
+	public static synthetic fun copy$default (Lcom/awbuilds/reproparcel/core/result/SdkResult$Failure;Lcom/awbuilds/reproparcel/core/result/ErrorCode;ILjava/lang/Object;)Lcom/awbuilds/reproparcel/core/result/SdkResult$Failure;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCode ()Lcom/awbuilds/reproparcel/core/result/ErrorCode;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/awbuilds/reproparcel/core/result/SdkResult$HostUnavailable : com/awbuilds/reproparcel/core/result/SdkResult {
+	public static final field INSTANCE Lcom/awbuilds/reproparcel/core/result/SdkResult$HostUnavailable;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/awbuilds/reproparcel/core/result/SdkResult$NotInitialized : com/awbuilds/reproparcel/core/result/SdkResult {
+	public static final field INSTANCE Lcom/awbuilds/reproparcel/core/result/SdkResult$NotInitialized;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/awbuilds/reproparcel/core/result/SdkResult$Omission : com/awbuilds/reproparcel/core/result/SdkResult {
+	public fun <init> (Lcom/awbuilds/reproparcel/core/model/OmissionReason;)V
+	public final fun component1 ()Lcom/awbuilds/reproparcel/core/model/OmissionReason;
+	public final fun copy (Lcom/awbuilds/reproparcel/core/model/OmissionReason;)Lcom/awbuilds/reproparcel/core/result/SdkResult$Omission;
+	public static synthetic fun copy$default (Lcom/awbuilds/reproparcel/core/result/SdkResult$Omission;Lcom/awbuilds/reproparcel/core/model/OmissionReason;ILjava/lang/Object;)Lcom/awbuilds/reproparcel/core/result/SdkResult$Omission;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getReason ()Lcom/awbuilds/reproparcel/core/model/OmissionReason;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/awbuilds/reproparcel/core/result/SdkResult$Success : com/awbuilds/reproparcel/core/result/SdkResult {
+	public static final field INSTANCE Lcom/awbuilds/reproparcel/core/result/SdkResult$Success;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/awbuilds/reproparcel/core/result/SdkResult$Unsupported : com/awbuilds/reproparcel/core/result/SdkResult {
+	public static final field INSTANCE Lcom/awbuilds/reproparcel/core/result/SdkResult$Unsupported;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/awbuilds/reproparcel/core/serialization/JsonBudget {
+	public static final field INSTANCE Lcom/awbuilds/reproparcel/core/serialization/JsonBudget;
+	public final fun inspect (Ljava/lang/String;)Lcom/awbuilds/reproparcel/core/serialization/JsonBudgetResult;
+}
+
+public final class com/awbuilds/reproparcel/core/serialization/JsonBudgetResult {
+	public fun <init> (JIIZ)V
+	public final fun component1 ()J
+	public final fun component2 ()I
+	public final fun component3 ()I
+	public final fun component4 ()Z
+	public final fun copy (JIIZ)Lcom/awbuilds/reproparcel/core/serialization/JsonBudgetResult;
+	public static synthetic fun copy$default (Lcom/awbuilds/reproparcel/core/serialization/JsonBudgetResult;JIIZILjava/lang/Object;)Lcom/awbuilds/reproparcel/core/serialization/JsonBudgetResult;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBytes ()J
+	public final fun getDepth ()I
+	public final fun getNodes ()I
+	public final fun getWithinBudget ()Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/awbuilds/reproparcel/core/serialization/ReproParcelJson {
+	public static final field INSTANCE Lcom/awbuilds/reproparcel/core/serialization/ReproParcelJson;
+	public final fun decodeEvents (Ljava/lang/String;)Ljava/util/List;
+	public final fun decodeManifest (Ljava/lang/String;)Lcom/awbuilds/reproparcel/core/model/Manifest;
+	public final fun decodeReport (Ljava/lang/String;)Lcom/awbuilds/reproparcel/core/model/Report;
+	public final fun decodeSemantics (Ljava/lang/String;)Lcom/awbuilds/reproparcel/core/model/SemanticsSnapshot;
+	public final fun encodeEvents (Ljava/util/List;)Lcom/awbuilds/reproparcel/core/result/SdkResult;
+	public final fun encodeManifest (Lcom/awbuilds/reproparcel/core/model/Manifest;)Lcom/awbuilds/reproparcel/core/result/SdkResult;
+	public final fun encodeReport (Lcom/awbuilds/reproparcel/core/model/Report;)Lcom/awbuilds/reproparcel/core/result/SdkResult;
+	public final fun encodeSemantics (Lcom/awbuilds/reproparcel/core/model/SemanticsSnapshot;)Lcom/awbuilds/reproparcel/core/result/SdkResult;
+	public final fun getJson ()Lkotlinx/serialization/json/Json;
+}
+
+public abstract interface class com/awbuilds/reproparcel/core/state/SessionEvent {
+}
+
+public final class com/awbuilds/reproparcel/core/state/SessionEvent$CancelCapture : com/awbuilds/reproparcel/core/state/SessionEvent {
+	public static final field INSTANCE Lcom/awbuilds/reproparcel/core/state/SessionEvent$CancelCapture;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/awbuilds/reproparcel/core/state/SessionEvent$CaptureOmitted : com/awbuilds/reproparcel/core/state/SessionEvent {
+	public static final field INSTANCE Lcom/awbuilds/reproparcel/core/state/SessionEvent$CaptureOmitted;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/awbuilds/reproparcel/core/state/SessionEvent$CaptureSucceeded : com/awbuilds/reproparcel/core/state/SessionEvent {
+	public static final field INSTANCE Lcom/awbuilds/reproparcel/core/state/SessionEvent$CaptureSucceeded;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/awbuilds/reproparcel/core/state/SessionEvent$Disable : com/awbuilds/reproparcel/core/state/SessionEvent {
+	public static final field INSTANCE Lcom/awbuilds/reproparcel/core/state/SessionEvent$Disable;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/awbuilds/reproparcel/core/state/SessionEvent$Edit : com/awbuilds/reproparcel/core/state/SessionEvent {
+	public static final field INSTANCE Lcom/awbuilds/reproparcel/core/state/SessionEvent$Edit;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/awbuilds/reproparcel/core/state/SessionEvent$Enable : com/awbuilds/reproparcel/core/state/SessionEvent {
+	public static final field INSTANCE Lcom/awbuilds/reproparcel/core/state/SessionEvent$Enable;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/awbuilds/reproparcel/core/state/SessionEvent$ExportFailed : com/awbuilds/reproparcel/core/state/SessionEvent {
+	public static final field INSTANCE Lcom/awbuilds/reproparcel/core/state/SessionEvent$ExportFailed;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/awbuilds/reproparcel/core/state/SessionEvent$Finalize : com/awbuilds/reproparcel/core/state/SessionEvent {
+	public static final field INSTANCE Lcom/awbuilds/reproparcel/core/state/SessionEvent$Finalize;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/awbuilds/reproparcel/core/state/SessionEvent$FinalizeFailed : com/awbuilds/reproparcel/core/state/SessionEvent {
+	public static final field INSTANCE Lcom/awbuilds/reproparcel/core/state/SessionEvent$FinalizeFailed;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/awbuilds/reproparcel/core/state/SessionEvent$FinalizeSucceeded : com/awbuilds/reproparcel/core/state/SessionEvent {
+	public static final field INSTANCE Lcom/awbuilds/reproparcel/core/state/SessionEvent$FinalizeSucceeded;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/awbuilds/reproparcel/core/state/SessionEvent$HostDestroyed : com/awbuilds/reproparcel/core/state/SessionEvent {
+	public static final field INSTANCE Lcom/awbuilds/reproparcel/core/state/SessionEvent$HostDestroyed;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/awbuilds/reproparcel/core/state/SessionEvent$Reset : com/awbuilds/reproparcel/core/state/SessionEvent {
+	public static final field INSTANCE Lcom/awbuilds/reproparcel/core/state/SessionEvent$Reset;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/awbuilds/reproparcel/core/state/SessionEvent$Review : com/awbuilds/reproparcel/core/state/SessionEvent {
+	public static final field INSTANCE Lcom/awbuilds/reproparcel/core/state/SessionEvent$Review;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/awbuilds/reproparcel/core/state/SessionEvent$SaveCancelled : com/awbuilds/reproparcel/core/state/SessionEvent {
+	public static final field INSTANCE Lcom/awbuilds/reproparcel/core/state/SessionEvent$SaveCancelled;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/awbuilds/reproparcel/core/state/SessionEvent$SaveSucceeded : com/awbuilds/reproparcel/core/state/SessionEvent {
+	public static final field INSTANCE Lcom/awbuilds/reproparcel/core/state/SessionEvent$SaveSucceeded;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/awbuilds/reproparcel/core/state/SessionEvent$ShareLaunched : com/awbuilds/reproparcel/core/state/SessionEvent {
+	public static final field INSTANCE Lcom/awbuilds/reproparcel/core/state/SessionEvent$ShareLaunched;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/awbuilds/reproparcel/core/state/SessionEvent$StartCapture : com/awbuilds/reproparcel/core/state/SessionEvent {
+	public static final field INSTANCE Lcom/awbuilds/reproparcel/core/state/SessionEvent$StartCapture;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/awbuilds/reproparcel/core/state/SessionState : java/lang/Enum {
+	public static final field CANCELLED Lcom/awbuilds/reproparcel/core/state/SessionState;
+	public static final field CAPTURING Lcom/awbuilds/reproparcel/core/state/SessionState;
+	public static final field COMPLETED Lcom/awbuilds/reproparcel/core/state/SessionState;
+	public static final field DISABLED Lcom/awbuilds/reproparcel/core/state/SessionState;
+	public static final field EDITING Lcom/awbuilds/reproparcel/core/state/SessionState;
+	public static final field EXPORTABLE Lcom/awbuilds/reproparcel/core/state/SessionState;
+	public static final field EXPORT_FAILED Lcom/awbuilds/reproparcel/core/state/SessionState;
+	public static final field FINALIZING Lcom/awbuilds/reproparcel/core/state/SessionState;
+	public static final field READY Lcom/awbuilds/reproparcel/core/state/SessionState;
+	public static final field REVIEWING Lcom/awbuilds/reproparcel/core/state/SessionState;
+	public static final field SHARE_LAUNCHED Lcom/awbuilds/reproparcel/core/state/SessionState;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/awbuilds/reproparcel/core/state/SessionState;
+	public static fun values ()[Lcom/awbuilds/reproparcel/core/state/SessionState;
+}
+
+public final class com/awbuilds/reproparcel/core/state/SessionStateMachine {
+	public fun <init> ()V
+	public fun <init> (Lcom/awbuilds/reproparcel/core/state/SessionState;)V
+	public synthetic fun <init> (Lcom/awbuilds/reproparcel/core/state/SessionState;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getState ()Lcom/awbuilds/reproparcel/core/state/SessionState;
+	public final fun transition (Lcom/awbuilds/reproparcel/core/state/SessionEvent;)Lcom/awbuilds/reproparcel/core/state/Transition;
+}
+
+public final class com/awbuilds/reproparcel/core/state/Transition {
+	public fun <init> (Lcom/awbuilds/reproparcel/core/state/SessionState;Lcom/awbuilds/reproparcel/core/state/SessionState;Lcom/awbuilds/reproparcel/core/result/SdkResult;)V
+	public final fun component1 ()Lcom/awbuilds/reproparcel/core/state/SessionState;
+	public final fun component2 ()Lcom/awbuilds/reproparcel/core/state/SessionState;
+	public final fun component3 ()Lcom/awbuilds/reproparcel/core/result/SdkResult;
+	public final fun copy (Lcom/awbuilds/reproparcel/core/state/SessionState;Lcom/awbuilds/reproparcel/core/state/SessionState;Lcom/awbuilds/reproparcel/core/result/SdkResult;)Lcom/awbuilds/reproparcel/core/state/Transition;
+	public static synthetic fun copy$default (Lcom/awbuilds/reproparcel/core/state/Transition;Lcom/awbuilds/reproparcel/core/state/SessionState;Lcom/awbuilds/reproparcel/core/state/SessionState;Lcom/awbuilds/reproparcel/core/result/SdkResult;ILjava/lang/Object;)Lcom/awbuilds/reproparcel/core/state/Transition;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getFrom ()Lcom/awbuilds/reproparcel/core/state/SessionState;
+	public final fun getResult ()Lcom/awbuilds/reproparcel/core/result/SdkResult;
+	public final fun getTo ()Lcom/awbuilds/reproparcel/core/state/SessionState;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/awbuilds/reproparcel/core/time/Clock {
+	public abstract fun nowMs ()J
+}
+
+public final class com/awbuilds/reproparcel/core/time/SystemClock : com/awbuilds/reproparcel/core/time/Clock {
+	public static final field INSTANCE Lcom/awbuilds/reproparcel/core/time/SystemClock;
+	public fun nowMs ()J
+}

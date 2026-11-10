@@ -4,12 +4,12 @@ Updated: 2026-11-11.
 
 ## Current stage
 
-**Phase 0 local feasibility gate passed for implementation; Phase 1 next.**
-Phase 0 is **not externally complete**: adopter interviews, minimum-API minified
-Compose evidence, full semantics coverage and physical-device performance remain
-blocked or in progress. The repository has a sanitized public baseline, a
-working Gradle/Android foundation, a disposable capture feasibility spike and a
-line-level PRD audit.
+**Phase 1 core gate passed locally; Phase 2 next.**
+The module graph, schema v1, explicit runtime, redaction, bounded evidence and
+CI gates are implemented and tested. Phase 1 is a foundation gate, not Android
+v1: the reporter UI, capture pipeline, encrypted drafts and export are Phase 2;
+the desktop tools are Phase 4. Phase 0 external adopter validation and physical
+device evidence remain blocked.
 
 No release, tag, publication, deployment, `main` branch or private-adopter
 integration exists.
@@ -20,22 +20,25 @@ integration exists.
   local-first reviewed evidence parcels; read-only local agent consumption.
 - [AGENTS.md](../AGENTS.md) — engineering contract, public-repository hygiene,
   exception boundaries, standards and handoff protocol.
-- [Latest handoff](handoffs/0002-2026-11-11-phase-0-feasibility.md).
-- [Traceability ledger](traceability/prd-lines.jsonl) and
-  [Phase 0 audit](audits/phase-0-audit.md).
+- [Latest handoff](handoffs/0003-2026-11-11-phase-1-core.md).
+- [Traceability ledger](traceability/prd-lines.jsonl), [Phase 0 audit](audits/phase-0-audit.md)
+  and [Phase 1 audit](audits/phase-1-audit.md).
 
 ## Completed locally
 
 - Public-repository sanitation and hard hygiene rule.
 - Gradle wrapper 9.7.1, AGP 9.5.1, Kotlin 2.4.21, Compose BOM 2026.09.00,
   minSdk 26, compile/target 37.
-- Disposable `spike/capture-lab` with PixelCopy, opaque masking, protected-window
-  omission, rotation and semantics observation.
-- ADRs 0001–0006, threat-model draft, toolchain baseline, adoption kit,
-  naming/namespace log, competitive summary and go/no-go decision.
-- Debug instrumentation: 10 tests, 0 failures on API 26, 30 and 37 emulators.
-- Release-minified API 26 and API 37 smoke: capture, mask and secure-window
-  omission passed.
+- Phase 0 disposable capture spike with PixelCopy, opaque masking,
+  protected-window omission, rotation and semantics observation.
+- Phase 1 modules: core, android, compose, okhttp, sample app.
+- Core schema v1, JSON budgets, limits, redaction, state machine, typed outcomes,
+  parcel validation and synthetic fixtures.
+- Explicit runtime: idempotent init, default-off collection, enable/disable,
+  supervised scope, bounded breadcrumbs/logs and provider isolation.
+- CI: hygiene, dependency allowlist, compile, JVM tests, API check, lint and
+  sample debug/release builds.
+- ADRs 0001–0009, threat-model draft, Phase 0/1 go/no-go records and evidence.
 
 ## Key decisions
 
@@ -50,18 +53,20 @@ integration exists.
 
 ## Verification status
 
-Markdown/schema audits, builds and emulator instrumentation are recorded in the
-latest handoff and traceability ledger. Phase 0 external interviews, physical
-device tests, legal/trademark review, Sonatype verification, Maven publication,
-independent security review, pilot and external integrations remain unverified
-or blocked. Emulator success is not release evidence.
+Phase 1: 37 core JVM tests, 11 Android runtime tests on API 26/30/37, 2 sample
+UI tests on API 26/30/37 and `scripts/ci.sh` pass. Phase 0: 10 capture tests on
+API 26/30/37 plus minified API 26/37 smoke. Exact commands and evidence are in
+`docs/evidence/` and the latest handoff. External interviews, physical-device
+tests, legal/trademark review, Sonatype verification, Maven publication,
+independent security review, pilot and external integrations remain blocked.
+Emulator success is not release evidence.
 
 ## Next exact action
 
-Begin Phase 1: create the real module graph, schema v1, explicit runtime,
-bounded policy/redaction and CI gates. Write failing tests first for invalid
-configuration, disabled/no-default collection, limits, redaction, cancellation
-and schema fixtures.
+Begin Phase 2: write failing tests for the reporter flow, secure/denied capture,
+opaque mask races, encrypted draft key failure, process death, SAF cancellation
+and duplicate-export prevention. Implement `docs/security/phase-2-capture-contract.md`
+before enabling image collection.
 
 ## Safety boundaries
 

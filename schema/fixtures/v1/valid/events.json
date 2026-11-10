@@ -1,0 +1,25 @@
+[
+  {
+    "sequence": 0,
+    "offsetMs": 0,
+    "category": "navigation",
+    "actionId": "open_checkout",
+    "screenId": "checkout_review",
+    "attributes": {
+      "screen_id": "checkout_review",
+      "route_template": "/checkout/{id}"
+    },
+    "outcome": "completed"
+  },
+  {
+    "sequence": 1,
+    "offsetMs": 250,
+    "category": "tap",
+    "actionId": "save",
+    "screenId": "checkout_review",
+    "attributes": {
+      "result": "no_effect"
+    },
+    "outcome": "unknown"
+  }
+]

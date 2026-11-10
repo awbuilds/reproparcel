@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://reproparcel.dev/schema/v1/events.schema.json",
+  "title": "ReproParcel events v1",
+  "type": "array",
+  "maxItems": 50,
+  "items": {
+    "type": "object",
+    "additionalProperties": true,
+    "required": ["sequence", "offsetMs", "category"],
+    "properties": {
+      "sequence": { "type": "integer", "minimum": 0 },
+      "offsetMs": { "type": "integer", "minimum": 0 },
+      "category": { "type": "string", "minLength": 1, "maxLength": 64 },
+      "actionId": { "type": ["string", "null"], "maxLength": 128 },
+      "screenId": { "type": ["string", "null"], "maxLength": 128 },
+      "attributes": {
+        "type": "object",
+        "maxProperties": 32,
+        "additionalProperties": { "type": "string", "maxLength": 256 }
+      },
+      "outcome": { "type": ["string", "null"], "maxLength": 64 }
+    }
+  }
+}

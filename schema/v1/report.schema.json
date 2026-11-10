@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://reproparcel.dev/schema/v1/report.schema.json",
+  "title": "ReproParcel report v1",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["description"],
+  "properties": {
+    "title": { "type": "string", "maxLength": 200, "default": "" },
+    "description": { "type": "string", "minLength": 1, "maxLength": 20000 },
+    "expectedBehavior": { "type": "string", "maxLength": 20000, "default": "" },
+    "actualBehavior": { "type": "string", "maxLength": 20000, "default": "" },
+    "reproSteps": { "type": ["string", "null"], "maxLength": 20000 },
+    "screenId": { "type": ["string", "null"], "maxLength": 128 },
+    "evidence": { "type": "array", "maxItems": 32, "items": { "type": "object" } }
+  }
+}

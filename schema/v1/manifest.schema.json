@@ -1,0 +1,167 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://reproparcel.dev/schema/v1/manifest.schema.json",
+  "title": "ReproParcel manifest v1",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "schemaVersion",
+    "reportId",
+    "createdAt",
+    "producer",
+    "app",
+    "device",
+    "privacy",
+    "capture",
+    "entries",
+    "limits"
+  ],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "reportId": { "type": "string", "minLength": 1, "maxLength": 128 },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "producer": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["sdkVersion", "platform", "collectionConfigurationId"],
+      "properties": {
+        "sdkVersion": { "type": "string", "minLength": 1, "maxLength": 64 },
+        "platform": { "type": "string", "minLength": 1, "maxLength": 32 },
+        "collectionConfigurationId": { "type": "string", "minLength": 1, "maxLength": 64 }
+      }
+    },
+    "app": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["packageName", "versionName", "versionCode", "variant"],
+      "properties": {
+        "packageName": { "type": "string", "pattern": "^[a-z][a-z0-9_]*(\\.[a-z][a-z0-9_]*)+$" },
+        "versionName": { "type": "string", "minLength": 1, "maxLength": 64 },
+        "versionCode": { "type": "integer", "minimum": 1 },
+        "variant": { "type": "string", "minLength": 1, "maxLength": 32 },
+        "gitCommit": { "type": ["string", "null"], "pattern": "^[0-9a-f]{7,64}$" }
+      }
+    },
+    "device": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "apiLevel",
+        "manufacturer",
+        "model",
+        "windowWidthPx",
+        "windowHeightPx",
+        "densityDpi",
+        "locale",
+        "fontScale",
+        "orientation"
+      ],
+      "properties": {
+        "apiLevel": { "type": "integer", "minimum": 1, "maximum": 1000 },
+        "manufacturer": { "type": "string", "maxLength": 80 },
+        "model": { "type": "string", "maxLength": 80 },
+        "windowWidthPx": { "type": "integer", "minimum": 1 },
+        "windowHeightPx": { "type": "integer", "minimum": 1 },
+        "densityDpi": { "type": "integer", "minimum": 1 },
+        "locale": { "type": "string", "maxLength": 32 },
+        "fontScale": { "type": "number", "minimum": 0.5, "maximum": 4.0 },
+        "orientation": { "enum": ["portrait", "landscape", "unknown"] }
+      }
+    },
+    "privacy": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["policyVersion", "redactionMode"],
+      "properties": {
+        "policyVersion": { "type": "string", "minLength": 1, "maxLength": 64 },
+        "redactionMode": { "type": "string", "minLength": 1, "maxLength": 64 },
+        "reviewedCategories": {
+          "type": "array",
+          "maxItems": 32,
+          "items": { "type": "string", "maxLength": 64 }
+        },
+        "previewContentHash": { "type": ["string", "null"], "maxLength": 128 }
+      }
+    },
+    "capture": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["capturedAt", "collectionModes", "providers"],
+      "properties": {
+        "capturedAt": { "type": "string", "format": "date-time" },
+        "collectionModes": {
+          "type": "array",
+          "maxItems": 16,
+          "items": { "type": "string", "maxLength": 64 }
+        },
+        "triggerOffsetMs": { "type": ["integer", "null"], "minimum": 0 },
+        "snapshotCutoffMs": { "type": ["integer", "null"], "minimum": 0 },
+        "providers": {
+          "type": "array",
+          "maxItems": 32,
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "required": ["providerId", "status"],
+            "properties": {
+              "providerId": { "type": "string", "maxLength": 64 },
+              "status": {
+                "type": "object",
+                "additionalProperties": true,
+                "required": ["state"],
+                "properties": {
+                  "state": { "enum": ["collected", "omitted", "truncated", "unsupported"] },
+                  "reason": { "type": ["string", "null"], "maxLength": 64 },
+                  "detail": { "type": ["string", "null"], "maxLength": 256 }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "entries": {
+      "type": "array",
+      "maxItems": 16,
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["path", "mediaType", "uncompressedSize", "sha256"],
+        "properties": {
+          "path": { "type": "string", "maxLength": 128 },
+          "mediaType": { "enum": ["application/json", "image/png"] },
+          "uncompressedSize": { "type": "integer", "minimum": 0, "maximum": 10485760 },
+          "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+        }
+      }
+    },
+    "limits": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "maxCompressedBytes",
+        "maxUncompressedBytes",
+        "maxEntries",
+        "maxCompressionRatio",
+        "maxImageLongEdgePx",
+        "maxDecodedImageBytes",
+        "maxConcurrentDecodedImageBytes",
+        "maxJsonBytes",
+        "maxJsonDepth",
+        "maxJsonNodes"
+      ],
+      "properties": {
+        "maxCompressedBytes": { "type": "integer", "minimum": 1 },
+        "maxUncompressedBytes": { "type": "integer", "minimum": 1 },
+        "maxEntries": { "type": "integer", "minimum": 1 },
+        "maxCompressionRatio": { "type": "integer", "minimum": 1 },
+        "maxImageLongEdgePx": { "type": "integer", "minimum": 1 },
+        "maxDecodedImageBytes": { "type": "integer", "minimum": 1 },
+        "maxConcurrentDecodedImageBytes": { "type": "integer", "minimum": 1 },
+        "maxJsonBytes": { "type": "integer", "minimum": 1 },
+        "maxJsonDepth": { "type": "integer", "minimum": 1 },
+        "maxJsonNodes": { "type": "integer", "minimum": 1 }
+      }
+    }
+  }
+}
