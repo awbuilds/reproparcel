@@ -1,0 +1,23 @@
+ReproParcel — third-party notices
+================================
+
+First-party code and documentation in this repository are licensed under
+AGPL-3.0-only. See LICENSE for the binding text.
+
+The project currently uses the following categories of dependencies. Exact
+versions are pinned in gradle/libs.versions.toml. A complete generated notice
+file must be produced before any release.
+
+- AndroidX / Jetpack Compose libraries — Apache License 2.0
+- Kotlin and the Kotlin Gradle plugin — Apache License 2.0
+- Gradle wrapper — Apache License 2.0
+- JUnit 4 — Eclipse Public License 1.0
+- AndroidX Test / Espresso — Apache License 2.0
+
+Optional desktop and MCP dependencies will be reviewed and added to the
+generated notice file before Phase 4 packaging. Do not add a dependency with an
+incompatible, noncommercial or unknown license.
+
+This file is a summary, not a replacement for the complete license texts of the
+dependencies. Preserve all required copyright and attribution notices when
+distributing artifacts.

@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<testsuites tests="10" failures="0" errors="0" skipped="0" time="0.000" timestamp="2026-11-10T21:08:08" hostname="localhost">
+  <testsuite name="com.awbuilds.reproparcel.spike.capturelab.CaptureLabTest" tests="8" failures="0" errors="0" skipped="0" time="4.986" timestamp="2026-11-10T21:08:08" hostname="localhost">
+    <properties>
+      <property name="device" value="emulator-5558" />
+    </properties>
+    <testcase name="appLevelSemanticsTraversalIsLimited" classname="com.awbuilds.reproparcel.spike.capturelab.CaptureLabTest" time="0.646" />
+    <testcase name="captureAfterRotationUsesLandscapeWindow" classname="com.awbuilds.reproparcel.spike.capturelab.CaptureLabTest" time="2.442" />
+    <testcase name="captureWindowReturnsBitmap" classname="com.awbuilds.reproparcel.spike.capturelab.CaptureLabTest" time="1.190" />
+    <testcase name="maskOutsideBitmapIsRejected" classname="com.awbuilds.reproparcel.spike.capturelab.CaptureLabTest" time="0.008" />
+    <testcase name="transparentMaskIsRejected" classname="com.awbuilds.reproparcel.spike.capturelab.CaptureLabTest" time="0.000" />
+    <testcase name="secureWindowIsOmittedByPolicy" classname="com.awbuilds.reproparcel.spike.capturelab.CaptureLabTest" time="0.445" />
+    <testcase name="opaqueMaskCoversEveryRegionPixelAndLeavesOutsidePixels" classname="com.awbuilds.reproparcel.spike.capturelab.CaptureLabTest" time="0.000" />
+    <testcase name="rawSecureCaptureBypassesThePolicyCheck" classname="com.awbuilds.reproparcel.spike.capturelab.CaptureLabTest" time="0.255" />
+  </testsuite>
+  <testsuite name="com.awbuilds.reproparcel.spike.capturelab.ComposeSemanticsCoverageTest" tests="2" failures="0" errors="0" skipped="0" time="1.243" timestamp="2026-11-10T21:08:08" hostname="localhost">
+    <properties>
+      <property name="device" value="emulator-5558" />
+    </properties>
+    <testcase name="coreComposeContentIsRepresented" classname="com.awbuilds.reproparcel.spike.capturelab.ComposeSemanticsCoverageTest" time="0.380" />
+    <testcase name="dialogContentIsRepresented" classname="com.awbuilds.reproparcel.spike.capturelab.ComposeSemanticsCoverageTest" time="0.863" />
+  </testsuite>
+</testsuites>

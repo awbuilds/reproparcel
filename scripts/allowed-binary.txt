@@ -1,0 +1,6 @@
+# Binary files allowed in the public repository.
+# Add one glob per line only after reviewing the file for personal data,
+# EXIF/GPS metadata, credentials and private application content.
+# Example (do not enable without review):
+# docs/evidence/synthetic/screen.png
+gradle/wrapper/gradle-wrapper.jar

@@ -1,0 +1,412 @@
+{
+  "141": {
+    "artifact": "docs/PRD.md",
+    "evidence": "UC-01 design coverage; capture spike",
+    "notes": "Use-case design coverage only; implementation is a later phase.",
+    "status": "IN_PROGRESS"
+  },
+  "143": {
+    "artifact": "docs/PRD.md",
+    "evidence": "UC-02 design coverage",
+    "notes": "Use-case design coverage only; implementation is a later phase.",
+    "status": "IN_PROGRESS"
+  },
+  "145": {
+    "artifact": "docs/PRD.md",
+    "evidence": "UC-03 design coverage",
+    "notes": "Use-case design coverage only; implementation is a later phase.",
+    "status": "IN_PROGRESS"
+  },
+  "147": {
+    "artifact": "docs/PRD.md",
+    "evidence": "UC-04 design coverage; synthetic spike",
+    "notes": "Use-case design coverage only; implementation is a later phase.",
+    "status": "IN_PROGRESS"
+  },
+  "149": {
+    "artifact": "docs/PRD.md",
+    "evidence": "UC-05 design coverage",
+    "notes": "Use-case design coverage only; implementation is a later phase.",
+    "status": "IN_PROGRESS"
+  },
+  "151": {
+    "artifact": "docs/adr/0002-capture-feasibility-and-temporal-privacy.md",
+    "evidence": "SECURE_WINDOW test",
+    "notes": "Use-case design coverage only; implementation is a later phase.",
+    "status": "IN_PROGRESS"
+  },
+  "153": {
+    "artifact": "docs/PRD.md",
+    "evidence": "UC-07 design coverage",
+    "notes": "Use-case design coverage only; implementation is a later phase.",
+    "status": "IN_PROGRESS"
+  },
+  "157": {
+    "artifact": "docs/PRD.md",
+    "evidence": "UC-08..UC-11",
+    "notes": "Later phases; entry conditions apply.",
+    "status": "GATED"
+  },
+  "172": {
+    "artifact": "docs/adr/0003-semantics-strategy.md",
+    "evidence": "Capability-gated decision; explicit registration baseline",
+    "notes": "Automatic adapter is not shipped in v1.",
+    "phase": "0",
+    "status": "PASS"
+  },
+  "283": {
+    "artifact": "docs/adr/0003-semantics-strategy.md",
+    "evidence": "Phase 0 spike comparison + Compose semantics test",
+    "notes": "Compared app-level public traversal with host-registered strategy; automatic extraction not proven.",
+    "status": "PASS"
+  },
+  "362": {
+    "artifact": "docs/adr/0002-capture-feasibility-and-temporal-privacy.md",
+    "evidence": "Basic capture/secure/rotation tests; bounded geometry/timeout tests deferred",
+    "notes": "FR-04 P0/P2; Phase 0 proves basic path, Phase 2 completes bounded/race contract.",
+    "status": "IN_PROGRESS"
+  },
+  "368": {
+    "artifact": "docs/adr/0003-semantics-strategy.md",
+    "evidence": "Explicit registration selected; automatic mode not shipped",
+    "notes": "FR-10 P0/P3; capability-gated adapter remains unimplemented.",
+    "status": "IN_PROGRESS"
+  },
+  "375": {
+    "artifact": "docs/adr/0006-public-repository-license-and-git.md",
+    "evidence": "LICENSE present; notices checklist pending",
+    "notes": "Distribution/legal checklist is Phase 5.",
+    "status": "BLOCKED"
+  },
+  "376": {
+    "artifact": "docs/impact/0001-phase-0-feasibility.md",
+    "evidence": "Impact brief and handoff process",
+    "notes": "Process followed from the first session.",
+    "status": "PASS"
+  },
+  "488": {
+    "artifact": "docs/research/toolchain-baseline.md",
+    "evidence": "No physical low/mid-range device attached",
+    "notes": "Physical benchmark evidence remains an external gate.",
+    "phase": "0",
+    "status": "BLOCKED"
+  },
+  "564": {
+    "artifact": "docs/decisions/phase-0-go-no-go.md",
+    "evidence": "Phase 0 objective reviewed against ADRs and evidence",
+    "notes": "Goal assessed; external validation blocked.",
+    "status": "PASS"
+  },
+  "566": {
+    "artifact": "docs/PRD.md",
+    "evidence": "Work-package heading reviewed",
+    "notes": "Structural heading.",
+    "status": "PASS"
+  },
+  "568": {
+    "artifact": "docs/research/adoption-validation.md",
+    "evidence": "Interview kit prepared; zero interviews",
+    "notes": "Five interviews and three concrete use cases require external humans.",
+    "status": "BLOCKED"
+  },
+  "569": {
+    "artifact": "docs/research/naming-and-namespace.md",
+    "evidence": "No trademark screening or namespace verification",
+    "notes": "Human/legal action required.",
+    "status": "BLOCKED"
+  },
+  "570": {
+    "artifact": "docs/adr/0006-public-repository-license-and-git.md",
+    "evidence": "AGPL-3.0-only intent recorded; LICENSE present",
+    "notes": "Distribution guidance review is external/legal work.",
+    "status": "BLOCKED"
+  },
+  "571": {
+    "artifact": "spike/capture-lab",
+    "evidence": "assembleDebug/assembleRelease; 10 tests x API 26/30/37; release smoke",
+    "notes": "Disposable synthetic spike completed.",
+    "status": "PASS"
+  },
+  "572": {
+    "artifact": "docs/adr/0002/0003",
+    "evidence": "Compose semantics test; API37 release smoke only",
+    "notes": "Minimum-API minified Compose run and full public-API extraction proof remain incomplete.",
+    "status": "IN_PROGRESS"
+  },
+  "573": {
+    "artifact": "spike/capture-lab",
+    "evidence": "Visible Compose, input, Canvas and dialog covered; lazy offscreen/mixed View not covered",
+    "notes": "Coverage matrix remains partial.",
+    "status": "IN_PROGRESS"
+  },
+  "574": {
+    "artifact": "docs/research/toolchain-baseline.md",
+    "evidence": "Toolchain/API matrix verified; memory/latency baseline not measured",
+    "notes": "Benchmark baseline is Phase 5.",
+    "status": "IN_PROGRESS"
+  },
+  "575": {
+    "artifact": "AGENTS.md, docs/PROJECT_STATE.md, docs/adr, docs/handoffs",
+    "evidence": "Protocol and sources established before retained implementation",
+    "notes": "No retained implementation yet.",
+    "status": "PASS"
+  },
+  "577": {
+    "artifact": "docs/adr, docs/research, docs/security, docs/decisions",
+    "evidence": "Deliverables present",
+    "notes": "Adoption summary is explicitly blocked.",
+    "status": "PASS"
+  },
+  "579": {
+    "artifact": "docs/decisions/phase-0-go-no-go.md",
+    "evidence": "Exit section reviewed",
+    "notes": "Structural heading.",
+    "status": "PASS"
+  },
+  "581": {
+    "artifact": "docs/decisions/phase-0-go-no-go.md",
+    "evidence": "Capture path feasible in spike; export is Phase 2; zero interviews",
+    "notes": "Exit criterion not met. External validation blocked; local implementation proceeds under explicit objective.",
+    "status": "BLOCKED"
+  },
+  "582": {
+    "artifact": "docs/research/toolchain-baseline.md",
+    "evidence": "Builds, API matrix, limitations recorded",
+    "notes": "No claim that automatic semantics is solved.",
+    "status": "PASS"
+  },
+  "583": {
+    "artifact": "docs/adr/0003-semantics-strategy.md",
+    "evidence": "Explicit registration selected; scope narrowed",
+    "notes": "Fallback documented publicly.",
+    "status": "PASS"
+  },
+  "584": {
+    "artifact": "docs/decisions/phase-0-go-no-go.md",
+    "evidence": "Go/no-go fallback recorded",
+    "notes": "Image scope retained only with fail-closed controls.",
+    "status": "PASS"
+  },
+  "60": {
+    "artifact": "repository",
+    "evidence": "gh repo view awbuilds/reproparcel --json name,visibility,isEmpty,url; git ls-remote returned no refs on the empty remote",
+    "notes": "Remote exists and is empty; no extra reservation claimed.",
+    "status": "PASS"
+  },
+  "61": {
+    "artifact": "spike/capture-lab",
+    "evidence": "spike/capture-lab/build.gradle.kts namespace",
+    "notes": "Package name exercised in the spike.",
+    "status": "PASS"
+  },
+  "62": {
+    "artifact": "docs/research/naming-and-namespace.md",
+    "evidence": "Sonatype verification not performed",
+    "notes": "Requires namespace ownership verification.",
+    "status": "BLOCKED"
+  },
+  "63": {
+    "artifact": "docs/adr/0001-module-architecture.md",
+    "evidence": "ADR 0001",
+    "notes": "Artifact plan recorded.",
+    "status": "PASS"
+  },
+  "64": {
+    "artifact": "docs/adr/0004-desktop-runtime.md",
+    "evidence": "ADR 0004",
+    "notes": "Command surface designed; implementation is Phase 4.",
+    "status": "PASS"
+  },
+  "70": {
+    "artifact": "docs/research/naming-and-namespace.md",
+    "evidence": "Preliminary checks only",
+    "notes": "Trademark/registrar/Maven clearance remains blocked.",
+    "status": "BLOCKED"
+  },
+  "717": {
+    "artifact": "AGENTS.md",
+    "evidence": "Canonical contract present",
+    "notes": "",
+    "status": "PASS"
+  },
+  "718": {
+    "artifact": "docs/PRD.md",
+    "evidence": "PRD at canonical path",
+    "notes": "",
+    "status": "PASS"
+  },
+  "719": {
+    "artifact": "docs/PROJECT_STATE.md",
+    "evidence": "State file updated",
+    "notes": "",
+    "status": "PASS"
+  },
+  "720": {
+    "artifact": "docs/handoffs",
+    "evidence": "Handoffs 0001 and 0002",
+    "notes": "",
+    "status": "PASS"
+  },
+  "721": {
+    "artifact": "docs/adr",
+    "evidence": "ADRs 0001-0006",
+    "notes": "",
+    "status": "PASS"
+  },
+  "722": {
+    "artifact": "schema/",
+    "evidence": "Schema v1 is Phase 1",
+    "notes": "Directory not created yet.",
+    "status": "IN_PROGRESS"
+  },
+  "723": {
+    "artifact": "README.md",
+    "evidence": "Scope, warning and build commands present; verified examples pending Phase 2+",
+    "notes": "Do not claim verified end-to-end examples yet.",
+    "status": "IN_PROGRESS"
+  },
+  "724": {
+    "artifact": "LICENSE",
+    "evidence": "Official AGPLv3 text",
+    "notes": "",
+    "status": "PASS"
+  },
+  "725": {
+    "artifact": "NOTICE",
+    "evidence": "Summary notice present; full generated dependency notices pending",
+    "notes": "Complete before release.",
+    "status": "IN_PROGRESS"
+  },
+  "726": {
+    "artifact": "CONTRIBUTING.md, SECURITY.md, CHANGELOG.md",
+    "evidence": "Files present; SECURITY.md selects GitHub private advisories; repository setting not verified",
+    "notes": "Verify the GitHub private-advisory setting before publication.",
+    "status": "IN_PROGRESS"
+  },
+  "728": {
+    "artifact": "AGENTS.md",
+    "evidence": "Canonical uppercase filename",
+    "notes": "No competing agents.md.",
+    "status": "PASS"
+  },
+  "744": {
+    "artifact": "AGENTS.md",
+    "evidence": "Session protocol followed; handoff 0001 read",
+    "notes": "State was inspected before work.",
+    "status": "PASS"
+  },
+  "746": {
+    "artifact": "docs/impact/0001-phase-0-feasibility.md",
+    "evidence": "Impact brief; tests added before expansion",
+    "notes": "Disposable spike is reviewable.",
+    "status": "PASS"
+  },
+  "748": {
+    "artifact": "docs/handoffs/0002-2026-11-11-phase-0-feasibility.md",
+    "evidence": "Handoff and project state update",
+    "notes": "No commit/push release performed.",
+    "status": "PASS"
+  },
+  "781": {
+    "artifact": "docs/handoffs/0001-2026-11-11-prd-baseline.md",
+    "evidence": "Sanitized handoff; synthetic evidence only",
+    "notes": "Public hygiene scan passed.",
+    "status": "PASS"
+  },
+  "789": {
+    "artifact": "LICENSE",
+    "evidence": "Official AGPLv3 text fetched from gnu.org",
+    "notes": "First-party docs use AGPL-3.0-only.",
+    "status": "PASS"
+  },
+  "797": {
+    "artifact": "docs/PRD.md",
+    "evidence": "Data-rights wording retained",
+    "notes": "No copyright claim over user reports.",
+    "status": "PASS"
+  },
+  "805": {
+    "artifact": "SECURITY.md",
+    "evidence": "Private GitHub advisory channel selected in policy; setting verification pending",
+    "notes": "Not a public issue channel.",
+    "status": "IN_PROGRESS"
+  },
+  "812": {
+    "artifact": "docs/research/adoption-validation.md",
+    "evidence": "Interview kit prepared; no interviews",
+    "notes": "External human action required.",
+    "status": "BLOCKED"
+  },
+  "813": {
+    "artifact": "docs/adr/0003-semantics-strategy.md",
+    "evidence": "Explicit registration selected",
+    "notes": "Automatic adapter is not shipped.",
+    "status": "PASS"
+  },
+  "814": {
+    "artifact": "docs/adr/0002-capture-feasibility-and-temporal-privacy.md",
+    "evidence": "Policy omission and mask tests",
+    "notes": "No absolute PII claim.",
+    "status": "PASS"
+  },
+  "815": {
+    "artifact": "docs/PRD.md",
+    "evidence": "Read-only scope; no execution tools planned",
+    "notes": "MCP implementation is Phase 4.",
+    "status": "PASS"
+  },
+  "816": {
+    "artifact": "docs/adr/0005-toolchain-and-min-sdk.md",
+    "evidence": "Bounded buffers and structured concurrency planned",
+    "notes": "Performance measurement is Phase 5.",
+    "status": "PASS"
+  },
+  "817": {
+    "artifact": "docs/research/adoption-validation.md",
+    "evidence": "AGPL audience validation pending",
+    "notes": "External market evidence required.",
+    "status": "BLOCKED"
+  },
+  "818": {
+    "artifact": "docs/adr/0006-public-repository-license-and-git.md",
+    "evidence": "Official license text; no legal review",
+    "notes": "Qualified review required.",
+    "status": "BLOCKED"
+  },
+  "819": {
+    "artifact": "docs/decisions/phase-0-go-no-go.md",
+    "evidence": "Scope held to one vertical flow",
+    "notes": "No backend/crash/video/analytics added.",
+    "status": "PASS"
+  },
+  "820": {
+    "artifact": "docs/adr/0005-toolchain-and-min-sdk.md",
+    "evidence": "Versions recorded; upgrade gate defined",
+    "notes": "Revalidate at each upgrade.",
+    "status": "PASS"
+  },
+  "821": {
+    "artifact": "docs/PRD.md",
+    "evidence": "Phase 6 deferred",
+    "notes": "Requires entry condition and separate approval.",
+    "status": "GATED"
+  },
+  "822": {
+    "artifact": "docs/research/naming-and-namespace.md",
+    "evidence": "Preliminary search only",
+    "notes": "Trademark review required before public branding.",
+    "status": "BLOCKED"
+  },
+  "823": {
+    "artifact": "docs/traceability/README.md",
+    "evidence": "Audit cadence and handoff pointer",
+    "notes": "State remains verifiable.",
+    "status": "PASS"
+  },
+  "827": {
+    "artifact": "docs/decisions/phase-0-go-no-go.md",
+    "evidence": "Decision register recorded",
+    "notes": "Evidence-gated decisions remain explicit.",
+    "status": "PASS"
+  }
+}
