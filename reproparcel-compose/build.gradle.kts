@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 plugins {
     alias(libs.plugins.android.library)
+    id("maven-publish")
     alias(libs.plugins.kotlin.compose)
 }
 
@@ -20,6 +21,43 @@ android {
 
     buildFeatures {
         compose = true
+    }
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+        }
+    }
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("release") {
+                from(components["release"])
+                artifactId = "reproparcel-compose"
+                pom {
+                    name.set("reproparcel-compose")
+                    description.set("Material 3 reporter UI for ReproParcel.")
+                    url.set("https://github.com/awbuilds/reproparcel")
+                    licenses {
+                        license {
+                            name.set("GNU Affero General Public License v3.0 only")
+                            url.set("https://www.gnu.org/licenses/agpl-3.0.html")
+                        }
+                    }
+                    scm {
+                        url.set("https://github.com/awbuilds/reproparcel")
+                        connection.set("scm:git:https://github.com/awbuilds/reproparcel.git")
+                    }
+                }
+            }
+        }
+        repositories {
+            maven {
+                name = "localVerification"
+                url = uri(rootProject.layout.buildDirectory.dir("local-repo"))
+            }
+        }
     }
 }
 

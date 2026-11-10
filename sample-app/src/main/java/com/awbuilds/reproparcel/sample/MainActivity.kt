@@ -48,11 +48,12 @@ class MainActivity : ComponentActivity() {
             ),
             capturePolicy = CapturePolicy(
                 policyVersion = "sample-policy-v1",
-                screenshotEnabled = false,
+                screenshotEnabled = true,
                 semanticTextEnabled = false,
+                eligibleSurfaces = setOf("com.awbuilds.reproparcel.sample.MainActivity"),
             ),
             evidence = EvidenceConfig(
-                screenshotEnabled = false,
+                screenshotEnabled = true,
                 semanticTextEnabled = false,
                 structuredLogsEnabled = false,
                 networkMetadataEnabled = false,

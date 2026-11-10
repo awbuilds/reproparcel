@@ -1,4 +1,46 @@
 {
+  "109": {
+    "artifact": "docs/research/adoption-validation.md",
+    "evidence": "No 20-defect pilot",
+    "notes": "External human pilot required.",
+    "status": "BLOCKED"
+  },
+  "110": {
+    "artifact": "scripts/consumer-smoke.sh",
+    "evidence": "Clean local consumer passes; no external developers",
+    "notes": "Two external 30-minute integrations blocked.",
+    "status": "BLOCKED"
+  },
+  "111": {
+    "artifact": "docs/decisions/phase-5-go-no-go.md",
+    "evidence": "Provider/config tests; no physical fault matrix",
+    "notes": "Physical low/mid device blocked.",
+    "status": "IN_PROGRESS"
+  },
+  "112": {
+    "artifact": "docs/evidence, docs/adr/0010",
+    "evidence": "Seeded redaction/draft tests; independent review pending",
+    "notes": "",
+    "status": "IN_PROGRESS"
+  },
+  "113": {
+    "artifact": "desktop/src/mcp-protocol.test.ts",
+    "evidence": "Official SDK protocol; no two real coding clients",
+    "notes": "G-05 partial.",
+    "status": "IN_PROGRESS"
+  },
+  "114": {
+    "artifact": "desktop/src/*.test.ts",
+    "evidence": "Offline validator/viewer; full device export/import not recorded",
+    "notes": "G-06 partial.",
+    "status": "IN_PROGRESS"
+  },
+  "115": {
+    "artifact": "docs/api-freeze.md, docs/compatibility.md",
+    "evidence": "Schema/API/CI/release docs; stable governance incomplete",
+    "notes": "",
+    "status": "IN_PROGRESS"
+  },
   "141": {
     "artifact": "docs/PRD.md",
     "evidence": "UC-01 design coverage; capture spike",
@@ -365,6 +407,24 @@
     "evidence": "No physical low/mid-range device attached",
     "notes": "Physical benchmark evidence remains an external gate.",
     "phase": "0",
+    "status": "BLOCKED"
+  },
+  "530": {
+    "artifact": "scripts/ci.sh",
+    "evidence": "Lint passes; warnings reviewed where encountered",
+    "notes": "",
+    "status": "PASS"
+  },
+  "539": {
+    "artifact": "docs/decisions/phase-5-go-no-go.md",
+    "evidence": "G-01/G-02/G-03/G-05 external gates missing",
+    "notes": "Stable release blocked.",
+    "status": "BLOCKED"
+  },
+  "541": {
+    "artifact": "docs/compatibility.md",
+    "evidence": "API 26/30/37 emulators; no physical device",
+    "notes": "",
     "status": "BLOCKED"
   },
   "564": {
@@ -745,6 +805,78 @@
     "notes": "Full device capture\u2192import and two clients unverified.",
     "status": "IN_PROGRESS"
   },
+  "658": {
+    "artifact": "docs/decisions/phase-5-go-no-go.md",
+    "evidence": "Phase 5 goal reviewed",
+    "notes": "",
+    "status": "PASS"
+  },
+  "660": {
+    "artifact": "docs/PRD.md",
+    "evidence": "Work-package heading",
+    "notes": "",
+    "status": "PASS"
+  },
+  "662": {
+    "artifact": "docs/decisions/phase-5-go-no-go.md",
+    "evidence": "Private adopter integration not authorized",
+    "notes": "",
+    "status": "BLOCKED"
+  },
+  "663": {
+    "artifact": "docs/research/adoption-validation.md",
+    "evidence": "No pilot or external integration",
+    "notes": "",
+    "status": "BLOCKED"
+  },
+  "664": {
+    "artifact": "docs/security/threat-model.md",
+    "evidence": "Draft review only; independent review pending",
+    "notes": "",
+    "status": "BLOCKED"
+  },
+  "665": {
+    "artifact": "docs/evidence/phase-5/release-smoke.txt",
+    "evidence": "R8 capture/editor/review/draft smoke; full matrix/budgets incomplete",
+    "notes": "",
+    "status": "IN_PROGRESS"
+  },
+  "666": {
+    "artifact": "docs/dependency-licenses.md",
+    "evidence": "License allowlist/AGPL docs; legal review pending",
+    "notes": "",
+    "status": "IN_PROGRESS"
+  },
+  "667": {
+    "artifact": "docs/api-freeze.md, README, docs",
+    "evidence": "Schema/API/docs/security policy present; notices incomplete",
+    "notes": "",
+    "status": "IN_PROGRESS"
+  },
+  "668": {
+    "artifact": "scripts/release-local.sh",
+    "evidence": "Local four-artifact publication + clean consumer; no Central signing/javadoc",
+    "notes": "",
+    "status": "IN_PROGRESS"
+  },
+  "669": {
+    "artifact": "docs/decisions/phase-5-go-no-go.md",
+    "evidence": "No publication authorization",
+    "notes": "",
+    "status": "BLOCKED"
+  },
+  "671": {
+    "artifact": "docs/decisions/phase-5-go-no-go.md",
+    "evidence": "Stable 1.0.0 not claimed",
+    "notes": "",
+    "status": "BLOCKED"
+  },
+  "673": {
+    "artifact": "docs/decisions/phase-5-go-no-go.md",
+    "evidence": "Stable gates not met",
+    "notes": "",
+    "status": "BLOCKED"
+  },
   "70": {
     "artifact": "docs/research/naming-and-namespace.md",
     "evidence": "Preliminary checks only",
@@ -935,6 +1067,12 @@
     "artifact": "docs/decisions/phase-0-go-no-go.md",
     "evidence": "Decision register recorded",
     "notes": "Evidence-gated decisions remain explicit.",
+    "status": "PASS"
+  },
+  "840": {
+    "artifact": "docs/decisions/phase-5-go-no-go.md",
+    "evidence": "No commercial SLA or unconditional claim",
+    "notes": "",
     "status": "PASS"
   }
 }

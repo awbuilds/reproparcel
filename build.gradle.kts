@@ -1,5 +1,10 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 
+allprojects {
+    group = "io.github.awbuilds"
+    version = "0.0.1-SNAPSHOT"
+}
+
 buildscript {
     repositories {
         google()

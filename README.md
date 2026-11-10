@@ -35,6 +35,32 @@ gradle/          version catalog and wrapper
 desktop/         offline CLI/viewer/read-only MCP (Phase 4)
 ```
 
+## Quick start (source candidate)
+
+```kotlin
+val config = ReproParcelConfig(
+    enabled = false,
+    buildInfo = BuildInfo(
+        packageName = BuildConfig.APPLICATION_ID,
+        versionName = BuildConfig.VERSION_NAME,
+        versionCode = BuildConfig.VERSION_CODE.toLong(),
+        variant = BuildConfig.BUILD_TYPE,
+        gitCommit = null, // supply a reviewed build commit when available
+    ),
+    capturePolicy = CapturePolicy(
+        policyVersion = "app-policy-v1",
+        screenshotEnabled = false, // must be explicitly enabled by the host
+        eligibleSurfaces = setOf("checkout_review"),
+    ),
+)
+ReproParcel.initialize(applicationContext, config)
+ReproParcel.setEnabled(true)
+ReproParcelCompose.showReporter(activity, surfaceId = "checkout_review")
+```
+
+Do not enable screenshot/semantic collection until the host has a reviewed
+privacy policy. See `docs/privacy-policy-example.md`.
+
 ## Build (current foundation)
 
 ```sh

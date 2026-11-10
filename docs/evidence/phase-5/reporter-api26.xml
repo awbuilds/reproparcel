@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<testsuites tests="2" failures="0" errors="0" skipped="0" time="0.000" timestamp="2026-11-10T22:17:19" hostname="localhost">
+  <testsuite name="com.awbuilds.reproparcel.compose.BitmapFlattenerTest" tests="1" failures="0" errors="0" skipped="0" time="0.001" timestamp="2026-11-10T22:17:19" hostname="localhost">
+    <properties>
+      <property name="device" value="emulator-5556" />
+    </properties>
+    <testcase name="maskIsBakedIntoSavedPixels" classname="com.awbuilds.reproparcel.compose.BitmapFlattenerTest" time="0.001" />
+  </testsuite>
+  <testsuite name="com.awbuilds.reproparcel.compose.ReporterFlowTest" tests="1" failures="0" errors="0" skipped="0" time="2.354" timestamp="2026-11-10T22:17:19" hostname="localhost">
+    <properties>
+      <property name="device" value="emulator-5556" />
+    </properties>
+    <testcase name="textOnlyFormReviewsAndSavesDraft" classname="com.awbuilds.reproparcel.compose.ReporterFlowTest" time="2.354" />
+  </testsuite>
+</testsuites>
