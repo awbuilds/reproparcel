@@ -1,0 +1,165 @@
+> Task :reproparcel-okhttp:preBuild UP-TO-DATE
+> Task :reproparcel-android:preBuild UP-TO-DATE
+> Task :reproparcel-compose:preBuild UP-TO-DATE
+> Task :reproparcel-core:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :reproparcel-okhttp:preReleaseBuild UP-TO-DATE
+> Task :reproparcel-android:preReleaseBuild UP-TO-DATE
+> Task :reproparcel-compose:preReleaseBuild UP-TO-DATE
+> Task :reproparcel-compose:mergeReleaseJniLibFolders UP-TO-DATE
+> Task :reproparcel-compose:mergeReleaseNativeLibs NO-SOURCE
+> Task :reproparcel-compose:stripReleaseDebugSymbols NO-SOURCE
+> Task :reproparcel-compose:copyReleaseJniLibsProjectAndLocalJars UP-TO-DATE
+> Task :reproparcel-compose:extractDeepLinksForAarRelease UP-TO-DATE
+> Task :reproparcel-compose:generateReleaseResources UP-TO-DATE
+> Task :reproparcel-compose:packageReleaseResources UP-TO-DATE
+> Task :reproparcel-compose:processReleaseNavigationResources UP-TO-DATE
+> Task :reproparcel-compose:parseReleaseLocalResources UP-TO-DATE
+> Task :reproparcel-compose:generateReleaseRFile UP-TO-DATE
+> Task :reproparcel-compose:generateReleaseAssets UP-TO-DATE
+> Task :reproparcel-compose:mergeReleaseAssets UP-TO-DATE
+> Task :reproparcel-compose:javaPreCompileRelease UP-TO-DATE
+> Task :reproparcel-compose:prepareLintJarForPublish UP-TO-DATE
+> Task :reproparcel-compose:prepareReleaseArtProfile UP-TO-DATE
+> Task :reproparcel-compose:processReleaseManifest UP-TO-DATE
+> Task :reproparcel-compose:writeReleaseAarMetadata UP-TO-DATE
+> Task :reproparcel-compose:sourceReleaseJar UP-TO-DATE
+> Task :reproparcel-okhttp:checkReleaseAarMetadata UP-TO-DATE
+> Task :reproparcel-okhttp:mergeReleaseJniLibFolders UP-TO-DATE
+> Task :reproparcel-okhttp:mergeReleaseNativeLibs NO-SOURCE
+> Task :reproparcel-okhttp:stripReleaseDebugSymbols NO-SOURCE
+> Task :reproparcel-okhttp:copyReleaseJniLibsProjectAndLocalJars UP-TO-DATE
+> Task :reproparcel-okhttp:extractDeepLinksForAarRelease UP-TO-DATE
+> Task :reproparcel-okhttp:generateReleaseResources UP-TO-DATE
+> Task :reproparcel-okhttp:packageReleaseResources UP-TO-DATE
+> Task :reproparcel-okhttp:processReleaseNavigationResources UP-TO-DATE
+> Task :reproparcel-okhttp:parseReleaseLocalResources UP-TO-DATE
+> Task :reproparcel-okhttp:generateReleaseRFile UP-TO-DATE
+> Task :reproparcel-okhttp:generateReleaseAssets UP-TO-DATE
+> Task :reproparcel-okhttp:mergeReleaseAssets UP-TO-DATE
+> Task :reproparcel-okhttp:javaPreCompileRelease UP-TO-DATE
+> Task :reproparcel-okhttp:prepareLintJarForPublish UP-TO-DATE
+> Task :reproparcel-okhttp:prepareReleaseArtProfile UP-TO-DATE
+> Task :reproparcel-okhttp:processReleaseManifest UP-TO-DATE
+> Task :reproparcel-okhttp:writeReleaseAarMetadata UP-TO-DATE
+> Task :reproparcel-okhttp:sourceReleaseJar UP-TO-DATE
+> Task :reproparcel-android:checkReleaseAarMetadata UP-TO-DATE
+> Task :reproparcel-android:mergeReleaseJniLibFolders UP-TO-DATE
+> Task :reproparcel-android:mergeReleaseNativeLibs NO-SOURCE
+> Task :reproparcel-android:stripReleaseDebugSymbols NO-SOURCE
+> Task :reproparcel-android:copyReleaseJniLibsProjectAndLocalJars UP-TO-DATE
+> Task :reproparcel-android:extractDeepLinksForAarRelease UP-TO-DATE
+> Task :reproparcel-android:generateReleaseResources UP-TO-DATE
+> Task :reproparcel-android:packageReleaseResources UP-TO-DATE
+> Task :reproparcel-android:processReleaseNavigationResources UP-TO-DATE
+> Task :reproparcel-core:compileKotlin UP-TO-DATE
+> Task :reproparcel-android:parseReleaseLocalResources UP-TO-DATE
+> Task :reproparcel-core:compileJava NO-SOURCE
+> Task :reproparcel-android:generateReleaseRFile UP-TO-DATE
+> Task :reproparcel-android:generateReleaseAssets UP-TO-DATE
+> Task :reproparcel-core:processResources NO-SOURCE
+> Task :reproparcel-core:classes UP-TO-DATE
+> Task :reproparcel-android:mergeReleaseAssets UP-TO-DATE
+> Task :reproparcel-android:javaPreCompileRelease UP-TO-DATE
+> Task :reproparcel-android:prepareLintJarForPublish UP-TO-DATE
+> Task :reproparcel-android:prepareReleaseArtProfile UP-TO-DATE
+> Task :reproparcel-core:jar UP-TO-DATE
+> Task :reproparcel-android:processReleaseManifest UP-TO-DATE
+> Task :reproparcel-core:sourcesJar UP-TO-DATE
+> Task :reproparcel-core:generateMetadataFileForReleasePublication
+> Task :reproparcel-core:generatePomFileForReleasePublication
+> Task :reproparcel-android:extractReleaseAnnotations UP-TO-DATE
+> Task :reproparcel-android:compileReleaseKotlin UP-TO-DATE
+> Task :reproparcel-android:compileReleaseJavaWithJavac NO-SOURCE
+> Task :reproparcel-android:mergeReleaseGeneratedProguardFiles UP-TO-DATE
+> Task :reproparcel-android:mergeReleaseConsumerProguardFiles UP-TO-DATE
+> Task :reproparcel-android:compressReleaseJavaRes UP-TO-DATE
+> Task :reproparcel-android:mergeReleaseJavaResource UP-TO-DATE
+> Task :reproparcel-android:syncReleaseLibJars UP-TO-DATE
+> Task :reproparcel-android:writeReleaseAarMetadata UP-TO-DATE
+> Task :reproparcel-android:bundleReleaseAar UP-TO-DATE
+> Task :reproparcel-android:sourceReleaseJar UP-TO-DATE
+> Task :reproparcel-compose:generatePomFileForReleasePublication
+> Task :reproparcel-core:publishReleasePublicationToLocalVerificationRepository
+> Task :reproparcel-okhttp:generatePomFileForReleasePublication
+> Task :reproparcel-android:generateMetadataFileForReleasePublication
+> Task :reproparcel-android:generatePomFileForReleasePublication
+> Task :reproparcel-okhttp:extractReleaseAnnotations UP-TO-DATE
+> Task :reproparcel-okhttp:compileReleaseKotlin UP-TO-DATE
+> Task :reproparcel-okhttp:compileReleaseJavaWithJavac NO-SOURCE
+> Task :reproparcel-okhttp:mergeReleaseGeneratedProguardFiles UP-TO-DATE
+> Task :reproparcel-okhttp:mergeReleaseConsumerProguardFiles UP-TO-DATE
+> Task :reproparcel-okhttp:compressReleaseJavaRes UP-TO-DATE
+> Task :reproparcel-okhttp:mergeReleaseJavaResource UP-TO-DATE
+> Task :reproparcel-okhttp:syncReleaseLibJars UP-TO-DATE
+> Task :reproparcel-okhttp:bundleReleaseAar UP-TO-DATE
+> Task :reproparcel-okhttp:generateMetadataFileForReleasePublication
+> Task :reproparcel-android:publishReleasePublicationToLocalVerificationRepository
+> Task :reproparcel-android:bundleLibCompileToJarRelease UP-TO-DATE
+> Task :reproparcel-okhttp:publishReleasePublicationToLocalVerificationRepository
+> Task :reproparcel-compose:checkReleaseAarMetadata UP-TO-DATE
+> Task :reproparcel-compose:extractReleaseAnnotations UP-TO-DATE
+> Task :reproparcel-compose:compileReleaseKotlin UP-TO-DATE
+> Task :reproparcel-compose:compileReleaseJavaWithJavac NO-SOURCE
+> Task :reproparcel-compose:mergeReleaseGeneratedProguardFiles UP-TO-DATE
+> Task :reproparcel-compose:mergeReleaseConsumerProguardFiles UP-TO-DATE
+> Task :reproparcel-compose:compressReleaseJavaRes UP-TO-DATE
+> Task :reproparcel-compose:mergeReleaseJavaResource UP-TO-DATE
+> Task :reproparcel-compose:syncReleaseLibJars UP-TO-DATE
+> Task :reproparcel-compose:bundleReleaseAar UP-TO-DATE
+> Task :reproparcel-compose:generateMetadataFileForReleasePublication
+> Task :reproparcel-compose:publishReleasePublicationToLocalVerificationRepository
+
+BUILD SUCCESSFUL in 781ms
+88 actionable tasks: 12 executed, 76 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.7.1/userguide/configuration_cache_enabling.html
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:generateDebugResources
+> Task :app:packageDebugResources
+> Task :app:processDebugNavigationResources
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :app:javaPreCompileDebug
+> Task :app:parseDebugLocalResources
+> Task :app:mergeDebugAssets
+> Task :app:generateDebugRFile
+> Task :app:compressDebugAssets
+> Task :app:generateDebugGlobalSynthetics
+> Task :app:compileDebugKotlin NO-SOURCE
+> Task :app:compileDebugJavaWithJavac NO-SOURCE
+> Task :app:compressDebugJavaRes NO-SOURCE
+> Task :app:desugarDebugFileDependencies
+> Task :app:mapDebugSourceSetPaths
+> Task :app:checkDebugAarMetadata
+> Task :app:mergeDebugJavaResource
+> Task :app:checkDebugDuplicateClasses
+> Task :app:compileDebugNavigationResources
+> Task :app:mergeLibDexDebug
+> Task :app:createDebugCompatibleScreenManifests
+> Task :app:extractDeepLinksDebug
+> Task :app:processDebugMainManifest
+> Task :app:processDebugManifest
+> Task :app:mergeDebugJniLibFolders
+> Task :app:mergeDebugResources
+> Task :app:validateSigningDebug
+> Task :app:mergeDebugNativeLibs
+> Task :app:writeDebugAppMetadata
+> Task :app:writeDebugSigningConfigVersions
+> Task :app:processDebugManifestForPackage
+
+> Task :app:stripDebugDebugSymbols
+Unable to strip the following libraries, packaging them as they are: libandroidx.graphics.path.so. Run with --info option to learn more.
+
+> Task :app:mergeExtDexDebug
+> Task :app:processDebugResources
+> Task :app:dexBuilderDebug
+> Task :app:mergeProjectDexDebug
+> Task :app:packageDebug
+> Task :app:createDebugApkListingFileRedirect
+> Task :app:assembleDebug
+
+BUILD SUCCESSFUL in 1m 9s
+34 actionable tasks: 34 executed
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.7.1/userguide/configuration_cache_enabling.html
+consumer-smoke: PASS
+release-local: PASS (local repository only; no external publication)

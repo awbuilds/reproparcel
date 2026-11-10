@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<testsuites tests="25" failures="0" errors="0" skipped="0" time="0.000" timestamp="2026-11-10T22:17:44" hostname="localhost">
+  <testsuite name="com.awbuilds.reproparcel.android.RuntimeTest" tests="13" failures="0" errors="0" skipped="0" time="0.045" timestamp="2026-11-10T22:17:44" hostname="localhost">
+    <properties>
+      <property name="device" value="emulator-5554" />
+    </properties>
+    <testcase name="disabledDefaultHasNoCollectionOrActiveJobs" classname="com.awbuilds.reproparcel.android.RuntimeTest" time="0.014" />
+    <testcase name="sessionStateFollowsExplicitEnableAndDisable" classname="com.awbuilds.reproparcel.android.RuntimeTest" time="0.002" />
+    <testcase name="deleteLocalReportsIsExplicitAndSafe" classname="com.awbuilds.reproparcel.android.RuntimeTest" time="0.001" />
+    <testcase name="invalidConfigReturnsTypedFailureAndStaysUninitialized" classname="com.awbuilds.reproparcel.android.RuntimeTest" time="0.002" />
+    <testcase name="disableCancelsSdkOwnedJob" classname="com.awbuilds.reproparcel.android.RuntimeTest" time="0.003" />
+    <testcase name="networkMetadataKeepsSafeRouteAndDropsQuery" classname="com.awbuilds.reproparcel.android.RuntimeTest" time="0.004" />
+    <testcase name="enableStartsExplicitCollectionAndDisableStopsIt" classname="com.awbuilds.reproparcel.android.RuntimeTest" time="0.001" />
+    <testcase name="providerByteLimitIsEnforced" classname="com.awbuilds.reproparcel.android.RuntimeTest" time="0.001" />
+    <testcase name="unsafeAttributesAreNotBuffered" classname="com.awbuilds.reproparcel.android.RuntimeTest" time="0.001" />
+    <testcase name="explicitSemanticsBoundsAndSensitiveNodesAreSafe" classname="com.awbuilds.reproparcel.android.RuntimeTest" time="0.002" />
+    <testcase name="providerTimeoutIsAnOmission" classname="com.awbuilds.reproparcel.android.RuntimeTest" time="0.013" />
+    <testcase name="repeatedInitializeIsIdempotentAndConfigMismatchIsTyped" classname="com.awbuilds.reproparcel.android.RuntimeTest" time="0.000" />
+    <testcase name="providerFailureIsIsolatedAndTyped" classname="com.awbuilds.reproparcel.android.RuntimeTest" time="0.001" />
+  </testsuite>
+  <testsuite name="com.awbuilds.reproparcel.android.capture.CaptureControllerTest" tests="5" failures="0" errors="0" skipped="0" time="3.751" timestamp="2026-11-10T22:17:44" hostname="localhost">
+    <properties>
+      <property name="device" value="emulator-5554" />
+    </properties>
+    <testcase name="maskRejectsNothingAndCoversFullRegion" classname="com.awbuilds.reproparcel.android.capture.CaptureControllerTest" time="0.002" />
+    <testcase name="eligibleWindowCapturesAndAppliesOpaqueMask" classname="com.awbuilds.reproparcel.android.capture.CaptureControllerTest" time="0.964" />
+    <testcase name="secureWindowIsOmitted" classname="com.awbuilds.reproparcel.android.capture.CaptureControllerTest" time="0.752" />
+    <testcase name="unsupportedSurfaceIsOmitted" classname="com.awbuilds.reproparcel.android.capture.CaptureControllerTest" time="1.331" />
+    <testcase name="screenshotDisabledIsOmitted" classname="com.awbuilds.reproparcel.android.capture.CaptureControllerTest" time="0.702" />
+  </testsuite>
+  <testsuite name="com.awbuilds.reproparcel.android.draft.DraftStoreTest" tests="5" failures="0" errors="0" skipped="0" time="0.079" timestamp="2026-11-10T22:17:44" hostname="localhost">
+    <properties>
+      <property name="device" value="emulator-5554" />
+    </properties>
+    <testcase name="expiredDraftIsPruned" classname="com.awbuilds.reproparcel.android.draft.DraftStoreTest" time="0.023" />
+    <testcase name="tamperedCiphertextFailsClosed" classname="com.awbuilds.reproparcel.android.draft.DraftStoreTest" time="0.010" />
+    <testcase name="deletedKeyFailsClosed" classname="com.awbuilds.reproparcel.android.draft.DraftStoreTest" time="0.018" />
+    <testcase name="saveLoadRoundTripUsesEncryptedFiles" classname="com.awbuilds.reproparcel.android.draft.DraftStoreTest" time="0.012" />
+    <testcase name="quotaRemovesOldestDraft" classname="com.awbuilds.reproparcel.android.draft.DraftStoreTest" time="0.016" />
+  </testsuite>
+  <testsuite name="com.awbuilds.reproparcel.android.export.ExportManagerTest" tests="2" failures="0" errors="0" skipped="0" time="0.008" timestamp="2026-11-10T22:17:44" hostname="localhost">
+    <properties>
+      <property name="device" value="emulator-5554" />
+    </properties>
+    <testcase name="clearExportsRemovesTemporaryFiles" classname="com.awbuilds.reproparcel.android.export.ExportManagerTest" time="0.001" />
+    <testcase name="writesAValidParcelToAProviderUri" classname="com.awbuilds.reproparcel.android.export.ExportManagerTest" time="0.007" />
+  </testsuite>
+</testsuites>

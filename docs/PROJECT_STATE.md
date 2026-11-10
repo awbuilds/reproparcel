@@ -4,12 +4,13 @@ Updated: 2026-11-11.
 
 ## Current stage
 
-**Phase 4 offline tools implemented; Phase 5 release hardening next.**
-The Android runtime, reporter, capture, encrypted drafts, export, evidence
-adapters and the desktop validator/inspector/viewer/read-only MCP are implemented
-and tested. Phase 2/3/4 exit gaps (race fixtures, process death, TalkBack, real
-two-client evidence, physical-device performance) are recorded. Stable release,
-tag, Maven publication and `main` remain untouched.
+**Phase 5 source candidate hardened; stable Android v1 NOT achieved.**
+The Android runtime/reporter/capture/drafts/export, evidence adapters, desktop
+validator/viewer/read-only MCP and local Maven candidate with clean consumer are
+implemented and tested. The minified release sample passed capture → editor →
+review → encrypted draft save. External pilot/interviews, physical devices,
+independent review, two real clients, legal review and Maven Central remain
+blocked. Phases 6–9 reference tracks are next.
 
 No release, tag, publication, deployment, `main` branch or private-adopter
 integration exists.
@@ -20,7 +21,7 @@ integration exists.
   local-first reviewed evidence parcels; read-only local agent consumption.
 - [AGENTS.md](../AGENTS.md) — engineering contract, public-repository hygiene,
   exception boundaries, standards and handoff protocol.
-- [Latest handoff](handoffs/0006-2026-11-11-phase-4-desktop-tools.md).
+- [Latest handoff](handoffs/0007-2026-11-11-phase-5-release-hardening.md).
 - [Traceability ledger](traceability/prd-lines.jsonl), [Phase 0 audit](audits/phase-0-audit.md),
   [Phase 1 audit](audits/phase-1-audit.md) and [Phase 3 audit](audits/phase-3-audit.md).
 
@@ -42,6 +43,7 @@ integration exists.
 - Desktop bounded validator, CLI inspect/render, inert viewer and read-only MCP.
 - CI: hygiene, dependency allowlist, compile, JVM/API checks, lint and sample
   debug/release builds.
+- Local Maven candidate + clean consumer smoke; R8-minified release flow.
 - ADRs 0001–0013, threat-model draft, phase decisions and evidence.
 
 ## Key decisions
@@ -58,8 +60,9 @@ integration exists.
 ## Verification status
 
 Phase 2/3: 40 core JVM tests, 2 OkHttp tests, 25 Android runtime tests, 2
-reporter tests and 2 sample tests on API 26/30/37. Phase 4: 14 desktop tests
-including the real MCP SDK protocol. `scripts/ci.sh` passes.
+reporter tests and 2 sample tests on API 26/30/37. Phase 4: 14 desktop tests.
+Phase 5: local four-artifact publication, clean consumer assemble, R8 release
+flow and 1.2 MiB sample APK. `scripts/ci.sh` passes.
 Phase 0: 10 capture tests on API 26/30/37 plus minified API 26/37 smoke. Exact
 commands and evidence are in `docs/evidence/` and the latest handoff. External interviews, physical-device
 tests, legal/trademark review, Sonatype verification, Maven publication,
@@ -68,10 +71,9 @@ Emulator success is not release evidence.
 
 ## Next exact action
 
-Run Phase 5 release hardening: close Phase 2/3/4 gaps, validate R8 release
-Keystore/capture/masking/export/import across API 26/30/37, measure performance,
-freeze schema/API, add Maven-local/clean-consumer checks, finalize notices/docs,
-run independent review and the final traceability audit. Do not release.
+Implement the Phase 6–9 reference tracks under their recorded gates, close the
+remaining Phase 2–5 evidence gaps, run independent review and the final
+traceability audit. Do not tag, release, publish or merge `main`.
 
 ## Safety boundaries
 

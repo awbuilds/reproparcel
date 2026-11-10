@@ -1,0 +1,36 @@
+# Release-minified sample smoke
+
+Date: 2026-11-11
+Device: API 37.2 emulator (`Android_17`, 1080×2400), debug-signed release APK
+for local verification only. No external publication.
+
+APK: `sample-app/build/outputs/apk/release/sample-app-release.apk` (1.2 MiB
+compressed). R8 minify + resource shrinking enabled.
+
+## Flow
+
+1. Install release APK, launch sample.
+2. Tap `Enable SDK` (explicit; default is disabled).
+3. Tap `Open reporter` with sample capture policy:
+   - screenshot enabled;
+   - eligible surface `com.awbuilds.reproparcel.sample.MainActivity`.
+4. Reporter opened with image edit tools (`Pen`, `Arrow`, `Mask`, `Undo`).
+5. Tap `Review image report`; `Exact final content` and
+   `Include the reviewed image` were present.
+6. Scroll and tap `Save encrypted draft`.
+
+Observed: `Encrypted draft saved locally.`
+
+This confirms the minified release path can initialize, capture an eligible
+window, enter the editor, review the exact image and persist an encrypted draft
+without a crash.
+
+## Limitations
+
+- Emulator only; no physical low/mid-range device.
+- 200% font/TalkBack and full race matrix are separate manual checks.
+- Share/SAF system UI was not automated in this smoke.
+- Debug signing is not release signing.
+- `am start -W` cold/warm startup samples were 370–464 ms on this emulator; this
+  is not the PRD paired incremental startup budget and must not be compared to
+  it.

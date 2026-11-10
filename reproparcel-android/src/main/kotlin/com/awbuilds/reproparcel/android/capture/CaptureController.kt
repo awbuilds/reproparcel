@@ -25,6 +25,7 @@ import java.util.Collections
 import java.util.WeakHashMap
 import java.util.concurrent.atomic.AtomicLong
 import kotlinx.coroutines.TimeoutCancellationException
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.coroutines.withTimeout
 import kotlin.coroutines.resume
@@ -64,6 +65,10 @@ public object CaptureController {
         }
         val window = activity.window
         if (isSecure(window)) return CaptureOutcome.Omitted(OmissionReason.SECURE_WINDOW)
+
+        // Give a just-triggered host one short, bounded settle window so the
+        // trigger-state draw does not immediately invalidate the frame token.
+        delay(100)
 
         val decor = window.decorView
         val width = decor.width
@@ -172,14 +177,15 @@ public object CaptureController {
         synchronized(generations) {
             val counter = generations.getOrPut(view) {
                 val value = AtomicLong(0)
-                view.viewTreeObserver.addOnPreDrawListener(
-                    object : ViewTreeObserver.OnPreDrawListener {
-                        override fun onPreDraw(): Boolean {
-                            value.incrementAndGet()
-                            return true
-                        }
-                    },
-                )
+                // Layout/scroll generation is intentionally narrower than a
+                // per-draw token. It catches geometry/content shifts without
+                // invalidating on every unrelated frame. Phase 2's contract
+                // still requires a stronger frame-binding proof before stable.
+                view.viewTreeObserver.addOnGlobalLayoutListener { value.incrementAndGet() }
+                view.viewTreeObserver.addOnScrollChangedListener { value.incrementAndGet() }
+                view.addOnLayoutChangeListener { _, _, _, _, _, _, _, _, _ ->
+                    value.incrementAndGet()
+                }
                 value
             }
             return counter.get()
