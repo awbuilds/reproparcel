@@ -6,3 +6,7 @@
 gradle/wrapper/gradle-wrapper.jar
 
 schema/fixtures/v1/valid/golden.reproparcel
+flutter/host_app/android/app/src/main/res/mipmap-*/ic_launcher.png
+react-native/ReproParcelHost/android/app/src/main/res/mipmap-*/ic_launcher*.png
+react-native/ReproParcelHost/android/gradle/wrapper/gradle-wrapper.jar
+flutter/host_app/android/gradle/wrapper/gradle-wrapper.jar

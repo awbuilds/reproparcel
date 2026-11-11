@@ -1,0 +1,28 @@
+# Phase 9 — Flutter Android host build evidence
+
+Date: 2026-11-11
+Host: `flutter/host_app`, Flutter 3.12/Dart 3.12, Android API 37.2 emulator.
+
+## Build
+
+```text
+cd flutter/host_app
+flutter pub get
+flutter build apk --debug
+✓ Built build/app/outputs/flutter-apk/app-debug.apk
+```
+
+APK installed successfully on the API 37.2 emulator; package
+`com.example.reproparcel_host` is running.
+
+## What is exercised
+
+- Path dependency on `../reproparcel_flutter`.
+- Pure-Dart limits, session state and redaction contracts in the host UI.
+- No native Flutter plugin capture yet.
+
+## Limitations
+
+- `MethodChannel` bridge has no native plugin implementation/host build.
+- No Flutter Android/iOS capture, platform views or release tests.
+- Flutter/Expo support claims remain **BLOCKED**.
