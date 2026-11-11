@@ -2,6 +2,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { rm } from "node:fs/promises";
+import path from "node:path";
 import { readParcel, ParcelError, jsonBudget, summarize } from "./parcel.js";
 import { createParcel, tempDirectory } from "./test-fixtures.js";
 
@@ -21,6 +22,15 @@ test("reads a valid synthetic parcel and sanitizes the PNG", async () => {
   } finally {
     await rm(directory, { recursive: true, force: true });
   }
+});
+
+test("reads the cross-writer synthetic golden parcel", async () => {
+  const golden = path.resolve(process.cwd(), "../schema/fixtures/v1/valid/golden.reproparcel");
+  const parcel = await readParcel(golden);
+  assert.equal(parcel.manifest.reportId, "rpt_golden_0001");
+  assert.equal(parcel.events.length, 1);
+  assert.equal(parcel.semantics?.nodes.length, 1);
+  assert.equal(parcel.imageWidth, 10);
 });
 
 test("supports a text-only parcel", async () => {

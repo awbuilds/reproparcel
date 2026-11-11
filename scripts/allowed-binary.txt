@@ -4,3 +4,5 @@
 # Example (do not enable without review):
 # docs/evidence/synthetic/screen.png
 gradle/wrapper/gradle-wrapper.jar
+
+schema/fixtures/v1/valid/golden.reproparcel
