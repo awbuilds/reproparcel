@@ -23,18 +23,18 @@ NOT achieved.** External and physical-device gates remain blocked.
   clean external consumer app resolved and assembled.
 - CI: hygiene, dependency allowlist, compile, JVM/API/schema, lint, desktop.
 
-## Stable-release gates that do not pass
+## Stable-release gate status
 
 | Gate | Status |
 |---|---|
 | G-01 20-defect pilot ≥80% | BLOCKED — no human pilot |
 | G-02 two external 30-minute integrations | BLOCKED — no external developers |
 | G-03 physical low/mid-range reliability | PASS — physical functional tests, fault injection, paired jank and performance budgets measured |
-| G-04 zero seeded privacy leaks | Local fixtures pass; independent review pending |
+| G-04 zero seeded privacy leaks | Local seeded fixtures and fault-injection tests pass; independent external review pending |
 | G-05 two real coding clients | BLOCKED — OpenCode CLI verified; Codex blocked by model network |
-| G-06 offline/no-account flow | API 37 text-only device export/import/render recorded; full matrix not complete |
-| G-07 public contracts/governance | Schema/API/CI exist; stable release governance incomplete |
-| Physical device matrix | BLOCKED |
+| G-06 offline/no-account flow | PASS locally — airplane-mode create/export/import/render on API 37 |
+| G-07 public contracts/governance | Schema/API/CI/compat/security docs exist; final governance review remains |
+| Physical device matrix | PASS for API 26/30/37 emulators and API 31 low/mid-range physical device; current physical device unavailable |
 | Independent security/legal review | BLOCKED |
 | Maven Central namespace/signing/publication | BLOCKED — explicitly not authorized |
 | Two-client real integration | BLOCKED |

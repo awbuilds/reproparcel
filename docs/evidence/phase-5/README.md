@@ -15,3 +15,5 @@ occurred. Debug signing and emulator results are not stable-release evidence.
 - `physical-device-api31.md` — physical low/mid-range functional and release-flow evidence; benchmark rerun pending.
 
 - `benchmark-api31/` — physical startup trace, capture latency/allocation, jank and APK-size evidence.
+
+- `release-matrix.md` — API 26/30/31 physical/37 image capture, export and desktop import.
