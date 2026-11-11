@@ -63,7 +63,9 @@ class MainActivity : ComponentActivity() {
                 networkMetadataEnabled = false,
             ),
         )
-        ReproParcel.initialize(applicationContext, config)
+        if (!intent.getBooleanExtra("reproparcel_benchmark_skip_init", false)) {
+            ReproParcel.initialize(applicationContext, config)
+        }
         setContent {
             MaterialTheme {
                 SampleScreen()

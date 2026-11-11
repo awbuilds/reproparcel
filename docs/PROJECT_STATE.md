@@ -21,7 +21,7 @@ integration exists.
   local-first reviewed evidence parcels; read-only local agent consumption.
 - [AGENTS.md](../AGENTS.md) — engineering contract, public-repository hygiene,
   exception boundaries, standards and handoff protocol.
-- [Latest handoff](handoffs/0010-2026-11-11-internal-gaps-and-hosts.md).
+- [Latest handoff](handoffs/0011-2026-11-11-physical-device-verification.md).
 - [Traceability ledger](traceability/prd-lines.jsonl), [Phase 0 audit](audits/phase-0-audit.md),
   [Phase 1 audit](audits/phase-1-audit.md), [Phase 3 audit](audits/phase-3-audit.md) and
   [Final audit](audits/final-audit.md).
@@ -75,11 +75,16 @@ build + 5 simulator tests. Fault injection covers denied capture, missing
 activity/sensor, revoked URI, storage failure, corrupt draft, provider errors,
 timeout, cancellation and disconnected network. An on-device release export was
 validated, inspected and rendered by the desktop CLI. `scripts/ci.sh` passes.
+Physical low/mid-range API 31: 37 runtime, 11 reporter and 2 sample tests pass;
+release capture/editor/review/draft/SAF export and desktop import pass.
+Benchmark pair is prepared but the device disconnected before the final run.
 Phase 0: 10 capture tests on API 26/30/37 plus minified API 26/37 smoke. Exact
 commands and evidence are in `docs/evidence/` and the latest handoff. External interviews, physical-device
 tests, legal/trademark review, Sonatype verification, Maven publication,
 independent security review, pilot and external integrations remain blocked.
-Final audit: 215 PASS / 59 BLOCKED / 0 UNREVIEWED / 0 IN_PROGRESS. Emulator
+Final audit: 215 PASS / 59 BLOCKED / 0 UNREVIEWED / 0 IN_PROGRESS. G-03 remains
+blocked: the initial startup delta (18.8 ms median) is above the 10 ms target and
+used a non-identical baseline; the paired rerun is pending. Emulator
 success is not release evidence.
 
 ## Next exact action

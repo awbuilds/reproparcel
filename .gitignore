@@ -33,6 +33,9 @@ Thumbs.db
 !desktop/fixtures/**/*.reproparcel
 local-evidence/
 
+# Local blocker/device tracker (never committed)
+docs/BLOCKERS.local.md
+
 # Desktop tooling
 desktop/node_modules/
 desktop/dist/

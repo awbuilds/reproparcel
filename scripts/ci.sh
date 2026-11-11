@@ -30,7 +30,9 @@ echo "== compile and JVM tests =="
   :reproparcel-okhttp:assembleDebug \
   :sample-app:assembleDebug \
   :sample-app:assembleRelease \
-  :benchmark:assembleDebug
+  :sample-baseline:assembleRelease \
+  :benchmark:assembleDebug \
+  :benchmark:assembleBenchmark
 
 echo "== desktop tests =="
 (cd desktop && npm test)
