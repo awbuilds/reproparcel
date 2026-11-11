@@ -7,8 +7,9 @@ verified.** This is a Phase 9 gated expansion, not Android v1.
 
 - `lib/reproparcel.dart`: limits, image budget, allowlisted redaction, session
   state machine and report model. Tested with `dart test`.
-- `lib/reproparcel_channel.dart`: reference `MethodChannel` API. It expects a
-  native plugin that is not included/built here.
+- `lib/reproparcel_channel.dart`: `MethodChannel` API.
+- `android/`: real Android Flutter plugin forwarding initialize/enable/
+  breadcrumb/log/delete/reporter to the Android runtime and Compose reporter.
 
 ## Verification
 
@@ -18,9 +19,9 @@ dart analyze
 dart test
 ```
 
-Android/iOS Flutter plugin integration, release builds, platform views and
-native capture remain **BLOCKED/unverified** until a real Flutter host passes
-the same privacy/reliability gates.
+The Android plugin and host build are verified on API 37.2. Flutter iOS,
+platform views, release performance and additional adapters remain
+**BLOCKED/unverified**.
 
 ## Constraints
 

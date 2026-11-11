@@ -1,7 +1,7 @@
-# Phase 9 — Flutter Android host build evidence
+# Phase 9 — Flutter Android host and native bridge evidence
 
 Date: 2026-11-11
-Host: `flutter/host_app`, Flutter 3.12/Dart 3.12, Android API 37.2 emulator.
+Host: `flutter/host_app`, Flutter/Dart 3.12, Android API 37.2 emulator.
 
 ## Build
 
@@ -12,17 +12,39 @@ flutter build apk --debug
 ✓ Built build/app/outputs/flutter-apk/app-debug.apk
 ```
 
-APK installed successfully on the API 37.2 emulator; package
-`com.example.reproparcel_host` is running.
+APK installed and launched on the API 37.2 emulator.
 
-## What is exercised
+## Native plugin
 
-- Path dependency on `../reproparcel_flutter`.
-- Pure-Dart limits, session state and redaction contracts in the host UI.
-- No native Flutter plugin capture yet.
+`flutter/reproparcel_flutter/android/` is a real Android Flutter plugin
+(`ReproParcelFlutterPlugin`) that forwards initialize/enable/breadcrumb/log/
+reporter/delete calls to the Android runtime. It uses the local Maven candidate
+artifacts and the Compose reporter.
 
-## Limitations
+## Tests
 
-- `MethodChannel` bridge has no native plugin implementation/host build.
-- No Flutter Android/iOS capture, platform views or release tests.
-- Flutter/Expo support claims remain **BLOCKED**.
+```text
+flutter test
+All tests passed! (host widget test)
+
+flutter test integration_test/plugin_test.dart -d emulator-5554
+All tests passed!
+```
+
+The device integration test asserts:
+
+- native `initialize` succeeds;
+- `setEnabled(true)` succeeds;
+- a safe synthetic breadcrumb is accepted;
+- local draft/export deletion succeeds;
+- `showReporter` returns `success` and opens the reporter activity.
+
+Raw logs: `flutter-widget-test.txt`, `flutter-plugin-test.txt`.
+
+## Limits
+
+- One consumer host only; Phase 9 still requires actual adopter demand and
+  dedicated maintainership.
+- No Flutter iOS plugin, platform-view matrix, release-performance evidence,
+  Maestro recipes, deduplication or additional logger/network adapters.
+- No real report data was used.

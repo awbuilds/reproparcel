@@ -7,5 +7,6 @@ flutter pub get
 flutter build apk --debug
 ```
 
-The APK builds and installs. Native MethodChannel capture is not implemented;
-see `docs/evidence/phase-9/flutter-host.txt`.
+The APK builds and installs. The Android Flutter plugin forwards initialize,
+enable, breadcrumb, log, delete and reporter calls; a device integration test
+verifies them. See `docs/evidence/phase-9/flutter-host.txt`.

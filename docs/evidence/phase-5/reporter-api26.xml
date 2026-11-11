@@ -1,25 +1,33 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<testsuites tests="7" failures="0" errors="0" skipped="0" time="0.000" timestamp="2026-11-11T01:58:41" hostname="localhost">
-  <testsuite name="com.awbuilds.reproparcel.compose.AccessibilityTest" tests="2" failures="0" errors="0" skipped="0" time="5.338" timestamp="2026-11-11T01:58:41" hostname="localhost">
+<testsuites tests="10" failures="0" errors="0" skipped="0" time="0.000" timestamp="2026-11-11T03:14:38" hostname="localhost">
+  <testsuite name="com.awbuilds.reproparcel.compose.AccessibilityTest" tests="2" failures="0" errors="0" skipped="0" time="5.356" timestamp="2026-11-11T03:14:38" hostname="localhost">
     <properties>
       <property name="device" value="emulator-5556" />
     </properties>
-    <testcase name="formRemainsUsableInLandscape" classname="com.awbuilds.reproparcel.compose.AccessibilityTest" time="1.902" />
-    <testcase name="formRemainsUsableAtTwoHundredPercentFontScale" classname="com.awbuilds.reproparcel.compose.AccessibilityTest" time="3.436" />
+    <testcase name="formRemainsUsableInLandscape" classname="com.awbuilds.reproparcel.compose.AccessibilityTest" time="1.885" />
+    <testcase name="formRemainsUsableAtTwoHundredPercentFontScale" classname="com.awbuilds.reproparcel.compose.AccessibilityTest" time="3.471" />
   </testsuite>
-  <testsuite name="com.awbuilds.reproparcel.compose.BitmapFlattenerTest" tests="1" failures="0" errors="0" skipped="0" time="0.002" timestamp="2026-11-11T01:58:41" hostname="localhost">
+  <testsuite name="com.awbuilds.reproparcel.compose.BitmapFlattenerTest" tests="1" failures="0" errors="0" skipped="0" time="0.004" timestamp="2026-11-11T03:14:38" hostname="localhost">
     <properties>
       <property name="device" value="emulator-5556" />
     </properties>
-    <testcase name="maskIsBakedIntoSavedPixels" classname="com.awbuilds.reproparcel.compose.BitmapFlattenerTest" time="0.002" />
+    <testcase name="maskIsBakedIntoSavedPixels" classname="com.awbuilds.reproparcel.compose.BitmapFlattenerTest" time="0.004" />
   </testsuite>
-  <testsuite name="com.awbuilds.reproparcel.compose.ReporterFlowTest" tests="4" failures="0" errors="0" skipped="0" time="7.336" timestamp="2026-11-11T01:58:41" hostname="localhost">
+  <testsuite name="com.awbuilds.reproparcel.compose.ReporterFlowTest" tests="5" failures="0" errors="0" skipped="0" time="8.784" timestamp="2026-11-11T03:14:38" hostname="localhost">
     <properties>
       <property name="device" value="emulator-5556" />
     </properties>
-    <testcase name="textOnlyFormReviewsAndSavesDraft" classname="com.awbuilds.reproparcel.compose.ReporterFlowTest" time="1.953" />
-    <testcase name="shakeEntryCanBeEnabledAndDisabledOnARealActivity" classname="com.awbuilds.reproparcel.compose.ReporterFlowTest" time="0.421" />
-    <testcase name="recreationLosesSensitiveStateButReporterRemainsUsable" classname="com.awbuilds.reproparcel.compose.ReporterFlowTest" time="2.823" />
-    <testcase name="reviewShowsTitleAndReproFields" classname="com.awbuilds.reproparcel.compose.ReporterFlowTest" time="2.139" />
+    <testcase name="textOnlyFormReviewsAndSavesDraft" classname="com.awbuilds.reproparcel.compose.ReporterFlowTest" time="1.834" />
+    <testcase name="shakeEntryCanBeEnabledAndDisabledOnARealActivity" classname="com.awbuilds.reproparcel.compose.ReporterFlowTest" time="0.378" />
+    <testcase name="processDeathWithoutHandoffStartsTextOnly" classname="com.awbuilds.reproparcel.compose.ReporterFlowTest" time="1.584" />
+    <testcase name="recreationLosesSensitiveStateButReporterRemainsUsable" classname="com.awbuilds.reproparcel.compose.ReporterFlowTest" time="2.780" />
+    <testcase name="reviewShowsTitleAndReproFields" classname="com.awbuilds.reproparcel.compose.ReporterFlowTest" time="2.208" />
+  </testsuite>
+  <testsuite name="com.awbuilds.reproparcel.compose.ReporterSemanticsTest" tests="2" failures="0" errors="0" skipped="0" time="3.890" timestamp="2026-11-11T03:14:38" hostname="localhost">
+    <properties>
+      <property name="device" value="emulator-5556" />
+    </properties>
+    <testcase name="primaryControlsMeetMinimumTouchTargets" classname="com.awbuilds.reproparcel.compose.ReporterSemanticsTest" time="1.560" />
+    <testcase name="textOnlyReviewRequiresDescriptionAndAnExplicitApproval" classname="com.awbuilds.reproparcel.compose.ReporterSemanticsTest" time="2.330" />
   </testsuite>
 </testsuites>

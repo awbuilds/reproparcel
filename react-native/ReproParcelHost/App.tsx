@@ -21,7 +21,7 @@ function App(): React.JSX.Element {
       gitCommit: null,
       capturePolicy: {
         policyVersion: 'rn-host-policy-v1',
-        screenshotEnabled: false,
+        screenshotEnabled: true,
         semanticTextEnabled: false,
         eligibleSurfaces: ['com.reproparcelhost.MainActivity'],
       },
@@ -58,8 +58,8 @@ function App(): React.JSX.Element {
         <Button
           title="Open reporter"
           onPress={async () => {
-            const ok = await showReporter('com.reproparcelhost.MainActivity');
-            setStatus(ok ? 'Reporter launch requested' : 'Reporter unavailable');
+            const result = await showReporter('com.reproparcelhost.MainActivity');
+            setStatus(result === 'success' ? 'Reporter launch requested' : `Reporter: ${result}`);
           }}
         />
         <Button

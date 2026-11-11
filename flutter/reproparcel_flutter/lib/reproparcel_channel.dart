@@ -15,8 +15,10 @@ class ReproParcelFlutter {
     return await _channel.invokeMethod<bool>('setEnabled', enabled) ?? false;
   }
 
-  static Future<bool> showReporter(String surfaceId) async {
-    return await _channel.invokeMethod<bool>('showReporter', surfaceId) ?? false;
+  /// Resolves to `success` or a typed result code (`disabled`,
+  /// `not_initialized`, `host_unavailable`, `failure`, ...).
+  static Future<String> showReporter(String surfaceId) async {
+    return await _channel.invokeMethod<String>('showReporter', surfaceId) ?? 'failure';
   }
 
   static Future<bool> recordBreadcrumb(Map<String, Object?> breadcrumb) async {

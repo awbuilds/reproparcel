@@ -2,6 +2,7 @@ allprojects {
     repositories {
         google()
         mavenCentral()
+        maven { url = uri(rootProject.file("../../../build/local-repo")) }
     }
 }
 

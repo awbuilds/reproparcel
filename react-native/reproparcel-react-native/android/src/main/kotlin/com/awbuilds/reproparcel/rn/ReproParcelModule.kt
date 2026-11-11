@@ -64,13 +64,35 @@ class ReproParcelModule(reactContext: ReactApplicationContext) :
 
     @ReactMethod
     fun showReporter(surfaceId: String, promise: Promise) {
-        val activity = reactApplicationContext.currentActivity
-        if (activity == null) {
-            promise.resolve(false)
-            return
+        val context = reactApplicationContext
+        context.runOnUiQueueThread {
+            val activity = context.currentActivity
+            if (activity == null) {
+                promise.resolve(false)
+                return@runOnUiQueueThread
+            }
+            val result = try {
+                ReproParcelCompose.showReporter(activity, surfaceId)
+            } catch (failure: Exception) {
+                // The bridge is a host seam: return a typed result rather than
+                // letting a recoverable reporter failure cross into JS.
+                com.awbuilds.reproparcel.core.result.SdkResult.Failure(
+                    com.awbuilds.reproparcel.core.result.ErrorCode.INTERNAL_SAFE_FAILURE,
+                )
+            }
+            promise.resolve(
+                when (result) {
+                    is com.awbuilds.reproparcel.core.result.SdkResult.Success -> "success"
+                    is com.awbuilds.reproparcel.core.result.SdkResult.Failure -> result.code.name.lowercase()
+                    is com.awbuilds.reproparcel.core.result.SdkResult.NotInitialized -> "not_initialized"
+                    is com.awbuilds.reproparcel.core.result.SdkResult.Disabled -> "disabled"
+                    is com.awbuilds.reproparcel.core.result.SdkResult.HostUnavailable -> "host_unavailable"
+                    is com.awbuilds.reproparcel.core.result.SdkResult.Omission -> "omission"
+                    is com.awbuilds.reproparcel.core.result.SdkResult.Cancelled -> "cancelled"
+                    is com.awbuilds.reproparcel.core.result.SdkResult.Unsupported -> "unsupported"
+                },
+            )
         }
-        val result = ReproParcelCompose.showReporter(activity, surfaceId)
-        promise.resolve(result == com.awbuilds.reproparcel.core.result.SdkResult.Success)
     }
 
     @ReactMethod

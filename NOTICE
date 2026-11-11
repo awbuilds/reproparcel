@@ -30,7 +30,10 @@ Optional relay dependencies
 - Node.js built-ins only for the reference relay; see `server/package-lock.json`
   for development tooling.
 
-The repository stores license texts, not a legal opinion. A complete generated
-per-dependency notice set and qualified legal review remain release gates for a
-stable publication. Preserve all required copyright and attribution notices
-when distributing artifacts. No proprietary-linking exception is granted.
+Resolved dependency coordinates are recorded in
+`docs/dependency-inventory.md`, generated from the actual Gradle/npm resolution.
+Common license texts are under `licenses/`. This is an inventory and notice
+summary, not legal advice. Qualified review of every dependency license and the
+AGPL distribution/source offer remains a stable-release gate. Preserve all
+required copyright and attribution notices when distributing artifacts. No
+proprietary-linking exception is granted.
