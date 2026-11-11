@@ -84,10 +84,10 @@ success is not release evidence.
 
 ## Next exact action
 
-Run independent review and the final traceability audit. Close remaining
-evidence gaps where possible, mark external/deployment/platform gates BLOCKED
-with exact actions, and keep the source candidate on `dev`. Do not tag, release,
-publish, deploy or merge `main`.
+Independent review and the final traceability audit are complete; the source
+candidate is frozen on `dev`. The maintainer must supply or authorize the
+external/physical/legal/publication gates. Do not tag, release, publish, deploy
+or merge `main` without an explicit instruction.
 
 ## Safety boundaries
 
