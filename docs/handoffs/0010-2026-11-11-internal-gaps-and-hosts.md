@@ -40,7 +40,7 @@ Core JVM                                   43 tests, 0 failures
 Android runtime                            37 tests, 0 failures (API 26/30/37)
 Reporter Compose                           11 tests, 0 failures (API 26/30/37)
 Sample UI                                   2 tests, 0 failures (API 26/30/37)
-Desktop                                    15 tests, 0 failures
+Desktop                                    16 tests, 0 failures
 Relay                                       6 tests, 0 failures
 Swift core                                  5 tests, 0 failures
 Dart core                                   4 tests, 0 failures
@@ -48,6 +48,7 @@ RN Android release host                     BUILD SUCCESSFUL; init/enable/breadc
 Flutter Android host + plugin               APK built; device integration test PASS
 iOS simulator/device                        BUILD SUCCEEDED; simulator tests PASS
 Device export → desktop import              validate/inspect/render PASS
+Real MCP client                              OpenCode CLI list/get PASS; Codex blocked by network
 Dependency inventory                        docs/dependency-inventory.md generated
 Fault injection                             docs/evidence/phase-5/fault-injection.md PASS
 public-hygiene --all                        PASS
@@ -62,9 +63,8 @@ the golden fixture is `schema/fixtures/v1/valid/golden.reproparcel`.
 - Physical low/mid-range device performance/thermal/jank and startup/capture
   measurements.
 - Full capture race/process-death/TalkBack/share-target matrix.
-- Two real MCP clients; the on-device text-only export → desktop import is
-  verified, but the full per-API capture/mask/export/import matrix and two-client
-  agent inspection are not.
+- Only one real MCP client is verified (OpenCode); Codex was blocked by its
+  model network. The full per-API capture/mask/export/import matrix remains.
 - RN lifecycle/Hermes/Expo matrix and a second consumer example; Flutter iOS,
   platform-view and release-performance matrix; iOS physical-device/Keychain/
   scenes/App Store validation.

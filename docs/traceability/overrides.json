@@ -26,7 +26,7 @@
   "113": {
     "artifact": "desktop/src/mcp-protocol.test.ts",
     "evidence": "Official SDK protocol; no two real coding clients",
-    "notes": "Two real coding clients not verified",
+    "notes": "One real client (OpenCode CLI) listed and read the exported parcel; second client (Codex) blocked by model-network failure",
     "status": "BLOCKED"
   },
   "114": {
@@ -1243,7 +1243,7 @@
   "641": {
     "artifact": "desktop",
     "evidence": "Tools implemented; two-client flow not verified",
-    "notes": "Two real coding clients not verified",
+    "notes": "One real client verified; second real client blocked by environment network",
     "status": "BLOCKED"
   },
   "643": {
@@ -1291,13 +1291,13 @@
   "652": {
     "artifact": "desktop",
     "evidence": "CLI/viewer/MCP tests; no alpha candidate",
-    "notes": "No two-client/alpha candidate",
+    "notes": "CLI/viewer/MCP tests pass; one real client verified; two-client recorded evidence and alpha candidate remain",
     "status": "BLOCKED"
   },
   "654": {
     "artifact": "docs/decisions/phase-4-go-no-go.md",
     "evidence": "No arbitrary read/execute; gaps recorded",
-    "notes": "Device text-only export \u2192 desktop validate/inspect/render verified; two real MCP clients and full hostile-fixture matrix remain",
+    "notes": "Device export \u2192 desktop validate/inspect/render and one real client verified; two real clients and full hostile-fixture matrix remain",
     "status": "BLOCKED"
   },
   "658": {

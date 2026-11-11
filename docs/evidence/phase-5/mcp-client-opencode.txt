@@ -1,0 +1,29 @@
+# Real MCP coding client — OpenCode CLI
+
+Date: 2026-11-11
+Client: OpenCode CLI, model `k-exaone_v2.5` (cloud model; synthetic evidence only).
+
+Temp client config pointed at the ReproParcel stdio MCP server with an explicit
+import root containing the device-exported synthetic parcel.
+
+Command (from an empty temp directory, `--standalone`):
+
+```text
+opencode run --standalone --auto \
+  "Use the reproparcel MCP server tools. Call list_reports, then get_report
+   for report ID <synthetic-id>. Reply with only the reportId and the
+   description length. Do not use shell commands."
+```
+
+Observed tool calls and final answer:
+
+```text
+tools.reproparcel.list_reports()
+tools.reproparcel.get_report({report_id: "<synthetic-id>"})
+reportId: <synthetic-id>, description length: 12
+```
+
+This verifies one real coding client can discover and call the read-only tools.
+A second distinct coding client (Codex CLI) could not complete because its model
+transport had no network connectivity in this environment; see
+`mcp-client-codex.txt`. The two-client G-05 gate therefore remains blocked.
