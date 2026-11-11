@@ -14,7 +14,7 @@ ANDROID_SERIAL=$PHYSICAL_DEVICE ./gradlew \
   :sample-app:connectedDebugAndroidTest
 BUILD SUCCESSFUL
 
-runtime   37 tests, 0 failures
+runtime   38 tests, 0 failures
 reporter  11 tests, 0 failures
 sample     2 tests, 0 failures
 ```
@@ -40,20 +40,23 @@ render:   index.html
 
 The pulled synthetic parcel was removed from the device after validation.
 
-## Benchmark harness
+## Benchmark results
 
-The release `benchmark` variant and Macrobenchmark startup test ran on the
-device. The first startup sample was:
+Release `benchmark` variant, wireless ADB, 98–100% battery:
 
 ```text
-integrated median  558.7 ms
-baseline median    539.9 ms   (simplified baseline, not the paired same-UI run)
+ReproParcelInitialize trace: median 1.28 ms, p95 1.55 ms (20 cold starts)
+capture: p95 200 ms, max allocation 4.49 MB (20 debug samples)
+frame sample: 202 frames, frame p95 14.65 ms
+APK delta vs SDK-absent baseline: 418,103 bytes (~0.40 MiB)
 ```
 
-This is **not acceptance evidence**: the baseline screen was not identical and
-the paired uninitialized-same-app scenario had not run when the USB connection
-dropped. A later run must record p95 and jank frame duration before any budget
-claim.
+The full cold-start comparison was noise/order dominated and is not used as a
+10 ms claim. Detailed raw data and caveats are in `benchmark-api31/`.
+
+G-03 is not passed: the jank run is only 202 frames with no paired disabled
+baseline, and capture peak memory, UI-thread slices, trigger-to-composer,
+thermal/ANR soak and TalkBack remain open.
 
 ## Pending because the device disconnected
 

@@ -65,7 +65,7 @@ integration exists.
 
 ## Verification status
 
-Phase 2/3: 43 core JVM tests, 3 OkHttp tests, 37 Android runtime tests, 11
+Phase 2/3: 43 core JVM tests, 3 OkHttp tests, 38 Android runtime tests, 11
 reporter tests and 2 sample tests on API 26/30/37. Phase 4: 16 desktop tests.
 Phase 5: local four-artifact publication, clean consumer assemble, R8 release
 flow and 1.2 MiB sample APK. Phase 6 relay: 6 Node tests. Phase 8 Swift: 5
@@ -75,7 +75,7 @@ build + 5 simulator tests. Fault injection covers denied capture, missing
 activity/sensor, revoked URI, storage failure, corrupt draft, provider errors,
 timeout, cancellation and disconnected network. An on-device release export was
 validated, inspected and rendered by the desktop CLI. `scripts/ci.sh` passes.
-Physical low/mid-range API 31: 37 runtime, 11 reporter and 2 sample tests pass;
+Physical low/mid-range API 31: 38 runtime, 11 reporter and 2 sample tests pass;
 release capture/editor/review/draft/SAF export and desktop import pass;
 airplane-mode create → SAF export → offline desktop validate/inspect/render also
 passes.
@@ -84,7 +84,7 @@ Phase 0: 10 capture tests on API 26/30/37 plus minified API 26/37 smoke. Exact
 commands and evidence are in `docs/evidence/` and the latest handoff. External interviews, physical-device
 tests, legal/trademark review, Sonatype verification, Maven publication,
 independent security review, pilot and external integrations remain blocked.
-Final audit: 215 PASS / 59 BLOCKED / 0 UNREVIEWED / 0 IN_PROGRESS. G-03 remains
+Final audit: 222 PASS / 52 BLOCKED / 0 UNREVIEWED / 0 IN_PROGRESS. G-03 remains
 blocked: the initial startup delta (18.8 ms median) is above the 10 ms target and
 used a non-identical baseline; the paired rerun is pending. Emulator
 success is not release evidence.

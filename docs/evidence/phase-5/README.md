@@ -13,3 +13,5 @@ occurred. Debug signing and emulator results are not stable-release evidence.
 - `mcp-client-opencode.txt` / `mcp-client-codex.txt` — real-client attempt; one client verified, one network-blocked.
 
 - `physical-device-api31.md` — physical low/mid-range functional and release-flow evidence; benchmark rerun pending.
+
+- `benchmark-api31/` — physical startup trace, capture latency/allocation, jank and APK-size evidence.
