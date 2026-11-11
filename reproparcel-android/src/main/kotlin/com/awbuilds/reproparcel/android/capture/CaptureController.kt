@@ -161,9 +161,6 @@ public object CaptureController {
                     )
                 }
             }
-        } catch (_: TimeoutCancellationException) {
-            // The callback owns the destination if it arrives late.
-            return CaptureOutcome.Omitted(OmissionReason.CAPTURE_TIMEOUT)
         } catch (_: IllegalArgumentException) {
             bitmap.recycle()
             return CaptureOutcome.Omitted(OmissionReason.UNSUPPORTED_SURFACE)
@@ -176,6 +173,10 @@ public object CaptureController {
         }
 
         val elapsed = SystemClock.elapsedRealtime() - started
+        if (result == null) {
+            // The callback (if it arrives late) owns the bitmap and recycles it.
+            return CaptureOutcome.Omitted(OmissionReason.CAPTURE_TIMEOUT)
+        }
         if (result != PixelCopy.SUCCESS) {
             bitmap.recycle()
             return CaptureOutcome.Failed(ErrorCode.INTERNAL_SAFE_FAILURE)
