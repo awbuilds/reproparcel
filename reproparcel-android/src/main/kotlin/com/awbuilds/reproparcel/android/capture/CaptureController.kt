@@ -69,6 +69,13 @@ public object CaptureController {
     private val generations: MutableMap<View, AtomicLong> =
         Collections.synchronizedMap(WeakHashMap())
 
+    internal suspend fun <T> awaitWithTimeout(timeoutMs: Long, block: suspend () -> T): T? =
+        try {
+            withTimeout(timeoutMs) { block() }
+        } catch (_: TimeoutCancellationException) {
+            null
+        }
+
     @MainThread
     public suspend fun capture(
         activity: Activity,
@@ -137,7 +144,7 @@ public object CaptureController {
         var callbackCompleted = false
 
         val result = try {
-            withTimeout(TIMEOUT_MS) {
+            awaitWithTimeout(TIMEOUT_MS) {
                 suspendCancellableCoroutine<Int> { continuation ->
                     PixelCopy.request(
                         window,

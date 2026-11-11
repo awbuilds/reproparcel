@@ -58,8 +58,9 @@ public class DraftStore(
     context: Context,
     private val retention: RetentionPolicy = RetentionPolicy(),
     private val clock: Clock = SystemClock,
+    rootOverride: File? = null,
 ) {
-    private val root: File = File(context.applicationContext.noBackupFilesDir, "reproparcel/drafts")
+    private val root: File = rootOverride ?: File(context.applicationContext.noBackupFilesDir, "reproparcel/drafts")
     private val indexFile: File = File(root, "index.json")
     private val aad = "reproparcel-draft-v1".toByteArray(Charsets.UTF_8)
 

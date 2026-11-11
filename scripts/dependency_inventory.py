@@ -49,6 +49,24 @@ def gradle_inventory() -> list[str]:
     return [f"{g}:{a}:{v}" for g, a, v in sorted(found)]
 
 
+def pub_inventory(lock_path: Path) -> list[str]:
+    if not lock_path.is_file():
+        return []
+    lines = lock_path.read_text(encoding="utf-8").splitlines()
+    found: list[str] = []
+    current: str | None = None
+    for line in lines:
+        match = re.match(r"^  ([a-zA-Z0-9_]+):$", line)
+        if match:
+            current = match.group(1)
+            continue
+        version_match = re.match(r'^    version: "?([0-9][^"\s]*)"?$', line)
+        if current and version_match:
+            found.append(f"{current} {version_match.group(1)}")
+            current = None
+    return found
+
+
 def npm_inventory(lock_path: Path) -> list[str]:
     if not lock_path.is_file():
         return []
@@ -85,6 +103,9 @@ def main() -> int:
         lines += ["", f"## {label}", ""]
         entries = npm_inventory(lock)
         lines += [f"- `{entry}`" for entry in entries] if entries else ["- No lockfile entries."]
+    lines += ["", "## Flutter host (pub packages)", ""]
+    pub_entries = pub_inventory(ROOT / "flutter/host_app/pubspec.lock")
+    lines += [f"- `{entry}` (license per package review)" for entry in pub_entries] if pub_entries else ["- No pub lockfile entries."]
     OUT.write_text("\n".join(lines) + "\n", encoding="utf-8")
     print(f"wrote {OUT.relative_to(ROOT)}: {len(lines)} lines")
     return 0

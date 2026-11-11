@@ -1,8 +1,9 @@
 # ReproParcel React Native Android reference
 
-**Status: reference bridge only. Not built, linked or tested against a React
-Native app in this repository.** Android v1 remains the stable scope; this is a
-Phase 7 gated expansion.
+**Status: reference bridge built and run in `react-native/ReproParcelHost`
+(React Native 0.88.1, release APK).** Initialize/enable/breadcrumb/reporter are
+verified on an API 37.2 emulator. The Phase 7 exit (second consumer example,
+Hermes/lifecycle matrix, Expo config plugin) remains blocked.
 
 ## API
 
@@ -49,7 +50,9 @@ not bypass policy or expose a write/upload API.
 
 ## Verification status
 
-- TypeScript and Kotlin source are present.
-- No React Native app was built or run in this session; the bridge is
-  **BLOCKED/unverified** until a real host app passes release tests.
+- Android release host build/install passed.
+- Native initialize, enable and safe breadcrumb passed; reporter launch reached
+  the form, capture editor and exact-review screen.
+- One consumer host only; the Phase 7 exit still requires two distinct consumer
+  examples, a Hermes/lifecycle matrix and an Expo config-plugin path.
 - iOS is not provided "for free"; iOS is a separate Phase 8 effort.

@@ -29,7 +29,7 @@ export type Breadcrumb = {
 type NativeReproParcel = {
   initialize(configJson: string): Promise<boolean>;
   setEnabled(enabled: boolean): Promise<boolean>;
-  showReporter(surfaceId: string): Promise<boolean>;
+  showReporter(surfaceId: string): Promise<ReporterResult>;
   recordBreadcrumb(json: string): Promise<boolean>;
   recordLog(json: string): Promise<boolean>;
   deleteLocalReports(): Promise<boolean>;
@@ -50,8 +50,18 @@ export function setEnabled(enabled: boolean): Promise<boolean> {
   return native().setEnabled(enabled);
 }
 
-export function showReporter(surfaceId: string): Promise<boolean> {
-  return native().showReporter(surfaceId);
+export type ReporterResult =
+  | "success"
+  | "not_initialized"
+  | "disabled"
+  | "host_unavailable"
+  | "wrong_thread"
+  | "reporter_busy"
+  | "unsupported"
+  | "failure";
+
+export function showReporter(surfaceId: string): Promise<ReporterResult> {
+  return native().showReporter(surfaceId) as Promise<ReporterResult>;
 }
 
 export function recordBreadcrumb(breadcrumb: Breadcrumb): Promise<boolean> {

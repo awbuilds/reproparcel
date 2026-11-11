@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 import 'package:flutter/services.dart';
 
-/// Reference MethodChannel bridge. The native Flutter plugin implementation is
-/// not built in this repository; verify it in a real Flutter host before any
-/// support claim.
+/// MethodChannel bridge to the Android Flutter plugin in `android/`. The host
+/// integration test in `flutter/host_app/integration_test` verifies initialize,
+/// enable, breadcrumb, delete and reporter launch.
 class ReproParcelFlutter {
   static const MethodChannel _channel = MethodChannel('reproparcel');
 

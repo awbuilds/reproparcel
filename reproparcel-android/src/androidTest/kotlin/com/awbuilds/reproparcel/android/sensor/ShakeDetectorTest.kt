@@ -12,7 +12,7 @@ import org.junit.runner.RunWith
 class ShakeDetectorTest {
     @Test
     fun startAndStopAreExplicitAndIdempotent() {
-        val detector = ShakeDetector(ApplicationProvider.getApplicationContext()) {}
+        val detector = ShakeDetector(ApplicationProvider.getApplicationContext(), onShake = {})
         assertTrue(detector.start())
         assertTrue(detector.isStarted)
         detector.stop()

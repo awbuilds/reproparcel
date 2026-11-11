@@ -1,7 +1,8 @@
 # ReproParcel Flutter reference
 
-**Status: pure-Dart contracts are tested; no Flutter host/plugin build was
-verified.** This is a Phase 9 gated expansion, not Android v1.
+**Status: Dart contracts and the Android Flutter plugin are tested; the Android
+host APK builds and a device integration test passes.** Flutter iOS and the
+wider Phase 9 exit gates remain blocked.
 
 ## What is present
 

@@ -3,6 +3,8 @@
 Minimal Flutter host that consumes `../reproparcel_flutter` as a path dependency.
 
 ```sh
+# Publish the local Maven candidate once from the repository root:
+# ./scripts/release-local.sh
 flutter pub get
 flutter build apk --debug
 ```

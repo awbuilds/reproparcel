@@ -43,6 +43,21 @@ class MetadataInterceptorTest {
     }
 
     @Test
+    fun disconnectedNetworkExceptionIsPreservedUnchanged() {
+        val client = OkHttpClient.Builder()
+            .addInterceptor(MetadataInterceptor(sink = { }))
+            .build()
+        val request = Request.Builder().url("http://127.0.0.1:1/unreachable").build()
+        val failure = try {
+            client.newCall(request).execute()
+            null
+        } catch (error: java.io.IOException) {
+            error
+        }
+        assertTrue("expected the original network exception", failure is java.io.IOException)
+    }
+
+    @Test
     fun sinkFailureDoesNotChangeResponse() {
         server.enqueue(MockResponse().setResponseCode(200).setBody("still-here"))
         val client = OkHttpClient.Builder()
