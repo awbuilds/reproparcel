@@ -31,6 +31,8 @@ evidence existed; physical-device and performance gates were blocked.
   benchmark-only intent extra.
 - Added a physical-device capture latency/allocation test.
 - Added the baseline and benchmark variants to CI.
+- Closed G-06 locally: airplane-mode release create → SAF export → offline
+  desktop validate/inspect/render on the API 37 emulator.
 
 ## Verification evidence
 
@@ -45,6 +47,11 @@ release smoke: capture/editor/review/draft/SAF export PASS
 desktop: validate valid=true; inspect variant=release; render PASS
 
 scripts/ci.sh PASS
+
+offline airplane mode: ping unreachable
+validate: {"valid":true,"reportId":"644dd60d-dcfa-4d7d-94b3-5f21731cf33f"}
+inspect:  variant=release, descriptionLength=16
+render:   PASS
 ```
 
 Initial startup observation (not final): integrated median 558.7 ms, simplified

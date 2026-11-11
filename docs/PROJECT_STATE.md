@@ -76,7 +76,9 @@ activity/sensor, revoked URI, storage failure, corrupt draft, provider errors,
 timeout, cancellation and disconnected network. An on-device release export was
 validated, inspected and rendered by the desktop CLI. `scripts/ci.sh` passes.
 Physical low/mid-range API 31: 37 runtime, 11 reporter and 2 sample tests pass;
-release capture/editor/review/draft/SAF export and desktop import pass.
+release capture/editor/review/draft/SAF export and desktop import pass;
+airplane-mode create → SAF export → offline desktop validate/inspect/render also
+passes.
 Benchmark pair is prepared but the device disconnected before the final run.
 Phase 0: 10 capture tests on API 26/30/37 plus minified API 26/37 smoke. Exact
 commands and evidence are in `docs/evidence/` and the latest handoff. External interviews, physical-device

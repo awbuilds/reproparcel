@@ -1,0 +1,38 @@
+# Fully offline create/export/import flow
+
+Date: 2026-11-11
+Device: API 37.2 emulator, synthetic sample app, release variant.
+
+## Network state
+
+```text
+adb shell cmd connectivity airplane-mode enable
+settings get global airplane_mode_on -> 1
+adb shell ping -c 1 -W 2 8.8.8.8
+connect: Network is unreachable
+```
+
+The app was not signed in to any account and used no network permission or
+remote service.
+
+## Flow
+
+1. Launch release sample with airplane mode enabled.
+2. Enable SDK explicitly.
+3. Open reporter.
+4. Enter synthetic description `SyntheticOffline`.
+5. Review the text-only report and confirm the exact content.
+6. Save through the SAF `CreateDocument` picker to Downloads.
+7. Pull the synthetic parcel.
+8. Validate, inspect and render it with the offline desktop CLI.
+
+```text
+sha256 ac68e61311522c304da25e9b25cef395341543c508fc245fd772cb5120c0d13d
+validate: {"valid":true,"reportId":"644dd60d-dcfa-4d7d-94b3-5f21731cf33f"}
+inspect:  "variant":"release","descriptionLength":16,"image":null
+render:   /tmp/report-offline-viewer/index.html
+```
+
+The synthetic export was removed from the emulator afterwards. This verifies
+G-06 on one local device; it does not verify physical-device or multi-client
+coverage.

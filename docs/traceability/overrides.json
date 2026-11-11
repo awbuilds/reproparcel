@@ -30,9 +30,9 @@
     "status": "BLOCKED"
   },
   "114": {
-    "artifact": "desktop/src/*.test.ts",
-    "evidence": "Offline validator/viewer; full device export/import not recorded",
-    "notes": "Offline validator/viewer tests; full device export/import remains a separate gap",
+    "artifact": "docs/evidence/phase-5/offline-device-flow.txt",
+    "evidence": "Airplane-mode release create \u2192 SAF export \u2192 offline desktop validate/inspect/render; no account or network",
+    "notes": "Single API 37 emulator run; no external client.",
     "status": "PASS"
   },
   "115": {
