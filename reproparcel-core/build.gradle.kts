@@ -69,3 +69,10 @@ tasks.test {
         exceptionFormat = org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL
     }
 }
+
+tasks.register<JavaExec>("generateGoldenParcel") {
+    dependsOn(tasks.named("testClasses"))
+    classpath = sourceSets["test"].runtimeClasspath
+    mainClass.set("com.awbuilds.reproparcel.core.GoldenParcelGeneratorKt")
+    args = listOf(rootProject.file("schema/fixtures/v1/valid/golden.reproparcel").absolutePath)
+}

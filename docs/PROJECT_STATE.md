@@ -66,7 +66,7 @@ integration exists.
 ## Verification status
 
 Phase 2/3: 43 core JVM tests, 2 OkHttp tests, 30 Android runtime tests, 7
-reporter tests and 2 sample tests on API 26/30/37. Phase 4: 14 desktop tests.
+reporter tests and 2 sample tests on API 26/30/37. Phase 4: 15 desktop tests.
 Phase 5: local four-artifact publication, clean consumer assemble, R8 release
 flow and 1.2 MiB sample APK. Phase 6 relay: 6 Node tests. Phase 8 Swift: 5
 XCTest tests. Phase 9 Dart: 4 tests + analyzer. `scripts/ci.sh` passes.

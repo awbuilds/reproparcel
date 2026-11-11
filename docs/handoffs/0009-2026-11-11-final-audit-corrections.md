@@ -29,7 +29,7 @@ or `main` merge was performed.
 - Public hygiene ignores Swift/Dart build caches, scans history for private
   terms, and passes on the final tree.
 - Traceability generator now scores requirement-bearing tables/lists in §§7, 8,
-  13, 14; final audit has 209 PASS / 65 BLOCKED / 0 UNREVIEWED / 0 IN_PROGRESS.
+  13, 14; final audit has 210 PASS / 64 BLOCKED / 0 UNREVIEWED / 0 IN_PROGRESS.
 
 ## Verification evidence
 
@@ -40,12 +40,12 @@ Reporter API 37                            7 tests, 0 failures
 Sample API 37                              2 tests, 0 failures
 Core JVM                                   43 tests, 0 failures
 OkHttp                                     2 tests, 0 failures
-Desktop                                    14 tests, 0 failures
+Desktop                                    15 tests, 0 failures
 Relay                                      6 tests, 0 failures
 Swift core                                 5 tests, 0 failures
 Dart core                                  4 tests, 0 failures
 public-hygiene --all                       PASS
-prd_audit --final                          PASS (209 PASS / 65 BLOCKED)
+prd_audit --final                          PASS (210 PASS / 64 BLOCKED)
 ```
 
 ## Privacy, reliability and compatibility impact
