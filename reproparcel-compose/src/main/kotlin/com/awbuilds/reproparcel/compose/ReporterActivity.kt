@@ -51,6 +51,7 @@ import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.IntOffset
@@ -113,6 +114,7 @@ private fun ReporterScreen() {
     val context = LocalContext.current
     val activity = LocalActivity.current
     val scope = rememberCoroutineScope()
+    val descriptionFieldDescription = stringResource(R.string.reporter_description_field_description)
     val surfaceId = activity?.intent?.getStringExtra("reproparcel_surface_id")
     val handoff = remember { ReporterHandoff.take() }
     var capturedBitmap by remember { mutableStateOf((handoff as? HandoffCapture.Captured)?.bitmap) }
@@ -266,14 +268,14 @@ private fun ReporterScreen() {
         status = when (outcome) {
             ExportOutcome.FileSaved -> {
                 exported = true
-                "File saved locally. Files already shared cannot be recalled."
+                context.resources.getString(R.string.reporter_file_saved)
             }
             ExportOutcome.ShareLaunched -> {
                 exported = true
-                "Share chooser opened. Receipt by the receiving app is unknown."
+                context.resources.getString(R.string.reporter_share_launched)
             }
-            ExportOutcome.Cancelled -> "Save cancelled."
-            is ExportOutcome.Failed -> "Export failed (${outcome.code})."
+            ExportOutcome.Cancelled -> context.resources.getString(R.string.reporter_save_cancelled)
+            is ExportOutcome.Failed -> context.resources.getString(R.string.reporter_export_failed, outcome.code.name)
         }
     }
 
@@ -282,7 +284,7 @@ private fun ReporterScreen() {
     ) { uri ->
         val pending = pendingExport
         if (uri == null) {
-            status = "Save cancelled."
+            status = context.resources.getString(R.string.reporter_save_cancelled)
         } else if (pending != null) {
             scope.launch {
                 handleOutcome(exportManager.saveToUri(uri, pending.first, pending.second))
@@ -298,14 +300,13 @@ private fun ReporterScreen() {
             .padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(10.dp),
     ) {
-        Text("Report a problem", style = MaterialTheme.typography.headlineSmall)
+        Text(stringResource(R.string.reporter_title), style = MaterialTheme.typography.headlineSmall)
         Text(
             "Only the reviewed content below leaves the app. No automatic upload occurs.",
             style = MaterialTheme.typography.bodySmall,
         )
         Text(
-            "Drafts: encrypted locally, default 72h, at most 10 reports/25 MiB. " +
-                "Shared files cannot be recalled.",
+            stringResource(R.string.reporter_retention_note),
             style = MaterialTheme.typography.bodySmall,
         )
         if (status.isNotBlank()) {
@@ -319,45 +320,45 @@ private fun ReporterScreen() {
                     verticalArrangement = Arrangement.spacedBy(8.dp),
                 ) {
                     if (omission != null) {
-                        Text("Image omitted: ${omission.name.lowercase()}", style = MaterialTheme.typography.bodySmall)
+                        Text(stringResource(R.string.reporter_image_omitted, omission.name.lowercase()), style = MaterialTheme.typography.bodySmall)
                     }
                     OutlinedTextField(
                         value = title,
                         onValueChange = { title = it.take(200) },
-                        label = { Text("Title (optional)") },
+                        label = { Text(stringResource(R.string.reporter_title_optional)) },
                         modifier = Modifier.fillMaxWidth(),
                     )
                     OutlinedTextField(
                         value = description,
                         onValueChange = { description = it.take(20_000) },
-                        label = { Text("What happened?") },
-                        modifier = Modifier.fillMaxWidth().semantics { contentDescription = "Description" },
+                        label = { Text(stringResource(R.string.reporter_what_happened)) },
+                        modifier = Modifier.fillMaxWidth().semantics { contentDescription = descriptionFieldDescription },
                     )
                     OutlinedTextField(
                         value = expected,
                         onValueChange = { expected = it.take(20_000) },
-                        label = { Text("Expected behavior") },
+                        label = { Text(stringResource(R.string.reporter_expected)) },
                         modifier = Modifier.fillMaxWidth(),
                     )
                     OutlinedTextField(
                         value = actual,
                         onValueChange = { actual = it.take(20_000) },
-                        label = { Text("Actual behavior") },
+                        label = { Text(stringResource(R.string.reporter_actual)) },
                         modifier = Modifier.fillMaxWidth(),
                     )
                     OutlinedTextField(
                         value = repro,
                         onValueChange = { repro = it.take(20_000) },
-                        label = { Text("Steps to reproduce (optional)") },
+                        label = { Text(stringResource(R.string.reporter_steps_optional)) },
                         modifier = Modifier.fillMaxWidth(),
                     )
                     Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                         Button(
                             enabled = description.isNotBlank(),
                             onClick = { beginReview(buildPayload()) },
-                        ) { Text("Review text-only report") }
+                        ) { Text(stringResource(R.string.reporter_review_text_only)) }
                         if (capturedBitmap != null) {
-                            Button(onClick = { step = ReporterStep.EDIT }) { Text("Edit image") }
+                            Button(onClick = { step = ReporterStep.EDIT }) { Text(stringResource(R.string.reporter_edit_image)) }
                         }
                     }
                 }
@@ -370,13 +371,13 @@ private fun ReporterScreen() {
                         modifier = Modifier.horizontalScroll(rememberScrollState()),
                         horizontalArrangement = Arrangement.spacedBy(8.dp),
                     ) {
-                        Button(onClick = { tool = AnnotationTool.PEN }) { Text("Pen") }
-                        Button(onClick = { tool = AnnotationTool.ARROW }) { Text("Arrow") }
-                        Button(onClick = { tool = AnnotationTool.MASK }) { Text("Mask") }
+                        Button(onClick = { tool = AnnotationTool.PEN }) { Text(stringResource(R.string.reporter_pen)) }
+                        Button(onClick = { tool = AnnotationTool.ARROW }) { Text(stringResource(R.string.reporter_arrow)) }
+                        Button(onClick = { tool = AnnotationTool.MASK }) { Text(stringResource(R.string.reporter_mask)) }
                         TextButton(
                             enabled = annotations.isNotEmpty(),
                             onClick = { if (annotations.isNotEmpty()) annotations.removeAt(annotations.lastIndex) },
-                        ) { Text("Undo") }
+                        ) { Text(stringResource(R.string.reporter_undo)) }
                     }
                     AnnotatedImage(
                         bitmap = bitmap,
@@ -396,8 +397,8 @@ private fun ReporterScreen() {
                                     beginReview(buildPayload().copy(imagePng = if (includeImage) png else null))
                                 }
                             },
-                        ) { Text("Review image report") }
-                        TextButton(onClick = { step = ReporterStep.FORM }) { Text("Back") }
+                        ) { Text(stringResource(R.string.reporter_review_image)) }
+                        TextButton(onClick = { step = ReporterStep.FORM }) { Text(stringResource(R.string.reporter_back)) }
                     }
                 }
             }
@@ -407,11 +408,20 @@ private fun ReporterScreen() {
                     modifier = Modifier.weight(1f).verticalScroll(rememberScrollState()),
                     verticalArrangement = Arrangement.spacedBy(8.dp),
                 ) {
-                    Text("Exact final content", style = MaterialTheme.typography.titleMedium)
+                    Text(stringResource(R.string.reporter_exact_content), style = MaterialTheme.typography.titleMedium)
+                    Text(
+                        stringResource(
+                            R.string.reporter_evidence_summary,
+                            frozenPayload?.events?.size ?: 0,
+                            frozenPayload?.semantics?.nodes?.size ?: 0,
+                        ),
+                        style = MaterialTheme.typography.bodySmall,
+                    )
+                    Text(stringResource(R.string.reporter_export_summary), style = MaterialTheme.typography.bodySmall)
                     if (finalPng != null) {
                         Row(verticalAlignment = Alignment.CenterVertically) {
                             Checkbox(checked = includeImage, onCheckedChange = { includeImage = it })
-                            Text("Include the reviewed image")
+                            Text(stringResource(R.string.reporter_include_image))
                         }
                     }
                     if (includeImage && finalPng != null) {
@@ -423,34 +433,34 @@ private fun ReporterScreen() {
                         preview?.let {
                             Image(
                                 bitmap = it.asImageBitmap(),
-                                contentDescription = "Final reviewed image",
+                                contentDescription = stringResource(R.string.reporter_final_image_description),
                                 modifier = Modifier.fillMaxWidth().aspectRatio(it.width.toFloat() / it.height),
                                 contentScale = ContentScale.Fit,
                             )
                         }
                     } else {
-                        Text("Text-only report")
+                        Text(stringResource(R.string.reporter_text_only))
                     }
-                    if (title.isNotBlank()) Text("Title: $title")
-                    Text("Description: $description")
-                    if (expected.isNotBlank()) Text("Expected: $expected")
-                    if (actual.isNotBlank()) Text("Actual: $actual")
-                    if (repro.isNotBlank()) Text("Steps: $repro")
+                    if (title.isNotBlank()) Text(stringResource(R.string.reporter_title_value, title))
+                    Text(stringResource(R.string.reporter_description_value, description))
+                    if (expected.isNotBlank()) Text(stringResource(R.string.reporter_expected_value, expected))
+                    if (actual.isNotBlank()) Text(stringResource(R.string.reporter_actual_value, actual))
+                    if (repro.isNotBlank()) Text(stringResource(R.string.reporter_steps_value, repro))
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Checkbox(checked = reviewed, onCheckedChange = { reviewed = it })
-                        Text("I reviewed the exact content above.")
+                        Text(stringResource(R.string.reporter_reviewed))
                     }
                     Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                         Button(
                             enabled = canExport(exported, reviewed),
                             onClick = {
                                 if (activity == null) {
-                                    status = "No activity for sharing."
+                                    status = context.resources.getString(R.string.reporter_no_activity)
                                 } else {
                                     scope.launch {
                                         val manifest = buildManifest()
                                         if (manifest == null) {
-                                            status = "Manifest unavailable."
+                                            status = context.resources.getString(R.string.reporter_manifest_unavailable)
                                         } else {
                                             handleOutcome(
                                                 exportManager.share(
@@ -463,26 +473,35 @@ private fun ReporterScreen() {
                                     }
                                 }
                             },
-                        ) { Text("Share") }
+                        ) { Text(stringResource(R.string.reporter_share)) }
                         Button(
                             enabled = canExport(exported, reviewed),
                             onClick = {
                                 val manifest = buildManifest()
                                 if (manifest == null) {
-                                    status = "Manifest unavailable."
+                                    status = context.resources.getString(R.string.reporter_manifest_unavailable)
                                 } else {
                                     pendingExport = manifest to (frozenPayload ?: buildPayload())
                                     saveLauncher.launch("report.reproparcel")
                                 }
                             },
-                        ) { Text("Save file") }
+                        ) { Text(stringResource(R.string.reporter_save_file)) }
                     }
+                    TextButton(
+                        onClick = {
+                            status = when (ReproParcel.deleteLocalReports()) {
+                                com.awbuilds.reproparcel.core.result.SdkResult.Success ->
+                                    context.resources.getString(R.string.reporter_deleted)
+                                else -> context.resources.getString(R.string.reporter_delete_failed)
+                            }
+                        },
+                    ) { Text(stringResource(R.string.reporter_delete_drafts)) }
                     Button(
                         onClick = {
                             scope.launch {
                                 val manifest = buildManifest()
                                 if (manifest == null) {
-                                    status = "Manifest unavailable."
+                                    status = context.resources.getString(R.string.reporter_manifest_unavailable)
                                 } else {
                                     val result = withContext(Dispatchers.IO) {
                                         draftStore.save(
@@ -491,16 +510,16 @@ private fun ReporterScreen() {
                                         )
                                     }
                                     status = when (result) {
-                                        is DraftSaveResult.Saved -> "Encrypted draft saved locally."
-                                        is DraftSaveResult.Failure -> "Draft failed (${result.code}); no plaintext fallback."
+                                        is DraftSaveResult.Saved -> context.resources.getString(R.string.reporter_draft_saved)
+                                        is DraftSaveResult.Failure -> context.resources.getString(R.string.reporter_draft_failed, result.code.name)
                                     }
                                 }
                             }
                         },
-                    ) { Text("Save encrypted draft") }
+                    ) { Text(stringResource(R.string.reporter_save_draft)) }
                     Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                         TextButton(onClick = { step = if (capturedBitmap != null) ReporterStep.EDIT else ReporterStep.FORM }) {
-                            Text("Back")
+                            Text(stringResource(R.string.reporter_back))
                         }
                         TextButton(onClick = {
                             exported = false
@@ -521,11 +540,10 @@ private fun ReporterScreen() {
                             reportId = UUID.randomUUID().toString()
                             createdAt = Instant.now().toString()
                             step = ReporterStep.FORM
-                        }) { Text("New report") }
+                        }) { Text(stringResource(R.string.reporter_new_report)) }
                     }
                     Text(
-                        "A shared file cannot be recalled from the recipient. " +
-                            "System sharing reports only that the chooser opened.",
+                        stringResource(R.string.reporter_share_warning),
                         style = MaterialTheme.typography.bodySmall,
                     )
                 }
