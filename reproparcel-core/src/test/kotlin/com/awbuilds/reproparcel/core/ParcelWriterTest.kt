@@ -50,10 +50,51 @@ class ParcelWriterTest {
     }
 
     @Test
-    fun writesOptionalImageAsPngEntry() {
+    fun writesEventsAndSemanticsEntries() {
         val payload = ParcelPayload(
             report = Report(description = "Synthetic"),
-            imagePng = byteArrayOf(0x89.toByte(), 0x50, 0x4E, 0x47),
+            events = listOf(
+                com.awbuilds.reproparcel.core.model.ReportEvent(
+                    sequence = 0,
+                    offsetMs = 0,
+                    category = "tap",
+                    actionId = "save",
+                    attributes = mapOf("result" to "no_effect"),
+                ),
+            ),
+            semantics = com.awbuilds.reproparcel.core.model.SemanticsSnapshot(
+                nodes = listOf(
+                    com.awbuilds.reproparcel.core.model.SemanticNode(
+                        nodeId = "n1",
+                        role = "button",
+                        label = "Save",
+                        bounds = com.awbuilds.reproparcel.core.model.Bounds(0, 0, 10, 10),
+                    ),
+                ),
+            ),
+        )
+        val entries = unzip(ParcelWriter.writeToBytes(loadManifest(), payload)!!)
+        assertTrue("events.json" in entries)
+        assertTrue("semantics.json" in entries)
+        assertTrue(entries["events.json"]!!.toString(Charsets.UTF_8).contains("no_effect"))
+        assertTrue(entries["semantics.json"]!!.toString(Charsets.UTF_8).contains("Save"))
+    }
+
+    @Test
+    fun rejectsBlankDescription() {
+        val payload = ParcelPayload(report = Report(description = ""))
+        assertEquals(null, ParcelWriter.writeToBytes(loadManifest(), payload))
+    }
+
+    @Test
+    fun writesOptionalImageAsPngEntry() {
+        val image = java.io.ByteArrayOutputStream().also { output ->
+            val buffered = java.awt.image.BufferedImage(10, 10, java.awt.image.BufferedImage.TYPE_INT_ARGB)
+            javax.imageio.ImageIO.write(buffered, "png", output)
+        }.toByteArray()
+        val payload = ParcelPayload(
+            report = Report(description = "Synthetic"),
+            imagePng = image,
         )
         val entries = unzip(ParcelWriter.writeToBytes(loadManifest(), payload)!!)
         assertTrue("attachments/screen.png" in entries)

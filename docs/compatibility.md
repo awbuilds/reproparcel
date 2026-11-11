@@ -20,9 +20,9 @@ Status: verification baseline, not a forever-version promise.
 
 | API | Device | Tests |
 |---|---|---|
-| 26 | `rp-api26` emulator | 27 Android runtime, 2 reporter, 2 sample |
-| 30 | `rp-api30` emulator | 27 Android runtime, 2 reporter, 2 sample |
-| 37.2 | `Android_17` emulator | 27 Android runtime, 2 reporter, 2 sample; R8 release smoke |
+| 26 | `rp-api26` emulator | 28 Android runtime, 2 reporter, 2 sample |
+| 30 | `rp-api30` emulator | 28 Android runtime, 2 reporter, 2 sample |
+| 37.2 | `Android_17` emulator | 28 Android runtime, 2 reporter, 2 sample; R8 release smoke |
 
 A physical low/mid-range device and a current physical device are **not
 available**; physical performance, thermal and OEM rendering evidence is

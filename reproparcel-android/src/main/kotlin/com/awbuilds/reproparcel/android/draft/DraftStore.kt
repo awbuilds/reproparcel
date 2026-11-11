@@ -113,6 +113,7 @@ public class DraftStore(
     }
 
     public fun load(id: String): DraftLoadResult {
+        pruneExpired()
         if (!id.matches(Regex("^[0-9a-fA-F-]{36}$"))) return DraftLoadResult.NotFound
         val directory = File(root, id)
         if (!directory.isDirectory) return DraftLoadResult.NotFound
@@ -147,8 +148,7 @@ public class DraftStore(
     public fun deleteAll(): Int {
         val count = readIndex().size
         root.deleteRecursively()
-        root.mkdirs()
-        writeIndex(emptyList())
+        if (root.exists()) return -1
         return count
     }
 

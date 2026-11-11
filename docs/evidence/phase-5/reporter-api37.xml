@@ -1,15 +1,15 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<testsuites tests="2" failures="0" errors="0" skipped="0" time="0.000" timestamp="2026-11-10T23:48:18" hostname="localhost">
-  <testsuite name="com.awbuilds.reproparcel.compose.BitmapFlattenerTest" tests="1" failures="0" errors="0" skipped="0" time="0.004" timestamp="2026-11-10T23:48:18" hostname="localhost">
+<testsuites tests="2" failures="0" errors="0" skipped="0" time="0.000" timestamp="2026-11-11T01:17:34" hostname="localhost">
+  <testsuite name="com.awbuilds.reproparcel.compose.BitmapFlattenerTest" tests="1" failures="0" errors="0" skipped="0" time="0.002" timestamp="2026-11-11T01:17:34" hostname="localhost">
     <properties>
       <property name="device" value="emulator-5554" />
     </properties>
-    <testcase name="maskIsBakedIntoSavedPixels" classname="com.awbuilds.reproparcel.compose.BitmapFlattenerTest" time="0.004" />
+    <testcase name="maskIsBakedIntoSavedPixels" classname="com.awbuilds.reproparcel.compose.BitmapFlattenerTest" time="0.002" />
   </testsuite>
-  <testsuite name="com.awbuilds.reproparcel.compose.ReporterFlowTest" tests="1" failures="0" errors="0" skipped="0" time="3.622" timestamp="2026-11-10T23:48:18" hostname="localhost">
+  <testsuite name="com.awbuilds.reproparcel.compose.ReporterFlowTest" tests="1" failures="0" errors="0" skipped="0" time="3.151" timestamp="2026-11-11T01:17:34" hostname="localhost">
     <properties>
       <property name="device" value="emulator-5554" />
     </properties>
-    <testcase name="textOnlyFormReviewsAndSavesDraft" classname="com.awbuilds.reproparcel.compose.ReporterFlowTest" time="3.622" />
+    <testcase name="textOnlyFormReviewsAndSavesDraft" classname="com.awbuilds.reproparcel.compose.ReporterFlowTest" time="3.151" />
   </testsuite>
 </testsuites>

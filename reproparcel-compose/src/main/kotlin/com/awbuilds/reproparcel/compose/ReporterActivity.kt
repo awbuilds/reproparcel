@@ -40,6 +40,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -76,8 +77,12 @@ import com.awbuilds.reproparcel.core.model.ProviderStatus
 import com.awbuilds.reproparcel.core.model.Report
 import com.awbuilds.reproparcel.core.model.ReportEvent
 import com.awbuilds.reproparcel.core.parcel.ParcelPayload
+import java.security.MessageDigest
 import java.time.Instant
 import java.util.UUID
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class ReporterActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -107,9 +112,10 @@ private enum class ReporterStep {
 private fun ReporterScreen() {
     val context = LocalContext.current
     val activity = LocalActivity.current
+    val scope = rememberCoroutineScope()
     val surfaceId = activity?.intent?.getStringExtra("reproparcel_surface_id")
     val handoff = remember { ReporterHandoff.take() }
-    val capturedBitmap = (handoff as? HandoffCapture.Captured)?.bitmap
+    var capturedBitmap by remember { mutableStateOf((handoff as? HandoffCapture.Captured)?.bitmap) }
     val omission = (handoff as? HandoffCapture.Omitted)?.reason
     var reportId by remember { mutableStateOf(UUID.randomUUID().toString()) }
     var createdAt by remember { mutableStateOf(Instant.now().toString()) }
@@ -122,7 +128,7 @@ private fun ReporterScreen() {
     }
     val exportManager = remember { ExportManager(context) }
 
-    var step by remember { mutableStateOf(if (capturedBitmap != null) ReporterStep.EDIT else ReporterStep.FORM) }
+    var step by remember { mutableStateOf(ReporterStep.FORM) }
     var title by remember { mutableStateOf("") }
     var description by remember { mutableStateOf("") }
     var expected by remember { mutableStateOf("") }
@@ -135,6 +141,8 @@ private fun ReporterScreen() {
     var exported by remember { mutableStateOf(false) }
     var status by remember { mutableStateOf("") }
     var pendingExport by remember { mutableStateOf<Pair<Manifest, ParcelPayload>?>(null) }
+    var frozenPayload by remember { mutableStateOf<ParcelPayload?>(null) }
+    var previewHash by remember { mutableStateOf<String?>(null) }
 
     DisposableEffect(capturedBitmap) {
         onDispose { capturedBitmap?.recycle() }
@@ -142,6 +150,24 @@ private fun ReporterScreen() {
 
     LaunchedEffect(title, description, expected, actual, repro, finalPng, includeImage) {
         reviewed = false
+        frozenPayload = null
+        previewHash = null
+    }
+
+    fun payloadHash(payload: ParcelPayload): String {
+        val digest = MessageDigest.getInstance("SHA-256")
+        digest.update(payload.report.toString().toByteArray(Charsets.UTF_8))
+        digest.update(payload.events.toString().toByteArray(Charsets.UTF_8))
+        digest.update((payload.semantics?.toString() ?: "none").toByteArray(Charsets.UTF_8))
+        payload.imagePng?.let { digest.update(it) }
+        return digest.digest().joinToString("") { "%02x".format(it) }
+    }
+
+    fun beginReview(payload: ParcelPayload) {
+        frozenPayload = payload
+        previewHash = payloadHash(payload)
+        reviewed = false
+        step = ReporterStep.REVIEW
     }
 
     fun buildReport(): Report {
@@ -183,7 +209,8 @@ private fun ReporterScreen() {
             privacy = PrivacyInfo(
                 policyVersion = policy?.policyVersion ?: "none",
                 redactionMode = "opaque-and-user-annotations",
-                reviewedCategories = setOf("title", "description", "expected", "actual", "repro", "image"),
+                reviewedCategories = setOf("title", "description", "expected", "actual", "repro", "image", "events", "semantics"),
+                previewContentHash = previewHash,
             ),
             capture = CaptureInfo(
                 capturedAt = createdAt,
@@ -229,7 +256,7 @@ private fun ReporterScreen() {
         val snapshot = ReproParcel.semanticSnapshot()
         return ParcelPayload(
             report = buildReport(),
-            events = ReproParcel.eventSnapshot() + logs + network,
+            events = (ReproParcel.eventSnapshot() + logs + network).take(50),
             semantics = snapshot.takeIf { it.nodes.isNotEmpty() },
             imagePng = if (includeImage) finalPng else null,
         )
@@ -257,7 +284,9 @@ private fun ReporterScreen() {
         if (uri == null) {
             status = "Save cancelled."
         } else if (pending != null) {
-            handleOutcome(exportManager.saveToUri(uri, pending.first, pending.second))
+            scope.launch {
+                handleOutcome(exportManager.saveToUri(uri, pending.first, pending.second))
+            }
         }
         pendingExport = null
     }
@@ -294,38 +323,38 @@ private fun ReporterScreen() {
                     }
                     OutlinedTextField(
                         value = title,
-                        onValueChange = { title = it },
+                        onValueChange = { title = it.take(200) },
                         label = { Text("Title (optional)") },
                         modifier = Modifier.fillMaxWidth(),
                     )
                     OutlinedTextField(
                         value = description,
-                        onValueChange = { description = it },
+                        onValueChange = { description = it.take(20_000) },
                         label = { Text("What happened?") },
                         modifier = Modifier.fillMaxWidth().semantics { contentDescription = "Description" },
                     )
                     OutlinedTextField(
                         value = expected,
-                        onValueChange = { expected = it },
+                        onValueChange = { expected = it.take(20_000) },
                         label = { Text("Expected behavior") },
                         modifier = Modifier.fillMaxWidth(),
                     )
                     OutlinedTextField(
                         value = actual,
-                        onValueChange = { actual = it },
+                        onValueChange = { actual = it.take(20_000) },
                         label = { Text("Actual behavior") },
                         modifier = Modifier.fillMaxWidth(),
                     )
                     OutlinedTextField(
                         value = repro,
-                        onValueChange = { repro = it },
+                        onValueChange = { repro = it.take(20_000) },
                         label = { Text("Steps to reproduce (optional)") },
                         modifier = Modifier.fillMaxWidth(),
                     )
                     Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                         Button(
                             enabled = description.isNotBlank(),
-                            onClick = { step = ReporterStep.REVIEW },
+                            onClick = { beginReview(buildPayload()) },
                         ) { Text("Review text-only report") }
                         if (capturedBitmap != null) {
                             Button(onClick = { step = ReporterStep.EDIT }) { Text("Edit image") }
@@ -356,10 +385,18 @@ private fun ReporterScreen() {
                         modifier = Modifier.fillMaxWidth().weight(1f),
                     )
                     Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                        Button(onClick = {
-                            finalPng = BitmapFlattener.flatten(bitmap, annotations)
-                            step = ReporterStep.REVIEW
-                        }) { Text("Review image report") }
+                        Button(
+                            enabled = description.isNotBlank(),
+                            onClick = {
+                                scope.launch {
+                                    val png = withContext(Dispatchers.Default) {
+                                        BitmapFlattener.flatten(bitmap, annotations)
+                                    }
+                                    finalPng = png
+                                    beginReview(buildPayload().copy(imagePng = if (includeImage) png else null))
+                                }
+                            },
+                        ) { Text("Review image report") }
                         TextButton(onClick = { step = ReporterStep.FORM }) { Text("Back") }
                     }
                 }
@@ -410,11 +447,19 @@ private fun ReporterScreen() {
                                 if (activity == null) {
                                     status = "No activity for sharing."
                                 } else {
-                                    val manifest = buildManifest()
-                                    if (manifest == null) {
-                                        status = "Manifest unavailable."
-                                    } else {
-                                        handleOutcome(exportManager.share(activity, manifest, buildPayload()))
+                                    scope.launch {
+                                        val manifest = buildManifest()
+                                        if (manifest == null) {
+                                            status = "Manifest unavailable."
+                                        } else {
+                                            handleOutcome(
+                                                exportManager.share(
+                                                    activity,
+                                                    manifest,
+                                                    frozenPayload ?: buildPayload(),
+                                                ),
+                                            )
+                                        }
                                     }
                                 }
                             },
@@ -426,7 +471,7 @@ private fun ReporterScreen() {
                                 if (manifest == null) {
                                     status = "Manifest unavailable."
                                 } else {
-                                    pendingExport = manifest to buildPayload()
+                                    pendingExport = manifest to (frozenPayload ?: buildPayload())
                                     saveLauncher.launch("report.reproparcel")
                                 }
                             },
@@ -434,13 +479,21 @@ private fun ReporterScreen() {
                     }
                     Button(
                         onClick = {
-                            val manifest = buildManifest()
-                            if (manifest == null) {
-                                status = "Manifest unavailable."
-                            } else {
-                                status = when (val result = draftStore.save(buildReport(), if (includeImage) finalPng else null)) {
-                                    is DraftSaveResult.Saved -> "Encrypted draft saved locally."
-                                    is DraftSaveResult.Failure -> "Draft failed (${result.code}); no plaintext fallback."
+                            scope.launch {
+                                val manifest = buildManifest()
+                                if (manifest == null) {
+                                    status = "Manifest unavailable."
+                                } else {
+                                    val result = withContext(Dispatchers.IO) {
+                                        draftStore.save(
+                                            buildReport(),
+                                            if (includeImage) finalPng else null,
+                                        )
+                                    }
+                                    status = when (result) {
+                                        is DraftSaveResult.Saved -> "Encrypted draft saved locally."
+                                        is DraftSaveResult.Failure -> "Draft failed (${result.code}); no plaintext fallback."
+                                    }
                                 }
                             }
                         },
@@ -458,9 +511,13 @@ private fun ReporterScreen() {
                             expected = ""
                             actual = ""
                             repro = ""
+                            capturedBitmap = null
                             annotations.clear()
                             finalPng = null
+                            frozenPayload = null
+                            previewHash = null
                             includeImage = false
+                            ReproParcel.clearEvidence()
                             reportId = UUID.randomUUID().toString()
                             createdAt = Instant.now().toString()
                             step = ReporterStep.FORM

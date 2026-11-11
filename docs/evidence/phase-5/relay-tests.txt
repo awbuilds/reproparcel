@@ -1,0 +1,22 @@
+
+> reproparcel-server@0.0.1-SNAPSHOT test
+> npm run build && node --test dist/*.test.js
+
+
+> reproparcel-server@0.0.1-SNAPSHOT build
+> tsc -p tsconfig.json
+
+✔ write-only ingestion is authenticated, idempotent and encrypted at rest (27.522ms)
+✔ revoked credentials cannot ingest or read (5.376125ms)
+✔ daily quota is enforced (6.122791ms)
+✔ audit log contains identifiers but no report content (4.499875ms)
+✔ project and admin credentials must differ (2.017ms)
+✔ GitHub adapter sends the token only server-side and creates an issue (0.454ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 178.934625

@@ -6,20 +6,20 @@
 > reproparcel-desktop@0.0.1-SNAPSHOT build
 > tsc -p tsconfig.json
 
-✔ CLI validates a synthetic parcel as JSON (197.598458ms)
-✔ CLI returns a non-zero exit for a corrupt parcel (176.678792ms)
-✔ CLI renders an offline viewer (175.148ms)
-✔ MCP protocol exposes only the read-only report tools (51.907125ms)
-✔ repository lists and returns report IDs without arbitrary paths (51.974083ms)
-✔ repository rejects traversal-shaped report IDs (1.571125ms)
-✔ reads a valid synthetic parcel and sanitizes the PNG (39.397791ms)
-✔ supports a text-only parcel (4.021917ms)
-✔ rejects a checksum mismatch (3.6225ms)
-✔ rejects an unreferenced entry (3.332667ms)
-✔ rejects an unsupported extra entry (6.161417ms)
-✔ json budget rejects depth and node abuse (0.68625ms)
-✔ renders inert HTML with CSP and escaped report text (41.148333ms)
-✔ text-only viewer does not point at a missing image (4.738375ms)
+✔ CLI validates a synthetic parcel as JSON (208.11575ms)
+✔ CLI returns a non-zero exit for a corrupt parcel (198.58425ms)
+✔ CLI renders an offline viewer (191.732ms)
+✔ MCP protocol exposes only the read-only report tools (53.286834ms)
+✔ repository lists and returns report IDs without arbitrary paths (54.16525ms)
+✔ repository rejects traversal-shaped report IDs (2.322ms)
+✔ reads a valid synthetic parcel and sanitizes the PNG (40.007792ms)
+✔ supports a text-only parcel (5.471667ms)
+✔ rejects a checksum mismatch (5.143958ms)
+✔ rejects an unreferenced entry (3.941167ms)
+✔ rejects an unsupported extra entry (3.09025ms)
+✔ json budget rejects depth and node abuse (0.676125ms)
+✔ renders inert HTML with CSP and escaped report text (41.967875ms)
+✔ text-only viewer does not point at a missing image (7.064875ms)
 ℹ tests 14
 ℹ suites 0
 ℹ pass 14
@@ -27,4 +27,4 @@
 ℹ cancelled 0
 ℹ skipped 0
 ℹ todo 0
-ℹ duration_ms 681.205625
+ℹ duration_ms 731.165083
