@@ -549,7 +549,7 @@
   },
   "373": {
     "artifact": "desktop/src/parcel.ts",
-    "evidence": "14 desktop tests incl. valid/corrupt/extra/unreferenced",
+    "evidence": "16 desktop tests incl. valid/corrupt/extra/unreferenced and foreign-cwd schema resolution",
     "notes": "",
     "status": "PASS"
   },

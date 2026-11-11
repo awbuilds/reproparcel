@@ -15,6 +15,9 @@ report.reproparcel (1).zip  1248 bytes
 sha256 24210b603c226bed19e95be9e65e93ef71e550c7c50f36203c791412e5050290
 ```
 
+The pulled file is the release export above; it was renamed to
+`/tmp/report-release.reproparcel` for the CLI commands below.
+
 Desktop commands:
 
 ```text
