@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@react-native/new-app-screen": "0.88.1",
-    "react": "19.3.0",
+    "react": "19.3.1",
     "react-native": "0.88.1",
     "reproparcel-react-native": "file:../reproparcel-react-native"
   },
@@ -33,7 +33,7 @@
     "eslint": "^8.19.0",
     "jest": "^29.6.3",
     "prettier": "2.8.8",
-    "react-test-renderer": "19.3.0",
+    "react-test-renderer": "19.3.1",
     "typescript": "^6.0.3"
   },
   "engines": {
