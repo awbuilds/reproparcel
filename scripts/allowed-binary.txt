@@ -10,3 +10,8 @@ flutter/host_app/android/app/src/main/res/mipmap-*/ic_launcher.png
 react-native/ReproParcelHost/android/app/src/main/res/mipmap-*/ic_launcher*.png
 react-native/ReproParcelHost/android/gradle/wrapper/gradle-wrapper.jar
 flutter/host_app/android/gradle/wrapper/gradle-wrapper.jar
+docs/assets/brand/social-preview.png
+docs/assets/screenshots/desktop-viewer.png
+docs/assets/screenshots/reporter-editor.png
+docs/assets/screenshots/reporter-form.png
+docs/assets/screenshots/reporter-review.png

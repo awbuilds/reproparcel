@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="480" viewBox="0 0 1600 480" role="img" aria-label="ReproParcel — reviewed evidence, portable by design">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1220"/>
+      <stop offset=".55" stop-color="#101a2e"/>
+      <stop offset="1" stop-color="#16233d"/>
+    </linearGradient>
+    <linearGradient id="left" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7c6cf2"/>
+      <stop offset="1" stop-color="#5b4bd6"/>
+    </linearGradient>
+    <linearGradient id="right" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#39d3c3"/>
+      <stop offset="1" stop-color="#1fa99f"/>
+    </linearGradient>
+    <linearGradient id="top" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#c7c0ff"/>
+      <stop offset="1" stop-color="#8f83ff"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0v40" fill="none" stroke="#ffffff" stroke-opacity=".035"/>
+    </pattern>
+  </defs>
+  <rect width="1600" height="480" fill="url(#bg)"/>
+  <rect width="1600" height="480" fill="url(#grid)"/>
+  <g transform="translate(96 132) scale(.42)">
+    <path d="M256 88 416 174 256 260 96 174Z" fill="url(#top)"/>
+    <path d="M96 174 256 260v164L96 338Z" fill="url(#left)"/>
+    <path d="M416 174 256 260v164l160-86Z" fill="url(#right)"/>
+    <path d="M256 260v164" stroke="#0b1220" stroke-opacity=".35" stroke-width="8"/>
+    <circle cx="256" cy="342" r="26" fill="#0b1220" fill-opacity=".45"/>
+    <path d="m244 342 8 8 16-18" fill="none" stroke="#ffffff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="322" y="238" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="92" font-weight="700" fill="#ffffff" letter-spacing="-2">ReproParcel</text>
+  <text x="326" y="298" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="30" fill="#aebbd4">Reviewed evidence. Portable by design.</text>
+  <g transform="translate(326 340)">
+    <rect width="232" height="38" rx="19" fill="#ffffff" fill-opacity=".07" stroke="#ffffff" stroke-opacity=".14"/>
+    <text x="18" y="25" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="17" fill="#dbe4f5">Android · Kotlin · Compose</text>
+  </g>
+  <g transform="translate(574 340)">
+    <rect width="196" height="38" rx="19" fill="#ffffff" fill-opacity=".07" stroke="#ffffff" stroke-opacity=".14"/>
+    <text x="18" y="25" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="17" fill="#dbe4f5">Offline · No backend</text>
+  </g>
+  <g transform="translate(1080 120)">
+    <rect width="408" height="240" rx="18" fill="#08101f" stroke="#ffffff" stroke-opacity=".12"/>
+    <circle cx="28" cy="30" r="5" fill="#ff7b72"/>
+    <circle cx="48" cy="30" r="5" fill="#f2cc60"/>
+    <circle cx="68" cy="30" r="5" fill="#3fb950"/>
+    <text x="28" y="88" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" fill="#8b9bb4">reproparcel validate</text>
+    <text x="28" y="122" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" fill="#39d3c3">VALID rpt_…</text>
+    <text x="28" y="164" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" fill="#8b9bb4">reproparcel inspect</text>
+    <text x="28" y="198" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" fill="#c7c0ff">12 events · 3 nodes</text>
+  </g>
+</svg>

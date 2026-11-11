@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use ReproParcel in research or a product, cite this repository."
+title: "ReproParcel"
+abstract: "A local-first Android reporter that produces bounded, privacy-reviewed evidence parcels for humans and coding agents, with offline validation, inspection, rendering and read-only MCP."
+type: software
+authors:
+  - name: "ReproParcel contributors"
+repository-code: "https://github.com/awbuilds/reproparcel"
+url: "https://github.com/awbuilds/reproparcel"
+license: "AGPL-3.0-only"
+version: "0.0.1-dev"
+keywords:
+  - android
+  - kotlin
+  - jetpack-compose
+  - bug-reporting
+  - privacy
+  - evidence
+  - mcp
+  - offline-first

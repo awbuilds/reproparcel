@@ -1,0 +1,70 @@
+name: Feature request
+description: Propose a capability, adapter or documentation improvement.
+title: "[Feature]: "
+labels: ["enhancement", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Explain the user problem first. ReproParcel deliberately avoids hidden
+        collection, mandatory backends and automatic semantic extraction without
+        a public-API compatibility experiment.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: User problem
+      description: What is hard or missing today? Who experiences it?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: The smallest capability that solves the problem.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Android runtime
+        - Reporter UI
+        - Capture or masking
+        - Drafts or export
+        - Schema or parcel writer
+        - Desktop tools
+        - MCP
+        - Relay or tracker adapter
+        - Cross-platform adapter
+        - Documentation
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: privacy
+    attributes:
+      label: Privacy, security and compatibility impact
+      description: What new data, permission, dependency or platform support would this require?
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Existing tools, manual workflows or a smaller change.
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I searched existing issues and discussions.
+          required: true
+        - label: This request does not depend on hidden collection or a mandatory backend.
+          required: true

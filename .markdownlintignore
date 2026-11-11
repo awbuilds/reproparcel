@@ -1,0 +1,8 @@
+# Historical and generated records are not linted as current documentation.
+AGENTS.md
+docs/PRD.md
+docs/handoffs/**
+docs/audits/**
+docs/evidence/**
+docs/traceability/**
+docs/dependency-inventory.md

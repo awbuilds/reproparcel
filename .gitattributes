@@ -1,0 +1,26 @@
+* text=auto eol=lf
+
+*.bat text eol=crlf
+gradlew text eol=lf
+
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.gif binary
+*.apk binary
+*.aab binary
+*.aar binary
+*.jar binary
+*.keystore binary
+*.jks binary
+*.reproparcel binary
+*.zip binary
+
+docs/traceability/prd-lines.jsonl linguist-generated=true
+docs/dependency-inventory.md linguist-generated=true
+reproparcel-core/api/reproparcel-core.api linguist-generated=true
+
+docs/handoffs/** linguist-documentation=true
+docs/audits/** linguist-documentation=true
+docs/evidence/** linguist-documentation=true

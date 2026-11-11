@@ -26,8 +26,9 @@ Status: verification baseline, not a forever-version promise.
 | 31 | physical low/mid-range Android 12 device | 40 Android runtime, 11 reporter, 3 sample; release capture/draft/SAF export/desktop import; startup/capture benchmarks |
 
 A current physical device and API 26/30 physical devices are not available.
-The low/mid-range device's jank run used 202 frames and a missing paired
-disabled baseline, so the full 5 × 1,000-frame gate remains open.
+The low/mid-range device's paired jank run used five runs of ~1,050 frames each
+and passed the 5%/1 pp gate; a longer thermal soak and TalkBack manual matrix
+remain open.
 
 ## Compose support
 
@@ -47,9 +48,10 @@ Compose version.
 
 - Automatic Compose/accessibility extraction is not shipped; explicit host
   registration is the v1 baseline.
-- Foreground shake is optional and not implemented; the manual entry point is
+- Foreground shake is optional and implemented; the manual entry point remains
   the guaranteed control.
 - The full temporal frame-binding proof and several race fixtures remain
   outstanding; image capture is fail-closed but not certified for every surface.
-- The R8 release test-APK path is unstable; release smoke uses the minified app
-  with UI automation.
+- Release smoke uses the minified app with UI automation; the release JUnit
+  test-APK path is unstable under R8.
+- TalkBack manual verification and a longer thermal/ANR soak remain open.
