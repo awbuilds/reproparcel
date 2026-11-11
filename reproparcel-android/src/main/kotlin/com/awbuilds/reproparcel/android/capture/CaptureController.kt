@@ -43,6 +43,26 @@ public sealed interface CaptureOutcome {
     public data class Failed(public val code: ErrorCode) : CaptureOutcome
 }
 
+public data class CaptureAttempt(
+    public val token: String,
+    public val windowToken: String?,
+    public val policyVersion: String,
+    public val generation: Long,
+    public val enabled: Boolean,
+)
+
+public fun isCaptureAttemptValid(
+    attempt: CaptureAttempt,
+    windowToken: String?,
+    policyVersion: String?,
+    generation: Long,
+    enabled: Boolean,
+): Boolean =
+    attempt.enabled && enabled &&
+        attempt.windowToken == windowToken &&
+        attempt.policyVersion == policyVersion &&
+        attempt.generation == generation
+
 public object CaptureController {
     private const val TIMEOUT_MS = 2_000L
     private const val MASK_PADDING_PX = 8
@@ -101,9 +121,16 @@ public object CaptureController {
 
         val generation = generationOf(decor)
         val attemptToken = java.util.UUID.randomUUID().toString()
-        val windowToken = decor.windowToken
+        val windowToken = decor.windowToken?.toString()
         val policyVersion = policy.policyVersion
         val maskDigest = policy.maskRegions.toString()
+        val attempt = CaptureAttempt(
+            token = attemptToken,
+            windowToken = windowToken,
+            policyVersion = policyVersion,
+            generation = generation,
+            enabled = ReproParcel.isEnabled(),
+        )
         val started = SystemClock.elapsedRealtime()
         val bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
         val handler = Handler(Looper.getMainLooper())
@@ -146,20 +173,22 @@ public object CaptureController {
             bitmap.recycle()
             return CaptureOutcome.Failed(ErrorCode.INTERNAL_SAFE_FAILURE)
         }
-        if (generationOf(decor) != generation ||
-            decor.windowToken != windowToken ||
-            ReproParcel.currentCapturePolicy()?.policyVersion != policyVersion ||
+        if (!isCaptureAttemptValid(
+                attempt,
+                decor.windowToken?.toString(),
+                ReproParcel.currentCapturePolicy()?.policyVersion,
+                generationOf(decor),
+                ReproParcel.isEnabled(),
+            ) ||
             ReproParcel.currentCapturePolicy()?.maskRegions.toString() != maskDigest ||
             isSecure(window) ||
             activity.isFinishing ||
             activity.isDestroyed
         ) {
             bitmap.recycle()
-            return CaptureOutcome.Omitted(OmissionReason.STALE_FRAME)
-        }
-        if (!ReproParcel.isEnabled()) {
-            bitmap.recycle()
-            return CaptureOutcome.Omitted(OmissionReason.POLICY_DISABLED)
+            return CaptureOutcome.Omitted(
+                if (!ReproParcel.isEnabled()) OmissionReason.POLICY_DISABLED else OmissionReason.STALE_FRAME,
+            )
         }
 
         applyMasks(bitmap, policy)

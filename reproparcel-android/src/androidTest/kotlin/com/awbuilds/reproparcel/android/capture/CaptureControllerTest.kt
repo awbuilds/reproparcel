@@ -155,6 +155,32 @@ class CaptureControllerTest {
     }
 
     @Test
+    fun captureAttemptValidationRejectsStaleOrChangedState() {
+        val attempt = CaptureAttempt(
+            token = "token",
+            windowToken = "window",
+            policyVersion = "v1",
+            generation = 4,
+            enabled = true,
+        )
+        org.junit.Assert.assertTrue(
+            isCaptureAttemptValid(attempt, "window", "v1", 4, true),
+        )
+        org.junit.Assert.assertFalse(
+            isCaptureAttemptValid(attempt, "window", "v1", 5, true),
+        )
+        org.junit.Assert.assertFalse(
+            isCaptureAttemptValid(attempt, "other", "v1", 4, true),
+        )
+        org.junit.Assert.assertFalse(
+            isCaptureAttemptValid(attempt, "window", "v2", 4, true),
+        )
+        org.junit.Assert.assertFalse(
+            isCaptureAttemptValid(attempt, "window", "v1", 4, false),
+        )
+    }
+
+    @Test
     fun maskRejectsNothingAndCoversFullRegion() {
         val bitmap = Bitmap.createBitmap(100, 100, Bitmap.Config.ARGB_8888)
         bitmap.eraseColor(Color.WHITE)

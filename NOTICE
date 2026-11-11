@@ -1,23 +1,36 @@
 ReproParcel — third-party notices
-================================
+==================================
 
-First-party code and documentation in this repository are licensed under
-AGPL-3.0-only. See LICENSE for the binding text.
+First-party code and documentation are licensed under AGPL-3.0-only. See
+LICENSE for the binding text.
 
-The project currently uses the following categories of dependencies. Exact
-versions are pinned in gradle/libs.versions.toml. A complete generated notice
-file must be produced before any release.
+License texts for common dependency licenses are included under `licenses/`.
+Exact dependency versions are pinned in `gradle/libs.versions.toml` and the
+desktop/server lockfiles.
 
-- AndroidX / Jetpack Compose libraries — Apache License 2.0
+Android/runtime dependencies
+- AndroidX / Jetpack Compose — Apache License 2.0
 - Kotlin and the Kotlin Gradle plugin — Apache License 2.0
 - Gradle wrapper — Apache License 2.0
+- Kotlinx serialization/coroutines — Apache License 2.0
+- OkHttp/Okio — Apache License 2.0
 - JUnit 4 — Eclipse Public License 1.0
-- AndroidX Test / Espresso — Apache License 2.0
+- Hamcrest — BSD 3-Clause
+- AndroidX Test / Espresso / UiAutomator — Apache License 2.0
+- NetworkNT JSON Schema Validator and Jackson — Apache License 2.0
+- SLF4J — MIT
+- Ethlo Time (itu) — Apache License 2.0
 
-Optional desktop and MCP dependencies will be reviewed and added to the
-generated notice file before Phase 4 packaging. Do not add a dependency with an
-incompatible, noncommercial or unknown license.
+Desktop dependencies
+- ajv, ajv-formats, pngjs, yauzl, yazl, zod, @modelcontextprotocol/sdk,
+  TypeScript tooling — MIT or Apache License 2.0 as declared by each package.
+  See `desktop/package-lock.json` for resolved versions.
 
-This file is a summary, not a replacement for the complete license texts of the
-dependencies. Preserve all required copyright and attribution notices when
-distributing artifacts.
+Optional relay dependencies
+- Node.js built-ins only for the reference relay; see `server/package-lock.json`
+  for development tooling.
+
+The repository stores license texts, not a legal opinion. A complete generated
+per-dependency notice set and qualified legal review remain release gates for a
+stable publication. Preserve all required copyright and attribution notices
+when distributing artifacts. No proprietary-linking exception is granted.

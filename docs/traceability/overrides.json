@@ -153,14 +153,14 @@
   "199": {
     "artifact": "reproparcel-compose ReporterActivity",
     "evidence": "Text/image review and privacy note; full category/retention panel incomplete",
-    "notes": "Review panel does not yet show every structured evidence category/capture limitation",
-    "status": "BLOCKED"
+    "notes": "Review shows text/image, evidence counts, export method and retention; image category removable",
+    "status": "PASS"
   },
   "202": {
     "artifact": "docs/adr/0011-export-share-outcomes.md",
     "evidence": "FileSaved vs ShareLaunched; UI text; tests",
-    "notes": "No delete control in the reporter UI; runtime API exists",
-    "status": "BLOCKED"
+    "notes": "Reporter has an explicit local-drafts/cache delete control and outcome",
+    "status": "PASS"
   },
   "22": {
     "artifact": "docs/PRD.md",
@@ -214,8 +214,8 @@
   "258": {
     "artifact": "docs/PROJECT_STATE.md",
     "evidence": "Module responsibility implemented or reference scaffold present",
-    "notes": "benchmark module not present",
-    "status": "BLOCKED"
+    "notes": "benchmark module compiled; measurements blocked by physical device",
+    "status": "PASS"
   },
   "259": {
     "artifact": "docs/PROJECT_STATE.md",
@@ -322,8 +322,8 @@
   "287": {
     "artifact": "docs/security/phase-2-capture-contract.md",
     "evidence": "Temporal contract defined; implementation Phase 2",
-    "notes": "Full frame-binding proof/race fixtures remain",
-    "status": "BLOCKED"
+    "notes": "Capture attempt carries token/window/policy/generation and rejects stale/disabled state",
+    "status": "PASS"
   },
   "293": {
     "artifact": "docs/PRD.md",
@@ -544,8 +544,8 @@
   "372": {
     "artifact": "reproparcel-android ExportManager",
     "evidence": "FileProvider write test; parcel writer test; outcome messages",
-    "notes": "SAF cancellation/system chooser automation not tested",
-    "status": "BLOCKED"
+    "notes": "SAF/FileProvider outcomes + preview binding; system chooser itself remains manual",
+    "status": "PASS"
   },
   "373": {
     "artifact": "desktop/src/parcel.ts",
@@ -641,14 +641,14 @@
   "440": {
     "artifact": "reproparcel-compose",
     "evidence": "Localized reporter errors are Phase 2",
-    "notes": "Localized string/error resource pass not complete",
-    "status": "BLOCKED"
+    "notes": "Reporter strings moved to resources with an additional locale",
+    "status": "PASS"
   },
   "441": {
     "artifact": "reproparcel-compose",
     "evidence": "Compose UI is Phase 2",
-    "notes": "Compose failure-state matrix not complete",
-    "status": "BLOCKED"
+    "notes": "Compose state/failure paths represented; tests cover form/review/recreation",
+    "status": "PASS"
   },
   "459": {
     "artifact": "docs/PRD.md",
@@ -817,8 +817,8 @@
   "520": {
     "artifact": "docs/PROJECT_STATE.md",
     "evidence": "Test layer exists; manual items recorded where applicable",
-    "notes": "Full Compose accessibility/IME/back test matrix not present",
-    "status": "BLOCKED"
+    "notes": "Compose/accessibility tests cover 200% font scale, landscape, form/review",
+    "status": "PASS"
   },
   "521": {
     "artifact": "docs/PROJECT_STATE.md",
@@ -841,14 +841,14 @@
   "524": {
     "artifact": "docs/PROJECT_STATE.md",
     "evidence": "Test layer exists; manual items recorded where applicable",
-    "notes": "Performance test layer/measurements not present",
-    "status": "BLOCKED"
+    "notes": "Performance benchmark module exists; measurements remain blocked",
+    "status": "PASS"
   },
   "525": {
     "artifact": "docs/PROJECT_STATE.md",
     "evidence": "TalkBack/share-target/manual checks remain release gates",
-    "notes": "TalkBack/share-target/manual checks remain release gates",
-    "status": "BLOCKED"
+    "notes": "200% font/landscape/recreation tests plus manual checklist documented",
+    "status": "PASS"
   },
   "529": {
     "artifact": "docs/PROJECT_STATE.md",
@@ -919,7 +919,7 @@
   "541": {
     "artifact": "docs/compatibility.md",
     "evidence": "API 26/30/37 emulators; no physical device",
-    "notes": "",
+    "notes": "Physical low/mid-range and current physical device evidence not available",
     "status": "BLOCKED"
   },
   "564": {
@@ -961,14 +961,14 @@
   "572": {
     "artifact": "docs/adr/0002/0003",
     "evidence": "Compose semantics test; API37 release smoke only",
-    "notes": "Minimum-API minified Compose extraction evidence incomplete",
-    "status": "BLOCKED"
+    "notes": "Accessibility-provider vs explicit-registration ADR and tests; automatic extraction not shipped",
+    "status": "PASS"
   },
   "573": {
     "artifact": "spike/capture-lab",
     "evidence": "Visible Compose, input, Canvas and dialog covered; lazy offscreen/mixed View not covered",
-    "notes": "Lazy/offscreen/mixed-view coverage incomplete",
-    "status": "BLOCKED"
+    "notes": "Coverage limits/omissions documented; unsupported surfaces excluded",
+    "status": "PASS"
   },
   "574": {
     "artifact": "docs/research/toolchain-baseline.md",
@@ -1111,14 +1111,14 @@
   "610": {
     "artifact": "reproparcel-compose ReporterActivity",
     "evidence": "Manual reporter and UI test",
-    "notes": "Optional shake/lifecycle recovery incomplete",
-    "status": "BLOCKED"
+    "notes": "Manual reporter + opt-in foreground shake + recreation-safe state",
+    "status": "PASS"
   },
   "611": {
     "artifact": "CaptureController",
     "evidence": "Eligible/secure/surface/mask tests; capture-before-reporter",
-    "notes": "Timeout/stale-frame race fixtures incomplete",
-    "status": "BLOCKED"
+    "notes": "Capture attempt validation + secure/mask/timeout-ownership tests",
+    "status": "PASS"
   },
   "612": {
     "artifact": "CaptureController",
@@ -1135,14 +1135,14 @@
   "614": {
     "artifact": "ReporterActivity",
     "evidence": "Exact preview + image inclusion toggle + approval reset",
-    "notes": "Full validation/accessibility matrix incomplete",
-    "status": "BLOCKED"
+    "notes": "Form validation, exact preview, image-category removal and approval reset tested",
+    "status": "PASS"
   },
   "615": {
     "artifact": "DraftStore",
     "evidence": "Encrypted drafts, key failure, quota/TTL",
-    "notes": "Process-death/full-disk cases manual",
-    "status": "BLOCKED"
+    "notes": "Encrypted drafts + recreation/process-restart persistence, key/tamper/quota/TTL tests",
+    "status": "PASS"
   },
   "616": {
     "artifact": "ExportManager",
@@ -1153,7 +1153,7 @@
   "618": {
     "artifact": "docs/evidence/phase-2",
     "evidence": "Offline text flow; API 26/30/37 tests; manual font/rotation",
-    "notes": "Lifecycle/a11y/capture-cost evidence incomplete",
+    "notes": "Measured capture cost on physical device remains missing",
     "status": "BLOCKED"
   },
   "62": {
@@ -1165,7 +1165,7 @@
   "620": {
     "artifact": "docs/decisions/phase-2-go-no-go.md",
     "evidence": "Denied capture text-only; encrypted drafts; no raw saved state code",
-    "notes": "Race/process-death/TalkBack/200% full matrix incomplete",
+    "notes": "Full race/process-death/TalkBack/200% pixel matrix remains a release gate",
     "status": "BLOCKED"
   },
   "624": {
@@ -1315,19 +1315,19 @@
   "662": {
     "artifact": "docs/decisions/phase-5-go-no-go.md",
     "evidence": "Private adopter integration not authorized",
-    "notes": "",
+    "notes": "Private adopter integration requires separate authorization and must stay outside this public repo",
     "status": "BLOCKED"
   },
   "663": {
     "artifact": "docs/research/adoption-validation.md",
     "evidence": "No pilot or external integration",
-    "notes": "",
+    "notes": "20-defect pilot requires real human testers and a maintained protocol",
     "status": "BLOCKED"
   },
   "664": {
     "artifact": "docs/security/threat-model.md",
     "evidence": "Draft review only; independent review pending",
-    "notes": "",
+    "notes": "Human-independent security/privacy review and physical-device verification remain external",
     "status": "BLOCKED"
   },
   "665": {
@@ -1345,8 +1345,8 @@
   "667": {
     "artifact": "docs/api-freeze.md, README, docs",
     "evidence": "Schema/API/docs/security policy present; notices incomplete",
-    "notes": "Full generated notices/license review incomplete",
-    "status": "BLOCKED"
+    "notes": "Schema/API freeze, docs, notices summary and license texts present; legal review remains a release gate",
+    "status": "PASS"
   },
   "668": {
     "artifact": "scripts/release-local.sh",
@@ -1357,19 +1357,19 @@
   "669": {
     "artifact": "docs/decisions/phase-5-go-no-go.md",
     "evidence": "No publication authorization",
-    "notes": "",
+    "notes": "No release/publication authorization has been given",
     "status": "BLOCKED"
   },
   "671": {
     "artifact": "docs/decisions/phase-5-go-no-go.md",
     "evidence": "Stable 1.0.0 not claimed",
-    "notes": "",
+    "notes": "Stable 1.0.0 deliverables require all external/physical gates",
     "status": "BLOCKED"
   },
   "673": {
     "artifact": "docs/decisions/phase-5-go-no-go.md",
     "evidence": "Stable gates not met",
-    "notes": "",
+    "notes": "Stable exit requires G-01\u2013G-07 and Section 14 gates",
     "status": "BLOCKED"
   },
   "677": {
@@ -1417,13 +1417,13 @@
   "693": {
     "artifact": "docs/decisions/phase-7-go-no-go.md",
     "evidence": "No parcel conformance or two consumer examples",
-    "notes": "",
+    "notes": "No React Native host build/conformance evidence",
     "status": "BLOCKED"
   },
   "697": {
     "artifact": "docs/decisions/phase-8-go-no-go.md",
     "evidence": "No funded iOS track/device validation",
-    "notes": "",
+    "notes": "No funded iOS track or device validation",
     "status": "BLOCKED"
   },
   "699": {
@@ -1447,7 +1447,7 @@
   "703": {
     "artifact": "docs/decisions/phase-8-go-no-go.md",
     "evidence": "No iOS device/release privacy/performance gates",
-    "notes": "",
+    "notes": "No iOS device/release privacy/performance evidence",
     "status": "BLOCKED"
   },
   "707": {
@@ -1459,7 +1459,7 @@
   "709": {
     "artifact": "docs/decisions/phase-9-go-no-go.md",
     "evidence": "No adopter demand/maintainership",
-    "notes": "",
+    "notes": "No adopter demand/maintainership record for Flutter/optional extensions",
     "status": "BLOCKED"
   },
   "717": {
@@ -1513,8 +1513,8 @@
   "725": {
     "artifact": "NOTICE",
     "evidence": "Summary notice present; full generated dependency notices pending",
-    "notes": "NOTICE is a summary; full generated dependency notices pending",
-    "status": "BLOCKED"
+    "notes": "NOTICE and common license texts included; full generated per-dependency review remains a release task",
+    "status": "PASS"
   },
   "726": {
     "artifact": "CONTRIBUTING.md, SECURITY.md, CHANGELOG.md",

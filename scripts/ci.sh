@@ -26,7 +26,8 @@ echo "== compile and JVM tests =="
             :reproparcel-compose:assembleDebugAndroidTest \
   :reproparcel-okhttp:assembleDebug \
   :sample-app:assembleDebug \
-  :sample-app:assembleRelease
+  :sample-app:assembleRelease \
+  :benchmark:assembleDebug
 
 echo "== desktop tests =="
 (cd desktop && npm test)

@@ -49,6 +49,43 @@ class ReporterFlowTest {
     }
 
     @Test
+    fun shakeEntryCanBeEnabledAndDisabledOnARealActivity() {
+        ActivityScenario.launch(ReporterActivity::class.java).use { scenario ->
+            scenario.onActivity { activity ->
+                assertTrue(ShakeToReport.enable(activity, "synthetic_surface"))
+                ShakeToReport.disable()
+            }
+        }
+    }
+
+    @Test
+    fun reviewShowsTitleAndReproFields() {
+        ActivityScenario.launch(ReporterActivity::class.java).use {
+            assertTrue(device.wait(Until.hasObject(By.text("Report a problem")), 5_000))
+            val fields = device.findObjects(By.clazz("android.widget.EditText"))
+            assertTrue(fields.size >= 5)
+            fields[0].setText("Synthetic title")
+            fields[1].setText("Synthetic description")
+            fields[4].setText("Synthetic steps")
+            device.findObject(By.text("Review text-only report")).click()
+            assertTrue(device.wait(Until.hasObject(By.text("Title: Synthetic title")), 5_000))
+            assertTrue(device.wait(Until.hasObject(By.text("Steps: Synthetic steps")), 5_000))
+        }
+    }
+
+    @Test
+    fun recreationLosesSensitiveStateButReporterRemainsUsable() {
+        ActivityScenario.launch(ReporterActivity::class.java).use { scenario ->
+            assertTrue(device.wait(Until.hasObject(By.text("Report a problem")), 5_000))
+            val fields = device.findObjects(By.clazz("android.widget.EditText"))
+            fields[1].setText("Sensitive synthetic state")
+            scenario.recreate()
+            assertTrue(device.wait(Until.hasObject(By.text("Report a problem")), 5_000))
+            assertTrue(device.wait(Until.hasObject(By.text("What happened?")), 5_000))
+        }
+    }
+
+    @Test
     fun textOnlyFormReviewsAndSavesDraft() {
         ActivityScenario.launch(ReporterActivity::class.java).use {
             assertTrue(device.wait(Until.hasObject(By.text("Report a problem")), 5_000))

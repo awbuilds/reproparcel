@@ -52,4 +52,5 @@ jobs:
             :reproparcel-okhttp:assembleDebug \
             :sample-app:assembleDebug \
             :sample-app:assembleRelease \
+            :benchmark:assembleDebug \
             lint
