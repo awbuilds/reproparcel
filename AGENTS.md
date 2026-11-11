@@ -26,7 +26,7 @@ ReproParcel is a native Android Kotlin/Compose reporter that produces bounded, p
 - Automatic Compose semantics extraction is unproven until a public-API, minified-release compatibility experiment passes. Explicit host registration is the safe baseline.
 - Read-only agent access does not authorize shell commands, source changes, tracker writes, model uploads or external sharing.
 - No absolute crash-free, perfect-redaction or guaranteed-reproduction claims.
-- License is **AGPL-3.0-only**. No proprietary-linking exception or later-version option is implied.
+- License is **Apache-2.0**. It is permissive, includes an express patent grant and requires preserving license/NOTICE attribution. No trademark license or copyleft is implied.
 
 ## 2. Think about the bigger picture before EVERY task
 
@@ -102,11 +102,11 @@ Before behavior changes, create the smallest failing test that demonstrates the 
 
 ## 7. License and community
 
-- Preserve `AGPL-3.0-only`, first-party SPDX metadata, official LICENSE text and compatible third-party notices.
-- Explain that SDK linking/distribution can impose copyleft on a covered combined app. Do not market it as drop-in for proprietary apps without obligations.
-- Explain AGPL Section 13 accurately for modified remote-interaction versions; not every unrelated HTTP call triggers universal disclosure.
+- Preserve `Apache-2.0`, first-party SPDX metadata, official LICENSE text, NOTICE attribution and compatible third-party notices.
+- Explain that Apache-2.0 permits proprietary linking and distribution subject to notice, modification-marking, patent and trademark terms. Do not describe it as obligation-free.
+- Explain that Apache-2.0 has no network copyleft or source-offer requirement; distributed copies still carry NOTICE and attribution obligations.
 - Check dependencies before adoption; reject incompatible/noncommercial/unknown licenses until resolved.
-- Default contributions use the same license with DCO certification, not copyright assignment. A new CLA/exception/relicense requires an explicit decision.
+- Default contributions use the same license with DCO certification, not copyright assignment. A new CLA, exception or relicense requires an explicit maintainer decision and consistent notices.
 - Do not include personal information, credentials or real report images/text in code, fixtures, issues, docs, handoffs, commits or public logs. Invent equivalent shapes and record aggregate evidence.
 
 ## 8. Handoff after EVERY work session

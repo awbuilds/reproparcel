@@ -1,12 +1,20 @@
-ReproParcel — third-party notices
-==================================
+ReproParcel — notices
+=====================
 
-First-party code and documentation are licensed under AGPL-3.0-only. See
-LICENSE for the binding text.
+ReproParcel
+Copyright 2026 ReproParcel contributors
 
-License texts for common dependency licenses are included under `licenses/`.
-Exact dependency versions are pinned in `gradle/libs.versions.toml` and the
-desktop/server lockfiles.
+First-party code and documentation are licensed under the Apache License,
+Version 2.0. See LICENSE for the binding text.
+
+This product includes third-party software. The main groups and their declared
+licenses are summarized below. Exact dependency versions are pinned in
+`gradle/libs.versions.toml` and the desktop/server lockfiles.
+
+Apache-2.0 requires retaining this NOTICE and applicable attribution notices
+when distributing the work or derivative works, marking modified files, and
+complying with the patent and trademark terms. It does not grant trademark
+rights.
 
 Android/runtime dependencies
 - AndroidX / Jetpack Compose — Apache License 2.0
@@ -14,8 +22,8 @@ Android/runtime dependencies
 - Gradle wrapper — Apache License 2.0
 - Kotlinx serialization/coroutines — Apache License 2.0
 - OkHttp/Okio — Apache License 2.0
-- JUnit 4 — Eclipse Public License 1.0
-- Hamcrest — BSD 3-Clause
+- JUnit 4 — Eclipse Public License 1.0 (test-only; not distributed in runtime artifacts)
+- Hamcrest — BSD 3-Clause (test-only)
 - AndroidX Test / Espresso / UiAutomator — Apache License 2.0
 - NetworkNT JSON Schema Validator and Jackson — Apache License 2.0
 - SLF4J — MIT
@@ -39,6 +47,6 @@ Resolved dependency coordinates are recorded in
 `docs/dependency-inventory.md`, generated from the actual Gradle/npm resolution.
 Common license texts are under `licenses/`. This is an inventory and notice
 summary, not legal advice. Qualified review of every dependency license and the
-AGPL distribution/source offer remains a stable-release gate. Preserve all
+distribution notice obligations remains a stable-release gate. Preserve all
 required copyright and attribution notices when distributing artifacts. No
-proprietary-linking exception is granted.
+trademark license is granted.

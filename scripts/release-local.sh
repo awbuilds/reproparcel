@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 # Local release-candidate verification. This does NOT publish to Maven Central.
 set -euo pipefail
 cd "$(dirname "$0")/.."

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 # Local CI gate. No device/emulator tests are run here; those are recorded
 # separately in the phase evidence.
 set -euo pipefail

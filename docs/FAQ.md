@@ -10,10 +10,10 @@ is not deployed.
 
 ### Can I use ReproParcel in a proprietary app?
 
-ReproParcel is **AGPL-3.0-only**. Linking or distributing it can impose copyleft
-obligations on a covered combined application. There is no proprietary-linking
-exception. Read [LICENSE](../LICENSE), [NOTICE](../NOTICE) and obtain your own
-legal advice.
+ReproParcel is **Apache-2.0**. You may link and distribute it in proprietary
+applications, subject to the notice, modification-marking, patent and trademark
+terms. There is no copyleft or network source-offer requirement. Read
+[LICENSE](../LICENSE), [NOTICE](../NOTICE) and obtain your own legal advice.
 
 ### Is a stable release available?
 

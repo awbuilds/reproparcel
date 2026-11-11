@@ -1,6 +1,6 @@
 # ADR 0006 — Public repository, license and Git workflow
 
-- Status: Accepted
+- Status: Superseded by ADR 0015 for the license decision; repository and Git rules remain accepted
 - Date: 2026-11-11
 - Deciders: ReproParcel maintainers
 

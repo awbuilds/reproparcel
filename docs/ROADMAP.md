@@ -54,8 +54,8 @@ The live line-level status is in
 - current physical device and physical API 26/30 rows;
 - manual TalkBack matrix and longer thermal/ANR soak;
 - iOS physical-device/Keychain/scenes/App Store validation;
-- relay deployment, TLS, backups, source offer and independent review;
-- legal/AGPL/trademark review;
+- relay deployment, TLS, backups, notice delivery and independent review;
+- legal/Apache-2.0/trademark review;
 - Sonatype namespace, signed Maven Central publication and release approval.
 
 ## Principles for future work

@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: AGPL-3.0-only
+// SPDX-License-Identifier: Apache-2.0
 package com.awbuilds.reproparcel.core.config
 
 import com.awbuilds.reproparcel.core.model.BuildInfo

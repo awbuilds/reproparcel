@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// SPDX-License-Identifier: AGPL-3.0-only
+// SPDX-License-Identifier: Apache-2.0
 import { readParcel, summarize, ParcelError } from "./parcel.js";
 import { renderParcel } from "./viewer.js";
 import { startMcpServer } from "./mcp.js";

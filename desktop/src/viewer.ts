@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: AGPL-3.0-only
+// SPDX-License-Identifier: Apache-2.0
 import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import type { ParcelData, ReproEvent, Semantics } from "./parcel.js";

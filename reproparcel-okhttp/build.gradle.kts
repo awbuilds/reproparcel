@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: AGPL-3.0-only
+// SPDX-License-Identifier: Apache-2.0
 plugins {
     alias(libs.plugins.android.library)
     id("maven-publish")
@@ -36,8 +36,8 @@ afterEvaluate {
                     url.set("https://github.com/awbuilds/reproparcel")
                     licenses {
                         license {
-                            name.set("GNU Affero General Public License v3.0 only")
-                            url.set("https://www.gnu.org/licenses/agpl-3.0.html")
+                            name.set("Apache License, Version 2.0")
+                            url.set("https://www.apache.org/licenses/LICENSE-2.0")
                         }
                     }
                     scm {

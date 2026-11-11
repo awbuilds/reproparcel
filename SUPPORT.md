@@ -35,7 +35,7 @@ responsibility.
 ## I need a commercial SLA
 
 No commercial support, response-time SLA, bounty or hosting service is offered.
-The project is maintained on a best-effort basis under AGPL-3.0-only.
+The project is maintained on a best-effort basis under Apache-2.0.
 
 ## Documentation
 

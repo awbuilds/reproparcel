@@ -7,7 +7,7 @@ authors:
   - name: "ReproParcel contributors"
 repository-code: "https://github.com/awbuilds/reproparcel"
 url: "https://github.com/awbuilds/reproparcel"
-license: "AGPL-3.0-only"
+license: "Apache-2.0"
 version: "0.0.1-dev"
 keywords:
   - android

@@ -31,6 +31,6 @@ top-level groups. It is a coarse gate, not a legal opinion.
 - Generate complete third-party notices for the shipped AARs and desktop
   packages.
 - Confirm every transitive license from the actual resolved graph.
-- Review AGPL compatibility and distribution/source obligations with qualified
+- Review Apache-2.0 compatibility and distribution/NOTICE obligations with qualified
   counsel before a stable release.
 - Do not add a dependency with incompatible, noncommercial or unknown licensing.

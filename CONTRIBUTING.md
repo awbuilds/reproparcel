@@ -18,7 +18,7 @@ coding. Load-bearing changes need an ADR.
 
 ## License and sign-off
 
-Contributions are accepted under **AGPL-3.0-only**. Sign off each commit with
+Contributions are accepted under **Apache-2.0**. Sign off each commit with
 the Developer Certificate of Origin:
 
 ```sh

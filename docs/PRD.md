@@ -14,7 +14,7 @@
 | First platform | Native Android; Kotlin; Jetpack Compose reporter UI |
 | First adopter | A private host application (identity withheld), initially in a development build with synthetic data |
 | First distribution | Maven Central Android libraries; separately packaged desktop tools |
-| License | **GNU AGPL version 3.0 only — `AGPL-3.0-only`** |
+| License | **Apache License 2.0 — `Apache-2.0`** |
 | v1 operating model | Local capture, user review, manual export, local inspection, read-only agent access |
 | Hosted service | Not required for v1; optional future delivery component |
 | Authoritative scope | Phases 0–5 define Android v1; Phases 6–9 are gated expansion |
@@ -82,7 +82,7 @@ The useful contribution is **not another dashboard or a claim to be the first bu
 | Alternative | What it already does | ReproParcel's intended difference |
 |---|---|---|
 | Sentry Android | Feedback forms, shake-to-report and integration with session replay; feedback can work with sufficiently recent self-hosted Sentry | Local-first parcel export without adopting a full observability backend; explicit report contract for local agent tools |
-| Instabug/Luciq, Shake, Gleap | Commercial feedback and mobile diagnostics products | AGPL code, inspectable capture policy, no mandatory vendor account or recurring service |
+| Instabug/Luciq, Shake, Gleap | Commercial feedback and mobile diagnostics products | Apache-2.0 code, inspectable capture policy, no mandatory vendor account or recurring service |
 | Quash | Existing open-source mobile bug-reporting work | Acknowledge prior art; compete on maintained native integration, privacy contracts, compatibility evidence and portability |
 | BugDrop and BugPin | Web screenshot/annotation and issue-reporting tools | Native Android collection and Compose integration, not a script-tag web widget |
 | Flutter feedback packages | Existing Flutter feedback UI | Android-first scope; no claim that Flutter lacks feedback tooling |
@@ -92,7 +92,7 @@ The useful contribution is **not another dashboard or a claim to be the first bu
 
 ### 2.3 Why awbuilds can execute this
 
-A private Kotlin/Compose host application provides existing privacy-sensitive workflows and real release-build constraints. It is an appropriate integration proving ground, **not a source of real financial test fixtures**. The initial audience is AGPL-compatible apps and teams willing to satisfy copyleft requirements; proprietary SDK adoption is not assumed.
+A private Kotlin/Compose host application provides existing privacy-sensitive workflows and real release-build constraints. It is an appropriate integration proving ground, **not a source of real financial test fixtures**. The initial audience is Android teams that can adopt Apache-2.0 terms; proprietary SDK adoption is permitted subject to notice, patent and trademark obligations.
 
 ## 3. Vision, goals and success criteria
 
@@ -130,7 +130,7 @@ No guarantee of perfect reproduction, zero crashes, automatic privacy detection,
 
 | Persona | Need | Constraints |
 |---|---|---|
-| Open-source Android maintainer | Receive useful reports without running a large backend | Small budget; limited maintenance time; AGPL-compatible distribution |
+| Open-source Android maintainer | Receive useful reports without running a large backend | Small budget; limited maintenance time; Apache-2.0-compatible distribution |
 | Tester or ordinary app user | Explain a defect without knowing technical terminology | Accessible UI; understandable consent; poor connectivity; private information on screen |
 | Mobile developer | Match a report to the right release and screen | Minified code; multiple build variants; incomplete UI trees |
 | Coding-agent operator | Supply grounded evidence to the agent already used for development | No untrusted instructions treated as authority; no hidden model upload; controlled source access |
@@ -205,7 +205,7 @@ No consent checkbox is preselected for external transfer. Reporting must remain 
 
 ### 6.2 Developer integration
 
-1. Review the AGPL obligations and compatibility notice before adopting the library.
+1. Review the Apache-2.0 obligations (NOTICE, patent and trademark) and compatibility notice before adopting the library.
 2. Add only the artifacts needed. Initialize explicitly from the host's application lifecycle and register the current activity safely.
 3. Provide build metadata and safe screen/action IDs. Configure evidence categories; screenshot/semantic text collection is off until a host capture/privacy policy is supplied.
 4. Add a manual reporter entry point. Optionally register foreground shake detection, a structured log sink and the OkHttp metadata adapter.
@@ -533,7 +533,7 @@ Initial jank gate: enabled collection must not increase p95 frame duration by mo
 5. Fault injection and seeded privacy tests pass with no known leakage or unhandled recoverable SDK exception.
 6. Performance budgets have recorded measurements; no known unresolved host leak or unacceptable frame/ANR regression.
 7. SDK and desktop import threat model have focused independent review.
-8. Dependency licenses, SPDX headers, third-party notices, source archives and AGPL distribution requirements are reviewed.
+8. Dependency licenses, SPDX headers, third-party notices, source archives and Apache-2.0 notice/attribution requirements are reviewed.
 9. Maven coordinates are verified; artifact POM includes accurate license, SCM and project metadata; signed publication and downloaded-artifact smoke are checked.
 10. Documentation reflects only shipped features; handoff, project state, compatibility matrix and release notes agree.
 11. Every goal G-01–G-07 passes its threshold with evidence: G-01 has ≥80% qualifying reports across ≥20 pilot defects; G-02 has both external developers finish baseline integration within 30 minutes each; G-03/G-04 pass reliability/privacy gates; G-05 works in two clients; G-06 passes offline/no-account flow; G-07 has complete versioned contracts and governance. Record failures and the pilot method, not just participant counts.
@@ -565,9 +565,9 @@ No calendar estimate is asserted. A solo maintainer should work vertically throu
 
 **Work packages**
 
-- Interview at least five potential AGPL-compatible adopters; compare their workflow with Sentry/manual tickets. Confirm the local/portable/agent-ready difference matters.
+- Interview at least five potential Apache-2.0-compatible adopters; compare their workflow with Sentry/manual tickets. Confirm the local/portable/agent-ready difference matters.
 - Freeze provisional product naming only after preliminary trademark screening; verify Maven namespace with Sonatype. Do not purchase/reserve/publish without approval.
-- Record exact AGPL-3.0-only intent and a documented adoption warning. Have distribution guidance reviewed before stable release.
+- Record exact Apache-2.0 intent and a documented adoption note. Have distribution guidance reviewed before stable release.
 - Build a disposable synthetic Compose spike for eligible PixelCopy capture, opaque masking, rotated bounds and protected-window omission.
 - Compare public accessibility-provider evidence with host-registered semantic descriptors. Test current stable Compose in an R8-minified build on minimum/target APIs; no test dependencies or reflection in the shipping path.
 - Try merged semantics, lazy offscreen items, editable fields, custom Canvas, dialogs and mixed View content. Record coverage; exclude unsupported surfaces.
@@ -663,7 +663,7 @@ No calendar estimate is asserted. A solo maintainer should work vertically throu
 - Run the 20-report pilot and external integration exercise; publish counts/method without real evidence.
 - Review privacy and security independently; fix all release blockers and distinguish real-device verification from JVM-only checks.
 - Validate release-minified APK capture, Keystore, masks, UI and budgets across the declared support matrix.
-- Review AGPL adoption guidance, source delivery and dependency compatibility; use inbound contribution certification, not unrequested copyright assignment.
+- Review Apache-2.0 adoption guidance, notice delivery and dependency compatibility; use inbound contribution certification, not unrequested copyright assignment.
 - Freeze schema/API v1, migration promises, documented limits and compatibility versions; finish quick start, sample, troubleshooting, privacy policy examples, notices and security-reporting instructions.
 - Verify signed Maven publication/source/javadoc artifacts and desktop package manifests; install the downloaded candidate into a clean consumer.
 - Publish only after the maintainer authorizes publication and the stable-release checklist is complete.
@@ -678,7 +678,7 @@ No calendar estimate is asserted. A solo maintainer should work vertically throu
 
 **Goal:** receive approved parcels on a small self-hosted service and route private issues without putting tracker secrets into apps.
 
-**Work packages:** verify tracker/API contracts read-only; select a low-complexity server/database stack and review its schema; authenticated HTTPS ingestion; project-scoped write-only credentials; abuse quotas; idempotency; encrypted-at-rest evidence; private links; retention/deletion; audit logs without report content; reliable user-consented retries only where needed; GitHub App/Linear credentials server-side; backups and source-download offer for AGPL-covered deployments.
+**Work packages:** verify tracker/API contracts read-only; select a low-complexity server/database stack and review its schema; authenticated HTTPS ingestion; project-scoped write-only credentials; abuse quotas; idempotency; encrypted-at-rest evidence; private links; retention/deletion; audit logs without report content; reliable user-consented retries only where needed; GitHub App/Linear credentials server-side; backups and license/NOTICE delivery for distributed deployments.
 
 **Exit:** revoked/stolen credentials cannot read evidence or exceed bounded impact; duplicate retry creates one report; destinations remain explicit; deletion and source-offer behavior tested; file export still works without the server. Do not claim a tiny VPS specification until measured. Start with one tracker, not both.
 
@@ -721,7 +721,7 @@ Each candidate requires actual adopter demand, a separate scope/design, no degra
 | `docs/adr/NNNN-topic.md` | Architectural/contract/privacy/license decisions and supersession links |
 | `schema/` | Versioned format and synthetic conformance fixtures |
 | `README.md` | Accurate quick start, license warning, current scope and verified examples |
-| `LICENSE` | Exact official GNU AGPLv3 license text |
+| `LICENSE` | Exact official Apache License 2.0 text |
 | `NOTICE` / third-party notices | Required preserved dependency notices and attributions |
 | `CONTRIBUTING.md`, `SECURITY.md`, `CHANGELOG.md` | Contribution/review, private vulnerability reporting and releases |
 
@@ -734,7 +734,7 @@ Before code, documentation, configuration or an adapter task, write a short impa
 1. Which goal/use case and phase does this serve?
 2. Which callers, artifacts, schema readers, policies, consent surfaces and tests are affected?
 3. Could it increase data collection, privileges, failure propagation, binary size or resource cost?
-4. Does it preserve backward compatibility, privacy defaults, AGPL obligations and host behavior?
+4. Does it preserve backward compatibility, privacy defaults, Apache-2.0 obligations and host behavior?
 5. What is the smallest coherent change, acceptance evidence and safe rollback?
 
 Think system-wide, implement within scope. Bigger-picture thinking is **not** permission to redesign unrelated parts, add speculative features or expand the license/permission surface. If a task conflicts with a load-bearing invariant, report the conflict and seek the consequential decision before changing it.
@@ -784,17 +784,17 @@ Never include real screenshots, report bodies, personal paths, credentials or pr
 
 ### 17.1 Exact license decision
 
-The requested license is GNU AGPL 3.0. This baseline uses **`AGPL-3.0-only`**, not an unstated later-version option, permissive exception or dual license. A host application's own `AGPL-3.0-or-later` status does not automatically determine this new project's license. Changing “only” to “or-later” requires an explicit maintainer decision and consistent notices.
+The requested license is the Apache License, Version 2.0. This baseline uses **`Apache-2.0`** for first-party code and documentation. It is permissive and includes an express patent grant; it does not impose copyleft on a combined application. Changing the license or adding an exception requires an explicit maintainer decision and consistent notices. Amended 2026-11-12 by ADR 0015 from `AGPL-3.0-only`.
 
-First-party SDK, tooling, server code, schemas and documentation use the declared project license; preserve third-party licenses/notices. Put official license text in LICENSE, use SPDX headers where appropriate, and accurate POM/package metadata. Do not paraphrase the license as the binding text or promise a legal outcome this PRD cannot establish.
+First-party SDK, tooling, server code, schemas and documentation use the declared project license; preserve third-party licenses/notices. Put the official license text in LICENSE, retain the NOTICE attribution, use SPDX headers where appropriate, and accurate POM/package metadata. Do not paraphrase the license as the binding text or promise a legal outcome this PRD cannot establish.
 
 ### 17.2 SDK adoption implications
 
-AGPL is strong copyleft. An Android app that links/includes this SDK may form a combined/derivative work and generally cannot assume it can remain proprietary merely because the SDK is an AAR. Distribution can require corresponding source, notices and compatible licensing for the covered combined work. **No proprietary-linking exception is granted.** Explain this prominently before installation; get qualified legal review for disputed integration/distribution cases.
+Apache-2.0 is permissive. An Android app that links/includes this SDK may remain proprietary, subject to the license conditions: retain copyright, license and NOTICE notices, mark modified files, and comply with the patent and trademark terms. **No trademark license is granted beyond descriptive use.** Explain the notice obligations before installation; get qualified legal review for disputed integration/distribution cases.
 
-AGPL Section 13 additionally requires a modified version supporting remote interaction to prominently offer corresponding source to users interacting with it over a network. It is not a rule that every program making any HTTP request must disclose all unrelated software, nor is it a ban on charging money. Preserve distribution/source rights and applicable notice obligations. A future hosted component must implement an appropriate source offer for the deployed covered version.
+Apache-2.0 has no network copyleft or source-offer requirement. Distributed or modified copies must preserve the license and NOTICE attribution. It is not a ban on charging money. A future hosted component should carry the same notices.
 
-The data format is not a mechanism for granting the project copyright over a user's bug report. Users retain applicable rights in their submitted data. Independently implemented consumers and interpretation of code-linking boundaries require proper legal assessment; do not promise an AGPL exemption merely because a component is in another process.
+The data format is not a mechanism for granting the project copyright over a user's bug report. Users retain applicable rights in their submitted data. Independently implemented consumers and interpretation of code-linking boundaries require proper legal assessment; do not treat the license as granting rights over user data or implying endorsement.
 
 ### 17.3 Contribution model
 
@@ -814,15 +814,15 @@ The data format is not a mechanism for granting the project copyright over a use
 | R-03 | Screenshot privacy coverage is incomplete | Disabled until policy; conservative omission; opaque masks and geometry tests; no absolute PII promise |
 | R-04 | “Agent-ready” is mistaken for automatic repair/replay | Read-only evidence and provenance; no execution tools; suggestions labeled uncertain |
 | R-05 | SDK causes slowdown, leaks or callback failure | Bounds, structured concurrency, failure isolation, paired release benchmarks |
-| R-06 | AGPL limits proprietary adopter pool | Intentional tradeoff; publish warning and validate AGPL-compatible audience |
-| R-07 | Strong copyleft guidance is legally overstated | Official text plus qualified review; do not claim all networking triggers Section 13 |
+| R-06 | Apache-2.0 lowers adoption friction | Permissive terms; validate notice, patent and trademark compliance |
+| R-07 | Apache-2.0 notice and patent terms are misapplied | Official text plus qualified review; do not claim the license is obligation-free or grants trademark rights |
 | R-08 | First-version scope grows into an observability platform | No backend/crash/video/analytics requirement; one vertical flow; separate expansion designs |
 | R-09 | MinSdk/toolchain/Compose support becomes stale | Record tested stable versions; optional modules; new compatibility only after evidence |
 | R-10 | Public tracker integration exposes private reports or credentials | Deferred trusted delivery; verify real APIs; private routing and server-side secrets |
 | R-11 | New brand has an undiscovered conflict | Preliminary search only; naming/trademark review before public branding |
 | R-12 | Handoffs become stale or unverifiable | Single concise state pointer; commands/results; compare notes against actual files |
 
-**Fixed decisions:** Android-first; local/manual export v1; no runtime LLM; no telemetry; fail-closed privacy; read-only agent adapter; AGPL-3.0-only; resumable work records.
+**Fixed decisions:** Android-first; local/manual export v1; no runtime LLM; no telemetry; fail-closed privacy; read-only agent adapter; Apache-2.0; resumable work records.
 
 **Evidence-gated decisions:** exact Maven namespace, stable toolchain versions, final minSdk/dependency matrix, automatic semantics scope, measured resource thresholds, desktop dependency choices and public naming clearance. Each has a Phase 0/1 owner (the maintainer) and an explicit exit gate; none is silently presumed solved.
 
@@ -830,7 +830,7 @@ The data format is not a mechanism for granting the project copyright over a use
 
 ### 19.1 Launch package
 
-README quick start; small synthetic sample; public schema; AGPL adoption warning; supported matrix; local viewer/CLI/MCP recipe; privacy-policy integration guidance; performance methodology; known limitations; private security reporting; contribution guide; release notes; source/license artifacts.
+README quick start; small synthetic sample; public schema; Apache-2.0 notice guidance; supported matrix; local viewer/CLI/MCP recipe; privacy-policy integration guidance; performance methodology; known limitations; private security reporting; contribution guide; release notes; source/license artifacts.
 
 Show a real running sample and exported synthetic parcel, not a fabricated mock that implies capabilities not implemented. Explain automatic vs host-registered evidence, manual share vs verified delivery and data retained outside SDK control.
 
@@ -842,7 +842,7 @@ Show a real running sample and exported synthetic parcel, not a fabricated mock 
 - Version APIs/schema deliberately; publish migrations/deprecations and supported maintenance lines.
 - Require the same privacy/performance/release gates for every platform adapter.
 - Keep handoffs and project state current; preserve decision history with supersession rather than silent rewrites.
-- Funded hosting or commercial services may be considered later, but may not secretly weaken the requested AGPL license or disable local use.
+- Funded hosting or commercial services may be considered later, but may not secretly weaken the requested Apache-2.0 license or disable local use.
 
 ### 19.3 Definition of complete Android v1
 
@@ -858,7 +858,7 @@ The following primary sources were read with the built-in browser during prepara
 4. [AndroidX RootForTest reference](https://developer.android.com/reference/kotlin/androidx/compose/ui/node/RootForTest) — explicitly test-oriented; production extraction requires separate validation.
 5. [Navigation 3 release notes](https://developer.android.com/jetpack/androidx/releases/navigation3) — stable Compose navigation library; choose stable, not the displayed alpha dependency by accident.
 6. [Android 14 screenshot detection](https://developer.android.com/about/versions/14/features/screenshot-detection) — detection is separate from capture and has permission/notice implications.
-7. [GNU AGPLv3 official text](https://www.gnu.org/licenses/agpl-3.0.html) — binding license, distribution obligations and Section 13.
+7. [Apache License 2.0 official text](https://www.apache.org/licenses/LICENSE-2.0) — binding license, notice, patent and trademark terms.
 8. [Sonatype namespace registration](https://central.sonatype.org/register/namespace/) — namespace ownership/verification; organization namespaces are not automatically provisioned as personal identities.
 9. [BugDrop repository](https://github.com/bugdrophq/bugdrop), [BugPin repository](https://github.com/aranticlabs/bugpin), [Quash repository](https://github.com/Oscorp-HQ/quash-max) — prior art; inspect current implementation/licenses before borrowing code.
 10. [Exact-name GitHub check](https://github.com/search?type=repositories&q=%22reproparcel%22), [npm endpoint](https://registry.npmjs.org/reproparcel), [pub.dev endpoint](https://pub.dev/api/packages/reproparcel), [registry RDAP result](https://pubapi.registry.google/rdap/domain/reproparcel.dev) — preliminary naming observations only, not registration or trademark clearance.

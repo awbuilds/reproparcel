@@ -5,7 +5,7 @@
 <p align="center">
   <a href="https://github.com/awbuilds/reproparcel/actions/workflows/ci.yml"><img src="https://github.com/awbuilds/reproparcel/actions/workflows/ci.yml/badge.svg?branch=dev" alt="CI"></a>
   <img src="docs/assets/badges/status-source-candidate.svg" alt="status: source candidate">
-  <img src="docs/assets/badges/license-agpl-3.0.svg" alt="license: AGPL-3.0-only">
+  <img src="docs/assets/badges/license-apache-2.0.svg" alt="license: Apache-2.0">
   <img src="docs/assets/badges/platform-android-26.svg" alt="platform: Android 26+">
   <img src="docs/assets/badges/kotlin-2.4.svg" alt="kotlin 2.4">
   <img src="docs/assets/badges/compose-material3.svg" alt="Jetpack Compose Material 3">
@@ -297,9 +297,11 @@ No. File export and the desktop tools work offline. The optional relay in
 
 ### Can I use it in a proprietary app?
 
-ReproParcel is **AGPL-3.0-only** with no proprietary-linking exception. Linking
-or distributing it can impose copyleft obligations on a covered combined
-application. Read [LICENSE](LICENSE) and obtain your own legal advice.
+ReproParcel is **Apache-2.0**. You may link and distribute it in proprietary
+applications, subject to the license conditions: retain copyright, license and
+NOTICE attribution, mark modified files, and comply with the patent and
+trademark terms. There is no copyleft or network source-offer requirement. Read
+[LICENSE](LICENSE) and obtain your own legal advice.
 
 ### Does it collect screenshots automatically?
 
@@ -335,7 +337,7 @@ Security reports use GitHub's private vulnerability reporting; see
 
 ## License
 
-**AGPL-3.0-only.** See [LICENSE](LICENSE) and [NOTICE](NOTICE). This is not legal
+**Apache-2.0.** See [LICENSE](LICENSE) and [NOTICE](NOTICE). This is not legal
 advice. Third-party dependency coordinates are recorded in
 [docs/dependency-inventory.md](docs/dependency-inventory.md).
 

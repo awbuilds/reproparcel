@@ -1,7 +1,8 @@
 # ReproParcel desktop tools
 
-**License:** AGPL-3.0-only. Review the repository license and adoption warning
-before installing. This is not legal advice.
+**License:** Apache-2.0. Review the repository LICENSE and NOTICE for
+attribution, patent and trademark terms before distributing. This is not legal
+advice.
 
 Offline validator, inspector, viewer and read-only MCP server for
 `.reproparcel` files. Node.js 24+ is recommended; the current build was tested

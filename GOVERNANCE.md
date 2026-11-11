@@ -29,7 +29,7 @@ Contributors do not gain release authority by submitting a pull request.
 
 ## Contribution certification
 
-Contributions are accepted under **AGPL-3.0-only** and use the Developer
+Contributions are accepted under **Apache-2.0** and use the Developer
 Certificate of Origin. Sign off each commit:
 
 ```sh

@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "description": "Offline validator, inspector, viewer and read-only MCP for ReproParcel.",
-  "license": "AGPL-3.0-only",
+  "license": "Apache-2.0",
   "bin": {
     "reproparcel": "./dist/cli.js"
   },

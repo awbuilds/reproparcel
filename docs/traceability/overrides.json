@@ -31,7 +31,7 @@
   },
   "114": {
     "artifact": "docs/evidence/phase-5/offline-device-flow.txt",
-    "evidence": "Airplane-mode release create \u2192 SAF export \u2192 offline desktop validate/inspect/render; no account or network",
+    "evidence": "Airplane-mode release create → SAF export → offline desktop validate/inspect/render; no account or network",
     "notes": "Single API 37 emulator run; no external client.",
     "status": "PASS"
   },
@@ -881,7 +881,7 @@
   },
   "534": {
     "artifact": "docs/evidence/phase-5/benchmark-api31",
-    "evidence": "All Section 13 budgets measured; paired 5\u00d71000-frame jank passes 5%/1pp; no leak or ANR observed",
+    "evidence": "All Section 13 budgets measured; paired 5×1000-frame jank passes 5%/1pp; no leak or ANR observed",
     "notes": "Thermal/ANR soak remains a release-hardening step.",
     "status": "PASS"
   },
@@ -946,8 +946,8 @@
     "status": "BLOCKED"
   },
   "570": {
-    "artifact": "docs/adr/0006-public-repository-license-and-git.md",
-    "evidence": "AGPL-3.0-only intent recorded; LICENSE present",
+    "artifact": "docs/adr/0015-relicense-to-apache-2.0.md",
+    "evidence": "Apache-2.0 intent recorded; LICENSE present",
     "notes": "Distribution guidance review is external/legal work.",
     "status": "BLOCKED"
   },
@@ -1283,7 +1283,7 @@
   },
   "650": {
     "artifact": "docs/integration/desktop-tools.md, desktop/README.md",
-    "evidence": "Recipe + AGPL warning",
+    "evidence": "Recipe + license/adoption warning",
     "notes": "",
     "status": "PASS"
   },
@@ -1296,7 +1296,7 @@
   "654": {
     "artifact": "docs/decisions/phase-4-go-no-go.md",
     "evidence": "No arbitrary read/execute; gaps recorded",
-    "notes": "Device export \u2192 desktop validate/inspect/render and one real client verified; two real clients and full hostile-fixture matrix remain",
+    "notes": "Device export → desktop validate/inspect/render and one real client verified; two real clients and full hostile-fixture matrix remain",
     "status": "BLOCKED"
   },
   "658": {
@@ -1337,8 +1337,8 @@
   },
   "666": {
     "artifact": "docs/dependency-licenses.md",
-    "evidence": "License allowlist/AGPL docs; legal review pending",
-    "notes": "Legal/AGPL review not performed",
+    "evidence": "License allowlist/Apache-2.0 docs; legal review pending",
+    "notes": "Legal/Apache-2.0 review not performed",
     "status": "BLOCKED"
   },
   "667": {
@@ -1368,7 +1368,7 @@
   "673": {
     "artifact": "docs/decisions/phase-5-go-no-go.md",
     "evidence": "Stable gates not met",
-    "notes": "Stable exit requires G-01\u2013G-07 and Section 14 gates",
+    "notes": "Stable exit requires G-01–G-07 and Section 14 gates",
     "status": "BLOCKED"
   },
   "677": {
@@ -1385,8 +1385,8 @@
   },
   "681": {
     "artifact": "server/src",
-    "evidence": "Auth, quota, encryption, GitHub adapter; TLS/backups/source offer deployment-specific",
-    "notes": "TLS/backup/source-offer deployment work blocked",
+    "evidence": "Auth, quota, encryption, GitHub adapter; TLS/backups/notice-delivery deployment-specific",
+    "notes": "TLS/backup/notice-delivery deployment work blocked",
     "status": "BLOCKED"
   },
   "683": {
@@ -1505,7 +1505,7 @@
   },
   "724": {
     "artifact": "LICENSE",
-    "evidence": "Official AGPLv3 text",
+    "evidence": "Official Apache License 2.0 text",
     "notes": "",
     "status": "PASS"
   },
@@ -1553,8 +1553,8 @@
   },
   "789": {
     "artifact": "LICENSE",
-    "evidence": "Official AGPLv3 text fetched from gnu.org",
-    "notes": "First-party docs use AGPL-3.0-only.",
+    "evidence": "Official Apache License 2.0 text fetched from apache.org",
+    "notes": "First-party code and docs use Apache-2.0.",
     "status": "PASS"
   },
   "797": {
@@ -1601,14 +1601,14 @@
   },
   "817": {
     "artifact": "docs/research/adoption-validation.md",
-    "evidence": "AGPL audience validation pending",
+    "evidence": "Apache-2.0 audience validation pending",
     "notes": "External market evidence required.",
     "status": "BLOCKED"
   },
   "818": {
-    "artifact": "docs/adr/0006-public-repository-license-and-git.md",
+    "artifact": "docs/adr/0015-relicense-to-apache-2.0.md",
     "evidence": "Official license text; no legal review",
-    "notes": "Qualified review required.",
+    "notes": "ADR 0015 records the license; qualified review required.",
     "status": "BLOCKED"
   },
   "819": {

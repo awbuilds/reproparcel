@@ -21,7 +21,7 @@ integration exists.
   local-first reviewed evidence parcels; read-only local agent consumption.
 - [AGENTS.md](../AGENTS.md) — engineering contract, public-repository hygiene,
   exception boundaries, standards and handoff protocol.
-- [Latest handoff](handoffs/0012-2026-11-11-open-source-presentation.md).
+- [Latest handoff](handoffs/0013-2026-11-12-relicense-to-apache-2.0.md).
 - [Traceability ledger](traceability/prd-lines.jsonl), [Phase 0 audit](audits/phase-0-audit.md),
   [Phase 1 audit](audits/phase-1-audit.md), [Phase 3 audit](audits/phase-3-audit.md) and
   [Final audit](audits/final-audit.md).
@@ -50,7 +50,9 @@ integration exists.
 - Final audit corrections: consent-surface fields, new-report reset, real
   draft/cache deletion, evidence in parcels, optional-flag enforcement,
   noBackup drafts, aggregate parcel bounds and capture identity checks.
-- ADRs 0001–0014, threat-model draft, phase decisions and evidence.
+- ADRs 0001–0015, threat-model draft, phase decisions and evidence.
+- Relicensed first-party code and documentation to Apache-2.0 (ADR 0015);
+  LICENSE, NOTICE, SPDX headers, POM/npm metadata and current docs updated.
 - Open-source presentation: README, original brand assets, synthetic
   screenshots, documentation index, architecture/FAQ/roadmap, governance,
   support, security and contribution templates, issue forms, Dependabot, Docs
@@ -60,7 +62,8 @@ integration exists.
 ## Key decisions
 
 - Working name: ReproParcel; no trademark or Maven namespace clearance claimed.
-- Exact license: AGPL-3.0-only; no proprietary-linking exception.
+- Exact license: Apache-2.0; permissive with an express patent grant and
+  NOTICE/attribution obligations; no trademark license.
 - Explicit host-registered semantics is the v1 baseline; automatic Compose
   extraction is not proven and is not shipped.
 - Image capture requires host policy and a `FLAG_SECURE` pre-check. Raw

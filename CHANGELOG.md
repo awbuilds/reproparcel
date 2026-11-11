@@ -42,6 +42,9 @@ versioning once a release exists. There is currently **no release or tag**.
 
 ### Changed
 
+- Relicensed first-party code and documentation from `AGPL-3.0-only` to
+  `Apache-2.0` (ADR 0015); POM/package metadata, SPDX headers, LICENSE, NOTICE,
+  README and the social preview were updated.
 - Reporter editor uses a fixed action footer so review/back remain reachable
   with tall captured images.
 - Release sample derives its build variant from `FLAG_DEBUGGABLE`.
@@ -71,7 +74,7 @@ versioning once a release exists. There is currently **no release or tag**.
   longer thermal/ANR soak remain open.
 - iOS physical-device/Keychain/scenes/App Store validation is blocked.
 - The relay is a reference implementation and is not deployed.
-- Legal/AGPL/trademark review, Sonatype namespace verification and signed
+- Legal/Apache-2.0/trademark review, Sonatype namespace verification and signed
   publication remain blocked.
 
 [Unreleased]: https://github.com/awbuilds/reproparcel/commits/dev
