@@ -1,0 +1,18 @@
+# Second MCP coding client attempt — Codex CLI
+
+Date: 2026-11-11
+Client: codex-cli 0.154.0, logged in with ChatGPT.
+
+The MCP server was registered for the single `codex exec` invocation with
+`-c mcp_servers.reproparcel...` and the same synthetic import root.
+
+Observed: the client started, but its model transport failed repeatedly:
+
+```text
+failed to refresh available models: Connection failed
+failed to connect to websocket: IO error: Connection refused
+Reconnecting... waiting for network (Connection failed)
+```
+
+No inspection result was produced. This is an environment/network blocker, not
+a passing two-client verification. The second real client gate stays BLOCKED.

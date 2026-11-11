@@ -196,7 +196,7 @@ function schemaRoot(): string {
   const candidates = [
     path.resolve(process.cwd(), "schema/v1"),
     path.resolve(process.cwd(), "../schema/v1"),
-    fileURLToPath(new URL("../../../schema/v1", import.meta.url)),
+    fileURLToPath(new URL("../../schema/v1", import.meta.url)),
   ];
   return candidates.find((candidate) => existsSync(candidate)) ?? candidates[0]!;
 }

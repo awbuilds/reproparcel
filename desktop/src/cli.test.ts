@@ -4,6 +4,7 @@ import assert from "node:assert/strict";
 import { execFile } from "node:child_process";
 import { promisify } from "node:util";
 import { rm } from "node:fs/promises";
+import path from "node:path";
 import { createParcel, tempDirectory } from "./test-fixtures.js";
 
 const exec = promisify(execFile);
@@ -34,6 +35,20 @@ test("CLI returns a non-zero exit for a corrupt parcel", async () => {
         return true;
       },
     );
+  } finally {
+    await rm(directory, { recursive: true, force: true });
+  }
+});
+
+test("CLI resolves schemas when launched from an unrelated working directory", async () => {
+  const directory = await tempDirectory();
+  try {
+    const file = await createParcel(directory);
+    const cli = path.resolve("dist/cli.js");
+    const { stdout } = await exec(process.execPath, [cli, "validate", file, "--json"], {
+      cwd: directory,
+    });
+    assert.equal(JSON.parse(stdout).valid, true);
   } finally {
     await rm(directory, { recursive: true, force: true });
   }
