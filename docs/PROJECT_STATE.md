@@ -84,9 +84,11 @@ Phase 0: 10 capture tests on API 26/30/37 plus minified API 26/37 smoke. Exact
 commands and evidence are in `docs/evidence/` and the latest handoff. External interviews, physical-device
 tests, legal/trademark review, Sonatype verification, Maven publication,
 independent security review, pilot and external integrations remain blocked.
-Final audit: 228 PASS / 46 BLOCKED / 0 UNREVIEWED / 0 IN_PROGRESS. G-03 passes
+Final audit: 231 PASS / 43 BLOCKED / 0 UNREVIEWED / 0 IN_PROGRESS. G-03 passes
 locally on the physical low/mid-range device; current/API 26/30 physical rows and
-external gates remain blocked. Emulator success is not release evidence.
+external gates remain blocked. Release capture/export/import is verified on
+API 26/30/37 emulators and the API 31 physical device. Emulator success is not
+release evidence.
 
 ## Next exact action
 

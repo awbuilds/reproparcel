@@ -53,7 +53,7 @@ validate: {"valid":true,"reportId":"644dd60d-dcfa-4d7d-94b3-5f21731cf33f"}
 inspect:  variant=release, descriptionLength=16
 render:   PASS
 
-prd_audit --final: 228 PASS / 46 BLOCKED / 0 UNREVIEWED / 0 IN_PROGRESS
+prd_audit --final: 231 PASS / 43 BLOCKED / 0 UNREVIEWED / 0 IN_PROGRESS
 ```
 
 Benchmark results after the device was reconnected over wireless ADB:
@@ -94,7 +94,9 @@ SDK dependency.
 - Physical API 26/30 rows are not available; emulator coverage remains.
 - Two real MCP clients, two RN consumers, iOS device, relay deployment, legal,
   Sonatype and publication approvals remain blocked.
-- Current physical and API 26/30 physical rows are not available.
+- Current physical and physical API 26/30 rows are not available; emulator API
+  26/30 and current-API rows passed the release matrix.
+- Release matrix: API 26/30/31 physical/37 image capture/export/import passed.
 
 ## Next exact action
 

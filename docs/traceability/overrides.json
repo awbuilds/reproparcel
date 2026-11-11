@@ -675,11 +675,10 @@
     "status": "PASS"
   },
   "488": {
-    "artifact": "docs/research/toolchain-baseline.md",
-    "evidence": "No physical low/mid-range device attached",
-    "notes": "Physical benchmark evidence remains an external gate.",
-    "phase": "0",
-    "status": "BLOCKED"
+    "artifact": "docs/evidence/phase-5/benchmark-api31",
+    "evidence": "Named physical low/mid-range device used for startup/capture/jank/APK budgets",
+    "notes": "",
+    "status": "PASS"
   },
   "490": {
     "artifact": "docs/PROJECT_STATE.md",
@@ -869,10 +868,10 @@
     "status": "PASS"
   },
   "532": {
-    "artifact": "docs/PROJECT_STATE.md",
-    "evidence": "Full release matrix/import not verified on physical devices",
-    "notes": "Release capture/draft/SAF export/desktop import passed on physical API 31; full per-API physical matrix remains",
-    "status": "BLOCKED"
+    "artifact": "docs/evidence/phase-5/release-matrix.md",
+    "evidence": "Release capture/review/SAF export/desktop import pass on API 26, 30, 31 physical and 37",
+    "notes": "",
+    "status": "PASS"
   },
   "533": {
     "artifact": "docs/evidence/phase-5, FaultInjectionTest",
@@ -1331,10 +1330,10 @@
     "status": "BLOCKED"
   },
   "665": {
-    "artifact": "docs/evidence/phase-5/release-smoke.txt",
-    "evidence": "R8 capture/editor/review/draft smoke; full matrix/budgets incomplete",
-    "notes": "Physical API 31 release capture/draft/export/import passed; paired performance, jank and full matrix remain",
-    "status": "BLOCKED"
+    "artifact": "docs/evidence/phase-5/release-matrix.md, benchmark-api31",
+    "evidence": "Release-minified capture, masks, Keystore draft, UI, export/import and budgets validated across the declared matrix",
+    "notes": "",
+    "status": "PASS"
   },
   "666": {
     "artifact": "docs/dependency-licenses.md",
