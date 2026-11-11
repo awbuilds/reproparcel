@@ -36,13 +36,10 @@ jobs:
         with:
           distribution: temurin
           java-version: "21"
-      - uses: android-actions/setup-android@v4
-      - name: Install Android SDK
-        run: sdkmanager --install "platforms;android-37" "build-tools;36.1.0"
       - uses: github/codeql-action/init@v4
         with:
           languages: java-kotlin
           build-mode: manual
       - name: Build analyzed modules
-        run: ./gradlew :reproparcel-core:assemble :reproparcel-android:assembleDebug --no-daemon
+        run: ./gradlew :reproparcel-core:assemble :reproparcel-android:assembleDebug :reproparcel-compose:assembleDebug :reproparcel-okhttp:assembleDebug --no-daemon
       - uses: github/codeql-action/analyze@v4
