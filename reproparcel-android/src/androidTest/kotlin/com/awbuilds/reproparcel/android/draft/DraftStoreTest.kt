@@ -57,6 +57,14 @@ class DraftStoreTest {
     }
 
     @Test
+    fun draftSurvivesANewStoreInstanceSimulatingProcessRestart() {
+        val saved = store.save(Report(description = "synthetic restart")) as DraftSaveResult.Saved
+        val restarted = DraftStore(context, RetentionPolicy(maxReports = 5), clock)
+        val loaded = restarted.load(saved.id) as DraftLoadResult.Loaded
+        assertEquals("synthetic restart", loaded.report.description)
+    }
+
+    @Test
     fun tamperedCiphertextFailsClosed() {
         val saved = store.save(Report(description = "synthetic")) as DraftSaveResult.Saved
         val file = java.io.File(context.noBackupFilesDir, "reproparcel/drafts/${saved.id}/report.enc")

@@ -12,6 +12,9 @@ echo "== public hygiene =="
 echo "== whitespace =="
 git diff --check -- . ':(exclude)reproparcel-core/api/reproparcel-core.api'
 
+echo "== dependency inventory ==="
+python3 scripts/dependency_inventory.py
+
 echo "== dependency allowlist =="
 python3 scripts/check_dependencies.py
 

@@ -10,6 +10,7 @@ import androidx.test.uiautomator.By
 import androidx.test.uiautomator.UiDevice
 import androidx.test.uiautomator.Until
 import com.awbuilds.reproparcel.android.ReproParcel
+import com.awbuilds.reproparcel.android.capture.ReporterHandoff
 import com.awbuilds.reproparcel.core.config.CapturePolicy
 import com.awbuilds.reproparcel.core.config.EvidenceConfig
 import com.awbuilds.reproparcel.core.config.ReproParcelConfig
@@ -46,6 +47,17 @@ class ReporterFlowTest {
                 evidence = EvidenceConfig(structuredLogsEnabled = true),
             ),
         )
+    }
+
+    @Test
+    fun processDeathWithoutHandoffStartsTextOnly() {
+        ReporterHandoff.clear()
+        ActivityScenario.launch(ReporterActivity::class.java).use {
+            assertTrue(device.wait(Until.hasObject(By.text("Report a problem")), 5_000))
+            assertTrue(device.wait(Until.hasObject(By.text("What happened?")), 5_000))
+            assertTrue(device.wait(Until.hasObject(By.text("Review text-only report")), 5_000))
+            assertTrue(device.findObject(By.text("Edit image")) == null)
+        }
     }
 
     @Test

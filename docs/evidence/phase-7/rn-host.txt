@@ -1,4 +1,4 @@
-# Phase 7 — React Native Android host build evidence
+# Phase 7 — React Native Android host build and bridge evidence
 
 Date: 2026-11-11
 Host: `react-native/ReproParcelHost`, React Native 0.88.1, Android API 37.2 emulator.
@@ -13,7 +13,7 @@ BUILD SUCCESSFUL
 
 Release APK installed and launched on the API 37.2 emulator.
 
-## Observed UI
+## Observed flow
 
 ```text
 ReproParcel RN host
@@ -25,18 +25,22 @@ OPEN REPORTER
 DELETE LOCAL REPORTS
 ```
 
-After tapping Enable SDK: `Enabled`.
+- `ENABLE SDK` → `Enabled`.
+- `RECORD BREADCRUMB` → `Breadcrumb recorded`.
+- `OPEN REPORTER` → reporter activity opened with the form, image omission
+  state and `Edit image` action (screenshot policy enabled in the synthetic
+  host).
+- Entering a synthetic description, selecting `Edit image`, and tapping
+  `Review image report` reached `Exact final content`.
 
-After tapping Record breadcrumb: `Breadcrumb recorded`.
+The bridge now dispatches `showReporter` to the UI thread and returns a typed
+result (`success`, `disabled`, `host_unavailable`, `failure`, ...) instead of a
+bare boolean.
 
-`OPEN REPORTER` returned `Reporter unavailable` in the release host. The bridge
-build/initialize/breadcrumb path is verified; reporter launch and lifecycle/
-Hermes matrix remain **BLOCKED** for Phase 7 support claims.
+## Limits
 
-## Notes
-
-- Autolinking found `ReproParcelPackage`.
-- Host Kotlin 2.4.21 is required for the published 2.4.21 Android artifacts.
-- `debug.keystore` was not committed; generated host build/cache directories are
-  ignored.
-- No real report data was used.
+- One consumer host; the Phase 7 exit still requires two distinct consumer
+  examples.
+- No Hermes/profile matrix, mixed native/JS screen matrix or Expo config plugin.
+- No real report data was used. Generated build/cache directories and local
+  debug keystores are ignored.

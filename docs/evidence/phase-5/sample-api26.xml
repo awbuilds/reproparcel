@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<testsuites tests="2" failures="0" errors="0" skipped="0" time="0.000" timestamp="2026-11-11T01:55:49" hostname="localhost">
-  <testsuite name="com.awbuilds.reproparcel.sample.SampleAppTest" tests="2" failures="0" errors="0" skipped="0" time="5.724" timestamp="2026-11-11T01:55:49" hostname="localhost">
+<testsuites tests="2" failures="0" errors="0" skipped="0" time="0.000" timestamp="2026-11-11T03:14:50" hostname="localhost">
+  <testsuite name="com.awbuilds.reproparcel.sample.SampleAppTest" tests="2" failures="0" errors="0" skipped="0" time="6.324" timestamp="2026-11-11T03:14:50" hostname="localhost">
     <properties>
       <property name="device" value="emulator-5556" />
     </properties>
-    <testcase name="sampleRecordsOnlySafeSyntheticEvidence" classname="com.awbuilds.reproparcel.sample.SampleAppTest" time="3.498" />
-    <testcase name="sampleStartsDisabledAndEnablesExplicitly" classname="com.awbuilds.reproparcel.sample.SampleAppTest" time="2.226" />
+    <testcase name="sampleRecordsOnlySafeSyntheticEvidence" classname="com.awbuilds.reproparcel.sample.SampleAppTest" time="3.509" />
+    <testcase name="sampleStartsDisabledAndEnablesExplicitly" classname="com.awbuilds.reproparcel.sample.SampleAppTest" time="2.815" />
   </testsuite>
 </testsuites>

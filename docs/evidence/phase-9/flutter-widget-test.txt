@@ -1,0 +1,3 @@
+00:00 +0: loading flutter/host_app/test/widget_test.dart
+00:00 +0: host renders synthetic contracts and explicit controls
+00:00 +1: All tests passed!

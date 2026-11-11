@@ -17,6 +17,7 @@ function setEnabled(enabled) {
 }
 
 function showReporter(surfaceId) {
+  // Resolves to "success" or a typed bridge result code.
   return native().showReporter(surfaceId);
 }
 

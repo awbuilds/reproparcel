@@ -37,6 +37,8 @@ jobs:
           npm test
       - name: Public hygiene
         run: ./scripts/public-hygiene.sh --all
+      - name: Dependency inventory
+        run: python3 scripts/dependency_inventory.py
       - name: Dependency allowlist
         run: python3 scripts/check_dependencies.py
       - name: Compile, JVM tests and lint

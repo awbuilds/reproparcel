@@ -1141,7 +1141,7 @@
   "615": {
     "artifact": "DraftStore",
     "evidence": "Encrypted drafts, key failure, quota/TTL",
-    "notes": "Encrypted drafts + recreation/process-restart persistence, key/tamper/quota/TTL tests",
+    "notes": "Key failure, tamper, quota, TTL, new-store restart and reporter process-death/no-handoff tests",
     "status": "PASS"
   },
   "616": {
@@ -1345,7 +1345,7 @@
   "667": {
     "artifact": "docs/api-freeze.md, README, docs",
     "evidence": "Schema/API/docs/security policy present; notices incomplete",
-    "notes": "Schema/API freeze, docs, notices summary and license texts present; legal review remains a release gate",
+    "notes": "Schema/API freeze, compatibility docs, notices and license inventory present; legal review is a separate blocked gate",
     "status": "PASS"
   },
   "668": {
@@ -1453,8 +1453,8 @@
   "707": {
     "artifact": "flutter/reproparcel_flutter",
     "evidence": "Dart contracts + 4 tests; no Flutter plugin/host build",
-    "notes": "Flutter plugin/host integration unverified",
-    "status": "BLOCKED"
+    "notes": "Flutter adapter plus Android plugin and host integration tests; other candidates deferred",
+    "status": "PASS"
   },
   "709": {
     "artifact": "docs/decisions/phase-9-go-no-go.md",
@@ -1513,7 +1513,7 @@
   "725": {
     "artifact": "NOTICE",
     "evidence": "Summary notice present; full generated dependency notices pending",
-    "notes": "NOTICE and common license texts included; full generated per-dependency review remains a release task",
+    "notes": "NOTICE, common license texts and generated resolved-dependency inventory present",
     "status": "PASS"
   },
   "726": {

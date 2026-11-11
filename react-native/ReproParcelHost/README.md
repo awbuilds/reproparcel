@@ -10,5 +10,6 @@ cd android
 ./gradlew :app:assembleRelease
 ```
 
-Reporter launch from the bridge remains **unverified/BLOCKED** in this host; see
-`docs/evidence/phase-7/rn-host.txt`. No real report data is used.
+Reporter launch, capture editor and exact-review screen were verified from this
+host; see `docs/evidence/phase-7/rn-host.txt`. One consumer host is not the
+Phase 7 two-consumer exit. No real report data is used.
