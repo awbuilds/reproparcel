@@ -17,8 +17,9 @@ public class ShakeDetector(
     private val threshold: Float = 2.7f,
     private val debounceMs: Long = 900L,
     private val onShake: () -> Unit,
+    sensorManager: SensorManager? = context.getSystemService(SensorManager::class.java),
 ) : SensorEventListener {
-    private val sensorManager = context.getSystemService(SensorManager::class.java)
+    private val sensorManager = sensorManager
     private val accelerometer = sensorManager?.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
     private var lastShakeMs = 0L
     private var started = false

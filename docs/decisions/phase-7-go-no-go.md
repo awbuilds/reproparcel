@@ -1,21 +1,25 @@
 # Phase 7 decision
 
 Date: 2026-11-11
-Status: **Reference React Native Android bridge source exists; no React Native
-host was built or tested. BLOCKED for support claims.**
+Status: **Reference React Native Android host builds and runs; initialize,
+enable, breadcrumb and reporter/capture/review were verified on API 37.2. The
+Phase 7 exit is still BLOCKED for two consumer examples, Hermes/lifecycle matrix
+and Expo config-plugin path.**
 
 ## Present
 
-- Typed TS API for initialize/enable/reporter/breadcrumb/log/delete.
-- Kotlin `NativeModule` wrapping the Android runtime and Compose reporter.
-- Package registration stub and integration requirements.
+- Typed TS API for initialize/enable/reporter/breadcrumb/log/delete, with a
+  shipped `lib/index.d.ts` and typed `ReporterResult`.
+- Kotlin `NativeModule` wrapping the Android runtime and Compose reporter,
+  dispatching reporter launch on the UI thread.
+- Real host under `react-native/ReproParcelHost` and release build evidence.
 
 ## Not verified
 
-- No React Native app, Hermes release, New Architecture build, lifecycle test or
-  mixed native/JS screen was run.
-- No parcel conformance against a native Android host.
+- Only one consumer host; a second distinct consumer example is missing.
+- No Hermes profile matrix, lifecycle/process-death matrix, mixed native/JS
+  screen matrix or Expo config plugin.
 - No iOS bridge; iOS is Phase 8.
 
-Do not claim React Native support or "Expo Go" compatibility. A real host and
-release tests are required before Phase 7 can pass.
+Do not claim general React Native support or "Expo Go" compatibility. Two
+consumer examples and the remaining matrix are required before Phase 7 passes.

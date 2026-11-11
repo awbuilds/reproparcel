@@ -50,13 +50,28 @@ class ReporterFlowTest {
     }
 
     @Test
-    fun processDeathWithoutHandoffStartsTextOnly() {
+    fun withoutHandoffStartsTextOnly() {
         ReporterHandoff.clear()
         ActivityScenario.launch(ReporterActivity::class.java).use {
             assertTrue(device.wait(Until.hasObject(By.text("Report a problem")), 5_000))
             assertTrue(device.wait(Until.hasObject(By.text("What happened?")), 5_000))
             assertTrue(device.wait(Until.hasObject(By.text("Review text-only report")), 5_000))
             assertTrue(device.findObject(By.text("Edit image")) == null)
+        }
+    }
+
+    @Test
+    fun finishedHostReturnsHostUnavailableFromReporterEntry() {
+        ActivityScenario.launch(ReporterActivity::class.java).use { scenario ->
+            var result: com.awbuilds.reproparcel.core.result.SdkResult? = null
+            scenario.onActivity { activity ->
+                activity.finish()
+                result = ReproParcelCompose.showReporter(activity, "synthetic_surface")
+            }
+            assertTrue(
+                "finished host should return HostUnavailable, got $result",
+                result == com.awbuilds.reproparcel.core.result.SdkResult.HostUnavailable,
+            )
         }
     }
 
@@ -94,6 +109,13 @@ class ReporterFlowTest {
             scenario.recreate()
             assertTrue(device.wait(Until.hasObject(By.text("Report a problem")), 5_000))
             assertTrue(device.wait(Until.hasObject(By.text("What happened?")), 5_000))
+            assertTrue(
+                "recreated reporter must not restore entered text",
+                device.findObject(By.text("Sensitive synthetic state")) == null,
+            )
+            val recreatedFields = device.findObjects(By.clazz("android.widget.EditText"))
+            assertTrue(recreatedFields.size >= 2)
+            assertTrue(recreatedFields[1].text.isNullOrEmpty())
         }
     }
 

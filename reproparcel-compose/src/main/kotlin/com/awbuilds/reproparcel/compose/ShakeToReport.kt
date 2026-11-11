@@ -20,11 +20,14 @@ public object ShakeToReport {
         this.activity = activity
         this.surfaceId = surfaceId
         val owner = activity as? LifecycleOwner ?: return false
-        val shake = ShakeDetector(activity.applicationContext) {
-            val target = this.activity ?: return@ShakeDetector
-            val surface = this.surfaceId ?: return@ShakeDetector
-            ReproParcelCompose.showReporter(target, surface)
-        }
+        val shake = ShakeDetector(
+            context = activity.applicationContext,
+            onShake = {
+                val target = this.activity ?: return@ShakeDetector
+                val surface = this.surfaceId ?: return@ShakeDetector
+                ReproParcelCompose.showReporter(target, surface)
+            },
+        )
         val lifecycleObserver = object : DefaultLifecycleObserver {
             override fun onStart(owner: LifecycleOwner) {
                 shake.start()

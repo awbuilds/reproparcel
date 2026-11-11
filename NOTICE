@@ -21,6 +21,11 @@ Android/runtime dependencies
 - SLF4J — MIT
 - Ethlo Time (itu) — Apache License 2.0
 
+Cross-platform adapter/host dependencies
+- React Native 0.88.x and React Native Gradle Plugin — MIT
+- Flutter SDK/embedding and Flutter Gradle plugin — BSD-3-Clause
+- Flutter/Dart pub packages — licenses as declared per package
+
 Desktop dependencies
 - ajv, ajv-formats, pngjs, yauzl, yazl, zod, @modelcontextprotocol/sdk,
   TypeScript tooling — MIT or Apache License 2.0 as declared by each package.

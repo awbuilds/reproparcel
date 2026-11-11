@@ -5,6 +5,8 @@ explicitly and records a safe synthetic breadcrumb. The release APK built and ra
 on the API 37.2 emulator.
 
 ```sh
+# Publish the local Maven candidate once from the repository root:
+# ./scripts/release-local.sh
 npm install
 cd android
 ./gradlew :app:assembleRelease

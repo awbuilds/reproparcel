@@ -27,27 +27,24 @@ import org.junit.runner.RunWith
 class CaptureControllerTest {
     private val instrumentation = InstrumentationRegistry.getInstrumentation()
 
+    private fun runtimeConfig(policy: CapturePolicy) = ReproParcelConfig(
+        enabled = true,
+        buildInfo = BuildInfo(
+            packageName = "com.awbuilds.reproparcel.synthetic",
+            versionName = "1.0.0",
+            versionCode = 1,
+            variant = "debug",
+        ),
+        capturePolicy = policy,
+        evidence = EvidenceConfig(screenshotEnabled = true),
+    )
+
     @Before
     fun setUp() {
         ReproParcel.resetForTest()
         ReproParcel.initialize(
             androidx.test.core.app.ApplicationProvider.getApplicationContext(),
-            ReproParcelConfig(
-                enabled = true,
-                buildInfo = BuildInfo(
-                    packageName = "com.awbuilds.reproparcel.synthetic",
-                    versionName = "1.0.0",
-                    versionCode = 1,
-                    variant = "debug",
-                ),
-                capturePolicy = CapturePolicy(
-                    policyVersion = "synthetic-test",
-                    screenshotEnabled = true,
-                    eligibleSurfaces = setOf("capture_test"),
-                    maskRegions = listOf(MaskRegion(10, 10, 80, 80)),
-                ),
-                evidence = EvidenceConfig(screenshotEnabled = true),
-            ),
+            runtimeConfig(policy()),
         )
     }
 
@@ -178,6 +175,38 @@ class CaptureControllerTest {
         org.junit.Assert.assertFalse(
             isCaptureAttemptValid(attempt, "window", "v1", 4, false),
         )
+    }
+
+    @Test
+    fun timeoutHelperReturnsNullWithoutCrashing() = runBlocking {
+        val started = android.os.SystemClock.elapsedRealtime()
+        val result = CaptureController.awaitWithTimeout(50) {
+            kotlinx.coroutines.awaitCancellation()
+        }
+        org.junit.Assert.assertNull(result)
+        val elapsed = android.os.SystemClock.elapsedRealtime() - started
+        org.junit.Assert.assertTrue("timeout should return promptly, took ${elapsed}ms", elapsed < 1_000)
+    }
+
+    @Test
+    fun outOfBoundsMaskIsOmittedWithoutCapturing() {
+        val outOfBounds = policy().copy(maskRegions = listOf(MaskRegion(0, 0, 100_000, 100_000)))
+        ReproParcel.setEnabled(false)
+        ReproParcel.resetForTest()
+        ReproParcel.initialize(
+            androidx.test.core.app.ApplicationProvider.getApplicationContext(),
+            runtimeConfig(outOfBounds),
+        )
+        ActivityScenario.launch(CaptureTestActivity::class.java).use { scenario ->
+            var activity: CaptureTestActivity? = null
+            scenario.onActivity { activity = it }
+            val result = runBlocking {
+                withContext(Dispatchers.Main) {
+                    CaptureController.capture(activity!!, outOfBounds, "capture_test")
+                }
+            }
+            assertEquals(CaptureOutcome.Omitted(OmissionReason.UNSUPPORTED_SURFACE), result)
+        }
     }
 
     @Test

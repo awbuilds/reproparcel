@@ -68,7 +68,7 @@ class ReproParcelModule(reactContext: ReactApplicationContext) :
         context.runOnUiQueueThread {
             val activity = context.currentActivity
             if (activity == null) {
-                promise.resolve(false)
+                promise.resolve("host_unavailable")
                 return@runOnUiQueueThread
             }
             val result = try {

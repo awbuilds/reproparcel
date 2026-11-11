@@ -482,10 +482,10 @@
     "status": "PASS"
   },
   "362": {
-    "artifact": "docs/adr/0002-capture-feasibility-and-temporal-privacy.md",
-    "evidence": "Basic capture/secure/rotation tests; bounded geometry/timeout tests deferred",
-    "notes": "Timeout/geometry race matrix incomplete",
-    "status": "BLOCKED"
+    "artifact": "reproparcel-android/CaptureController.kt",
+    "evidence": "Secure-window, mask-bounds, attempt token/window/policy/generation, timeout helper and policy-change tests",
+    "notes": "",
+    "status": "PASS"
   },
   "363": {
     "artifact": "reproparcel-compose Annotation.kt",
@@ -560,10 +560,10 @@
     "status": "BLOCKED"
   },
   "375": {
-    "artifact": "docs/adr/0006-public-repository-license-and-git.md",
-    "evidence": "LICENSE present; notices checklist pending",
-    "notes": "Distribution/legal checklist is Phase 5.",
-    "status": "BLOCKED"
+    "artifact": "NOTICE, licenses/, docs/dependency-inventory.md, docs/compatibility.md, sample-app",
+    "evidence": "License/notice texts, resolved inventory, synthetic sample and compatibility docs present; legal review tracked separately",
+    "notes": "",
+    "status": "PASS"
   },
   "376": {
     "artifact": "docs/impact/0001-phase-0-feasibility.md",
@@ -651,10 +651,10 @@
     "status": "PASS"
   },
   "459": {
-    "artifact": "docs/PRD.md",
-    "evidence": "Provider failure/timeout tests; full fault injection Phase 2",
-    "notes": "Full fault-injection matrix not complete",
-    "status": "BLOCKED"
+    "artifact": "reproparcel-android FaultInjectionTest, okhttp tests, compose tests",
+    "evidence": "Denied capture, disconnected network, missing activity, missing sensor, revoked URI, corrupt draft, storage failure, invalid config, provider exception, serialization failure, timeout and cancellation covered by typed tests",
+    "notes": "",
+    "status": "PASS"
   },
   "463": {
     "artifact": "docs/adr/0005-toolchain-and-min-sdk.md",
@@ -871,14 +871,14 @@
   "532": {
     "artifact": "docs/PROJECT_STATE.md",
     "evidence": "Full release matrix/import not verified on physical devices",
-    "notes": "Full release matrix/import not verified on physical devices",
+    "notes": "Capture/mask tests pass on API 26/30/37 and release export/import is verified on API 37; full per-API release export/import matrix remains",
     "status": "BLOCKED"
   },
   "533": {
-    "artifact": "docs/PROJECT_STATE.md",
-    "evidence": "Fault-injection matrix incomplete",
-    "notes": "Fault-injection matrix incomplete",
-    "status": "BLOCKED"
+    "artifact": "docs/evidence/phase-5, FaultInjectionTest",
+    "evidence": "Fault-injection and seeded privacy tests pass; no plaintext/fallback path observed",
+    "notes": "",
+    "status": "PASS"
   },
   "534": {
     "artifact": "docs/PROJECT_STATE.md",
@@ -1115,9 +1115,9 @@
     "status": "PASS"
   },
   "611": {
-    "artifact": "CaptureController",
-    "evidence": "Eligible/secure/surface/mask tests; capture-before-reporter",
-    "notes": "Capture attempt validation + secure/mask/timeout-ownership tests",
+    "artifact": "CaptureControllerTest",
+    "evidence": "Policy mask change, out-of-bounds mask, secure window, budget and stale-attempt tests",
+    "notes": "",
     "status": "PASS"
   },
   "612": {
@@ -1297,7 +1297,7 @@
   "654": {
     "artifact": "docs/decisions/phase-4-go-no-go.md",
     "evidence": "No arbitrary read/execute; gaps recorded",
-    "notes": "No two-client/end-to-end device export-import evidence",
+    "notes": "Device text-only export \u2192 desktop validate/inspect/render verified; two real MCP clients and full hostile-fixture matrix remain",
     "status": "BLOCKED"
   },
   "658": {
@@ -1333,7 +1333,7 @@
   "665": {
     "artifact": "docs/evidence/phase-5/release-smoke.txt",
     "evidence": "R8 capture/editor/review/draft smoke; full matrix/budgets incomplete",
-    "notes": "Full release matrix/budgets incomplete",
+    "notes": "Release text-only export/import and capture/mask tests pass; full matrix/budget measurements remain",
     "status": "BLOCKED"
   },
   "666": {
@@ -1398,8 +1398,8 @@
   },
   "687": {
     "artifact": "docs/decisions/phase-7-go-no-go.md",
-    "evidence": "No RN host build",
-    "notes": "Source bridge only.",
+    "evidence": "RN host built and reporter flow verified; second consumer, Hermes/lifecycle matrix and Expo path missing",
+    "notes": "Phase 7 entry/exit not fully met.",
     "status": "BLOCKED"
   },
   "689": {
@@ -1411,13 +1411,13 @@
   "691": {
     "artifact": "react-native/README.md",
     "evidence": "Typed API/native module; Hermes/release/lifecycle unverified",
-    "notes": "RN host build/Hermes unverified",
+    "notes": "RN host builds/initializes/enables/records breadcrumbs/opens reporter; Hermes/lifecycle/mixed-screen matrix and Expo path remain",
     "status": "BLOCKED"
   },
   "693": {
     "artifact": "docs/decisions/phase-7-go-no-go.md",
-    "evidence": "No parcel conformance or two consumer examples",
-    "notes": "No React Native host build/conformance evidence",
+    "evidence": "One consumer host verified; two distinct consumers and full conformance matrix missing",
+    "notes": "One consumer host verified; second distinct consumer and full conformance matrix remain",
     "status": "BLOCKED"
   },
   "697": {
@@ -1451,9 +1451,9 @@
     "status": "BLOCKED"
   },
   "707": {
-    "artifact": "flutter/reproparcel_flutter",
-    "evidence": "Dart contracts + 4 tests; no Flutter plugin/host build",
-    "notes": "Flutter adapter plus Android plugin and host integration tests; other candidates deferred",
+    "artifact": "flutter/reproparcel_flutter, flutter/host_app",
+    "evidence": "Dart tests, Android plugin, host widget test and device integration test pass; remaining candidates deferred",
+    "notes": "",
     "status": "PASS"
   },
   "709": {

@@ -2,7 +2,7 @@
   "name": "reproparcel-react-native",
   "version": "0.0.1-dev",
   "private": true,
-  "description": "Reference React Native Android bridge for ReproParcel. Not built or published.",
+  "description": "Reference React Native Android bridge for ReproParcel. Reference host built locally; not published.",
   "license": "AGPL-3.0-only",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",

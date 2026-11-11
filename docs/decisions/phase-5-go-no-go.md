@@ -14,6 +14,11 @@ NOT achieved.** External and physical-device gates remain blocked.
 - Desktop: 14 tests including the real MCP SDK protocol.
 - R8-minified release sample: capture → editor → exact review → encrypted draft
   save on API 37.2.
+- Release text-only export through SAF → desktop validate/inspect/render on the
+  API 37.2 emulator.
+- Fault-injection suite for denied capture, missing activity/sensor, revoked
+  URI, storage failure, corrupt draft, provider errors, timeout, cancellation
+  and disconnected network.
 - Local Maven candidate: four artifacts published to a local repository; a
   clean external consumer app resolved and assembled.
 - CI: hygiene, dependency allowlist, compile, JVM/API/schema, lint, desktop.

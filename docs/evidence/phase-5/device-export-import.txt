@@ -1,0 +1,36 @@
+# On-device export → desktop import
+
+Date: 2026-11-11
+Device: API 37.2 emulator (synthetic sample app, debug-signed release build).
+
+Flow: sample app → Enable SDK → Open reporter → synthetic description →
+Review text-only report → checked "I reviewed the exact content above" →
+Save file → DocumentsUI SAVE (default `report.reproparcel`).
+
+DocumentsUI appended `.zip` from the `application/zip` MIME type. Pulled file:
+
+```text
+report.reproparcel.zip  1244 bytes
+sha256 1bb77de75a9dcb6cde804cdad61598bcea9a96933a743d36d21f464657db7745
+```
+
+Desktop commands:
+
+```text
+reproparcel validate /tmp/report.reproparcel --json
+{"valid":true,"reportId":"efd2b050-d230-47e8-9d9f-f93cd20eff69"}
+
+reproparcel inspect /tmp/report.reproparcel --json
+{"valid":true,"summary":{"reportId":"efd2b050-d230-47e8-9d9f-f93cd20eff69",
+ "app":{"packageName":"com.awbuilds.reproparcel.sample","versionName":"0.0.1-SNAPSHOT",
+ "versionCode":1,"variant":"debug"},"device":{"apiLevel":37, ...},
+ "descriptionLength":12,"events":0,"semanticNodes":0,"image":null,
+ "omissions":[{"state":"collected"}]}}
+
+reproparcel render /tmp/report.reproparcel --out /tmp/report-viewer
+Rendered /tmp/report-viewer (index.html)
+```
+
+This verifies the reviewed device export validates, inspects and renders offline.
+It is text-only on API 37; the full capture/mask/export/import matrix, two real
+MCP clients and arbitrary-path denial remain blocked release gates.
