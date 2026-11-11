@@ -17,6 +17,7 @@ ReproParcel.
 | [FAQ](FAQ.md) | Adoption, privacy and release questions |
 | [Governance](../GOVERNANCE.md) | Maintainer model, decisions and release approval |
 | [Support](../SUPPORT.md) | Where to ask for help |
+| [Website](../website/README.md) | Static project site: overview, privacy, terms, docs, changelog |
 | [Community standards](../CODE_OF_CONDUCT.md) | Participation expectations |
 
 ## Integration

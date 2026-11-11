@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contributing — ReproParcel</title>
+  <meta name="description" content="How to contribute to ReproParcel: target dev, sign off commits with the DCO, use synthetic data and keep privacy invariants intact.">
+  <meta name="theme-color" content="#0e1210">
+  <meta name="color-scheme" content="dark light">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <link rel="canonical" href="https://awbuilds.github.io/reproparcel/contributing/">
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../assets/img/logo.svg">
+  <link rel="manifest" href="../site.webmanifest">
+  <link rel="preload" href="../assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../assets/css/site.css">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ReproParcel">
+  <meta property="og:title" content="Contributing — ReproParcel">
+  <meta property="og:description" content="How to contribute to ReproParcel: target dev, sign off commits with the DCO, use synthetic data and keep privacy invariants intact.">
+  <meta property="og:url" content="https://awbuilds.github.io/reproparcel/contributing/">
+  <meta property="og:image" content="https://awbuilds.github.io/reproparcel/assets/img/social-preview.png">
+  <meta property="og:image:alt" content="ReproParcel — reviewed evidence, portable by design">
+  <meta name="twitter:card" content="summary_large_image">
+  <script src="../assets/js/site.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="control-strip">
+  <div class="wrap">
+    <span class="mark" aria-hidden="true"></span>
+    <span><strong>Source candidate</strong> — no stable release or tag</span>
+    <span class="opt">Schema v1</span>
+    <span class="opt">Apache-2.0</span>
+    <a href="../roadmap/">What that means</a>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="../">
+      <img src="../assets/img/logo.svg" alt="" width="30" height="30">
+      <span>ReproParcel<small>reviewed evidence</small></span>
+    </a>
+    <nav class="nav" id="site-nav" aria-label="Main">
+          <a href="../docs/">Documentation</a>
+          <a href="../roadmap/">Roadmap</a>
+          <a href="../changelog/">Changelog</a>
+          <a href="../about/">About</a>
+      <a href="https://github.com/awbuilds/reproparcel" rel="noopener noreferrer">GitHub</a>
+    </nav>
+    <div class="header-tools">
+      <button class="icon-btn" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light theme">
+        <svg data-icon-sun viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.6v2.2M12 19.2v2.2M4.4 4.4l1.6 1.6M18 18l1.6 1.6M2.6 12h2.2M19.2 12h2.2M4.4 19.6 6 18M18 6l1.6-1.6"/></svg><svg data-icon-moon viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.4 14.6A8.5 8.5 0 0 1 9.4 3.6a8.5 8.5 0 1 0 11 11Z"/></svg>
+      </button>
+      <button class="icon-btn nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav" aria-label="Open navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M4 7.5h16M4 12h16M4 16.5h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="page-head">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a><span>/</span><span>Contributing</span></nav>
+    <h1>Contributions that keep the contract intact</h1>
+    <p class="lede">ReproParcel is maintainer-led and privacy-first. The most useful contributions are small, tested and safe to publish.</p>
+  </div>
+</section>
+
+<section class="section section-prose">
+  <div class="wrap prose">
+    <div class="callout">
+      <span class="callout-icon">i</span>
+      <div>
+        <p><strong>Read the engineering contract first.</strong> The repository's <code>AGENTS.md</code> defines public-repository hygiene, exception boundaries, testing expectations and the handoff protocol. A pull request that ignores it will be asked to change.</p>
+      </div>
+    </div>
+
+    <h2 id="before">Before you start</h2>
+    <ul>
+      <li>Open an issue describing the problem, the privacy impact and the verification plan.</li>
+      <li>For load-bearing changes — architecture, capture and privacy behavior, storage, export, schema meaning or public API — propose an architecture decision record.</li>
+      <li>Search existing issues and discussions so the same work is not duplicated.</li>
+    </ul>
+
+    <h2 id="branch">Branch and release model</h2>
+    <ul>
+      <li>The implementation branch is <code>dev</code>. Pull requests target <code>dev</code>.</li>
+      <li>Do not create, merge into or push <code>main</code> during the pre-release phase.</li>
+      <li>Tags, GitHub Releases, Maven Central publication and deployments require the maintainer's explicit authorization after the release gates pass.</li>
+    </ul>
+
+    <h2 id="dco">Developer Certificate of Origin</h2>
+    <p>Contributions are accepted under <strong>Apache-2.0</strong> and use the Developer Certificate of Origin. Sign off every commit:</p>
+    <div class="code">
+      <div class="code-head"><span>Sign-off</span><span class="lang">sh</span></div>
+      <pre><code>git commit -s</code></pre>
+    </div>
+    <p>There is no copyright assignment and no contributor license agreement. A new CLA, license exception or relicense requires an explicit maintainer decision.</p>
+
+    <h2 id="data">Synthetic data only</h2>
+    <p>Never submit real user reports, screenshots, credentials, customer data, private application code or personal information. Use synthetic fixtures with invented shapes. This applies to tests, documentation, screenshots, issues, pull requests, commit messages and handoffs.</p>
+    <div class="callout warn">
+      <span class="callout-icon">!</span>
+      <div>
+        <p><strong>A suspected leak blocks the change.</strong> If in doubt, omit the data. Public-repository hygiene is a gate check, not a style preference.</p>
+      </div>
+    </div>
+
+    <h2 id="expectations">Engineering expectations</h2>
+    <ul>
+      <li>Create the smallest failing test before a behavior change.</li>
+      <li>Handle recoverable exceptions at SDK-owned boundaries; always rethrow <code>CancellationException</code>; never write an empty catch or fabricate success.</li>
+      <li>Privacy failure omits evidence; encryption failure never writes plaintext; export failure never yields a partial parcel.</li>
+      <li>Keep dependencies pinned and license-compatible. New dependencies are reviewed before adoption.</li>
+      <li>Run the actual relevant compile, JVM, lint and device checks, and record exact commands and outcomes.</li>
+      <li>Do not claim a check passed if it was not run. Blocked rows stay blocked.</li>
+    </ul>
+
+    <h2 id="review">Review</h2>
+    <p>Small changes use lazy consensus in an issue or pull request. A maintainer makes the final decision when consensus is not reached. Review focuses on correctness, privacy, host stability and honest documentation — not on collecting more evidence for its own sake.</p>
+    <p>Community expectations are in <a href="https://github.com/awbuilds/reproparcel/blob/dev/CODE_OF_CONDUCT.md" rel="noopener noreferrer">CODE_OF_CONDUCT.md</a>. Report behavior issues through GitHub's moderation tools; report security issues through the private advisory channel.</p>
+
+    <h2 id="docs">Documentation contributions</h2>
+    <p>Documentation changes are reviewed like code. If you change behavior, update the compatibility matrix, limits, troubleshooting codes and the changelog in the same change. If you change licensing or release meaning, add an ADR.</p>
+
+    <p><a href="https://github.com/awbuilds/reproparcel/blob/dev/CONTRIBUTING.md" rel="noopener noreferrer">Full CONTRIBUTING.md</a> · <a href="https://github.com/awbuilds/reproparcel/blob/dev/GOVERNANCE.md" rel="noopener noreferrer">Governance</a> · <a href="https://github.com/awbuilds/reproparcel/discussions" rel="noopener noreferrer">Discussions</a></p>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2>Read the contract, then decide</h2>
+    <p>The schema, limits, privacy boundaries and known gaps are documented. Nothing here hides behind a sales page.</p>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="../docs/">Browse the documentation</a>
+      <a class="btn btn-ghost" href="https://github.com/awbuilds/reproparcel" rel="noopener noreferrer">Source on GitHub</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="../">
+          <img src="../assets/img/logo.svg" alt="" width="30" height="30">
+          <span>ReproParcel<small>reviewed evidence</small></span>
+        </a>
+        <p>A local-first Android reporter that turns a bug report into a bounded, reviewed parcel for humans and coding agents.</p>
+      </div>
+        <div class="footer-col">
+          <h2>Project</h2>
+          <ul>
+            <li><a href="../about/">About</a></li>
+            <li><a href="../roadmap/">Roadmap and gates</a></li>
+            <li><a href="../changelog/">Changelog</a></li>
+            <li><a href="../license/">License</a></li>
+            <li><a href="https://github.com/awbuilds/reproparcel/blob/dev/CITATION.cff" rel="noopener noreferrer"">Citation file</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h2>Documentation</h2>
+          <ul>
+            <li><a href="../docs/">Documentation index</a></li>
+            <li><a href="../docs/architecture/">Architecture</a></li>
+            <li><a href="../docs/compatibility/">Compatibility</a></li>
+            <li><a href="../docs/performance/">Performance</a></li>
+            <li><a href="../docs/integration/">Integration</a></li>
+            <li><a href="../docs/troubleshooting/">Troubleshooting</a></li>
+            <li><a href="../docs/faq/">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h2>Community</h2>
+          <ul>
+            <li><a href="../contributing/">Contributing</a></li>
+            <li><a href="../support/">Support</a></li>
+            <li><a href="../security/">Security</a></li>
+            <li><a href="https://github.com/awbuilds/reproparcel/blob/dev/CODE_OF_CONDUCT.md" rel="noopener noreferrer"">Code of conduct</a></li>
+            <li><a href="https://github.com/awbuilds/reproparcel/blob/dev/GOVERNANCE.md" rel="noopener noreferrer"">Governance</a></li>
+            <li><a href="https://github.com/awbuilds/reproparcel/discussions" rel="noopener noreferrer"">Discussions</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h2>Legal</h2>
+          <ul>
+            <li><a href="../privacy/">Privacy policy</a></li>
+            <li><a href="../terms/">Terms of service</a></li>
+            <li><a href="../license/">License summary</a></li>
+            <li><a href="https://github.com/awbuilds/reproparcel/blob/dev/NOTICE" rel="noopener noreferrer"">NOTICE</a></li>
+            <li><a href="https://github.com/awbuilds/reproparcel/security/advisories/new" rel="noopener noreferrer"">Security advisories</a></li>
+          </ul>
+        </div>
+    </div>
+    <div class="footer-base">
+      <span>© 2026 ReproParcel contributors</span>
+      <span>Apache-2.0</span>
+      <span>No analytics. No cookies.</span>
+      <span class="spacer"><a href="https://github.com/awbuilds/reproparcel" rel="noopener noreferrer">Source on GitHub</a></span>
+    </div>
+    <div class="footer-base footer-base--note">
+      <span>Pre-release documentation. Nothing here is legal advice.</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

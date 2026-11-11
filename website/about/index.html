@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About — ReproParcel</title>
+  <meta name="description" content="Why ReproParcel exists, the principles it is built on, explicit non-goals and how the maintainer-led project makes decisions.">
+  <meta name="theme-color" content="#0e1210">
+  <meta name="color-scheme" content="dark light">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <link rel="canonical" href="https://awbuilds.github.io/reproparcel/about/">
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../assets/img/logo.svg">
+  <link rel="manifest" href="../site.webmanifest">
+  <link rel="preload" href="../assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../assets/css/site.css">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ReproParcel">
+  <meta property="og:title" content="About — ReproParcel">
+  <meta property="og:description" content="Why ReproParcel exists, the principles it is built on, explicit non-goals and how the maintainer-led project makes decisions.">
+  <meta property="og:url" content="https://awbuilds.github.io/reproparcel/about/">
+  <meta property="og:image" content="https://awbuilds.github.io/reproparcel/assets/img/social-preview.png">
+  <meta property="og:image:alt" content="ReproParcel — reviewed evidence, portable by design">
+  <meta name="twitter:card" content="summary_large_image">
+  <script src="../assets/js/site.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="control-strip">
+  <div class="wrap">
+    <span class="mark" aria-hidden="true"></span>
+    <span><strong>Source candidate</strong> — no stable release or tag</span>
+    <span class="opt">Schema v1</span>
+    <span class="opt">Apache-2.0</span>
+    <a href="../roadmap/">What that means</a>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="../">
+      <img src="../assets/img/logo.svg" alt="" width="30" height="30">
+      <span>ReproParcel<small>reviewed evidence</small></span>
+    </a>
+    <nav class="nav" id="site-nav" aria-label="Main">
+          <a href="../docs/">Documentation</a>
+          <a href="../roadmap/">Roadmap</a>
+          <a href="../changelog/">Changelog</a>
+          <a href="../about/" aria-current="page">About</a>
+      <a href="https://github.com/awbuilds/reproparcel" rel="noopener noreferrer">GitHub</a>
+    </nav>
+    <div class="header-tools">
+      <button class="icon-btn" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light theme">
+        <svg data-icon-sun viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.6v2.2M12 19.2v2.2M4.4 4.4l1.6 1.6M18 18l1.6 1.6M2.6 12h2.2M19.2 12h2.2M4.4 19.6 6 18M18 6l1.6-1.6"/></svg><svg data-icon-moon viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.4 14.6A8.5 8.5 0 0 1 9.4 3.6a8.5 8.5 0 1 0 11 11Z"/></svg>
+      </button>
+      <button class="icon-btn nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav" aria-label="Open navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M4 7.5h16M4 12h16M4 16.5h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="page-head">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a><span>/</span><span>About</span></nav>
+    <h1>A reporter built around review, not collection.</h1>
+    <p class="lede">ReproParcel exists because the useful part of a bug report is not the screenshot — it is the provenance, context and reproducibility around it.</p>
+    <p class="meta-line"><span>Project overview</span><span>Updated 12 November 2026</span><span>Pre-release</span></p>
+  </div>
+</section>
+
+<section class="section section-prose">
+  <div class="wrap prose">
+    <h2 id="mission">Mission</h2>
+    <p>Give testers a report flow they can trust, and give developers a bounded artifact they can validate, inspect, render and expose to a read-only coding agent — without a mandatory backend, account or runtime model.</p>
+    <p>The project is a native Android Kotlin/Compose reporter. Its output is a <code>.reproparcel</code> file: a bounded ZIP with a versioned manifest, report text, optional events and semantics, and at most one sanitized PNG. The writer, validator, viewer and MCP server share the same schema and synthetic fixtures instead of a proprietary service.</p>
+
+    <h2 id="problem">The problem it addresses</h2>
+    <p>Most bug reports arrive as a screenshot plus “it broke”. The missing pieces are usually build provenance, screen context, safe reproduction steps and a predictable way to inspect the evidence. Collecting more data is not the answer if the host cannot review it, bound it or delete it.</p>
+    <p>ReproParcel therefore optimizes for a small, reviewable artifact rather than a maximal one. A text-only report is a valid outcome. Omitting an image is a valid outcome. A typed omission reason is more useful than a best-effort capture that nobody can verify.</p>
+
+    <h2 id="principles">Design principles</h2>
+    <ol>
+      <li><strong>Explicit over implicit.</strong> Initialization, enablement, capture and export are all host- and user-triggered. Default-off is the only safe default.</li>
+      <li><strong>Review binds consent.</strong> The preview must reflect the final exported bytes. Any content change resets approval.</li>
+      <li><strong>Fail closed.</strong> Privacy failure omits evidence; encryption failure never writes plaintext; export failure never yields a partial parcel.</li>
+      <li><strong>Bounded everywhere.</strong> JSON depth, node counts, ZIP entries, compression ratios, image dimensions, decoded memory and retention all have hard limits.</li>
+      <li><strong>Portable, not proprietary.</strong> The artifact is documented, versioned and readable offline with open tooling.</li>
+      <li><strong>Honest status.</strong> Unrun checks are blocked, not passed. Measurements are local and labeled as such.</li>
+    </ol>
+
+    <h2 id="non-goals">Explicit non-goals</h2>
+    <ul>
+      <li>No default or implicit collection, telemetry, advertising or background recording.</li>
+      <li>No raw HTTP bodies, cookies, authorization headers, query strings or raw URL paths.</li>
+      <li>No SMS, contacts, location, camera, microphone, clipboard or device-identifier access.</li>
+      <li>No global logcat, heap dumps, database dumps or background screen recording.</li>
+      <li>No mandatory hosted service, account or runtime LLM.</li>
+      <li>No write, execute, upload or arbitrary-file MCP tools.</li>
+      <li>No automatic Compose semantics extraction until a public-API, minified-release compatibility experiment passes.</li>
+    </ul>
+    <div class="callout warn">
+      <span class="callout-icon">!</span>
+      <div>
+        <p><strong>What the project does not claim.</strong> No absolute crash-free guarantee, no perfect redaction and no guaranteed reproduction. The SDK cannot prevent native aborts, ANRs or OS process termination, and it cannot control a host app's policy or an MCP client's egress.</p>
+      </div>
+    </div>
+
+    <h2 id="status">Project status</h2>
+    <p>Phases 0–9 have reference implementations. The Android runtime, reporter, capture, drafts, export, evidence adapters, desktop tools and relay reference are implemented and tested where the local toolchain permits. The final traceability audit records <strong>231 PASS / 43 BLOCKED</strong>.</p>
+    <p>There is <strong>no release, tag, GitHub Release, Maven Central publication, deployment or <code>main</code> branch</strong>. External interviews, the pilot, two external integrations, a second MCP client, physical API 26/30 devices, iOS device validation, relay deployment and legal review remain blocked. See the <a href="../roadmap/">roadmap</a> for the full gate list.</p>
+
+    <h2 id="governance">Who decides</h2>
+    <p>ReproParcel is maintainer-led. Small changes use lazy consensus in an issue or pull request. Load-bearing changes — architecture, capture and privacy behavior, storage, export, schema meaning, licensing or public API compatibility — require an architecture decision record and maintainer approval.</p>
+    <p>Contributions are accepted under Apache-2.0 with Developer Certificate of Origin sign-off. There is no copyright assignment or contributor license agreement. Release authority is not granted by submitting a pull request.</p>
+    <p><a href="../contributing/">How to contribute</a> · <a href="https://github.com/awbuilds/reproparcel/blob/dev/GOVERNANCE.md" rel="noopener noreferrer">Governance</a></p>
+
+    <h2 id="license">License</h2>
+    <p>First-party code and documentation are licensed under the <strong>Apache License, Version 2.0</strong>. That is a permissive license with an express patent grant. It permits proprietary linking and distribution subject to notice, modification-marking, patent and trademark terms. It is not obligation-free, and it grants no trademark rights.</p>
+    <p>Earlier commits were published under AGPL-3.0-only. Anyone who obtained such a copy keeps the rights that copy granted; the relicensing decision cannot revoke them. No release or artifact was ever published under the earlier license.</p>
+    <p><a href="../license/">Read the license summary</a></p>
+
+    <h2 id="acknowledgements">Acknowledgements</h2>
+    <p>Built with Kotlin, Jetpack Compose, AndroidX, OkHttp, Kotlinx Serialization, the official Model Context Protocol SDK and many other open-source projects. See <a href="https://github.com/awbuilds/reproparcel/blob/dev/NOTICE" rel="noopener noreferrer">NOTICE</a> and the <a href="../license/">license page</a> for attribution and dependency notes.</p>
+    <p>If you use ReproParcel in research or a product, cite the repository using <a href="https://github.com/awbuilds/reproparcel/blob/dev/CITATION.cff" rel="noopener noreferrer">CITATION.cff</a>.</p>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2>Read the contract, then decide</h2>
+    <p>The schema, limits, privacy boundaries and known gaps are documented. Nothing here hides behind a sales page.</p>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="../docs/">Browse the documentation</a>
+      <a class="btn btn-ghost" href="https://github.com/awbuilds/reproparcel" rel="noopener noreferrer">Source on GitHub</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="../">
+          <img src="../assets/img/logo.svg" alt="" width="30" height="30">
+          <span>ReproParcel<small>reviewed evidence</small></span>
+        </a>
+        <p>A local-first Android reporter that turns a bug report into a bounded, reviewed parcel for humans and coding agents.</p>
+      </div>
+        <div class="footer-col">
+          <h2>Project</h2>
+          <ul>
+            <li><a href="../about/">About</a></li>
+            <li><a href="../roadmap/">Roadmap and gates</a></li>
+            <li><a href="../changelog/">Changelog</a></li>
+            <li><a href="../license/">License</a></li>
+            <li><a href="https://github.com/awbuilds/reproparcel/blob/dev/CITATION.cff" rel="noopener noreferrer"">Citation file</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h2>Documentation</h2>
+          <ul>
+            <li><a href="../docs/">Documentation index</a></li>
+            <li><a href="../docs/architecture/">Architecture</a></li>
+            <li><a href="../docs/compatibility/">Compatibility</a></li>
+            <li><a href="../docs/performance/">Performance</a></li>
+            <li><a href="../docs/integration/">Integration</a></li>
+            <li><a href="../docs/troubleshooting/">Troubleshooting</a></li>
+            <li><a href="../docs/faq/">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h2>Community</h2>
+          <ul>
+            <li><a href="../contributing/">Contributing</a></li>
+            <li><a href="../support/">Support</a></li>
+            <li><a href="../security/">Security</a></li>
+            <li><a href="https://github.com/awbuilds/reproparcel/blob/dev/CODE_OF_CONDUCT.md" rel="noopener noreferrer"">Code of conduct</a></li>
+            <li><a href="https://github.com/awbuilds/reproparcel/blob/dev/GOVERNANCE.md" rel="noopener noreferrer"">Governance</a></li>
+            <li><a href="https://github.com/awbuilds/reproparcel/discussions" rel="noopener noreferrer"">Discussions</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h2>Legal</h2>
+          <ul>
+            <li><a href="../privacy/">Privacy policy</a></li>
+            <li><a href="../terms/">Terms of service</a></li>
+            <li><a href="../license/">License summary</a></li>
+            <li><a href="https://github.com/awbuilds/reproparcel/blob/dev/NOTICE" rel="noopener noreferrer"">NOTICE</a></li>
+            <li><a href="https://github.com/awbuilds/reproparcel/security/advisories/new" rel="noopener noreferrer"">Security advisories</a></li>
+          </ul>
+        </div>
+    </div>
+    <div class="footer-base">
+      <span>© 2026 ReproParcel contributors</span>
+      <span>Apache-2.0</span>
+      <span>No analytics. No cookies.</span>
+      <span class="spacer"><a href="https://github.com/awbuilds/reproparcel" rel="noopener noreferrer">Source on GitHub</a></span>
+    </div>
+    <div class="footer-base footer-base--note">
+      <span>Pre-release documentation. Nothing here is legal advice.</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

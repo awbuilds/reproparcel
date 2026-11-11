@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy policy — ReproParcel</title>
+  <meta name="description" content="How the ReproParcel project website and SDK handle data: no analytics, no cookies, no telemetry, and collection that stays off until a host app explicitly enables it.">
+  <meta name="theme-color" content="#0e1210">
+  <meta name="color-scheme" content="dark light">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <link rel="canonical" href="https://awbuilds.github.io/reproparcel/privacy/">
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../assets/img/logo.svg">
+  <link rel="manifest" href="../site.webmanifest">
+  <link rel="preload" href="../assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../assets/css/site.css">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ReproParcel">
+  <meta property="og:title" content="Privacy policy — ReproParcel">
+  <meta property="og:description" content="How the ReproParcel project website and SDK handle data: no analytics, no cookies, no telemetry, and collection that stays off until a host app explicitly enables it.">
+  <meta property="og:url" content="https://awbuilds.github.io/reproparcel/privacy/">
+  <meta property="og:image" content="https://awbuilds.github.io/reproparcel/assets/img/social-preview.png">
+  <meta property="og:image:alt" content="ReproParcel — reviewed evidence, portable by design">
+  <meta name="twitter:card" content="summary_large_image">
+  <script src="../assets/js/site.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="control-strip">
+  <div class="wrap">
+    <span class="mark" aria-hidden="true"></span>
+    <span><strong>Source candidate</strong> — no stable release or tag</span>
+    <span class="opt">Schema v1</span>
+    <span class="opt">Apache-2.0</span>
+    <a href="../roadmap/">What that means</a>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="../">
+      <img src="../assets/img/logo.svg" alt="" width="30" height="30">
+      <span>ReproParcel<small>reviewed evidence</small></span>
+    </a>
+    <nav class="nav" id="site-nav" aria-label="Main">
+          <a href="../docs/">Documentation</a>
+          <a href="../roadmap/">Roadmap</a>
+          <a href="../changelog/">Changelog</a>
+          <a href="../about/">About</a>
+      <a href="https://github.com/awbuilds/reproparcel" rel="noopener noreferrer">GitHub</a>
+    </nav>
+    <div class="header-tools">
+      <button class="icon-btn" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light theme">
+        <svg data-icon-sun viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.6v2.2M12 19.2v2.2M4.4 4.4l1.6 1.6M18 18l1.6 1.6M2.6 12h2.2M19.2 12h2.2M4.4 19.6 6 18M18 6l1.6-1.6"/></svg><svg data-icon-moon viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.4 14.6A8.5 8.5 0 0 1 9.4 3.6a8.5 8.5 0 1 0 11 11Z"/></svg>
+      </button>
+      <button class="icon-btn nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav" aria-label="Open navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M4 7.5h16M4 12h16M4 16.5h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="page-head">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a><span>/</span><span>Privacy policy</span></nav>
+    <h1>Privacy policy</h1>
+    <p class="lede">This policy covers the ReproParcel project website and the open-source SDK distribution. It does not cover an application that integrates ReproParcel — that application's developer is responsible for its own disclosures.</p>
+  </div>
+</section>
+
+<section class="section section-prose">
+  <div class="wrap prose">
+    <p class="meta-line"><span>Effective: 12 November 2026</span><span>Last updated: 12 November 2026</span><span>Status: pre-release</span></p>
+
+    <div class="callout">
+      <span class="callout-icon">i</span>
+      <div>
+        <p><strong>In one paragraph.</strong> This website sets no cookies, runs no analytics and makes no third-party requests. The project operates no server that receives report data. The SDK starts with collection disabled, and a host application decides — with its own policy and its own disclosures — whether any evidence is captured. When evidence is captured, it stays on the user's device until the user chooses to export or share it.</p>
+      </div>
+    </div>
+
+    <div class="toc">
+      <p>Contents</p>
+      <ol>
+        <li><a href="#scope">Scope</a></li>
+        <li><a href="#website">This website</a></li>
+        <li><a href="#sdk">The ReproParcel SDK</a></li>
+        <li><a href="#never">What is never collected</a></li>
+        <li><a href="#desktop">Desktop tools and MCP</a></li>
+        <li><a href="#retention">Retention</a></li>
+        <li><a href="#third-parties">Third-party services</a></li>
+        <li><a href="#children">Children and sensitive data</a></li>
+        <li><a href="#choices">Your choices</a></li>
+        <li><a href="#security">Security</a></li>
+        <li><a href="#changes">Changes to this policy</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ol>
+    </div>
+
+    <h2 id="scope">1. Scope</h2>
+    <p>This policy applies to:</p>
+    <ul>
+      <li>this project website, including every page under this domain path;</li>
+      <li>the ReproParcel source repository, release artifacts and documentation we publish;</li>
+      <li>the open-source SDK modules, desktop tools and reference implementations distributed by the project.</li>
+    </ul>
+    <p>It does <strong>not</strong> apply to a host application that integrates ReproParcel, to a downstream fork, to a self-hosted relay deployed by someone else, or to any third-party service you reach through a link. Those are controlled by their own operators.</p>
+
+    <h2 id="website">2. This website</h2>
+    <p>The site is a set of static files. It runs no server-side application logic of its own.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Mechanism</th><th>Used?</th><th>Detail</th></tr></thead>
+        <tbody>
+          <tr><td>Analytics or telemetry</td><td>No</td><td>No measurement scripts, pixels, beacons or event collection.</td></tr>
+          <tr><td>Cookies</td><td>No</td><td>No cookie is set by this site.</td></tr>
+          <tr><td>Advertising</td><td>No</td><td>No ad network, retargeting or sponsored embed.</td></tr>
+          <tr><td>Third-party requests</td><td>No</td><td>No CDN fonts, no external scripts, no embedded video or social widgets.</td></tr>
+          <tr><td>Local storage</td><td>Yes, functional</td><td>One key, <code>reproparcel-theme</code>, remembers your light/dark choice. It never leaves your browser.</td></tr>
+          <tr><td>Server logs</td><td>Host-controlled</td><td>The static host may keep standard request logs. The project does not receive or analyze them.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Because the site loads nothing from third parties, your browser makes no request to an advertising, analytics or font provider when you read these pages.</p>
+    <p>The site is served by GitHub Pages. GitHub, as the hosting provider, may process standard technical request data — such as an IP address, user agent and requested path — under the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener noreferrer">GitHub Privacy Statement</a>. That processing happens at the host, not in the project's software, and the project does not operate an analytics pipeline over it.</p>
+
+    <h2 id="sdk">3. The ReproParcel SDK</h2>
+    <p>The SDK is a library embedded in a host Android application. <strong>The project does not receive SDK data.</strong> There is no project-operated collection endpoint, no account system and no default upload.</p>
+
+    <h3>3.1 Collection is off by default</h3>
+    <p>Installing the library starts no collection. A host must explicitly initialize the SDK and enable it, and screenshot or semantic-text collection additionally requires a host capture policy naming an eligible surface. The host is expected to complete its own privacy review before enabling collection.</p>
+
+    <h3>3.2 What a report can contain</h3>
+    <p>Only when a host enables collection and a user opens the reporter:</p>
+    <ul>
+      <li><strong>User-written report content</strong> — title, description, expected and actual behavior, and optional reproduction steps.</li>
+      <li><strong>Build provenance</strong> — package name, version name and code, build variant and an optional commit identifier supplied by the host.</li>
+      <li><strong>Device and window metadata</strong> — API level, manufacturer and model, window size, density, locale, font scale and orientation. No unique device identifier.</li>
+      <li><strong>Optional screenshot and semantics</strong> — only for surfaces the host policy marks eligible, and only if the user proceeds with the report flow.</li>
+      <li><strong>Optional host evidence</strong> — allowlisted breadcrumbs, structured logs, and OkHttp request metadata limited to method, status, timing and a safe route template.</li>
+    </ul>
+
+    <h3>3.3 Where the data goes</h3>
+    <p>Captured content stays in the host application's process and, if the user saves a draft, in encrypted app-private storage. Nothing is transmitted by the SDK. Export writes a local file through the Android Storage Access Framework; sharing hands a file to a destination the user chooses. The project is not a party to either action.</p>
+
+    <h2 id="never">4. What is never collected</h2>
+    <ul>
+      <li>Screenshots or semantic text without an explicit host capture policy.</li>
+      <li>Passwords, editable input values, clipboard contents, SMS, contacts, location, camera or microphone data.</li>
+      <li>Advertising identifiers, device serial numbers or other unique device identifiers.</li>
+      <li>HTTP request or response bodies, cookies, authorization headers, query strings or raw URL paths.</li>
+      <li>Global logcat, heap dumps, database dumps or background screen recordings.</li>
+      <li>Anything at all when the SDK is not initialized, not enabled, or the surface is not eligible.</li>
+    </ul>
+    <p>Protected windows are omitted. The SDK checks <code>FLAG_SECURE</code> before and after capture and treats a raw PixelCopy success as insufficient privacy proof.</p>
+
+    <h2 id="desktop">5. Desktop tools and MCP</h2>
+    <p>The validator, inspector, viewer and MCP server run locally. They read a parcel you choose and write output only where you direct them. They do not phone home.</p>
+    <p>The MCP server is read-only and accepts report IDs, not arbitrary paths. Read-only access is <strong>not</strong> an egress guarantee: your MCP client and its model provider may forward returned content to a cloud service. If evidence must not leave your machine, use a local client and a local model.</p>
+
+    <h2 id="retention">6. Retention</h2>
+    <ul>
+      <li><strong>Drafts</strong> default to 72 hours, at most 10 reports and 25 MiB of encrypted storage. The host may configure stricter values.</li>
+      <li><strong>Temporary share copies</strong> are best-effort cleaned after 24 hours.</li>
+      <li><strong>User-selected exports</strong> are outside the SDK's retention scope. The SDK cannot delete a file after the user saves or shares it, and a shared file cannot be recalled from the recipient.</li>
+      <li><strong>The project</strong> retains no report data because it never receives any.</li>
+    </ul>
+
+    <h2 id="third-parties">7. Third-party services</h2>
+    <p>The project uses GitHub for source hosting, issue tracking, discussions, releases and private security advisories. If you open an issue, comment, or submit a security report, GitHub processes that content under its own terms and privacy statement, and it is visible to the extent the channel makes it visible.</p>
+    <p>Never post a real report, screenshot, credential or personal data in a public issue or discussion. Security reports belong in the private advisory channel.</p>
+    <p>Links from this site to other websites are provided for reference. Those sites are not covered by this policy.</p>
+
+    <h2 id="children">8. Children and sensitive data</h2>
+    <p>The project is developer tooling and is not directed at children. The SDK is not designed to collect data from children, and hosts are responsible for their own age-appropriateness analysis.</p>
+    <p>Screenshots and free text can contain sensitive information. The SDK does not guarantee perfect detection or redaction. Application-specific testing and a legal and privacy review are required before production enablement.</p>
+
+    <h2 id="choices">9. Your choices</h2>
+    <ul>
+      <li><strong>Use the site without storage.</strong> Clearing site data removes the saved theme preference. The site works without it.</li>
+      <li><strong>Decline a report.</strong> No capture occurs until a user opens the reporter, and a user can abandon the flow.</li>
+      <li><strong>Review before export.</strong> The exact text and flattened image are shown before approval, and changing content invalidates approval.</li>
+      <li><strong>Delete drafts.</strong> Drafts can be deleted in the app; they are stored encrypted in app-private storage.</li>
+      <li><strong>Contact the host.</strong> Requests about data collected by a host application must go to that application's developer, because the project never receives it.</li>
+    </ul>
+    <p>Because the project does not collect personal data through the SDK or this website, there is usually no project-held record to access, correct or erase. Where a legal right applies to content you voluntarily posted on GitHub, use GitHub's controls or contact the maintainers.</p>
+
+    <h2 id="security">10. Security</h2>
+    <p>Drafts use AES-256-GCM with an Android Keystore key and are written atomically to <code>noBackupFilesDir</code>. Key or crypto failure returns a typed error; there is no plaintext fallback. The desktop reader treats parcels as hostile input and rejects traversal, symlinks, duplicate entries, oversized JSON and oversized PNGs before rendering.</p>
+    <p>To report a vulnerability, use <a href="https://github.com/awbuilds/reproparcel/security/advisories/new" rel="noopener noreferrer">GitHub private vulnerability reporting</a>. Do not include real user data. See the <a href="../security/">security page</a>.</p>
+
+    <h2 id="changes">11. Changes to this policy</h2>
+    <p>This policy is versioned with the project and may change as the software or its hosting changes. The effective date at the top of the page is updated when it does. Material changes are recorded in the <a href="../changelog/">changelog</a> and the repository history. Because this is a pre-release project, the policy is expected to change before a stable release.</p>
+
+    <h2 id="contact">12. Contact</h2>
+    <p>Privacy questions that do not contain sensitive details can be raised in <a href="https://github.com/awbuilds/reproparcel/discussions" rel="noopener noreferrer">GitHub Discussions</a>. Security-sensitive reports belong in <a href="https://github.com/awbuilds/reproparcel/security/advisories/new" rel="noopener noreferrer">private vulnerability reporting</a>. Do not send personal data, real reports or credentials through any channel.</p>
+
+    <hr>
+    <p><strong>Not legal advice.</strong> This policy describes the project's actual behavior in plain language. It is not a legal opinion, not a compliance certification and not a substitute for advice from a qualified lawyer. Hosts remain responsible for their own privacy notices, lawful basis and regulatory obligations.</p>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2>Read the contract, then decide</h2>
+    <p>The schema, limits, privacy boundaries and known gaps are documented. Nothing here hides behind a sales page.</p>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="../docs/">Browse the documentation</a>
+      <a class="btn btn-ghost" href="https://github.com/awbuilds/reproparcel" rel="noopener noreferrer">Source on GitHub</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="../">
+          <img src="../assets/img/logo.svg" alt="" width="30" height="30">
+          <span>ReproParcel<small>reviewed evidence</small></span>
+        </a>
+        <p>A local-first Android reporter that turns a bug report into a bounded, reviewed parcel for humans and coding agents.</p>
+      </div>
+        <div class="footer-col">
+          <h2>Project</h2>
+          <ul>
+            <li><a href="../about/">About</a></li>
+            <li><a href="../roadmap/">Roadmap and gates</a></li>
+            <li><a href="../changelog/">Changelog</a></li>
+            <li><a href="../license/">License</a></li>
+            <li><a href="https://github.com/awbuilds/reproparcel/blob/dev/CITATION.cff" rel="noopener noreferrer"">Citation file</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h2>Documentation</h2>
+          <ul>
+            <li><a href="../docs/">Documentation index</a></li>
+            <li><a href="../docs/architecture/">Architecture</a></li>
+            <li><a href="../docs/compatibility/">Compatibility</a></li>
+            <li><a href="../docs/performance/">Performance</a></li>
+            <li><a href="../docs/integration/">Integration</a></li>
+            <li><a href="../docs/troubleshooting/">Troubleshooting</a></li>
+            <li><a href="../docs/faq/">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h2>Community</h2>
+          <ul>
+            <li><a href="../contributing/">Contributing</a></li>
+            <li><a href="../support/">Support</a></li>
+            <li><a href="../security/">Security</a></li>
+            <li><a href="https://github.com/awbuilds/reproparcel/blob/dev/CODE_OF_CONDUCT.md" rel="noopener noreferrer"">Code of conduct</a></li>
+            <li><a href="https://github.com/awbuilds/reproparcel/blob/dev/GOVERNANCE.md" rel="noopener noreferrer"">Governance</a></li>
+            <li><a href="https://github.com/awbuilds/reproparcel/discussions" rel="noopener noreferrer"">Discussions</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h2>Legal</h2>
+          <ul>
+            <li><a href="../privacy/">Privacy policy</a></li>
+            <li><a href="../terms/">Terms of service</a></li>
+            <li><a href="../license/">License summary</a></li>
+            <li><a href="https://github.com/awbuilds/reproparcel/blob/dev/NOTICE" rel="noopener noreferrer"">NOTICE</a></li>
+            <li><a href="https://github.com/awbuilds/reproparcel/security/advisories/new" rel="noopener noreferrer"">Security advisories</a></li>
+          </ul>
+        </div>
+    </div>
+    <div class="footer-base">
+      <span>© 2026 ReproParcel contributors</span>
+      <span>Apache-2.0</span>
+      <span>No analytics. No cookies.</span>
+      <span class="spacer"><a href="https://github.com/awbuilds/reproparcel" rel="noopener noreferrer">Source on GitHub</a></span>
+    </div>
+    <div class="footer-base footer-base--note">
+      <span>Pre-release documentation. Nothing here is legal advice.</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Performance — ReproParcel docs</title>
+  <meta name="description" content="Startup, capture, jank and APK measurements for ReproParcel on a physical low/mid-range Android 12 device, with method and limitations.">
+  <meta name="theme-color" content="#0e1210">
+  <meta name="color-scheme" content="dark light">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <link rel="canonical" href="https://awbuilds.github.io/reproparcel/docs/performance/">
+  <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../../assets/img/logo.svg">
+  <link rel="manifest" href="../../site.webmanifest">
+  <link rel="preload" href="../../assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../../assets/css/site.css">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ReproParcel">
+  <meta property="og:title" content="Performance — ReproParcel docs">
+  <meta property="og:description" content="Startup, capture, jank and APK measurements for ReproParcel on a physical low/mid-range Android 12 device, with method and limitations.">
+  <meta property="og:url" content="https://awbuilds.github.io/reproparcel/docs/performance/">
+  <meta property="og:image" content="https://awbuilds.github.io/reproparcel/assets/img/social-preview.png">
+  <meta property="og:image:alt" content="ReproParcel — reviewed evidence, portable by design">
+  <meta name="twitter:card" content="summary_large_image">
+  <script src="../../assets/js/site.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="control-strip">
+  <div class="wrap">
+    <span class="mark" aria-hidden="true"></span>
+    <span><strong>Source candidate</strong> — no stable release or tag</span>
+    <span class="opt">Schema v1</span>
+    <span class="opt">Apache-2.0</span>
+    <a href="../../roadmap/">What that means</a>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="../../">
+      <img src="../../assets/img/logo.svg" alt="" width="30" height="30">
+      <span>ReproParcel<small>reviewed evidence</small></span>
+    </a>
+    <nav class="nav" id="site-nav" aria-label="Main">
+          <a href="../../docs/" aria-current="page">Documentation</a>
+          <a href="../../roadmap/">Roadmap</a>
+          <a href="../../changelog/">Changelog</a>
+          <a href="../../about/">About</a>
+      <a href="https://github.com/awbuilds/reproparcel" rel="noopener noreferrer">GitHub</a>
+    </nav>
+    <div class="header-tools">
+      <button class="icon-btn" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light theme">
+        <svg data-icon-sun viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.6v2.2M12 19.2v2.2M4.4 4.4l1.6 1.6M18 18l1.6 1.6M2.6 12h2.2M19.2 12h2.2M4.4 19.6 6 18M18 6l1.6-1.6"/></svg><svg data-icon-moon viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.4 14.6A8.5 8.5 0 0 1 9.4 3.6a8.5 8.5 0 1 0 11 11Z"/></svg>
+      </button>
+      <button class="icon-btn nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav" aria-label="Open navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M4 7.5h16M4 12h16M4 16.5h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="page-head">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../../">Home</a><span>/</span><a href="../../docs/">Documentation</a><span>/</span><span>Performance</span></nav>
+    <h1>Measured on one low/mid-range device</h1>
+    <p class="lede">These are local measurements, not a universal performance guarantee. Results come from the release benchmark variant.</p>
+  </div>
+</section>
+<section class="docs-section">
+  <div class="wrap docs-layout">
+      <aside class="side-nav" aria-label="Documentation sections">
+        <p>Documentation</p>
+        <a href="../../docs/">Documentation index</a>
+        <a href="../../docs/architecture/">Architecture</a>
+        <a href="../../docs/compatibility/">Compatibility</a>
+        <a href="../../docs/performance/" aria-current="page">Performance</a>
+        <a href="../../docs/integration/">Integration</a>
+        <a href="../../docs/troubleshooting/">Troubleshooting</a>
+        <a href="../../docs/faq/">FAQ</a>
+      </aside>
+      <article class="prose">
+
+    <h2 id="device">Device and setup</h2>
+    <p>Android 12 / API 31, arm64-v8a, 8 cores, 3.7 GiB RAM, 1080×2460 at 400 dpi. Release benchmark variant, wireless ADB, 98–100% battery, battery about 33.8–35 °C.</p>
+
+    <h2 id="results">Results</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Metric</th><th>Result</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>SDK initialization</td><td>median 1.28 ms, p95 <strong>1.55 ms</strong>, max 1.60 ms</td><td>Initialize trace, 20 cold starts</td></tr>
+          <tr><td>Cold app startup</td><td>integrated median 591–676 ms</td><td>Full-startup delta was noise/order dominated</td></tr>
+          <tr><td>Capture latency</td><td>p50 141–147 ms, p95 <strong>179–211 ms</strong>, max 229 ms</td><td>20 debug instrumentation samples</td></tr>
+          <tr><td>Capture allocation</td><td>scaled 4.49 MB; estimated peak <strong>15.12 MB</strong>; native delta 15.15 MB</td><td>Source window 10.63 MB plus scaled image</td></tr>
+          <tr><td>Trigger-to-composer</td><td>steady-state p50 244 ms, p95 <strong>289 ms</strong></td><td>Capture disabled, 10 runs after one warm-up; cold first launch 480 ms</td></tr>
+          <tr><td>Main-thread collectors</td><td>breadcrumb 176–185 µs, log 130–137 µs, network 152–196 µs p95</td><td>1,000 calls each</td></tr>
+          <tr><td>Paired jank</td><td>5 runs × 1,034–1,066 frames</td><td>Enabled p95 10.95 ms vs disabled 10.95 ms; deadline miss 1.01% vs 0.95% (+0.06 pp)</td></tr>
+          <tr><td>APK delta</td><td><strong>+418,103 B (~0.40 MiB)</strong></td><td>Minified sample vs SDK-absent baseline; conservative upper bound</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="interpretation">Interpretation</h2>
+    <ul>
+      <li>Synchronous SDK initialization is well below the proposed 10 ms startup sub-budget.</li>
+      <li>Capture and trigger-to-composer are within the proposed 2 s and 300 ms budgets on this device.</li>
+      <li>The paired jank result passes the 5% p95-duration and 1 percentage-point deadline-miss gates.</li>
+      <li>The APK difference includes the reporter UI, so the SDK core and Android portion is below the reported ~0.40 MiB.</li>
+    </ul>
+
+    <h2 id="limitations">Limitations</h2>
+    <ul>
+      <li>Capture and collector measurements use debug instrumentation. Release timing should be no worse but is not separately instrumented.</li>
+      <li>The full cold-start comparison is too noisy on this device to resolve a 10 ms difference; the trace section is the stable SDK sub-budget measure.</li>
+      <li>A current physical device, physical API 26/30 rows and a multi-hour thermal/ANR soak are not available.</li>
+      <li>These measurements do not cover every OEM, Compose version, surface or accessibility setting.</li>
+    </ul>
+    <p><a href="https://github.com/awbuilds/reproparcel/blob/dev/docs/performance.md" rel="noopener noreferrer">Source: docs/performance.md</a> · <a href="https://github.com/awbuilds/reproparcel/tree/dev/docs/evidence/phase-5/benchmark-api31" rel="noopener noreferrer">Raw benchmark evidence</a></p>
+    
+      <nav class="prev-next" aria-label="Documentation">
+        <a href="../../docs/compatibility/"><small>Previous</small><span>Compatibility</span></a>
+        <a class="next" href="../../docs/integration/"><small>Next</small><span>Integration</span></a>
+      </nav>
+      </article>
+    </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2>Read the contract, then decide</h2>
+    <p>The schema, limits, privacy boundaries and known gaps are documented. Nothing here hides behind a sales page.</p>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="../../docs/">Browse the documentation</a>
+      <a class="btn btn-ghost" href="https://github.com/awbuilds/reproparcel" rel="noopener noreferrer">Source on GitHub</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="../../">
+          <img src="../../assets/img/logo.svg" alt="" width="30" height="30">
+          <span>ReproParcel<small>reviewed evidence</small></span>
+        </a>
+        <p>A local-first Android reporter that turns a bug report into a bounded, reviewed parcel for humans and coding agents.</p>
+      </div>
+        <div class="footer-col">
+          <h2>Project</h2>
+          <ul>
+            <li><a href="../../about/">About</a></li>
+            <li><a href="../../roadmap/">Roadmap and gates</a></li>
+            <li><a href="../../changelog/">Changelog</a></li>
+            <li><a href="../../license/">License</a></li>
+            <li><a href="https://github.com/awbuilds/reproparcel/blob/dev/CITATION.cff" rel="noopener noreferrer"">Citation file</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h2>Documentation</h2>
+          <ul>
+            <li><a href="../../docs/">Documentation index</a></li>
+            <li><a href="../../docs/architecture/">Architecture</a></li>
+            <li><a href="../../docs/compatibility/">Compatibility</a></li>
+            <li><a href="../../docs/performance/">Performance</a></li>
+            <li><a href="../../docs/integration/">Integration</a></li>
+            <li><a href="../../docs/troubleshooting/">Troubleshooting</a></li>
+            <li><a href="../../docs/faq/">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h2>Community</h2>
+          <ul>
+            <li><a href="../../contributing/">Contributing</a></li>
+            <li><a href="../../support/">Support</a></li>
+            <li><a href="../../security/">Security</a></li>
+            <li><a href="https://github.com/awbuilds/reproparcel/blob/dev/CODE_OF_CONDUCT.md" rel="noopener noreferrer"">Code of conduct</a></li>
+            <li><a href="https://github.com/awbuilds/reproparcel/blob/dev/GOVERNANCE.md" rel="noopener noreferrer"">Governance</a></li>
+            <li><a href="https://github.com/awbuilds/reproparcel/discussions" rel="noopener noreferrer"">Discussions</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h2>Legal</h2>
+          <ul>
+            <li><a href="../../privacy/">Privacy policy</a></li>
+            <li><a href="../../terms/">Terms of service</a></li>
+            <li><a href="../../license/">License summary</a></li>
+            <li><a href="https://github.com/awbuilds/reproparcel/blob/dev/NOTICE" rel="noopener noreferrer"">NOTICE</a></li>
+            <li><a href="https://github.com/awbuilds/reproparcel/security/advisories/new" rel="noopener noreferrer"">Security advisories</a></li>
+          </ul>
+        </div>
+    </div>
+    <div class="footer-base">
+      <span>© 2026 ReproParcel contributors</span>
+      <span>Apache-2.0</span>
+      <span>No analytics. No cookies.</span>
+      <span class="spacer"><a href="https://github.com/awbuilds/reproparcel" rel="noopener noreferrer">Source on GitHub</a></span>
+    </div>
+    <div class="footer-base footer-base--note">
+      <span>Pre-release documentation. Nothing here is legal advice.</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

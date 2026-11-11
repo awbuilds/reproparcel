@@ -1,0 +1,53 @@
+# SPDX-License-Identifier: Apache-2.0
+name: Website
+
+# Manual by default: publishing is a consequential action and requires the
+# maintainer's explicit authorization (AGENTS.md section 9).
+#
+# To publish:
+#   1. Settings -> Pages -> Build and deployment -> Source: GitHub Actions.
+#   2. Run this workflow from the Actions tab on `dev`.
+#
+# To deploy automatically after review, uncomment the `push` trigger below.
+# Do not enable it while the repository is a pre-release source candidate
+# without the maintainer's explicit approval.
+on:
+  workflow_dispatch:
+  # push:
+  #   branches:
+  #     - dev
+  #   paths:
+  #     - "website/**"
+  #     - ".github/workflows/pages.yml"
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate the static site
+        run: python3 scripts/check_website.py
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: website
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

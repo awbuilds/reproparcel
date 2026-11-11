@@ -32,6 +32,7 @@ DEFAULT_FILES = [
     "docs/security/phase-2-capture-contract.md",
     "docs/traceability/README.md",
     "docs/assets/README.md",
+    "website/README.md",
 ]
 LINK = re.compile(r"!?\[[^\]]*\]\(([^)\s]+)(?:\s+[\"'][^\"']*[\"'])?\)")
 SCHEME = re.compile(r"^[a-zA-Z][a-zA-Z0-9+.-]*:")

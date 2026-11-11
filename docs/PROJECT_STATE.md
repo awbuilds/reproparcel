@@ -1,6 +1,6 @@
 # ReproParcel — Current project state
 
-Updated: 2026-11-11.
+Updated: 2026-11-12.
 
 ## Current stage
 
@@ -21,7 +21,7 @@ integration exists.
   local-first reviewed evidence parcels; read-only local agent consumption.
 - [AGENTS.md](../AGENTS.md) — engineering contract, public-repository hygiene,
   exception boundaries, standards and handoff protocol.
-- [Latest handoff](handoffs/0013-2026-11-12-relicense-to-apache-2.0.md).
+- [Latest handoff](handoffs/0014-2026-11-12-website.md).
 - [Traceability ledger](traceability/prd-lines.jsonl), [Phase 0 audit](audits/phase-0-audit.md),
   [Phase 1 audit](audits/phase-1-audit.md), [Phase 3 audit](audits/phase-3-audit.md) and
   [Final audit](audits/final-audit.md).
@@ -58,6 +58,11 @@ integration exists.
   support, security and contribution templates, issue forms, Dependabot, Docs
   and DCO workflows, repository description/topics/Discussions/secret scanning
   and a custom social preview.
+- Static project website in `website/`: home, about, privacy policy, terms of
+  service, changelog, roadmap, security, contributing, license, support and a
+  seven-page documentation section. Zero dependencies, no external requests,
+  CSP meta on every page, and `scripts/check_website.py` link/policy gate.
+  Pages workflow is prepared but disabled; nothing is deployed.
 
 ## Key decisions
 
@@ -105,7 +110,9 @@ release evidence.
 Independent review and the final traceability audit are complete; the source
 candidate is frozen on `dev`. The maintainer must supply or authorize the
 external/physical/legal/publication gates. Do not tag, release, publish, deploy
-or merge `main` without an explicit instruction.
+or merge `main` without an explicit instruction. The website is built and
+committed to the working tree only; enabling GitHub Pages and running the
+`Website` workflow requires explicit authorization.
 
 ## Safety boundaries
 

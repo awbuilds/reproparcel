@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="ReproParcel">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1220"/>
+      <stop offset="1" stop-color="#141f38"/>
+    </linearGradient>
+    <linearGradient id="left" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7c6cf2"/>
+      <stop offset="1" stop-color="#5b4bd6"/>
+    </linearGradient>
+    <linearGradient id="right" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#39d3c3"/>
+      <stop offset="1" stop-color="#1fa99f"/>
+    </linearGradient>
+    <linearGradient id="top" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#c7c0ff"/>
+      <stop offset="1" stop-color="#8f83ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+  <path d="M256 88 416 174 256 260 96 174Z" fill="url(#top)"/>
+  <path d="M96 174 256 260v164L96 338Z" fill="url(#left)"/>
+  <path d="M416 174 256 260v164l160-86Z" fill="url(#right)"/>
+  <path d="M256 260v164" stroke="#0b1220" stroke-opacity=".35" stroke-width="8"/>
+  <circle cx="256" cy="342" r="26" fill="#0b1220" fill-opacity=".45"/>
+  <path d="m244 342 8 8 16-18" fill="none" stroke="#ffffff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

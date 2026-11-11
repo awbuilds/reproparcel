@@ -20,6 +20,8 @@ jobs:
           node-version: "24"
       - name: Relative links and assets
         run: python3 scripts/check_docs.py
+      - name: Website links and policy
+        run: python3 scripts/check_website.py
       - name: Markdown style
         run: |
           npx --yes markdownlint-cli2@0.24.0 \
@@ -30,4 +32,4 @@ jobs:
             docs/api-freeze.md docs/dependency-licenses.md \
             docs/integration/desktop-tools.md docs/integration/evidence-adapters.md \
             docs/security/threat-model.md docs/security/phase-2-capture-contract.md \
-            docs/traceability/README.md docs/assets/README.md
+            docs/traceability/README.md docs/assets/README.md website/README.md

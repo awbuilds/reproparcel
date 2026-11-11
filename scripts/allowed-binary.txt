@@ -15,3 +15,11 @@ docs/assets/screenshots/desktop-viewer.png
 docs/assets/screenshots/reporter-editor.png
 docs/assets/screenshots/reporter-form.png
 docs/assets/screenshots/reporter-review.png
+website/assets/fonts/archivo-latin.woff2
+website/assets/fonts/jetbrains-mono-latin.woff2
+website/assets/fonts/source-serif-4-latin.woff2
+website/assets/img/social-preview.png
+website/assets/screenshots/desktop-viewer.png
+website/assets/screenshots/reporter-editor.png
+website/assets/screenshots/reporter-form.png
+website/assets/screenshots/reporter-review.png

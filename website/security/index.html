@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Security — ReproParcel</title>
+  <meta name="description" content="How to report a ReproParcel vulnerability privately, what is in scope, and the threat model the project is built around.">
+  <meta name="theme-color" content="#0e1210">
+  <meta name="color-scheme" content="dark light">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <link rel="canonical" href="https://awbuilds.github.io/reproparcel/security/">
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../assets/img/logo.svg">
+  <link rel="manifest" href="../site.webmanifest">
+  <link rel="preload" href="../assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../assets/css/site.css">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ReproParcel">
+  <meta property="og:title" content="Security — ReproParcel">
+  <meta property="og:description" content="How to report a ReproParcel vulnerability privately, what is in scope, and the threat model the project is built around.">
+  <meta property="og:url" content="https://awbuilds.github.io/reproparcel/security/">
+  <meta property="og:image" content="https://awbuilds.github.io/reproparcel/assets/img/social-preview.png">
+  <meta property="og:image:alt" content="ReproParcel — reviewed evidence, portable by design">
+  <meta name="twitter:card" content="summary_large_image">
+  <script src="../assets/js/site.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="control-strip">
+  <div class="wrap">
+    <span class="mark" aria-hidden="true"></span>
+    <span><strong>Source candidate</strong> — no stable release or tag</span>
+    <span class="opt">Schema v1</span>
+    <span class="opt">Apache-2.0</span>
+    <a href="../roadmap/">What that means</a>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="../">
+      <img src="../assets/img/logo.svg" alt="" width="30" height="30">
+      <span>ReproParcel<small>reviewed evidence</small></span>
+    </a>
+    <nav class="nav" id="site-nav" aria-label="Main">
+          <a href="../docs/">Documentation</a>
+          <a href="../roadmap/">Roadmap</a>
+          <a href="../changelog/">Changelog</a>
+          <a href="../about/">About</a>
+      <a href="https://github.com/awbuilds/reproparcel" rel="noopener noreferrer">GitHub</a>
+    </nav>
+    <div class="header-tools">
+      <button class="icon-btn" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light theme">
+        <svg data-icon-sun viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.6v2.2M12 19.2v2.2M4.4 4.4l1.6 1.6M18 18l1.6 1.6M2.6 12h2.2M19.2 12h2.2M4.4 19.6 6 18M18 6l1.6-1.6"/></svg><svg data-icon-moon viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.4 14.6A8.5 8.5 0 0 1 9.4 3.6a8.5 8.5 0 1 0 11 11Z"/></svg>
+      </button>
+      <button class="icon-btn nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav" aria-label="Open navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M4 7.5h16M4 12h16M4 16.5h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="page-head">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a><span>/</span><span>Security</span></nav>
+    <h1>Report privately, reproduce minimally</h1>
+    <p class="lede">ReproParcel handles evidence that may be sensitive. Privacy failures, parser escapes and host crashes are treated as security issues, not ordinary bugs.</p>
+  </div>
+</section>
+
+<section class="section section-prose">
+  <div class="wrap prose">
+    <div class="callout">
+      <span class="callout-icon">i</span>
+      <div>
+        <p><strong>Use GitHub private vulnerability reporting.</strong> Do not open a public issue containing a real report, screenshot, credential, customer data or exploitable detail. If the private channel is unavailable, stop and ask the maintainer to enable it before sharing details.</p>
+      </div>
+    </div>
+    <p><a class="card-link" href="https://github.com/awbuilds/reproparcel/security/advisories/new" rel="noopener noreferrer">Open a private security advisory</a></p>
+
+    <h2 id="supported">Supported versions</h2>
+    <p>There is no stable release. Security fixes target the current <code>dev</code> source candidate. No backport or response-time SLA is promised.</p>
+
+    <h2 id="scope">Scope</h2>
+    <h3>In scope</h3>
+    <ul>
+      <li>Privacy failures, secret leakage, unsafe capture or masking.</li>
+      <li>Parcel parser, viewer or MCP path traversal, decompression bombs or code execution.</li>
+      <li>Lifecycle, cancellation or exception paths that can crash the host.</li>
+      <li>Insecure storage, FileProvider/SAF grants or backup exposure.</li>
+      <li>Dependency or supply-chain issues in shipped artifacts.</li>
+      <li>Read-only MCP tools that expose arbitrary files, writes or execution.</li>
+    </ul>
+    <h3>Out of scope</h3>
+    <ul>
+      <li>Vulnerabilities in a host application's own code or policy.</li>
+      <li>Reports that require a malicious in-process host to bypass its own policy.</li>
+      <li>Denial of service against maintainer infrastructure.</li>
+      <li>Issues in a host application or a forked build.</li>
+    </ul>
+
+    <h2 id="include">What to include</h2>
+    <p>Provide a synthetic or minimal reproduction, the affected commit or artifact, the impact, and the smallest evidence needed to reproduce. Do not include real user reports, screenshots, credentials or personal information. The maintainers may ask for a private artifact only after agreeing on a safe channel.</p>
+    <p>Useful details:</p>
+    <ul>
+      <li>Exact command, build variant, API level and device class.</li>
+      <li>The typed outcome or omission reason.</li>
+      <li>Whether the issue reproduces with the release/R8 build.</li>
+      <li>Whether report content, image pixels or metadata are exposed.</li>
+    </ul>
+
+    <h2 id="disclosure">Disclosure</h2>
+    <p>Coordinate disclosure with the maintainer. No bounty is offered. Confirmed evidence leaks or SDK-induced host crashes can require disabling the affected feature and shipping a patch before any public detail is published.</p>
+
+    <h2 id="threat-model">Threat model summary</h2>
+    <p>The project treats the following as assets: report text, image pixels, build and device metadata, draft encryption keys, exported files and the host application's stability.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Threat</th><th>Required control</th></tr></thead>
+        <tbody>
+          <tr><td>Capturing a protected window</td><td><code>FLAG_SECURE</code> checked before and after capture; omit on any doubt.</td></tr>
+          <tr><td>Masked content recoverable</td><td>Masks are destructive on the sanitized bitmap; no hidden original layer is persisted.</td></tr>
+          <tr><td>Stale capture races a layout change</td><td>Attempt token bound to window, policy and layout generation; post-copy re-check.</td></tr>
+          <tr><td>Secrets in logs or network metadata</td><td>Allowlisted fields only; no bodies, cookies, headers, query strings or raw URLs.</td></tr>
+          <tr><td>Draft read after device compromise</td><td>AES-256-GCM with an Android Keystore key; no plaintext fallback; backup excluded.</td></tr>
+          <tr><td>Hostile parcel at import</td><td>Bounded ZIP/JSON/PNG validation before extraction or rendering.</td></tr>
+          <tr><td>Script execution in the viewer</td><td>Escaped text, no scripts, restrictive CSP, no external URLs.</td></tr>
+          <tr><td>Agent tool escapes the import root</td><td>Report IDs, not paths; five read-only tools; no write or execute.</td></tr>
+          <tr><td>Model provider receives evidence</td><td>Documented warning; the project cannot enforce client egress.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>The full threat model lives in the repository. <a href="https://github.com/awbuilds/reproparcel/blob/dev/docs/security/threat-model.md" rel="noopener noreferrer">Read docs/security/threat-model.md</a>.</p>
+
+    <h2 id="privacy-issues">Privacy issues are security issues</h2>
+    <p>If you find a path where evidence is captured without a policy, a mask can be undone, plaintext is written when encryption fails, or a parcel is extracted outside its bounds, report it privately through the advisory channel.</p>
+
+    <p><a href="https://github.com/awbuilds/reproparcel/blob/dev/SECURITY.md" rel="noopener noreferrer">Source: SECURITY.md</a> · <a href="../privacy/">Privacy policy</a></p>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2>Read the contract, then decide</h2>
+    <p>The schema, limits, privacy boundaries and known gaps are documented. Nothing here hides behind a sales page.</p>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="../docs/">Browse the documentation</a>
+      <a class="btn btn-ghost" href="https://github.com/awbuilds/reproparcel" rel="noopener noreferrer">Source on GitHub</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="../">
+          <img src="../assets/img/logo.svg" alt="" width="30" height="30">
+          <span>ReproParcel<small>reviewed evidence</small></span>
+        </a>
+        <p>A local-first Android reporter that turns a bug report into a bounded, reviewed parcel for humans and coding agents.</p>
+      </div>
+        <div class="footer-col">
+          <h2>Project</h2>
+          <ul>
+            <li><a href="../about/">About</a></li>
+            <li><a href="../roadmap/">Roadmap and gates</a></li>
+            <li><a href="../changelog/">Changelog</a></li>
+            <li><a href="../license/">License</a></li>
+            <li><a href="https://github.com/awbuilds/reproparcel/blob/dev/CITATION.cff" rel="noopener noreferrer"">Citation file</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h2>Documentation</h2>
+          <ul>
+            <li><a href="../docs/">Documentation index</a></li>
+            <li><a href="../docs/architecture/">Architecture</a></li>
+            <li><a href="../docs/compatibility/">Compatibility</a></li>
+            <li><a href="../docs/performance/">Performance</a></li>
+            <li><a href="../docs/integration/">Integration</a></li>
+            <li><a href="../docs/troubleshooting/">Troubleshooting</a></li>
+            <li><a href="../docs/faq/">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h2>Community</h2>
+          <ul>
+            <li><a href="../contributing/">Contributing</a></li>
+            <li><a href="../support/">Support</a></li>
+            <li><a href="../security/">Security</a></li>
+            <li><a href="https://github.com/awbuilds/reproparcel/blob/dev/CODE_OF_CONDUCT.md" rel="noopener noreferrer"">Code of conduct</a></li>
+            <li><a href="https://github.com/awbuilds/reproparcel/blob/dev/GOVERNANCE.md" rel="noopener noreferrer"">Governance</a></li>
+            <li><a href="https://github.com/awbuilds/reproparcel/discussions" rel="noopener noreferrer"">Discussions</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h2>Legal</h2>
+          <ul>
+            <li><a href="../privacy/">Privacy policy</a></li>
+            <li><a href="../terms/">Terms of service</a></li>
+            <li><a href="../license/">License summary</a></li>
+            <li><a href="https://github.com/awbuilds/reproparcel/blob/dev/NOTICE" rel="noopener noreferrer"">NOTICE</a></li>
+            <li><a href="https://github.com/awbuilds/reproparcel/security/advisories/new" rel="noopener noreferrer"">Security advisories</a></li>
+          </ul>
+        </div>
+    </div>
+    <div class="footer-base">
+      <span>© 2026 ReproParcel contributors</span>
+      <span>Apache-2.0</span>
+      <span>No analytics. No cookies.</span>
+      <span class="spacer"><a href="https://github.com/awbuilds/reproparcel" rel="noopener noreferrer">Source on GitHub</a></span>
+    </div>
+    <div class="footer-base footer-base--note">
+      <span>Pre-release documentation. Nothing here is legal advice.</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

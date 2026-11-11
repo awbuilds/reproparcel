@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ReproParcel — a bug report that holds up</title>
+  <meta name="description" content="A local-first Android reporter that turns a user-approved screen, build provenance and bounded diagnostics into one portable, reviewed evidence parcel.">
+  <meta name="theme-color" content="#0e1210">
+  <meta name="color-scheme" content="dark light">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <link rel="canonical" href="https://awbuilds.github.io/reproparcel/">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/img/logo.svg">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="preload" href="assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/site.css">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ReproParcel">
+  <meta property="og:title" content="ReproParcel — a bug report that holds up">
+  <meta property="og:description" content="A local-first Android reporter that turns a user-approved screen, build provenance and bounded diagnostics into one portable, reviewed evidence parcel.">
+  <meta property="og:url" content="https://awbuilds.github.io/reproparcel/">
+  <meta property="og:image" content="https://awbuilds.github.io/reproparcel/assets/img/social-preview.png">
+  <meta property="og:image:alt" content="ReproParcel — reviewed evidence, portable by design">
+  <meta name="twitter:card" content="summary_large_image">
+  <script src="assets/js/site.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="control-strip">
+  <div class="wrap">
+    <span class="mark" aria-hidden="true"></span>
+    <span><strong>Source candidate</strong> — no stable release or tag</span>
+    <span class="opt">Schema v1</span>
+    <span class="opt">Apache-2.0</span>
+    <a href="roadmap/">What that means</a>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="">
+      <img src="assets/img/logo.svg" alt="" width="30" height="30">
+      <span>ReproParcel<small>reviewed evidence</small></span>
+    </a>
+    <nav class="nav" id="site-nav" aria-label="Main">
+          <a href="docs/">Documentation</a>
+          <a href="roadmap/">Roadmap</a>
+          <a href="changelog/">Changelog</a>
+          <a href="about/">About</a>
+      <a href="https://github.com/awbuilds/reproparcel" rel="noopener noreferrer">GitHub</a>
+    </nav>
+    <div class="header-tools">
+      <button class="icon-btn" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light theme">
+        <svg data-icon-sun viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.6v2.2M12 19.2v2.2M4.4 4.4l1.6 1.6M18 18l1.6 1.6M2.6 12h2.2M19.2 12h2.2M4.4 19.6 6 18M18 6l1.6-1.6"/></svg><svg data-icon-moon viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.4 14.6A8.5 8.5 0 0 1 9.4 3.6a8.5 8.5 0 1 0 11 11Z"/></svg>
+      </button>
+      <button class="icon-btn nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav" aria-label="Open navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M4 7.5h16M4 12h16M4 16.5h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-copy">
+      <h1>A bug report that holds up.</h1>
+      <p class="lede">ReproParcel is a native Android reporter. It turns a user-approved screen, build provenance and bounded diagnostics into one portable parcel — reviewed on the device before it leaves.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="docs/">Read the documentation</a>
+        <a class="btn btn-ghost" href="roadmap/">See what is blocked</a>
+      </div>
+      <ul class="hero-points">
+        <li>Off by default</li>
+        <li>Review binds consent</li>
+        <li>Apache-2.0</li>
+      </ul>
+      <p class="hero-note">There is no release, tag or Maven Central publication; the source candidate is on the <code>dev</code> branch.</p>
+    </div>
+
+    <div class="parcel" aria-label="Example evidence parcel">
+      <div class="parcel-head">
+        <span class="parcel-title">Evidence parcel</span>
+        <span class="parcel-id">RP-2026-11-0417</span>
+      </div>
+      <dl class="parcel-fields">
+        <div><dt>Package</dt><dd>com.example.app</dd></div>
+        <div><dt>Build</dt><dd>1.4.2 release</dd></div>
+        <div><dt>Surface</dt><dd>checkout_review</dd></div>
+        <div><dt>Device</dt><dd>API 31 · 1080×2460</dd></div>
+      </dl>
+      <ul class="parcel-manifest">
+        <li><span>manifest.json</span><span class="state">schema v1</span></li>
+        <li><span>report.json</span><span class="state">reviewed</span></li>
+        <li><span>events.json</span><span class="state muted">optional</span></li>
+        <li><span>screen.png</span><span class="state">masked</span></li>
+      </ul>
+      <div class="parcel-seal">
+        <p class="parcel-hash">SHA-256 per entry<br>3f9c…a71e<br>16-entry bound</p>
+        <div class="stamp" aria-hidden="true">
+          <span><b>Reviewed</b><br>2026-11-12<br>by user</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>The report is a container, not a file dump.</h2>
+      <p>A <code>.reproparcel</code> file is a bounded ZIP with a versioned manifest. Every entry is listed with a media type, uncompressed size and SHA-256. If it is not in the manifest, it is not in the parcel.</p>
+    </div>
+    <table class="manifest-table">
+      <thead>
+        <tr><th scope="col">Entry</th><th scope="col">What it carries</th><th scope="col">State</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>manifest.json</td><td>The versioned inventory: path, media type, size and checksum for every other entry.</td><td>schema v1</td></tr>
+        <tr><td>report.json</td><td>Title, description, expected and actual behavior, reproduction steps and build provenance.</td><td>reviewed</td></tr>
+        <tr><td>events.json</td><td>Allowlisted breadcrumbs, structured logs and request method, status, timing and route template.</td><td class="optional">optional</td></tr>
+        <tr><td>semantics.json</td><td>Semantic nodes the host registered explicitly. No automatic tree extraction.</td><td class="optional">optional</td></tr>
+        <tr><td>attachments/screen.png</td><td>One sanitized image. Opaque masks are baked into the pixels before the editor opens.</td><td>masked</td></tr>
+      </tbody>
+    </table>
+    <p class="ledger-note">Limits are enforced before writing and again before rendering: 5 MiB compressed, 10 MiB uncompressed, 16 entries, 100:1 ratio, 1600 px longest image edge.</p>
+  </div>
+</section>
+
+<section class="section band">
+  <div class="wrap">
+    <div class="section-head single">
+      <h2>Four stations, and a typed outcome at each one.</h2>
+      <p>The flow is explicit end to end. A failure is reported as an omission with a reason, never as a success.</p>
+    </div>
+    <div class="chain">
+      <article class="chain-step">
+        <span class="n">01</span>
+        <h3>Capture</h3>
+        <p>The host supplies a capture policy and an eligible surface. The reporter captures the window before its own UI opens. A protected window is omitted.</p>
+      </article>
+      <article class="chain-step">
+        <span class="n">02</span>
+        <h3>Review</h3>
+        <p>The user edits, masks and approves the exact flattened image and text. Any content change resets approval.</p>
+      </article>
+      <article class="chain-step">
+        <span class="n">03</span>
+        <h3>Seal</h3>
+        <p>The parcel is written atomically with a manifest and a checksum per entry. A serialization failure never leaves a partial file.</p>
+      </article>
+      <article class="chain-step">
+        <span class="n">04</span>
+        <h3>Inspect</h3>
+        <p>The desktop tool validates, inspects and renders offline. A read-only MCP server exposes five report tools — no write, execute or upload.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head single">
+      <h2>What it looks like on the device.</h2>
+      <p>Synthetic sample data only. The shipped reporter marks its own window secure, so these plates come from a documentation build of the same UI.</p>
+    </div>
+    <div class="exhibits">
+      <figure class="exhibit">
+        <div class="plate"><img src="assets/screenshots/reporter-form.png" alt="Reporter form with title, description, expected and actual behavior fields" width="260" loading="lazy"></div>
+        <figcaption><span class="ex">Exhibit 01</span><span class="name">Reporter form</span></figcaption>
+      </figure>
+      <figure class="exhibit">
+        <div class="plate"><img src="assets/screenshots/reporter-editor.png" alt="Image editor with pen, arrow and opaque mask tools" width="260" loading="lazy"></div>
+        <figcaption><span class="ex">Exhibit 02</span><span class="name">Mask and annotate</span></figcaption>
+      </figure>
+      <figure class="exhibit">
+        <div class="plate"><img src="assets/screenshots/reporter-review.png" alt="Exact final content review screen" width="260" loading="lazy"></div>
+        <figcaption><span class="ex">Exhibit 03</span><span class="name">Exact review</span></figcaption>
+      </figure>
+      <aside class="exhibit-note">
+        <p class="statement">The exact flattened image and text shown on the review screen are the bytes that are exported.</p>
+        <p class="aside">Changing the title, description or image resets approval. The preview is not an approximation of the export; it is the export.</p>
+      </aside>
+    </div>
+    <figure class="exhibit exhibit-wide">
+      <div class="plate"><img src="assets/screenshots/desktop-viewer.png" alt="Offline desktop viewer showing escaped report text, a sanitized image and bounded metadata" width="620" loading="lazy"></div>
+      <figcaption><span class="ex">Exhibit 04</span><span class="name">Offline viewer — escaped text, sanitized image, no scripts and no external URLs</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="withheld">
+      <div class="doc-column">
+      <div class="document" aria-label="Example report excerpt with withheld categories">
+        <div class="doc-head"><span>report.json — excerpt</span><span>review before export</span></div>
+        <p>The reporter records a report only when the host has enabled a policy and the user has opened it. It never captures
+          <button class="redact" type="button" data-label="passwords">passwords</button>,
+          <button class="redact" type="button" data-label="clipboard">clipboard</button>,
+          <button class="redact" type="button" data-label="HTTP bodies">request bodies</button> or
+          <button class="redact" type="button" data-label="device IDs">device identifiers</button>.
+          A protected window is omitted rather than captured.</p>
+        <p>This is the whole record: one text payload, one image, optional events and semantics. If a surface is not eligible, the report still exports — with a typed omission instead of a picture.</p>
+        <div class="doc-foot"><span>Drafts: 72 h</span><span>10 reports</span><span>25 MiB encrypted</span><span>AES-GCM, Android Keystore</span></div>
+      </div>
+      <p class="doc-caption">Example excerpt. Hover or focus a bar to see the withheld category. When capture is not allowed, the parcel carries a typed reason: <code>SECURE_WINDOW</code>, <code>UNSUPPORTED_SURFACE</code> or <code>SIZE_EXCEEDED</code>.</p>
+      </div>
+      <div class="withheld-copy">
+        <h3>The parcel is assembled from what the host allows, and nothing else.</h3>
+        <p>Collection starts disabled. A host capture policy names the eligible surfaces; the SDK checks the secure flag before and after copy and treats PixelCopy success as insufficient proof.</p>
+        <ul>
+          <li>Request and response bodies</li>
+          <li>Cookies and authorization headers</li>
+          <li>Query strings and raw URL paths</li>
+          <li>Clipboard, passwords and editable values</li>
+          <li>Global logcat, heap and database dumps</li>
+          <li>Advertising or unique device identifiers</li>
+        </ul>
+        <p class="mt-2"><a class="card-link" href="privacy/">Read the privacy policy</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Measured on one low/mid-range device.</h2>
+      <p>Release benchmark variant, physical Android 12 device. These are local measurements with limits, not a universal performance guarantee.</p>
+    </div>
+    <table class="ledger">
+      <thead>
+        <tr><th scope="col">Measurement</th><th scope="col">Result</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>SDK initialization, p95</td><td>1.55 ms</td></tr>
+        <tr><td>Capture latency, p95</td><td>211 ms</td></tr>
+        <tr><td>Capture peak memory</td><td>15.1 MB</td></tr>
+        <tr><td>Trigger to composer, p95</td><td>289 ms</td></tr>
+        <tr><td>Paired jank, 5 × ~1,050 frames</td><td>+0.06 pp deadline miss</td></tr>
+        <tr><td>APK delta versus baseline</td><td>+0.40 MiB</td></tr>
+      </tbody>
+    </table>
+    <p class="ledger-note">Capture and collector timings use debug instrumentation. A current physical device, physical API 26/30 rows and a longer thermal soak remain open. <a href="docs/performance/">Method and caveats</a>.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Where the project actually stands.</h2>
+      <p>The final traceability audit records 231 PASS and 43 BLOCKED. Blocked rows name an exact next action; they are not counted as done.</p>
+    </div>
+    <div class="record">
+      <div class="record-list">
+        <div class="record-row"><span>Android v1 source candidate</span><span class="mark mark-pass">PASS</span></div>
+        <div class="record-row"><span>Final traceability audit</span><span class="mark mark-pass">PASS</span></div>
+        <div class="record-row"><span>External interviews and pilot</span><span class="mark mark-blocked">BLOCKED</span></div>
+        <div class="record-row"><span>Second real MCP coding client</span><span class="mark mark-blocked">BLOCKED</span></div>
+        <div class="record-row"><span>iOS device and App Store validation</span><span class="mark mark-blocked">BLOCKED</span></div>
+        <div class="record-row"><span>Relay deployment and TLS</span><span class="mark mark-blocked">BLOCKED</span></div>
+        <div class="record-row"><span>Legal and trademark review</span><span class="mark mark-blocked">BLOCKED</span></div>
+        <div class="record-row"><span>Maven Central publication</span><span class="mark mark-blocked">BLOCKED</span></div>
+      </div>
+      <aside class="record-note">
+        <span class="big">231 / 43</span>
+        <p>Pass and blocked rows in the line-level audit. There is no release, tag or published artifact, and <code>main</code> is untouched.</p>
+        <p class="mt-2"><a class="card-link" href="roadmap/">Open the gate list</a></p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head single">
+      <h2>Start where you are.</h2>
+      <p>The site mirrors the repository documents. When they disagree, the repository is authoritative.</p>
+    </div>
+    <nav class="index-list" aria-label="Documentation">
+      <a class="index-item" href="docs/architecture/"><h3>Architecture</h3><p>Modules, report lifecycle, trust boundaries and the parcel format.</p></a>
+      <a class="index-item" href="docs/compatibility/"><h3>Compatibility</h3><p>Pinned toolchain, device matrix, hard limits and known gaps.</p></a>
+      <a class="index-item" href="docs/performance/"><h3>Performance</h3><p>Startup, capture, jank and APK measurements with method and caveats.</p></a>
+      <a class="index-item" href="docs/integration/"><h3>Integration</h3><p>Runtime setup, evidence adapters, desktop CLI and an MCP configuration.</p></a>
+      <a class="index-item" href="docs/troubleshooting/"><h3>Troubleshooting</h3><p>Typed outcomes, omission reasons and reader error codes.</p></a>
+      <a class="index-item" href="docs/faq/"><h3>FAQ</h3><p>Adoption, privacy, capture, agents and development questions.</p></a>
+      <a class="index-item" href="security/"><h3>Security</h3><p>Private reporting channel, scope and the threat-model summary.</p></a>
+      <a class="index-item" href="license/"><h3>License</h3><p>Apache-2.0 obligations, patent grant and trademark terms.</p></a>
+    </nav>
+  </div>
+</section>
+
+<section class="close">
+  <div class="wrap">
+    <h2>Read the contract, then decide.</h2>
+    <p>The schema, limits, privacy boundaries and unrun gates are documented. Nothing here hides behind a product page.</p>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="docs/">Documentation index</a>
+      <a class="btn btn-ghost" href="https://github.com/awbuilds/reproparcel" rel="noopener noreferrer">Source on GitHub</a>
+    </div>
+    <p class="micro">Apache-2.0 · No analytics on this site · Pre-release</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="">
+          <img src="assets/img/logo.svg" alt="" width="30" height="30">
+          <span>ReproParcel<small>reviewed evidence</small></span>
+        </a>
+        <p>A local-first Android reporter that turns a bug report into a bounded, reviewed parcel for humans and coding agents.</p>
+      </div>
+        <div class="footer-col">
+          <h2>Project</h2>
+          <ul>
+            <li><a href="about/">About</a></li>
+            <li><a href="roadmap/">Roadmap and gates</a></li>
+            <li><a href="changelog/">Changelog</a></li>
+            <li><a href="license/">License</a></li>
+            <li><a href="https://github.com/awbuilds/reproparcel/blob/dev/CITATION.cff" rel="noopener noreferrer"">Citation file</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h2>Documentation</h2>
+          <ul>
+            <li><a href="docs/">Documentation index</a></li>
+            <li><a href="docs/architecture/">Architecture</a></li>
+            <li><a href="docs/compatibility/">Compatibility</a></li>
+            <li><a href="docs/performance/">Performance</a></li>
+            <li><a href="docs/integration/">Integration</a></li>
+            <li><a href="docs/troubleshooting/">Troubleshooting</a></li>
+            <li><a href="docs/faq/">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h2>Community</h2>
+          <ul>
+            <li><a href="contributing/">Contributing</a></li>
+            <li><a href="support/">Support</a></li>
+            <li><a href="security/">Security</a></li>
+            <li><a href="https://github.com/awbuilds/reproparcel/blob/dev/CODE_OF_CONDUCT.md" rel="noopener noreferrer"">Code of conduct</a></li>
+            <li><a href="https://github.com/awbuilds/reproparcel/blob/dev/GOVERNANCE.md" rel="noopener noreferrer"">Governance</a></li>
+            <li><a href="https://github.com/awbuilds/reproparcel/discussions" rel="noopener noreferrer"">Discussions</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h2>Legal</h2>
+          <ul>
+            <li><a href="privacy/">Privacy policy</a></li>
+            <li><a href="terms/">Terms of service</a></li>
+            <li><a href="license/">License summary</a></li>
+            <li><a href="https://github.com/awbuilds/reproparcel/blob/dev/NOTICE" rel="noopener noreferrer"">NOTICE</a></li>
+            <li><a href="https://github.com/awbuilds/reproparcel/security/advisories/new" rel="noopener noreferrer"">Security advisories</a></li>
+          </ul>
+        </div>
+    </div>
+    <div class="footer-base">
+      <span>© 2026 ReproParcel contributors</span>
+      <span>Apache-2.0</span>
+      <span>No analytics. No cookies.</span>
+      <span class="spacer"><a href="https://github.com/awbuilds/reproparcel" rel="noopener noreferrer">Source on GitHub</a></span>
+    </div>
+    <div class="footer-base footer-base--note">
+      <span>Pre-release documentation. Nothing here is legal advice.</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
