@@ -1,31 +1,33 @@
 == public hygiene ==
 public-hygiene: PASS (--all)
 == whitespace ==
+== dependency inventory ===
+wrote docs/dependency-inventory.md: 1113 lines
 == dependency allowlist ==
 dependency-check: PASS (16 groups)
 == compile and JVM tests ==
 > Task :reproparcel-okhttp:preBuild UP-TO-DATE
-> Task :reproparcel-android:preBuild UP-TO-DATE
-> Task :reproparcel-compose:preBuild UP-TO-DATE
 > Task :reproparcel-core:checkKotlinGradlePluginConfigurationErrors SKIPPED
-> Task :reproparcel-android:preDebugBuild UP-TO-DATE
 > Task :benchmark:preBuild UP-TO-DATE
 > Task :benchmark:preDebugBuild UP-TO-DATE
 > Task :reproparcel-okhttp:preDebugBuild UP-TO-DATE
+> Task :reproparcel-compose:preBuild UP-TO-DATE
+> Task :reproparcel-android:preBuild UP-TO-DATE
 > Task :reproparcel-compose:preDebugBuild UP-TO-DATE
+> Task :reproparcel-android:preDebugBuild UP-TO-DATE
 > Task :sample-app:preBuild UP-TO-DATE
 > Task :sample-app:preDebugBuild UP-TO-DATE
-> Task :sample-app:mergeDebugNativeDebugMetadata NO-SOURCE
 > Task :reproparcel-compose:mergeDebugJniLibFolders UP-TO-DATE
+> Task :sample-app:mergeDebugNativeDebugMetadata NO-SOURCE
 > Task :reproparcel-compose:mergeDebugNativeLibs NO-SOURCE
-> Task :sample-app:generateDebugResources UP-TO-DATE
 > Task :reproparcel-compose:stripDebugDebugSymbols NO-SOURCE
+> Task :sample-app:generateDebugResources UP-TO-DATE
 > Task :reproparcel-compose:copyDebugJniLibsProjectAndLocalJars UP-TO-DATE
 > Task :reproparcel-compose:generateDebugResources UP-TO-DATE
 > Task :sample-app:packageDebugResources UP-TO-DATE
+> Task :reproparcel-compose:packageDebugResources UP-TO-DATE
 > Task :sample-app:javaPreCompileDebug UP-TO-DATE
 > Task :sample-app:generateDebugAssets UP-TO-DATE
-> Task :reproparcel-compose:packageDebugResources UP-TO-DATE
 > Task :reproparcel-compose:processDebugNavigationResources UP-TO-DATE
 > Task :sample-app:generateDebugGlobalSynthetics UP-TO-DATE
 > Task :reproparcel-compose:parseDebugLocalResources UP-TO-DATE
@@ -45,9 +47,9 @@ dependency-check: PASS (16 groups)
 > Task :reproparcel-compose:parseDebugAndroidTestLocalResources UP-TO-DATE
 > Task :reproparcel-compose:generateDebugAndroidTestRFile UP-TO-DATE
 > Task :reproparcel-compose:javaPreCompileDebugAndroidTest UP-TO-DATE
+> Task :reproparcel-okhttp:checkDebugAarMetadata UP-TO-DATE
 > Task :reproparcel-compose:generateDebugAndroidTestAssets UP-TO-DATE
 > Task :reproparcel-compose:generateDebugAndroidTestGlobalSynthetics UP-TO-DATE
-> Task :reproparcel-okhttp:checkDebugAarMetadata UP-TO-DATE
 > Task :reproparcel-okhttp:mergeDebugJniLibFolders UP-TO-DATE
 > Task :reproparcel-okhttp:mergeDebugNativeLibs NO-SOURCE
 > Task :reproparcel-okhttp:stripDebugDebugSymbols NO-SOURCE
@@ -80,222 +82,207 @@ dependency-check: PASS (16 groups)
 > Task :reproparcel-okhttp:generateReleaseRFile UP-TO-DATE
 > Task :reproparcel-okhttp:javaPreCompileRelease UP-TO-DATE
 > Task :reproparcel-okhttp:prepareReleaseArtProfile UP-TO-DATE
+> Task :reproparcel-android:checkDebugAarMetadata UP-TO-DATE
+> Task :reproparcel-android:mergeDebugJniLibFolders UP-TO-DATE
 > Task :reproparcel-okhttp:mapReleaseSourceSetPaths UP-TO-DATE
 > Task :reproparcel-okhttp:compileReleaseLibraryResources UP-TO-DATE
+> Task :reproparcel-android:mergeDebugNativeLibs NO-SOURCE
 > Task :reproparcel-okhttp:writeReleaseAarMetadata UP-TO-DATE
+> Task :reproparcel-android:stripDebugDebugSymbols NO-SOURCE
 > Task :reproparcel-okhttp:extractDeepLinksRelease UP-TO-DATE
+> Task :reproparcel-android:copyDebugJniLibsProjectAndLocalJars UP-TO-DATE
+> Task :reproparcel-android:generateDebugResources UP-TO-DATE
 > Task :reproparcel-okhttp:processReleaseManifest UP-TO-DATE
 > Task :reproparcel-okhttp:generateReleaseAssets UP-TO-DATE
 > Task :reproparcel-okhttp:mergeReleaseAssets UP-TO-DATE
+> Task :reproparcel-android:packageDebugResources UP-TO-DATE
 > Task :reproparcel-okhttp:extractProguardFiles UP-TO-DATE
+> Task :benchmark:checkTestedAppObfuscationDebug UP-TO-DATE
+> Task :reproparcel-android:processDebugNavigationResources UP-TO-DATE
+> Task :benchmark:generateDebugResources UP-TO-DATE
+> Task :reproparcel-core:compileKotlin UP-TO-DATE
+> Task :benchmark:packageDebugResources UP-TO-DATE
+> Task :reproparcel-android:parseDebugLocalResources UP-TO-DATE
+> Task :reproparcel-core:compileJava NO-SOURCE
+> Task :reproparcel-android:generateDebugRFile UP-TO-DATE
 > Task :reproparcel-okhttp:checkReleaseAarMetadata UP-TO-DATE
+> Task :reproparcel-core:processResources NO-SOURCE
+> Task :reproparcel-android:extractDeepLinksForAarDebug UP-TO-DATE
+> Task :reproparcel-core:classes UP-TO-DATE
+> Task :reproparcel-android:generateDebugAssets UP-TO-DATE
 > Task :reproparcel-okhttp:extractDeepLinksForAarRelease UP-TO-DATE
 > Task :reproparcel-okhttp:writeReleaseLintModelMetadata UP-TO-DATE
-> Task :reproparcel-android:checkDebugAarMetadata UP-TO-DATE
-> Task :reproparcel-android:mergeDebugJniLibFolders UP-TO-DATE
-> Task :benchmark:checkTestedAppObfuscationDebug UP-TO-DATE
-> Task :benchmark:generateDebugResources UP-TO-DATE
-> Task :reproparcel-android:mergeDebugNativeLibs NO-SOURCE
-> Task :reproparcel-android:stripDebugDebugSymbols NO-SOURCE
-> Task :reproparcel-android:copyDebugJniLibsProjectAndLocalJars UP-TO-DATE
-> Task :benchmark:packageDebugResources UP-TO-DATE
-> Task :reproparcel-android:generateDebugResources UP-TO-DATE
-> Task :reproparcel-android:packageDebugResources UP-TO-DATE
-> Task :reproparcel-android:processDebugNavigationResources UP-TO-DATE
-> Task :reproparcel-android:parseDebugLocalResources UP-TO-DATE
-> Task :reproparcel-android:generateDebugRFile UP-TO-DATE
-> Task :reproparcel-core:compileKotlin UP-TO-DATE
-> Task :reproparcel-android:extractDeepLinksForAarDebug UP-TO-DATE
-> Task :reproparcel-android:generateDebugAssets UP-TO-DATE
 > Task :reproparcel-android:mergeDebugAssets UP-TO-DATE
-> Task :reproparcel-core:compileJava NO-SOURCE
+> Task :reproparcel-core:jar UP-TO-DATE
 > Task :reproparcel-android:javaPreCompileDebug UP-TO-DATE
 > Task :reproparcel-android:prepareDebugArtProfile UP-TO-DATE
-> Task :reproparcel-core:processResources NO-SOURCE
-> Task :reproparcel-core:classes UP-TO-DATE
-> Task :reproparcel-android:prepareLintJarForPublish UP-TO-DATE
-> Task :reproparcel-android:processDebugManifest UP-TO-DATE
-> Task :reproparcel-android:writeDebugAarMetadata UP-TO-DATE
-> Task :reproparcel-android:preDebugAndroidTestBuild UP-TO-DATE
-> Task :reproparcel-core:jar UP-TO-DATE
-> Task :reproparcel-android:generateDebugAndroidTestResources UP-TO-DATE
-> Task :reproparcel-android:packageDebugAndroidTestResources UP-TO-DATE
-> Task :reproparcel-android:processDebugAndroidTestNavigationResources UP-TO-DATE
-> Task :reproparcel-android:parseDebugAndroidTestLocalResources UP-TO-DATE
 > Task :reproparcel-core:compileTestKotlin UP-TO-DATE
 > Task :reproparcel-core:compileTestJava NO-SOURCE
 > Task :reproparcel-core:processTestResources NO-SOURCE
 > Task :reproparcel-core:testClasses UP-TO-DATE
+> Task :reproparcel-core:test UP-TO-DATE
 > Task :benchmark:processDebugNavigationResources UP-TO-DATE
 > Task :benchmark:parseDebugLocalResources UP-TO-DATE
+> Task :reproparcel-core:apiBuild UP-TO-DATE
 > Task :benchmark:generateDebugRFile UP-TO-DATE
 > Task :reproparcel-okhttp:extractDebugAnnotations UP-TO-DATE
 > Task :reproparcel-android:extractDebugAnnotations UP-TO-DATE
+> Task :reproparcel-core:apiCheck
 > Task :reproparcel-okhttp:compileDebugKotlin UP-TO-DATE
 > Task :reproparcel-okhttp:compileDebugJavaWithJavac NO-SOURCE
+> Task :reproparcel-android:compileDebugKotlin UP-TO-DATE
 > Task :reproparcel-okhttp:mergeDebugGeneratedProguardFiles UP-TO-DATE
+> Task :reproparcel-android:compileDebugJavaWithJavac NO-SOURCE
 > Task :reproparcel-okhttp:mergeDebugConsumerProguardFiles UP-TO-DATE
+> Task :reproparcel-android:mergeDebugGeneratedProguardFiles UP-TO-DATE
+> Task :reproparcel-android:mergeDebugConsumerProguardFiles UP-TO-DATE
+> Task :reproparcel-android:prepareLintJarForPublish UP-TO-DATE
 > Task :reproparcel-okhttp:compressDebugJavaRes UP-TO-DATE
+> Task :benchmark:compileDebugKotlin UP-TO-DATE
+> Task :benchmark:javaPreCompileDebug UP-TO-DATE
+> Task :reproparcel-android:processDebugManifest UP-TO-DATE
 > Task :reproparcel-okhttp:mergeDebugJavaResource UP-TO-DATE
+> Task :benchmark:compileDebugJavaWithJavac NO-SOURCE
+> Task :benchmark:generateDebugAssets UP-TO-DATE
+> Task :reproparcel-android:compressDebugJavaRes UP-TO-DATE
 > Task :reproparcel-okhttp:syncDebugLibJars UP-TO-DATE
+> Task :reproparcel-android:mergeDebugJavaResource UP-TO-DATE
+> Task :reproparcel-android:syncDebugLibJars UP-TO-DATE
+> Task :reproparcel-android:writeDebugAarMetadata UP-TO-DATE
 > Task :reproparcel-okhttp:bundleDebugAar UP-TO-DATE
 > Task :reproparcel-okhttp:assembleDebug UP-TO-DATE
 > Task :reproparcel-okhttp:bundleLibCompileToJarDebug UP-TO-DATE
 > Task :reproparcel-okhttp:bundleLibRuntimeToDirDebug UP-TO-DATE
-> Task :reproparcel-android:compileDebugKotlin UP-TO-DATE
-> Task :benchmark:compileDebugKotlin UP-TO-DATE
-> Task :reproparcel-android:compileDebugJavaWithJavac NO-SOURCE
-> Task :benchmark:javaPreCompileDebug UP-TO-DATE
-> Task :benchmark:compileDebugJavaWithJavac NO-SOURCE
-> Task :benchmark:generateDebugAssets UP-TO-DATE
-> Task :reproparcel-android:mergeDebugGeneratedProguardFiles UP-TO-DATE
-> Task :reproparcel-android:mergeDebugConsumerProguardFiles UP-TO-DATE
-> Task :reproparcel-android:compressDebugJavaRes UP-TO-DATE
-> Task :reproparcel-android:mergeDebugJavaResource UP-TO-DATE
-> Task :reproparcel-android:syncDebugLibJars UP-TO-DATE
 > Task :reproparcel-android:bundleDebugAar UP-TO-DATE
 > Task :reproparcel-android:assembleDebug UP-TO-DATE
-> Task :reproparcel-okhttp:compileReleaseKotlin UP-TO-DATE
 > Task :reproparcel-android:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :reproparcel-android:preDebugAndroidTestBuild UP-TO-DATE
+> Task :benchmark:mergeDebugAssets UP-TO-DATE
+> Task :reproparcel-android:generateDebugAndroidTestResources UP-TO-DATE
+> Task :benchmark:compressDebugAssets UP-TO-DATE
+> Task :benchmark:generateDebugGlobalSynthetics UP-TO-DATE
+> Task :reproparcel-android:packageDebugAndroidTestResources UP-TO-DATE
+> Task :reproparcel-android:processDebugAndroidTestNavigationResources UP-TO-DATE
+> Task :benchmark:compressDebugJavaRes UP-TO-DATE
+> Task :reproparcel-android:parseDebugAndroidTestLocalResources UP-TO-DATE
 > Task :reproparcel-android:generateDebugAndroidTestRFile UP-TO-DATE
+> Task :reproparcel-okhttp:compileReleaseKotlin UP-TO-DATE
 > Task :reproparcel-okhttp:compileReleaseJavaWithJavac NO-SOURCE
 > Task :reproparcel-okhttp:mergeReleaseGeneratedProguardFiles UP-TO-DATE
-> Task :benchmark:mergeDebugAssets UP-TO-DATE
 > Task :reproparcel-okhttp:exportReleaseConsumerProguardFiles UP-TO-DATE
-> Task :benchmark:compressDebugAssets UP-TO-DATE
 > Task :reproparcel-okhttp:bundleLibCompileToJarRelease UP-TO-DATE
-> Task :benchmark:generateDebugGlobalSynthetics UP-TO-DATE
 > Task :reproparcel-okhttp:bundleLibRuntimeToJarRelease UP-TO-DATE
-> Task :benchmark:compressDebugJavaRes UP-TO-DATE
 > Task :reproparcel-okhttp:compressReleaseJavaRes UP-TO-DATE
-> Task :reproparcel-okhttp:generateReleaseLintVitalModel UP-TO-DATE
+> Task :sample-app:checkDebugDuplicateClasses UP-TO-DATE
+> Task :reproparcel-compose:checkDebugAndroidTestDuplicateClasses UP-TO-DATE
 > Task :reproparcel-android:compileDebugAndroidTestKotlin UP-TO-DATE
+> Task :benchmark:mergeDebugJavaResource UP-TO-DATE
 > Task :reproparcel-android:javaPreCompileDebugAndroidTest UP-TO-DATE
 > Task :reproparcel-android:compileDebugAndroidTestJavaWithJavac NO-SOURCE
 > Task :reproparcel-android:generateDebugAndroidTestAssets UP-TO-DATE
+> Task :reproparcel-okhttp:generateReleaseLintVitalModel UP-TO-DATE
+> Task :sample-app:processDebugNavigationResources UP-TO-DATE
+> Task :sample-app:parseDebugLocalResources UP-TO-DATE
+> Task :reproparcel-android:mergeDebugAndroidTestAssets UP-TO-DATE
+> Task :reproparcel-android:compressDebugAndroidTestAssets UP-TO-DATE
+> Task :sample-app:generateDebugRFile UP-TO-DATE
+> Task :reproparcel-android:generateDebugAndroidTestGlobalSynthetics UP-TO-DATE
+> Task :benchmark:checkDebugDuplicateClasses UP-TO-DATE
+> Task :benchmark:desugarDebugFileDependencies UP-TO-DATE
+> Task :reproparcel-android:compressDebugAndroidTestJavaRes UP-TO-DATE
 > Task :reproparcel-okhttp:lintVitalAnalyzeRelease UP-TO-DATE
 > Task :reproparcel-okhttp:createFullJarRelease UP-TO-DATE
-> Task :sample-app:checkDebugDuplicateClasses UP-TO-DATE
+> Task :reproparcel-compose:checkDebugAarMetadata UP-TO-DATE
 > Task :reproparcel-okhttp:generateReleaseLintModel UP-TO-DATE
-> Task :reproparcel-compose:checkDebugAndroidTestDuplicateClasses UP-TO-DATE
+> Task :sample-app:mergeDebugAssets UP-TO-DATE
+> Task :sample-app:compressDebugAssets UP-TO-DATE
 > Task :reproparcel-okhttp:extractReleaseAnnotations UP-TO-DATE
+> Task :sample-app:desugarDebugFileDependencies UP-TO-DATE
 > Task :reproparcel-okhttp:mergeReleaseConsumerProguardFiles UP-TO-DATE
 > Task :reproparcel-okhttp:mergeReleaseJavaResource UP-TO-DATE
 > Task :reproparcel-okhttp:syncReleaseLibJars UP-TO-DATE
 > Task :reproparcel-okhttp:bundleReleaseLocalLintAar UP-TO-DATE
-> Task :reproparcel-android:mergeDebugAndroidTestAssets UP-TO-DATE
-> Task :benchmark:mergeDebugJavaResource UP-TO-DATE
-> Task :reproparcel-android:compressDebugAndroidTestAssets UP-TO-DATE
-> Task :reproparcel-android:generateDebugAndroidTestGlobalSynthetics UP-TO-DATE
-> Task :reproparcel-android:compressDebugAndroidTestJavaRes UP-TO-DATE
-> Task :sample-app:processDebugNavigationResources UP-TO-DATE
-> Task :sample-app:parseDebugLocalResources UP-TO-DATE
-> Task :benchmark:checkDebugDuplicateClasses UP-TO-DATE
-> Task :sample-app:generateDebugRFile UP-TO-DATE
-> Task :benchmark:desugarDebugFileDependencies UP-TO-DATE
 > Task :reproparcel-android:mergeDebugAndroidTestJavaResource UP-TO-DATE
-> Task :reproparcel-android:checkDebugAndroidTestDuplicateClasses UP-TO-DATE
-> Task :reproparcel-android:desugarDebugAndroidTestFileDependencies UP-TO-DATE
-> Task :sample-app:mergeDebugAssets UP-TO-DATE
-> Task :sample-app:compressDebugAssets UP-TO-DATE
-> Task :reproparcel-compose:checkDebugAarMetadata UP-TO-DATE
-> Task :sample-app:desugarDebugFileDependencies UP-TO-DATE
 > Task :benchmark:mergeExtDexDebug UP-TO-DATE
 > Task :benchmark:mergeLibDexDebug UP-TO-DATE
+> Task :reproparcel-android:checkDebugAndroidTestDuplicateClasses UP-TO-DATE
+> Task :reproparcel-android:desugarDebugAndroidTestFileDependencies UP-TO-DATE
 > Task :reproparcel-android:mergeExtDexDebugAndroidTest UP-TO-DATE
+> Task :sample-app:mergeExtDexDebug UP-TO-DATE
 > Task :reproparcel-android:bundleLibRuntimeToDirDebug UP-TO-DATE
-> Task :reproparcel-android:mergeLibDexDebugAndroidTest UP-TO-DATE
+> Task :benchmark:checkDebugAarMetadata UP-TO-DATE
+> Task :benchmark:mapDebugSourceSetPaths UP-TO-DATE
 > Task :reproparcel-android:checkDebugAndroidTestAarMetadata UP-TO-DATE
 > Task :reproparcel-android:mapDebugAndroidTestSourceSetPaths UP-TO-DATE
 > Task :reproparcel-android:compileDebugAndroidTestNavigationResources UP-TO-DATE
+> Task :benchmark:compileDebugNavigationResources UP-TO-DATE
 > Task :reproparcel-android:mapDebugSourceSetPaths UP-TO-DATE
 > Task :reproparcel-android:compileDebugLibraryResources UP-TO-DATE
-> Task :benchmark:checkDebugAarMetadata UP-TO-DATE
-> Task :sample-app:mergeExtDexDebug UP-TO-DATE
-> Task :benchmark:mapDebugSourceSetPaths UP-TO-DATE
-> Task :benchmark:compileDebugNavigationResources UP-TO-DATE
+> Task :reproparcel-android:mergeLibDexDebugAndroidTest UP-TO-DATE
+> Task :reproparcel-compose:extractDebugAnnotations UP-TO-DATE
+> Task :benchmark:mergeDebugResources UP-TO-DATE
+> Task :reproparcel-android:mergeDebugAndroidTestResources UP-TO-DATE
+> Task :reproparcel-android:extractDeepLinksDebug UP-TO-DATE
 > Task :sample-app:checkDebugAarMetadata UP-TO-DATE
 > Task :sample-app:mapDebugSourceSetPaths UP-TO-DATE
 > Task :sample-app:compileDebugNavigationResources UP-TO-DATE
-> Task :reproparcel-android:mergeDebugAndroidTestResources UP-TO-DATE
-> Task :reproparcel-android:extractDeepLinksDebug UP-TO-DATE
-> Task :benchmark:mergeDebugResources UP-TO-DATE
-> Task :reproparcel-compose:extractDebugAnnotations UP-TO-DATE
+> Task :reproparcel-android:mergeDebugAndroidTestManifest UP-TO-DATE
+> Task :reproparcel-android:processDebugAndroidTestManifest UP-TO-DATE
+> Task :benchmark:mergeDebugManifest UP-TO-DATE
+> Task :benchmark:processDebugManifest UP-TO-DATE
 > Task :sample-app:mergeDebugResources UP-TO-DATE
 > Task :sample-app:createDebugCompatibleScreenManifests UP-TO-DATE
+> Task :reproparcel-compose:compileDebugKotlin UP-TO-DATE
 > Task :sample-app:extractDeepLinksDebug UP-TO-DATE
 > Task :sample-app:mergeDebugJniLibFolders UP-TO-DATE
+> Task :reproparcel-compose:compileDebugJavaWithJavac NO-SOURCE
 > Task :sample-app:validateSigningDebug UP-TO-DATE
 > Task :sample-app:writeDebugAppMetadata UP-TO-DATE
 > Task :sample-app:writeDebugSigningConfigVersions UP-TO-DATE
 > Task :sample-app:preReleaseBuild UP-TO-DATE
-> Task :sample-app:mergeReleaseJniLibFolders UP-TO-DATE
-> Task :sample-app:checkReleaseDuplicateClasses UP-TO-DATE
-> Task :sample-app:generateReleaseResources UP-TO-DATE
-> Task :sample-app:packageReleaseResources UP-TO-DATE
-> Task :reproparcel-android:mergeDebugAndroidTestManifest UP-TO-DATE
-> Task :benchmark:mergeDebugManifest UP-TO-DATE
-> Task :reproparcel-android:processDebugAndroidTestManifest UP-TO-DATE
-> Task :sample-app:javaPreCompileRelease UP-TO-DATE
-> Task :benchmark:processDebugManifest UP-TO-DATE
-> Task :sample-app:mapReleaseSourceSetPaths UP-TO-DATE
-> Task :sample-app:createReleaseCompatibleScreenManifests UP-TO-DATE
-> Task :sample-app:extractDeepLinksRelease UP-TO-DATE
-> Task :sample-app:extractProguardFiles UP-TO-DATE
-> Task :sample-app:mergeReleaseStartupProfile UP-TO-DATE
-> Task :sample-app:generateReleaseAssets UP-TO-DATE
-> Task :reproparcel-compose:compileDebugKotlin UP-TO-DATE
-> Task :sample-app:extractReleaseVersionControlInfo
-> Task :reproparcel-compose:compileDebugJavaWithJavac NO-SOURCE
 > Task :reproparcel-compose:mergeDebugGeneratedProguardFiles UP-TO-DATE
 > Task :reproparcel-compose:mergeDebugConsumerProguardFiles UP-TO-DATE
+> Task :sample-app:mergeReleaseJniLibFolders UP-TO-DATE
 > Task :reproparcel-compose:compressDebugJavaRes UP-TO-DATE
-> Task :sample-app:collectReleaseDependencies UP-TO-DATE
 > Task :reproparcel-compose:mergeDebugJavaResource UP-TO-DATE
-> Task :sample-app:sdkReleaseDependencyData UP-TO-DATE
 > Task :reproparcel-compose:syncDebugLibJars UP-TO-DATE
-> Task :sample-app:validateSigningRelease UP-TO-DATE
-> Task :sample-app:writeReleaseAppMetadata UP-TO-DATE
-> Task :reproparcel-android:processDebugAndroidTestResources UP-TO-DATE
-> Task :sample-app:writeReleaseSigningConfigVersions UP-TO-DATE
-> Task :benchmark:processDebugResources UP-TO-DATE
 > Task :reproparcel-compose:bundleDebugAar UP-TO-DATE
 > Task :reproparcel-compose:assembleDebug UP-TO-DATE
+> Task :reproparcel-android:processDebugAndroidTestResources UP-TO-DATE
+> Task :benchmark:processDebugResources UP-TO-DATE
 > Task :reproparcel-compose:bundleLibCompileToJarDebug UP-TO-DATE
-> Task :benchmark:dexBuilderDebug UP-TO-DATE
 > Task :reproparcel-android:dexBuilderDebugAndroidTest UP-TO-DATE
-> Task :benchmark:mergeProjectDexDebug UP-TO-DATE
 > Task :reproparcel-android:mergeProjectDexDebugAndroidTest UP-TO-DATE
-> Task :benchmark:mergeDebugJniLibFolders UP-TO-DATE
 > Task :reproparcel-android:copyDebugJniLibsProjectOnly UP-TO-DATE
 > Task :reproparcel-android:mergeDebugAndroidTestJniLibFolders UP-TO-DATE
+> Task :benchmark:dexBuilderDebug UP-TO-DATE
+> Task :benchmark:mergeProjectDexDebug UP-TO-DATE
+> Task :benchmark:mergeDebugJniLibFolders UP-TO-DATE
+> Task :sample-app:checkReleaseDuplicateClasses UP-TO-DATE
+> Task :reproparcel-android:mergeDebugAndroidTestNativeLibs NO-SOURCE
+> Task :reproparcel-android:stripDebugAndroidTestDebugSymbols NO-SOURCE
+> Task :reproparcel-android:validateSigningDebugAndroidTest UP-TO-DATE
+> Task :reproparcel-android:writeDebugAndroidTestSigningConfigVersions UP-TO-DATE
 > Task :benchmark:mergeDebugNativeLibs UP-TO-DATE
 > Task :benchmark:stripDebugDebugSymbols UP-TO-DATE
 > Task :benchmark:validateSigningDebug UP-TO-DATE
 > Task :benchmark:writeDebugSigningConfigVersions UP-TO-DATE
-> Task :reproparcel-android:mergeDebugAndroidTestNativeLibs NO-SOURCE
-> Task :reproparcel-android:stripDebugAndroidTestDebugSymbols NO-SOURCE
-> Task :reproparcel-android:validateSigningDebugAndroidTest UP-TO-DATE
-> Task :benchmark:packageDebug UP-TO-DATE
-> Task :reproparcel-android:writeDebugAndroidTestSigningConfigVersions UP-TO-DATE
-> Task :benchmark:createDebugApkListingFileRedirect UP-TO-DATE
-> Task :benchmark:assembleDebug UP-TO-DATE
-> Task :reproparcel-compose:compileDebugAndroidTestKotlin UP-TO-DATE
 > Task :reproparcel-android:packageDebugAndroidTest UP-TO-DATE
 > Task :reproparcel-android:createDebugAndroidTestApkListingFileRedirect UP-TO-DATE
 > Task :reproparcel-android:assembleDebugAndroidTest UP-TO-DATE
 > Task :reproparcel-android:bundleLibRuntimeToJarDebug UP-TO-DATE
 > Task :reproparcel-android:preDebugUnitTestBuild UP-TO-DATE
-> Task :reproparcel-compose:compileDebugAndroidTestJavaWithJavac NO-SOURCE
+> Task :benchmark:packageDebug UP-TO-DATE
 > Task :reproparcel-android:checkDebugUnitTestAarMetadata UP-TO-DATE
+> Task :benchmark:createDebugApkListingFileRedirect UP-TO-DATE
+> Task :benchmark:assembleDebug UP-TO-DATE
 > Task :reproparcel-android:mapDebugUnitTestSourceSetPaths UP-TO-DATE
 > Task :reproparcel-android:generateDebugUnitTestResources UP-TO-DATE
 > Task :reproparcel-android:mergeDebugUnitTestResources UP-TO-DATE
+> Task :reproparcel-compose:compileDebugAndroidTestKotlin UP-TO-DATE
 > Task :reproparcel-android:mergeDebugUnitTestManifest UP-TO-DATE
 > Task :reproparcel-android:processDebugUnitTestManifest UP-TO-DATE
-> Task :reproparcel-compose:mergeDebugAndroidTestAssets UP-TO-DATE
-> Task :reproparcel-compose:compressDebugAndroidTestAssets UP-TO-DATE
-> Task :reproparcel-compose:compressDebugAndroidTestJavaRes UP-TO-DATE
+> Task :reproparcel-compose:compileDebugAndroidTestJavaWithJavac NO-SOURCE
 > Task :reproparcel-android:processDebugUnitTestResources UP-TO-DATE
 > Task :reproparcel-android:compileDebugUnitTestKotlin NO-SOURCE
 > Task :reproparcel-android:javaPreCompileDebugUnitTest UP-TO-DATE
@@ -308,56 +295,70 @@ dependency-check: PASS (16 groups)
 > Task :reproparcel-android:generateDebugUnitTestConfig UP-TO-DATE
 > Task :reproparcel-android:testDebugUnitTest NO-SOURCE
 > Task :reproparcel-android:preReleaseBuild UP-TO-DATE
+> Task :reproparcel-compose:mergeDebugAndroidTestAssets UP-TO-DATE
 > Task :reproparcel-android:mergeReleaseJniLibFolders UP-TO-DATE
+> Task :reproparcel-compose:compressDebugAndroidTestAssets UP-TO-DATE
 > Task :reproparcel-android:mergeReleaseNativeLibs NO-SOURCE
 > Task :reproparcel-android:copyReleaseJniLibsProjectOnly UP-TO-DATE
+> Task :reproparcel-compose:compressDebugAndroidTestJavaRes UP-TO-DATE
 > Task :reproparcel-android:generateReleaseResources UP-TO-DATE
-> Task :reproparcel-compose:mergeDebugAndroidTestJavaResource UP-TO-DATE
 > Task :reproparcel-android:packageReleaseResources UP-TO-DATE
-> Task :reproparcel-compose:desugarDebugAndroidTestFileDependencies UP-TO-DATE
 > Task :reproparcel-android:processReleaseNavigationResources UP-TO-DATE
 > Task :reproparcel-android:parseReleaseLocalResources UP-TO-DATE
 > Task :reproparcel-android:generateReleaseRFile UP-TO-DATE
-> Task :sample-app:compileDebugKotlin UP-TO-DATE
-> Task :reproparcel-compose:mergeExtDexDebugAndroidTest UP-TO-DATE
+> Task :reproparcel-compose:mergeDebugAndroidTestJavaResource UP-TO-DATE
 > Task :reproparcel-android:compileReleaseKotlin UP-TO-DATE
-> Task :reproparcel-compose:bundleLibRuntimeToDirDebug UP-TO-DATE
+> Task :reproparcel-compose:desugarDebugAndroidTestFileDependencies UP-TO-DATE
 > Task :reproparcel-android:javaPreCompileRelease UP-TO-DATE
-> Task :sample-app:compileDebugJavaWithJavac NO-SOURCE
 > Task :reproparcel-android:compileReleaseJavaWithJavac NO-SOURCE
-> Task :sample-app:compressDebugJavaRes UP-TO-DATE
 > Task :reproparcel-android:bundleLibCompileToJarRelease UP-TO-DATE
 > Task :reproparcel-android:mergeReleaseGeneratedProguardFiles UP-TO-DATE
 > Task :reproparcel-android:exportReleaseConsumerProguardFiles UP-TO-DATE
-> Task :reproparcel-compose:checkDebugAndroidTestAarMetadata UP-TO-DATE
 > Task :reproparcel-android:bundleLibRuntimeToJarRelease UP-TO-DATE
-> Task :reproparcel-compose:mergeLibDexDebugAndroidTest UP-TO-DATE
 > Task :reproparcel-android:prepareReleaseArtProfile UP-TO-DATE
-> Task :reproparcel-compose:mapDebugAndroidTestSourceSetPaths UP-TO-DATE
-> Task :reproparcel-compose:compileDebugAndroidTestNavigationResources UP-TO-DATE
-> Task :reproparcel-compose:mapDebugSourceSetPaths UP-TO-DATE
 > Task :reproparcel-android:mapReleaseSourceSetPaths UP-TO-DATE
-> Task :reproparcel-compose:compileDebugLibraryResources UP-TO-DATE
 > Task :reproparcel-android:compileReleaseLibraryResources UP-TO-DATE
 > Task :reproparcel-android:writeReleaseAarMetadata UP-TO-DATE
 > Task :reproparcel-android:extractDeepLinksRelease UP-TO-DATE
+> Task :reproparcel-compose:mergeExtDexDebugAndroidTest UP-TO-DATE
+> Task :reproparcel-compose:bundleLibRuntimeToDirDebug UP-TO-DATE
+> Task :sample-app:generateReleaseResources UP-TO-DATE
 > Task :reproparcel-android:processReleaseManifest UP-TO-DATE
+> Task :sample-app:packageReleaseResources UP-TO-DATE
 > Task :reproparcel-android:compressReleaseJavaRes UP-TO-DATE
 > Task :reproparcel-android:generateReleaseAssets UP-TO-DATE
-> Task :sample-app:mergeDebugJavaResource UP-TO-DATE
 > Task :reproparcel-android:mergeReleaseAssets UP-TO-DATE
 > Task :sample-app:mergeLibDexDebug UP-TO-DATE
 > Task :reproparcel-android:extractProguardFiles UP-TO-DATE
+> Task :sample-app:javaPreCompileRelease UP-TO-DATE
+> Task :sample-app:mapReleaseSourceSetPaths UP-TO-DATE
+> Task :sample-app:createReleaseCompatibleScreenManifests UP-TO-DATE
+> Task :reproparcel-compose:checkDebugAndroidTestAarMetadata UP-TO-DATE
+> Task :sample-app:extractDeepLinksRelease UP-TO-DATE
+> Task :sample-app:extractProguardFiles UP-TO-DATE
+> Task :reproparcel-compose:mergeLibDexDebugAndroidTest UP-TO-DATE
+> Task :sample-app:mergeReleaseStartupProfile UP-TO-DATE
+> Task :sample-app:generateReleaseAssets UP-TO-DATE
+> Task :reproparcel-compose:mapDebugAndroidTestSourceSetPaths UP-TO-DATE
+> Task :reproparcel-compose:compileDebugAndroidTestNavigationResources UP-TO-DATE
+> Task :sample-app:extractReleaseVersionControlInfo UP-TO-DATE
+> Task :reproparcel-compose:mapDebugSourceSetPaths UP-TO-DATE
+> Task :reproparcel-compose:compileDebugLibraryResources UP-TO-DATE
+> Task :sample-app:collectReleaseDependencies UP-TO-DATE
+> Task :sample-app:sdkReleaseDependencyData UP-TO-DATE
+> Task :sample-app:validateSigningRelease UP-TO-DATE
 > Task :reproparcel-compose:mergeDebugAndroidTestResources UP-TO-DATE
+> Task :sample-app:writeReleaseAppMetadata UP-TO-DATE
 > Task :reproparcel-compose:extractDeepLinksDebug UP-TO-DATE
+> Task :sample-app:writeReleaseSigningConfigVersions UP-TO-DATE
 > Task :reproparcel-android:generateReleaseLintVitalModel UP-TO-DATE
 > Task :sample-app:processDebugMainManifest UP-TO-DATE
 > Task :reproparcel-compose:mergeDebugAndroidTestManifest UP-TO-DATE
+> Task :reproparcel-android:lintVitalAnalyzeRelease UP-TO-DATE
 > Task :sample-app:processDebugManifest UP-TO-DATE
+> Task :reproparcel-android:createFullJarRelease UP-TO-DATE
 > Task :sample-app:processDebugManifestForPackage UP-TO-DATE
 > Task :reproparcel-compose:processDebugAndroidTestManifest UP-TO-DATE
-> Task :reproparcel-android:lintVitalAnalyzeRelease UP-TO-DATE
-> Task :reproparcel-android:createFullJarRelease UP-TO-DATE
 > Task :reproparcel-android:generateReleaseLintModel UP-TO-DATE
 > Task :reproparcel-android:checkReleaseAarMetadata UP-TO-DATE
 > Task :reproparcel-android:extractDeepLinksForAarRelease UP-TO-DATE
@@ -368,22 +369,17 @@ dependency-check: PASS (16 groups)
 > Task :reproparcel-android:bundleReleaseLocalLintAar UP-TO-DATE
 > Task :reproparcel-android:writeReleaseLintModelMetadata UP-TO-DATE
 > Task :reproparcel-compose:processDebugAndroidTestResources UP-TO-DATE
+> Task :sample-app:processDebugResources UP-TO-DATE
 > Task :reproparcel-compose:dexBuilderDebugAndroidTest UP-TO-DATE
 > Task :reproparcel-compose:mergeProjectDexDebugAndroidTest UP-TO-DATE
 > Task :reproparcel-compose:copyDebugJniLibsProjectOnly UP-TO-DATE
-> Task :sample-app:processDebugResources UP-TO-DATE
 > Task :reproparcel-compose:mergeDebugAndroidTestJniLibFolders UP-TO-DATE
-> Task :sample-app:dexBuilderDebug UP-TO-DATE
-> Task :sample-app:mergeProjectDexDebug UP-TO-DATE
-> Task :reproparcel-compose:mergeDebugAndroidTestNativeLibs UP-TO-DATE
-> Task :reproparcel-compose:stripDebugAndroidTestDebugSymbols UP-TO-DATE
 > Task :sample-app:mergeDebugNativeLibs UP-TO-DATE
-> Task :reproparcel-compose:validateSigningDebugAndroidTest UP-TO-DATE
+> Task :reproparcel-compose:mergeDebugAndroidTestNativeLibs UP-TO-DATE
 > Task :sample-app:stripDebugDebugSymbols UP-TO-DATE
+> Task :reproparcel-compose:stripDebugAndroidTestDebugSymbols UP-TO-DATE
+> Task :reproparcel-compose:validateSigningDebugAndroidTest UP-TO-DATE
 > Task :reproparcel-compose:writeDebugAndroidTestSigningConfigVersions UP-TO-DATE
-> Task :sample-app:packageDebug UP-TO-DATE
-> Task :sample-app:createDebugApkListingFileRedirect UP-TO-DATE
-> Task :sample-app:assembleDebug UP-TO-DATE
 > Task :reproparcel-compose:packageDebugAndroidTest UP-TO-DATE
 > Task :reproparcel-compose:createDebugAndroidTestApkListingFileRedirect UP-TO-DATE
 > Task :reproparcel-compose:assembleDebugAndroidTest UP-TO-DATE
@@ -393,12 +389,12 @@ dependency-check: PASS (16 groups)
 > Task :reproparcel-compose:copyReleaseJniLibsProjectOnly UP-TO-DATE
 > Task :reproparcel-compose:generateReleaseResources UP-TO-DATE
 > Task :reproparcel-compose:packageReleaseResources UP-TO-DATE
-> Task :reproparcel-compose:processReleaseNavigationResources UP-TO-DATE
-> Task :reproparcel-compose:parseReleaseLocalResources UP-TO-DATE
-> Task :reproparcel-compose:generateReleaseRFile UP-TO-DATE
 > Task :sample-app:mergeReleaseNativeLibs UP-TO-DATE
 > Task :sample-app:stripReleaseDebugSymbols UP-TO-DATE
 > Task :sample-app:extractReleaseNativeSymbolTables UP-TO-DATE
+> Task :reproparcel-compose:processReleaseNavigationResources UP-TO-DATE
+> Task :reproparcel-compose:parseReleaseLocalResources UP-TO-DATE
+> Task :reproparcel-compose:generateReleaseRFile UP-TO-DATE
 > Task :sample-app:mergeReleaseNativeDebugMetadata NO-SOURCE
 > Task :sample-app:processReleaseNavigationResources UP-TO-DATE
 > Task :sample-app:parseReleaseLocalResources UP-TO-DATE
@@ -430,15 +426,14 @@ dependency-check: PASS (16 groups)
 > Task :sample-app:processReleaseManifest UP-TO-DATE
 > Task :sample-app:processReleaseManifestForPackage UP-TO-DATE
 > Task :sample-app:processReleaseResources UP-TO-DATE
+> Task :reproparcel-compose:generateReleaseLintVitalModel UP-TO-DATE
 > Task :sample-app:expandReleaseArtProfileWildcards UP-TO-DATE
 > Task :sample-app:mergeReleaseGeneratedProguardFiles UP-TO-DATE
 > Task :sample-app:compressReleaseJavaRes UP-TO-DATE
 > Task :sample-app:mergeReleaseJavaResource UP-TO-DATE
-> Task :reproparcel-compose:generateReleaseLintVitalModel UP-TO-DATE
 > Task :reproparcel-compose:lintVitalAnalyzeRelease UP-TO-DATE
 > Task :reproparcel-compose:createFullJarRelease UP-TO-DATE
 > Task :reproparcel-compose:generateReleaseLintModel UP-TO-DATE
-> Task :sample-app:minifyReleaseWithR8 UP-TO-DATE
 > Task :reproparcel-compose:checkReleaseAarMetadata UP-TO-DATE
 > Task :reproparcel-compose:extractDeepLinksForAarRelease UP-TO-DATE
 > Task :reproparcel-compose:extractReleaseAnnotations UP-TO-DATE
@@ -446,6 +441,7 @@ dependency-check: PASS (16 groups)
 > Task :reproparcel-compose:mergeReleaseJavaResource UP-TO-DATE
 > Task :reproparcel-compose:syncReleaseLibJars UP-TO-DATE
 > Task :reproparcel-compose:bundleReleaseLocalLintAar UP-TO-DATE
+> Task :sample-app:minifyReleaseWithR8 UP-TO-DATE
 > Task :reproparcel-compose:writeReleaseLintModelMetadata UP-TO-DATE
 > Task :sample-app:produceReleaseComposeMapping UP-TO-DATE
 > Task :sample-app:reportReleaseComposeMappingErrors
@@ -459,15 +455,21 @@ dependency-check: PASS (16 groups)
 > Task :sample-app:lintVitalRelease
 > Task :sample-app:convertShrunkResourcesToBinaryRelease UP-TO-DATE
 > Task :sample-app:optimizeReleaseResources UP-TO-DATE
-> Task :sample-app:packageRelease
+> Task :sample-app:packageRelease UP-TO-DATE
 > Task :sample-app:createReleaseApkListingFileRedirect UP-TO-DATE
-> Task :sample-app:assembleRelease
-> Task :reproparcel-core:test
-> Task :reproparcel-core:apiBuild UP-TO-DATE
-> Task :reproparcel-core:apiCheck
+> Task :sample-app:assembleRelease UP-TO-DATE
+> Task :sample-app:compileDebugKotlin
+> Task :sample-app:compileDebugJavaWithJavac NO-SOURCE
+> Task :sample-app:compressDebugJavaRes UP-TO-DATE
+> Task :sample-app:mergeDebugJavaResource UP-TO-DATE
+> Task :sample-app:dexBuilderDebug
+> Task :sample-app:mergeProjectDexDebug
+> Task :sample-app:packageDebug
+> Task :sample-app:createDebugApkListingFileRedirect UP-TO-DATE
+> Task :sample-app:assembleDebug
 
-BUILD SUCCESSFUL in 1s
-389 actionable tasks: 6 executed, 383 up-to-date
+BUILD SUCCESSFUL in 2s
+389 actionable tasks: 7 executed, 382 up-to-date
 Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.7.1/userguide/configuration_cache_enabling.html
 == desktop tests ==
 
@@ -478,29 +480,30 @@ Consider enabling configuration cache to speed up this build: https://docs.gradl
 > reproparcel-desktop@0.0.1-SNAPSHOT build
 > tsc -p tsconfig.json
 
-✔ CLI validates a synthetic parcel as JSON (197.464ms)
-✔ CLI returns a non-zero exit for a corrupt parcel (184.099083ms)
-✔ CLI renders an offline viewer (180.073916ms)
-✔ MCP protocol exposes only the read-only report tools (52.547791ms)
-✔ repository lists and returns report IDs without arbitrary paths (50.718584ms)
-✔ repository rejects traversal-shaped report IDs (1.747334ms)
-✔ reads a valid synthetic parcel and sanitizes the PNG (37.0175ms)
-✔ reads the cross-writer synthetic golden parcel (2.3185ms)
-✔ supports a text-only parcel (5.607875ms)
-✔ rejects a checksum mismatch (4.072208ms)
-✔ rejects an unreferenced entry (5.205458ms)
-✔ rejects an unsupported extra entry (2.4675ms)
-✔ json budget rejects depth and node abuse (0.624458ms)
-✔ renders inert HTML with CSP and escaped report text (38.695334ms)
-✔ text-only viewer does not point at a missing image (7.237541ms)
-ℹ tests 15
+✔ CLI validates a synthetic parcel as JSON (204.734666ms)
+✔ CLI returns a non-zero exit for a corrupt parcel (194.93325ms)
+✔ CLI resolves schemas when launched from an unrelated working directory (185.385708ms)
+✔ CLI renders an offline viewer (188.6905ms)
+✔ MCP protocol exposes only the read-only report tools (54.78375ms)
+✔ repository lists and returns report IDs without arbitrary paths (57.019125ms)
+✔ repository rejects traversal-shaped report IDs (1.848542ms)
+✔ reads a valid synthetic parcel and sanitizes the PNG (43.553542ms)
+✔ reads the cross-writer synthetic golden parcel (3.469458ms)
+✔ supports a text-only parcel (4.002792ms)
+✔ rejects a checksum mismatch (6.286ms)
+✔ rejects an unreferenced entry (3.17ms)
+✔ rejects an unsupported extra entry (5.477ms)
+✔ json budget rejects depth and node abuse (0.655042ms)
+✔ renders inert HTML with CSP and escaped report text (44.4145ms)
+✔ text-only viewer does not point at a missing image (6.896459ms)
+ℹ tests 16
 ℹ suites 0
-ℹ pass 15
+ℹ pass 16
 ℹ fail 0
 ℹ cancelled 0
 ℹ skipped 0
 ℹ todo 0
-ℹ duration_ms 692.194334
+ℹ duration_ms 903.374916
 == relay tests ==
 
 > reproparcel-server@0.0.1-SNAPSHOT test
@@ -510,12 +513,12 @@ Consider enabling configuration cache to speed up this build: https://docs.gradl
 > reproparcel-server@0.0.1-SNAPSHOT build
 > tsc -p tsconfig.json
 
-✔ write-only ingestion is authenticated, idempotent and encrypted at rest (25.986458ms)
-✔ revoked credentials cannot ingest or read (4.130791ms)
-✔ daily quota is enforced (5.403541ms)
-✔ audit log contains identifiers but no report content (3.843333ms)
-✔ project and admin credentials must differ (1.711916ms)
-✔ GitHub adapter sends the token only server-side and creates an issue (0.43825ms)
+✔ write-only ingestion is authenticated, idempotent and encrypted at rest (32.461417ms)
+✔ revoked credentials cannot ingest or read (4.50425ms)
+✔ daily quota is enforced (5.5075ms)
+✔ audit log contains identifiers but no report content (5.050542ms)
+✔ project and admin credentials must differ (1.6885ms)
+✔ GitHub adapter sends the token only server-side and creates an issue (0.469667ms)
 ℹ tests 6
 ℹ suites 0
 ℹ pass 6
@@ -523,34 +526,34 @@ Consider enabling configuration cache to speed up this build: https://docs.gradl
 ℹ cancelled 0
 ℹ skipped 0
 ℹ todo 0
-ℹ duration_ms 164.380916
+ℹ duration_ms 177.393875
 == lint ==
-> Task :sample-app:preBuild UP-TO-DATE
-> Task :reproparcel-core:checkKotlinGradlePluginConfigurationErrors SKIPPED
-> Task :reproparcel-android:preBuild UP-TO-DATE
-> Task :spike:capture-lab:preBuild UP-TO-DATE
 > Task :reproparcel-compose:preBuild UP-TO-DATE
+> Task :sample-app:preBuild UP-TO-DATE
+> Task :spike:capture-lab:preBuild UP-TO-DATE
+> Task :reproparcel-android:preBuild UP-TO-DATE
 > Task :reproparcel-okhttp:preBuild UP-TO-DATE
-> Task :spike:capture-lab:preDebugBuild UP-TO-DATE
-> Task :sample-app:preDebugBuild UP-TO-DATE
-> Task :reproparcel-android:preDebugBuild UP-TO-DATE
+> Task :reproparcel-core:checkKotlinGradlePluginConfigurationErrors SKIPPED
 > Task :reproparcel-compose:preDebugBuild UP-TO-DATE
 > Task :reproparcel-okhttp:preDebugBuild UP-TO-DATE
+> Task :reproparcel-android:preDebugBuild UP-TO-DATE
+> Task :sample-app:preDebugBuild UP-TO-DATE
+> Task :spike:capture-lab:preDebugBuild UP-TO-DATE
+> Task :reproparcel-compose:generateDebugResources UP-TO-DATE
 > Task :sample-app:generateDebugResources UP-TO-DATE
 > Task :spike:capture-lab:generateDebugResources UP-TO-DATE
-> Task :reproparcel-compose:generateDebugResources UP-TO-DATE
+> Task :reproparcel-compose:packageDebugResources UP-TO-DATE
 > Task :spike:capture-lab:packageDebugResources UP-TO-DATE
 > Task :sample-app:packageDebugResources UP-TO-DATE
-> Task :sample-app:javaPreCompileDebug UP-TO-DATE
-> Task :reproparcel-compose:packageDebugResources UP-TO-DATE
-> Task :sample-app:mapDebugSourceSetPaths UP-TO-DATE
 > Task :reproparcel-compose:processDebugNavigationResources UP-TO-DATE
+> Task :sample-app:javaPreCompileDebug UP-TO-DATE
+> Task :sample-app:mapDebugSourceSetPaths UP-TO-DATE
 > Task :sample-app:createDebugCompatibleScreenManifests UP-TO-DATE
 > Task :sample-app:extractDeepLinksDebug UP-TO-DATE
 > Task :sample-app:preDebugAndroidTestBuild SKIPPED
+> Task :reproparcel-compose:parseDebugLocalResources UP-TO-DATE
 > Task :sample-app:extractProguardFiles UP-TO-DATE
 > Task :sample-app:preDebugUnitTestBuild UP-TO-DATE
-> Task :reproparcel-compose:parseDebugLocalResources UP-TO-DATE
 > Task :reproparcel-compose:generateDebugRFile UP-TO-DATE
 > Task :reproparcel-compose:extractDeepLinksForAarDebug UP-TO-DATE
 > Task :reproparcel-compose:generateDebugAssets UP-TO-DATE
@@ -579,99 +582,99 @@ Consider enabling configuration cache to speed up this build: https://docs.gradl
 > Task :reproparcel-okhttp:javaPreCompileDebug UP-TO-DATE
 > Task :reproparcel-okhttp:prepareDebugArtProfile UP-TO-DATE
 > Task :reproparcel-okhttp:prepareLintJarForPublish UP-TO-DATE
+> Task :reproparcel-android:checkDebugAarMetadata UP-TO-DATE
 > Task :reproparcel-okhttp:processDebugManifest UP-TO-DATE
 > Task :reproparcel-okhttp:writeDebugAarMetadata UP-TO-DATE
 > Task :reproparcel-okhttp:preDebugAndroidTestBuild UP-TO-DATE
 > Task :reproparcel-okhttp:writeDebugLintModelMetadata UP-TO-DATE
+> Task :reproparcel-android:generateDebugResources UP-TO-DATE
 > Task :reproparcel-okhttp:extractProguardFiles UP-TO-DATE
 > Task :reproparcel-okhttp:preDebugUnitTestBuild UP-TO-DATE
+> Task :reproparcel-android:packageDebugResources UP-TO-DATE
 > Task :reproparcel-okhttp:mapDebugSourceSetPaths UP-TO-DATE
+> Task :reproparcel-android:processDebugNavigationResources UP-TO-DATE
 > Task :reproparcel-okhttp:compileDebugLibraryResources UP-TO-DATE
 > Task :reproparcel-okhttp:extractDeepLinksDebug UP-TO-DATE
-> Task :reproparcel-android:checkDebugAarMetadata UP-TO-DATE
-> Task :reproparcel-core:compileKotlin UP-TO-DATE
-> Task :reproparcel-android:generateDebugResources UP-TO-DATE
-> Task :reproparcel-core:compileJava NO-SOURCE
-> Task :reproparcel-android:packageDebugResources UP-TO-DATE
-> Task :reproparcel-core:processResources NO-SOURCE
-> Task :reproparcel-core:classes UP-TO-DATE
-> Task :reproparcel-android:processDebugNavigationResources UP-TO-DATE
 > Task :reproparcel-android:parseDebugLocalResources UP-TO-DATE
-> Task :reproparcel-core:jar UP-TO-DATE
+> Task :reproparcel-core:compileKotlin UP-TO-DATE
 > Task :reproparcel-android:generateDebugRFile UP-TO-DATE
-> Task :reproparcel-android:extractDebugAnnotations UP-TO-DATE
-> Task :reproparcel-okhttp:extractDebugAnnotations UP-TO-DATE
+> Task :reproparcel-core:compileJava NO-SOURCE
 > Task :reproparcel-android:extractDeepLinksForAarDebug UP-TO-DATE
 > Task :reproparcel-android:generateDebugAssets UP-TO-DATE
+> Task :reproparcel-core:processResources NO-SOURCE
+> Task :reproparcel-core:classes UP-TO-DATE
 > Task :reproparcel-android:mergeDebugAssets UP-TO-DATE
+> Task :reproparcel-android:javaPreCompileDebug UP-TO-DATE
+> Task :reproparcel-core:jar UP-TO-DATE
+> Task :reproparcel-android:prepareDebugArtProfile UP-TO-DATE
+> Task :reproparcel-android:extractDebugAnnotations UP-TO-DATE
+> Task :reproparcel-okhttp:extractDebugAnnotations UP-TO-DATE
 > Task :reproparcel-okhttp:compileDebugKotlin UP-TO-DATE
 > Task :reproparcel-android:compileDebugKotlin UP-TO-DATE
+> Task :sample-app:mergeDebugResources UP-TO-DATE
 > Task :reproparcel-okhttp:compileDebugJavaWithJavac NO-SOURCE
-> Task :reproparcel-android:javaPreCompileDebug UP-TO-DATE
-> Task :reproparcel-okhttp:mergeDebugGeneratedProguardFiles UP-TO-DATE
-> Task :reproparcel-okhttp:mergeDebugConsumerProguardFiles UP-TO-DATE
 > Task :reproparcel-android:compileDebugJavaWithJavac NO-SOURCE
-> Task :reproparcel-okhttp:compressDebugJavaRes UP-TO-DATE
-> Task :spike:capture-lab:processDebugNavigationResources UP-TO-DATE
-> Task :sample-app:processDebugNavigationResources UP-TO-DATE
-> Task :reproparcel-okhttp:mergeDebugJavaResource UP-TO-DATE
 > Task :reproparcel-android:mergeDebugGeneratedProguardFiles UP-TO-DATE
-> Task :reproparcel-okhttp:syncDebugLibJars UP-TO-DATE
+> Task :reproparcel-okhttp:mergeDebugGeneratedProguardFiles UP-TO-DATE
 > Task :reproparcel-android:mergeDebugConsumerProguardFiles UP-TO-DATE
-> Task :spike:capture-lab:parseDebugLocalResources UP-TO-DATE
-> Task :reproparcel-android:prepareDebugArtProfile UP-TO-DATE
-> Task :sample-app:parseDebugLocalResources UP-TO-DATE
-> Task :reproparcel-okhttp:bundleDebugLocalLintAar UP-TO-DATE
-> Task :spike:capture-lab:generateDebugRFile UP-TO-DATE
-> Task :sample-app:generateDebugRFile UP-TO-DATE
+> Task :reproparcel-okhttp:mergeDebugConsumerProguardFiles UP-TO-DATE
+> Task :spike:capture-lab:processDebugNavigationResources UP-TO-DATE
 > Task :reproparcel-android:prepareLintJarForPublish UP-TO-DATE
-> Task :reproparcel-okhttp:bundleLibRuntimeToJarDebug UP-TO-DATE
-> Task :sample-app:compileDebugNavigationResources UP-TO-DATE
+> Task :reproparcel-okhttp:compressDebugJavaRes UP-TO-DATE
 > Task :reproparcel-android:processDebugManifest UP-TO-DATE
-> Task :reproparcel-okhttp:createFullJarDebug UP-TO-DATE
+> Task :reproparcel-okhttp:mergeDebugJavaResource UP-TO-DATE
+> Task :spike:capture-lab:parseDebugLocalResources UP-TO-DATE
+> Task :reproparcel-okhttp:syncDebugLibJars UP-TO-DATE
 > Task :reproparcel-android:compressDebugJavaRes UP-TO-DATE
 > Task :reproparcel-android:mergeDebugJavaResource UP-TO-DATE
+> Task :spike:capture-lab:generateDebugRFile UP-TO-DATE
+> Task :reproparcel-okhttp:bundleDebugLocalLintAar UP-TO-DATE
 > Task :reproparcel-android:syncDebugLibJars UP-TO-DATE
+> Task :reproparcel-okhttp:bundleLibRuntimeToJarDebug UP-TO-DATE
 > Task :reproparcel-android:writeDebugAarMetadata UP-TO-DATE
+> Task :reproparcel-okhttp:createFullJarDebug UP-TO-DATE
 > Task :reproparcel-android:bundleDebugLocalLintAar UP-TO-DATE
+> Task :sample-app:processDebugNavigationResources UP-TO-DATE
 > Task :reproparcel-android:bundleLibRuntimeToJarDebug UP-TO-DATE
 > Task :reproparcel-android:createFullJarDebug UP-TO-DATE
 > Task :reproparcel-android:preDebugAndroidTestBuild UP-TO-DATE
+> Task :sample-app:parseDebugLocalResources UP-TO-DATE
 > Task :reproparcel-android:writeDebugLintModelMetadata UP-TO-DATE
-> Task :sample-app:mergeDebugResources UP-TO-DATE
+> Task :sample-app:generateDebugRFile UP-TO-DATE
 > Task :reproparcel-okhttp:generateDebugAndroidTestLintModel UP-TO-DATE
 > Task :reproparcel-okhttp:generateDebugLintReportModel UP-TO-DATE
 > Task :sample-app:checkDebugAarMetadata UP-TO-DATE
+> Task :sample-app:compileDebugNavigationResources UP-TO-DATE
 > Task :reproparcel-okhttp:generateDebugUnitTestLintModel UP-TO-DATE
 > Task :reproparcel-compose:checkDebugAarMetadata UP-TO-DATE
-> Task :reproparcel-okhttp:lintAnalyzeDebug UP-TO-DATE
 > Task :spike:capture-lab:compileDebugKotlin UP-TO-DATE
 > Task :spike:capture-lab:javaPreCompileDebug UP-TO-DATE
-> Task :reproparcel-android:generateDebugAndroidTestLintModel UP-TO-DATE
 > Task :spike:capture-lab:compileDebugJavaWithJavac NO-SOURCE
+> Task :reproparcel-android:generateDebugAndroidTestLintModel UP-TO-DATE
 > Task :reproparcel-android:extractProguardFiles UP-TO-DATE
-> Task :reproparcel-okhttp:lintAnalyzeDebugAndroidTest UP-TO-DATE
+> Task :reproparcel-okhttp:lintAnalyzeDebug UP-TO-DATE
 > Task :reproparcel-android:generateDebugLintReportModel UP-TO-DATE
 > Task :reproparcel-android:preDebugUnitTestBuild UP-TO-DATE
-> Task :reproparcel-okhttp:lintAnalyzeDebugUnitTest UP-TO-DATE
 > Task :spike:capture-lab:checkDebugAarMetadata UP-TO-DATE
 > Task :spike:capture-lab:mapDebugSourceSetPaths UP-TO-DATE
 > Task :spike:capture-lab:compileDebugNavigationResources UP-TO-DATE
-> Task :reproparcel-okhttp:lintReportDebug UP-TO-DATE
+> Task :reproparcel-okhttp:lintAnalyzeDebugAndroidTest UP-TO-DATE
 > Task :reproparcel-android:generateDebugUnitTestLintModel UP-TO-DATE
+> Task :reproparcel-okhttp:lintAnalyzeDebugUnitTest UP-TO-DATE
+> Task :spike:capture-lab:mergeDebugResources UP-TO-DATE
+> Task :reproparcel-okhttp:lintReportDebug UP-TO-DATE
+> Task :spike:capture-lab:createDebugCompatibleScreenManifests UP-TO-DATE
+> Task :spike:capture-lab:extractDeepLinksDebug UP-TO-DATE
 > Task :reproparcel-okhttp:lintDebug
 > Task :reproparcel-okhttp:lint
 > Task :reproparcel-okhttp:generateDebugLintModel UP-TO-DATE
-> Task :reproparcel-okhttp:bundleLibCompileToJarDebug UP-TO-DATE
-> Task :spike:capture-lab:mergeDebugResources UP-TO-DATE
-> Task :spike:capture-lab:createDebugCompatibleScreenManifests UP-TO-DATE
-> Task :spike:capture-lab:extractDeepLinksDebug UP-TO-DATE
 > Task :reproparcel-android:lintAnalyzeDebug UP-TO-DATE
+> Task :reproparcel-okhttp:bundleLibCompileToJarDebug UP-TO-DATE
 > Task :reproparcel-android:lintAnalyzeDebugAndroidTest UP-TO-DATE
+> Task :reproparcel-android:lintAnalyzeDebugUnitTest UP-TO-DATE
 > Task :spike:capture-lab:processDebugMainManifest UP-TO-DATE
 > Task :spike:capture-lab:processDebugManifest UP-TO-DATE
 > Task :spike:capture-lab:processDebugManifestForPackage UP-TO-DATE
-> Task :reproparcel-android:lintAnalyzeDebugUnitTest UP-TO-DATE
 > Task :reproparcel-android:lintReportDebug UP-TO-DATE
 > Task :reproparcel-android:lintDebug
 > Task :reproparcel-android:lint
@@ -683,10 +686,10 @@ Consider enabling configuration cache to speed up this build: https://docs.gradl
 > Task :spike:capture-lab:processDebugResources UP-TO-DATE
 > Task :spike:capture-lab:bundleDebugClassesToCompileJar UP-TO-DATE
 > Task :spike:capture-lab:preDebugAndroidTestBuild SKIPPED
+> Task :reproparcel-compose:extractDebugAnnotations UP-TO-DATE
 > Task :sample-app:processDebugMainManifest UP-TO-DATE
 > Task :sample-app:processDebugManifest UP-TO-DATE
 > Task :sample-app:processDebugManifestForPackage UP-TO-DATE
-> Task :reproparcel-compose:extractDebugAnnotations UP-TO-DATE
 > Task :reproparcel-compose:compileDebugKotlin UP-TO-DATE
 > Task :reproparcel-compose:compileDebugJavaWithJavac NO-SOURCE
 > Task :reproparcel-compose:mergeDebugGeneratedProguardFiles UP-TO-DATE
@@ -700,17 +703,17 @@ Consider enabling configuration cache to speed up this build: https://docs.gradl
 > Task :sample-app:processDebugResources UP-TO-DATE
 > Task :spike:capture-lab:generateDebugAndroidTestLintModel UP-TO-DATE
 > Task :spike:capture-lab:extractProguardFiles UP-TO-DATE
+> Task :reproparcel-compose:generateDebugAndroidTestLintModel UP-TO-DATE
 > Task :spike:capture-lab:generateDebugLintReportModel UP-TO-DATE
 > Task :spike:capture-lab:preDebugUnitTestBuild UP-TO-DATE
-> Task :reproparcel-compose:generateDebugAndroidTestLintModel UP-TO-DATE
 > Task :reproparcel-compose:generateDebugLintReportModel UP-TO-DATE
 > Task :spike:capture-lab:generateDebugUnitTestLintModel UP-TO-DATE
 > Task :reproparcel-compose:generateDebugUnitTestLintModel UP-TO-DATE
 > Task :spike:capture-lab:lintAnalyzeDebug UP-TO-DATE
-> Task :spike:capture-lab:lintAnalyzeDebugAndroidTest UP-TO-DATE
 > Task :reproparcel-compose:lintAnalyzeDebug UP-TO-DATE
-> Task :spike:capture-lab:lintAnalyzeDebugUnitTest UP-TO-DATE
+> Task :spike:capture-lab:lintAnalyzeDebugAndroidTest UP-TO-DATE
 > Task :reproparcel-compose:lintAnalyzeDebugAndroidTest UP-TO-DATE
+> Task :spike:capture-lab:lintAnalyzeDebugUnitTest UP-TO-DATE
 > Task :spike:capture-lab:lintReportDebug UP-TO-DATE
 > Task :spike:capture-lab:lintDebug
 > Task :spike:capture-lab:lint
@@ -722,18 +725,18 @@ Consider enabling configuration cache to speed up this build: https://docs.gradl
 > Task :reproparcel-compose:bundleLibCompileToJarDebug UP-TO-DATE
 > Task :sample-app:compileDebugKotlin UP-TO-DATE
 > Task :sample-app:compileDebugJavaWithJavac NO-SOURCE
-> Task :sample-app:bundleDebugClassesToCompileJar UP-TO-DATE
-> Task :sample-app:generateDebugAndroidTestLintModel UP-TO-DATE
-> Task :sample-app:generateDebugLintReportModel UP-TO-DATE
-> Task :sample-app:generateDebugUnitTestLintModel UP-TO-DATE
-> Task :sample-app:lintAnalyzeDebug UP-TO-DATE
-> Task :sample-app:lintAnalyzeDebugAndroidTest UP-TO-DATE
-> Task :sample-app:lintAnalyzeDebugUnitTest UP-TO-DATE
+> Task :sample-app:bundleDebugClassesToCompileJar
+> Task :sample-app:generateDebugLintReportModel
+> Task :sample-app:generateDebugAndroidTestLintModel
+> Task :sample-app:generateDebugUnitTestLintModel
+> Task :sample-app:lintAnalyzeDebugUnitTest
+> Task :sample-app:lintAnalyzeDebugAndroidTest
+> Task :sample-app:lintAnalyzeDebug
 > Task :sample-app:lintReportDebug UP-TO-DATE
 > Task :sample-app:lintDebug
 > Task :sample-app:lint
 
-BUILD SUCCESSFUL in 620ms
-170 actionable tasks: 5 executed, 165 up-to-date
+BUILD SUCCESSFUL in 3s
+170 actionable tasks: 12 executed, 158 up-to-date
 Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.7.1/userguide/configuration_cache_enabling.html
 ci: PASS

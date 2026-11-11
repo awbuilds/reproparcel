@@ -6,12 +6,12 @@ NOT achieved.** External and physical-device gates remain blocked.
 
 ## Local evidence
 
-- Core: 40 JVM tests, API check, schema conformance.
-- Android runtime: 28 instrumentation tests on API 26/30/37.
-- Reporter: 2 tests on API 26/30/37.
+- Core: 43 JVM tests, API check, schema conformance.
+- Android runtime: 37 instrumentation tests on API 26/30/37.
+- Reporter: 11 tests on API 26/30/37.
 - Sample: 2 UI tests on API 26/30/37.
-- OkHttp: 2 pass-through tests.
-- Desktop: 14 tests including the real MCP SDK protocol.
+- OkHttp: 3 pass-through tests.
+- Desktop: 16 tests including the real MCP SDK protocol.
 - R8-minified release sample: capture → editor → exact review → encrypted draft
   save on API 37.2.
 - Release text-only export through SAF → desktop validate/inspect/render on the
@@ -31,8 +31,8 @@ NOT achieved.** External and physical-device gates remain blocked.
 | G-02 two external 30-minute integrations | BLOCKED — no external developers |
 | G-03 physical low/mid-range reliability | BLOCKED — emulator only |
 | G-04 zero seeded privacy leaks | Local fixtures pass; independent review pending |
-| G-05 two real coding clients | BLOCKED — protocol-level only |
-| G-06 offline/no-account flow | Local text flow passes; full device export/import not recorded |
+| G-05 two real coding clients | BLOCKED — OpenCode CLI verified; Codex blocked by model network |
+| G-06 offline/no-account flow | API 37 text-only device export/import/render recorded; full matrix not complete |
 | G-07 public contracts/governance | Schema/API/CI exist; stable release governance incomplete |
 | Physical device matrix | BLOCKED |
 | Independent security/legal review | BLOCKED |

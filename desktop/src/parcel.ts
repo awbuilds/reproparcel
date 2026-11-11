@@ -194,9 +194,9 @@ function parseJson<T>(buffer: Buffer, name: string): T {
 function schemaRoot(): string {
   if (process.env.REPROPARCEL_SCHEMA_ROOT) return process.env.REPROPARCEL_SCHEMA_ROOT;
   const candidates = [
+    fileURLToPath(new URL("../../schema/v1", import.meta.url)),
     path.resolve(process.cwd(), "schema/v1"),
     path.resolve(process.cwd(), "../schema/v1"),
-    fileURLToPath(new URL("../../schema/v1", import.meta.url)),
   ];
   return candidates.find((candidate) => existsSync(candidate)) ?? candidates[0]!;
 }

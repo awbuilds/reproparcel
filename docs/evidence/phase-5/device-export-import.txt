@@ -7,30 +7,32 @@ Flow: sample app → Enable SDK → Open reporter → synthetic description →
 Review text-only report → checked "I reviewed the exact content above" →
 Save file → DocumentsUI SAVE (default `report.reproparcel`).
 
-DocumentsUI appended `.zip` from the `application/zip` MIME type. Pulled file:
+DocumentsUI appended `.zip` from the `application/zip` MIME type and a numeric
+suffix because a previous synthetic export existed. Pulled file:
 
 ```text
-report.reproparcel.zip  1244 bytes
-sha256 1bb77de75a9dcb6cde804cdad61598bcea9a96933a743d36d21f464657db7745
+report.reproparcel (1).zip  1248 bytes
+sha256 24210b603c226bed19e95be9e65e93ef71e550c7c50f36203c791412e5050290
 ```
 
 Desktop commands:
 
 ```text
-reproparcel validate /tmp/report.reproparcel --json
-{"valid":true,"reportId":"efd2b050-d230-47e8-9d9f-f93cd20eff69"}
+reproparcel validate /tmp/report-release.reproparcel --json
+{"valid":true,"reportId":"eea78881-6f1d-49f3-8383-ddca72713132"}
 
-reproparcel inspect /tmp/report.reproparcel --json
-{"valid":true,"summary":{"reportId":"efd2b050-d230-47e8-9d9f-f93cd20eff69",
+reproparcel inspect /tmp/report-release.reproparcel --json
+{"valid":true,"summary":{"reportId":"eea78881-6f1d-49f3-8383-ddca72713132",
  "app":{"packageName":"com.awbuilds.reproparcel.sample","versionName":"0.0.1-SNAPSHOT",
- "versionCode":1,"variant":"debug"},"device":{"apiLevel":37, ...},
- "descriptionLength":12,"events":0,"semanticNodes":0,"image":null,
+ "versionCode":1,"variant":"release"},"device":{"apiLevel":37, ...},
+ "descriptionLength":22,"events":0,"semanticNodes":0,"image":null,
  "omissions":[{"state":"collected"}]}}
 
-reproparcel render /tmp/report.reproparcel --out /tmp/report-viewer
-Rendered /tmp/report-viewer (index.html)
+reproparcel render /tmp/report-release.reproparcel --out /tmp/report-release-viewer
+Rendered /tmp/report-release-viewer (index.html)
 ```
 
-This verifies the reviewed device export validates, inspects and renders offline.
-It is text-only on API 37; the full capture/mask/export/import matrix, two real
-MCP clients and arbitrary-path denial remain blocked release gates.
+This verifies the reviewed release-variant device export validates, inspects and
+renders offline. The sample now derives `variant` from `FLAG_DEBUGGABLE`, so the
+release APK reports `release`. It is text-only on API 37; the full per-API
+capture/mask/export/import matrix and two real MCP clients remain blocked.
