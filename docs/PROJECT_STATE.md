@@ -21,7 +21,7 @@ integration exists.
   local-first reviewed evidence parcels; read-only local agent consumption.
 - [AGENTS.md](../AGENTS.md) — engineering contract, public-repository hygiene,
   exception boundaries, standards and handoff protocol.
-- [Latest handoff](handoffs/0011-2026-11-11-physical-device-verification.md).
+- [Latest handoff](handoffs/0012-2026-11-11-open-source-presentation.md).
 - [Traceability ledger](traceability/prd-lines.jsonl), [Phase 0 audit](audits/phase-0-audit.md),
   [Phase 1 audit](audits/phase-1-audit.md), [Phase 3 audit](audits/phase-3-audit.md) and
   [Final audit](audits/final-audit.md).
@@ -51,6 +51,11 @@ integration exists.
   draft/cache deletion, evidence in parcels, optional-flag enforcement,
   noBackup drafts, aggregate parcel bounds and capture identity checks.
 - ADRs 0001–0014, threat-model draft, phase decisions and evidence.
+- Open-source presentation: README, original brand assets, synthetic
+  screenshots, documentation index, architecture/FAQ/roadmap, governance,
+  support, security and contribution templates, issue forms, Dependabot, Docs
+  and DCO workflows, repository description/topics/Discussions/secret scanning
+  and a custom social preview.
 
 ## Key decisions
 
@@ -66,7 +71,7 @@ integration exists.
 ## Verification status
 
 Phase 2/3: 43 core JVM tests, 3 OkHttp tests, 40 Android runtime tests, 11
-reporter tests and 2 sample tests on API 26/30/37. Phase 4: 16 desktop tests.
+reporter tests and 3 sample tests on API 26/30/37. Phase 4: 16 desktop tests.
 Phase 5: local four-artifact publication, clean consumer assemble, R8 release
 flow and 1.2 MiB sample APK. Phase 6 relay: 6 Node tests. Phase 8 Swift: 5
 XCTest tests. Phase 9 Dart: 4 tests + analyzer. Real hosts: RN release build + reporter flow,
@@ -79,7 +84,9 @@ Physical low/mid-range API 31: 40 runtime, 11 reporter and 3 sample tests pass;
 release capture/editor/review/draft/SAF export and desktop import pass;
 airplane-mode create → SAF export → offline desktop validate/inspect/render also
 passes.
-Benchmark pair is prepared but the device disconnected before the final run.
+Benchmark pair completed on the physical device: startup trace p95 1.55 ms,
+capture p95 211 ms / 15.1 MB peak, trigger-to-composer p95 289 ms, paired
+5×~1,050-frame jank passes, APK delta ~0.40 MiB.
 Phase 0: 10 capture tests on API 26/30/37 plus minified API 26/37 smoke. Exact
 commands and evidence are in `docs/evidence/` and the latest handoff. External interviews, physical-device
 tests, legal/trademark review, Sonatype verification, Maven publication,

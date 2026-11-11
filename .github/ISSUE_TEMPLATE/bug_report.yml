@@ -1,0 +1,92 @@
+name: Bug report
+description: Report a reproducible SDK, reporter, parcel or desktop defect using synthetic data only.
+title: "[Bug]: "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This repository is public. Do not include real reports, screenshots,
+        credentials, personal data, private application code or device serials.
+        Use the smallest synthetic reproduction you can.
+
+        For a security-sensitive issue, use the private vulnerability reporting
+        channel instead of this form.
+
+  - type: input
+    id: version
+    attributes:
+      label: Version or commit
+      description: SDK/desktop version, tag or commit SHA.
+      placeholder: "0.0.1-SNAPSHOT / commit abc1234"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Android runtime
+        - Reporter UI
+        - Capture or masking
+        - Encrypted drafts
+        - Export or share
+        - Schema or parcel writer
+        - Desktop validator or viewer
+        - MCP server
+        - Relay reference
+        - Documentation
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: Android API, device class, host stack, Node version or desktop OS.
+      placeholder: "API 31, low/mid-range device, Kotlin 2.4.21"
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Synthetic reproduction
+      description: Exact steps, commands and fixture names. Do not attach real evidence.
+      render: markdown
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: Include typed outcomes, omission reasons or validator error codes when available.
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Sanitized diagnostics
+      description: Optional. Remove paths, identifiers and report content before pasting.
+      render: text
+
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Public-repository safety
+      options:
+        - label: I used synthetic data and did not include real reports, screenshots, credentials or private application code.
+          required: true
+        - label: I searched existing issues and discussions before opening this report.
+          required: true

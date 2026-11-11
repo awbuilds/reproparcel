@@ -1,0 +1,70 @@
+name: Integration report
+description: Share sanitized evidence from integrating ReproParcel into a host app.
+title: "[Integration]: "
+labels: ["integration", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use synthetic data and generic host descriptions. Do not name a private
+        adopter application or include its package ID, screenshots or code.
+
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Host platform
+      options:
+        - Native Android Kotlin/Compose
+        - Native Android Views
+        - React Native Android
+        - Flutter Android
+        - iOS Swift
+        - Flutter iOS
+        - React Native iOS
+        - Desktop consumer
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: versions
+    attributes:
+      label: Versions
+      description: ReproParcel commit, host stack, Android/iOS API and build variant.
+      placeholder: "commit abc1234, API 31, release build"
+    validations:
+      required: true
+
+  - type: textarea
+    id: flow
+    attributes:
+      label: Integration flow
+      description: Initialization, enablement, reporter launch and export/import steps.
+    validations:
+      required: true
+
+  - type: textarea
+    id: results
+    attributes:
+      label: Results and limitations
+      description: What passed, what was omitted and what remains unverified?
+    validations:
+      required: true
+
+  - type: textarea
+    id: privacy
+    attributes:
+      label: Privacy policy summary
+      description: Which evidence categories were enabled, and what did the host policy exclude?
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Public-repository safety
+      options:
+        - label: I used synthetic data only and removed private application details.
+          required: true
+        - label: I understand a public integration report is not an endorsement or a support contract.
+          required: true

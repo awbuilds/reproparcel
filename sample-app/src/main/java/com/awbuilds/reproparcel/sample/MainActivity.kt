@@ -151,8 +151,8 @@ private fun SampleScreen() {
         }) { Text("Delete local reports") }
 
         Text(
-            "Screenshot and semantic collection are disabled in this sample. " +
-                "The reporter UI is implemented in Phase 2.",
+            "Screenshot collection is enabled in this synthetic sample; " +
+                "semantic collection and network metadata are disabled.",
             style = MaterialTheme.typography.bodySmall,
         )
     }

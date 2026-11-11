@@ -370,7 +370,10 @@ private fun ReporterScreen() {
 
             ReporterStep.EDIT -> {
                 val bitmap = capturedBitmap ?: return@Column
-                Column(modifier = Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                Column(
+                    modifier = Modifier.weight(1f),
+                    verticalArrangement = Arrangement.spacedBy(8.dp),
+                ) {
                     Row(
                         modifier = Modifier.horizontalScroll(rememberScrollState()),
                         horizontalArrangement = Arrangement.spacedBy(8.dp),
@@ -383,12 +386,16 @@ private fun ReporterScreen() {
                             onClick = { if (annotations.isNotEmpty()) annotations.removeAt(annotations.lastIndex) },
                         ) { Text(stringResource(R.string.reporter_undo)) }
                     }
-                    AnnotatedImage(
-                        bitmap = bitmap,
-                        annotations = annotations,
-                        tool = tool,
-                        modifier = Modifier.fillMaxWidth().weight(1f),
-                    )
+                    Column(
+                        modifier = Modifier.weight(1f).verticalScroll(rememberScrollState()),
+                    ) {
+                        AnnotatedImage(
+                            bitmap = bitmap,
+                            annotations = annotations,
+                            tool = tool,
+                            modifier = Modifier.fillMaxWidth(),
+                        )
+                    }
                     Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                         Button(
                             enabled = description.isNotBlank(),

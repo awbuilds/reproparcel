@@ -1,0 +1,33 @@
+name: Docs
+
+on:
+  pull_request:
+  push:
+    branches:
+      - dev
+
+permissions:
+  contents: read
+
+jobs:
+  links-and-markdown:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: Relative links and assets
+        run: python3 scripts/check_docs.py
+      - name: Markdown style
+        run: |
+          npx --yes markdownlint-cli2@0.24.0 \
+            README.md CONTRIBUTING.md SECURITY.md CODE_OF_CONDUCT.md \
+            SUPPORT.md GOVERNANCE.md docs/README.md docs/ARCHITECTURE.md \
+            docs/FAQ.md docs/ROADMAP.md docs/compatibility.md docs/performance.md \
+            docs/troubleshooting.md docs/privacy-policy-example.md \
+            docs/api-freeze.md docs/dependency-licenses.md \
+            docs/integration/desktop-tools.md docs/integration/evidence-adapters.md \
+            docs/security/threat-model.md docs/security/phase-2-capture-contract.md \
+            docs/traceability/README.md docs/assets/README.md

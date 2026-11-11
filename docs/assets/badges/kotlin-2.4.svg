@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="178" height="28" viewBox="0 0 178 28" role="img" aria-label="kotlin: 2.4.x">
+  <rect width="178" height="28" rx="6" fill="#0b1220"/>
+  <rect x="78" width="100" height="28" rx="6" fill="#6d28d9"/>
+  <rect x="78" width="6" height="28" fill="#6d28d9"/>
+  <text x="12" y="19" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="12" fill="#c9d3e3">kotlin</text>
+  <text x="90" y="19" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="12" font-weight="600" fill="#ffffff">2.4.x</text>
+</svg>
