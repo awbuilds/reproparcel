@@ -155,7 +155,9 @@ external/physical/legal/publication gates recorded in
   now groups minor/patch updates per ecosystem, caps open PRs and ignores
   semver-major updates; major migrations need an explicit reviewed change.
   Dependabot closed the ignored PRs; the remaining zod major proposal was
-  closed manually with a reason. Two grouped minor/patch PRs remain open.
+  closed manually with a reason. The two grouped minor/patch PRs were closed
+  by Dependabot after the history rewrite; no open PRs remain. One closed
+  Dependabot branch still points at a pre-rewrite commit.
 - `secret_scanning_non_provider_patterns` and
   `secret_scanning_validity_checks` remain disabled after API attempts; the
   repository reports them as unavailable rather than silently claiming they
@@ -166,7 +168,9 @@ external/physical/legal/publication gates recorded in
   (`<id>+login@users.noreply.github.com`) with the display name
   `ReproParcel Maintainer`; the tree hash is unchanged. `AGENTS.md` now states
   the accepted identity forms explicitly. A local bundle backup of the old
-  history exists outside the repository and was not pushed.
+  history exists outside the repository and was not pushed. The GitHub
+  contributors API now reports `abhijithwrrr` instead of the unrelated
+  `maintainer` account. CI, Docs and CodeQL pass on the rewritten `dev` head.
 
 ## Resume/rollback notes
 
