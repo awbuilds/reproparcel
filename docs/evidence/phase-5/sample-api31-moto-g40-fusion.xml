@@ -1,10 +1,16 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<testsuites tests="2" failures="0" errors="0" skipped="0" time="0.000" timestamp="2026-11-11T09:03:49" hostname="localhost">
-  <testsuite name="com.awbuilds.reproparcel.sample.SampleAppTest" tests="2" failures="0" errors="0" skipped="0" time="6.208" timestamp="2026-11-11T09:03:49" hostname="localhost">
+<testsuites tests="3" failures="0" errors="0" skipped="0" time="0.000" timestamp="2026-11-11T09:34:01" hostname="localhost">
+  <testsuite name="com.awbuilds.reproparcel.sample.ReporterLaunchPerformanceTest" tests="1" failures="0" errors="0" skipped="0" time="31.763" timestamp="2026-11-11T09:34:01" hostname="localhost">
     <properties>
       <property name="device" value="physical-device" />
     </properties>
-    <testcase name="sampleRecordsOnlySafeSyntheticEvidence" classname="com.awbuilds.reproparcel.sample.SampleAppTest" time="4.075" />
-    <testcase name="sampleStartsDisabledAndEnablesExplicitly" classname="com.awbuilds.reproparcel.sample.SampleAppTest" time="2.133" />
+    <testcase name="triggerToComposerP95IsWithinBudget" classname="com.awbuilds.reproparcel.sample.ReporterLaunchPerformanceTest" time="31.763" />
+  </testsuite>
+  <testsuite name="com.awbuilds.reproparcel.sample.SampleAppTest" tests="2" failures="0" errors="0" skipped="0" time="6.269" timestamp="2026-11-11T09:34:01" hostname="localhost">
+    <properties>
+      <property name="device" value="physical-device" />
+    </properties>
+    <testcase name="sampleRecordsOnlySafeSyntheticEvidence" classname="com.awbuilds.reproparcel.sample.SampleAppTest" time="3.636" />
+    <testcase name="sampleStartsDisabledAndEnablesExplicitly" classname="com.awbuilds.reproparcel.sample.SampleAppTest" time="2.633" />
   </testsuite>
 </testsuites>

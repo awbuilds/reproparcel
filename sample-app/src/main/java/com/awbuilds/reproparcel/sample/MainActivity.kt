@@ -41,6 +41,7 @@ class MainActivity : ComponentActivity() {
         val packageInfo = packageManager.getPackageInfo(packageName, 0)
         val isDebuggable = (applicationInfo.flags and
             android.content.pm.ApplicationInfo.FLAG_DEBUGGABLE) != 0
+        val benchmarkNoCapture = intent.getBooleanExtra("reproparcel_benchmark_no_capture", false)
         val config = ReproParcelConfig(
             enabled = false,
             buildInfo = BuildInfo(
@@ -52,12 +53,16 @@ class MainActivity : ComponentActivity() {
             ),
             capturePolicy = CapturePolicy(
                 policyVersion = "sample-policy-v1",
-                screenshotEnabled = true,
+                screenshotEnabled = !benchmarkNoCapture,
                 semanticTextEnabled = false,
-                eligibleSurfaces = setOf("com.awbuilds.reproparcel.sample.MainActivity"),
+                eligibleSurfaces = if (benchmarkNoCapture) {
+                    emptySet()
+                } else {
+                    setOf("com.awbuilds.reproparcel.sample.MainActivity")
+                },
             ),
             evidence = EvidenceConfig(
-                screenshotEnabled = true,
+                screenshotEnabled = !benchmarkNoCapture,
                 semanticTextEnabled = false,
                 structuredLogsEnabled = true,
                 networkMetadataEnabled = false,

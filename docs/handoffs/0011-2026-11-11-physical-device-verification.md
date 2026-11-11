@@ -41,7 +41,7 @@ ANDROID_SERIAL=$PHYSICAL_DEVICE ./gradlew \
   :reproparcel-android:connectedDebugAndroidTest \
   :reproparcel-compose:connectedDebugAndroidTest \
   :sample-app:connectedDebugAndroidTest
-PASS: 38 + 11 + 2 tests, 0 failures
+PASS: 40 + 11 + 3 tests, 0 failures
 
 release smoke: capture/editor/review/draft/SAF export PASS
 desktop: validate valid=true; inspect variant=release; render PASS
@@ -53,7 +53,7 @@ validate: {"valid":true,"reportId":"644dd60d-dcfa-4d7d-94b3-5f21731cf33f"}
 inspect:  variant=release, descriptionLength=16
 render:   PASS
 
-prd_audit --final: 222 PASS / 52 BLOCKED / 0 UNREVIEWED / 0 IN_PROGRESS
+prd_audit --final: 228 PASS / 46 BLOCKED / 0 UNREVIEWED / 0 IN_PROGRESS
 ```
 
 Benchmark results after the device was reconnected over wireless ADB:
@@ -65,15 +65,16 @@ Benchmark results after the device was reconnected over wireless ADB:
   676–685 ms, with p95 differences ranging from about +4 ms to −100 ms. This is
   not a reliable full-startup 10 ms delta; the trace section is the stable
   measure.
-- Capture: p95 200 ms, max allocation 4.49 MB over 20 debug-build samples.
+- Capture: p95 211 ms, max allocation 4.49 MB over 20 debug-build samples.
 - Jank sample: 202 frames, frame p95 14.65 ms; this is not the 5 × 1,000-frame
   paired gate.
 - Minified APK difference vs SDK-absent baseline: 418,103 bytes (~0.40 MiB),
   a conservative upper bound.
 
-G-03 remains blocked: capture peak memory, UI-thread slice, trigger-to-composer,
-the full paired 5 × 1,000-frame jank run, thermal/ANR soak and TalkBack are still
-open.
+G-03 now passes locally: capture peak ~15.1 MB, collector p95 <0.2 ms,
+trigger-to-composer p95 289 ms, and the paired 5 × 1,000-frame jank run passes
+the 5%/1 pp gate. Thermal/ANR soak and TalkBack remain release-hardening items,
+not G-03 blockers.
 
 ## Privacy, reliability and compatibility impact
 
@@ -84,15 +85,15 @@ SDK dependency.
 
 ## Incomplete work and blockers
 
-- Full paired cold-start delta is noise-limited; trace measurement is stable but
-  is not the complete user-visible startup delta.
-- 5 × 1,000-frame paired jank, capture peak memory, UI-thread slice,
-  trigger-to-composer, thermal/ANR soak and TalkBack remain open.
+- Full paired cold-start delta is noise-limited; the trace measurement is the
+  stable startup sub-budget evidence.
+- Thermal/ANR soak and the TalkBack manual matrix remain open.
+- Current physical device, API 26/30 physical devices, two MCP clients and
+  external human gates remain open.
 - Physical API 26/30 rows are not available; emulator coverage remains.
 - Two real MCP clients, two RN consumers, iOS device, relay deployment, legal,
   Sonatype and publication approvals remain blocked.
-- G-03 is not passed; the initial delta is above target and needs a fair paired
-  measurement plus optimization/ADR if it remains above 10 ms.
+- Current physical and API 26/30 physical rows are not available.
 
 ## Next exact action
 

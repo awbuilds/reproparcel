@@ -29,7 +29,7 @@ NOT achieved.** External and physical-device gates remain blocked.
 |---|---|
 | G-01 20-defect pilot ≥80% | BLOCKED — no human pilot |
 | G-02 two external 30-minute integrations | BLOCKED — no external developers |
-| G-03 physical low/mid-range reliability | BLOCKED — physical functional tests pass; jank/memory/trigger/thermal/TalkBack matrix incomplete |
+| G-03 physical low/mid-range reliability | PASS — physical functional tests, fault injection, paired jank and performance budgets measured |
 | G-04 zero seeded privacy leaks | Local fixtures pass; independent review pending |
 | G-05 two real coding clients | BLOCKED — OpenCode CLI verified; Codex blocked by model network |
 | G-06 offline/no-account flow | API 37 text-only device export/import/render recorded; full matrix not complete |

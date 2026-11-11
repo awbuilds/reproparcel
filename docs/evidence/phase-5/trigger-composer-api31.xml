@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<testsuites tests="1" failures="0" errors="0" skipped="0" time="0.000" timestamp="2026-11-11T09:32:39" hostname="localhost">
+  <testsuite name="com.awbuilds.reproparcel.sample.ReporterLaunchPerformanceTest" tests="1" failures="0" errors="0" skipped="0" time="33.590" timestamp="2026-11-11T09:32:39" hostname="localhost">
+    <properties>
+      <property name="device" value="physical-device" />
+    </properties>
+    <testcase name="triggerToComposerP95IsWithinBudget" classname="com.awbuilds.reproparcel.sample.ReporterLaunchPerformanceTest" time="33.590" />
+  </testsuite>
+</testsuites>

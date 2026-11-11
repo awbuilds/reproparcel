@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 package com.awbuilds.reproparcel.android.capture
 
+import android.os.Debug
 import android.os.SystemClock
 import android.util.Log
 import androidx.test.core.app.ActivityScenario
@@ -65,11 +66,16 @@ class CapturePerformanceTest {
     fun captureLatencyAndAllocationStayWithinBudget() {
         val latencies = mutableListOf<Long>()
         val allocations = mutableListOf<Long>()
+        var sourceBytes = 0L
+        var maxNativeDelta = 0L
         ActivityScenario.launch(CaptureTestActivity::class.java).use { scenario ->
             var activity: CaptureTestActivity? = null
             scenario.onActivity { activity = it }
             instrumentation.waitForIdleSync()
+            val decor = activity!!.window.decorView
+            sourceBytes = decor.width.toLong() * decor.height.toLong() * 4L
             repeat(20) {
+                val beforeNative = Debug.getNativeHeapAllocatedSize()
                 val started = SystemClock.elapsedRealtime()
                 val result = runBlocking {
                     withContext(Dispatchers.Main) {
@@ -81,6 +87,9 @@ class CapturePerformanceTest {
                     is CaptureOutcome.Captured -> {
                         latencies += elapsed
                         allocations += result.bitmap.byteCount.toLong()
+                        val nativeDelta = (Debug.getNativeHeapAllocatedSize() - beforeNative)
+                            .coerceAtLeast(0L)
+                        maxNativeDelta = maxOf(maxNativeDelta, nativeDelta)
                         result.bitmap.recycle()
                     }
                     else -> error("capture omitted during performance run: $result")
@@ -93,15 +102,21 @@ class CapturePerformanceTest {
         val p95 = latencies[(ceil(latencies.size * 0.95).toInt() - 1).coerceAtLeast(0)]
         val max = latencies.last()
         val maxAllocation = allocations.last()
+        val estimatedPeak = sourceBytes + maxAllocation
         Log.i(
             "ReproParcelPerf",
             "capture n=${latencies.size} p50=${p50}ms p95=${p95}ms max=${max}ms " +
-                "allocationMaxBytes=$maxAllocation",
+                "allocationMaxBytes=$maxAllocation sourceBytes=$sourceBytes " +
+                "estimatedPeakBytes=$estimatedPeak nativeDeltaMaxBytes=$maxNativeDelta",
         )
         assertTrue("capture p95 ${p95}ms exceeds 2000ms", p95 <= 2_000)
         assertTrue(
             "capture allocation ${maxAllocation}B exceeds 12MiB decoded budget",
             maxAllocation <= 12L * 1024 * 1024,
+        )
+        assertTrue(
+            "estimated capture peak ${estimatedPeak}B exceeds 24MiB budget",
+            estimatedPeak <= 24L * 1024 * 1024,
         )
     }
 }
