@@ -72,9 +72,10 @@ Benchmark results after the device was reconnected over wireless ADB:
   a conservative upper bound.
 
 G-03 now passes locally: capture peak ~15.1 MB, collector p95 <0.2 ms,
-trigger-to-composer p95 289 ms, and the paired 5 × 1,000-frame jank run passes
-the 5%/1 pp gate. Thermal/ANR soak and TalkBack remain release-hardening items,
-not G-03 blockers.
+trigger-to-composer p95 289 ms, the paired 5 × 1,000-frame jank run passes the
+5%/1 pp gate, and a 40-swipe stress check showed no ANR/crash at 33.8 °C.
+Longer thermal soak and TalkBack remain release-hardening items, not G-03
+blockers.
 
 ## Privacy, reliability and compatibility impact
 

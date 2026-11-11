@@ -55,8 +55,9 @@ The full cold-start comparison was noise/order dominated and is not used as a
 10 ms claim. Detailed raw data and caveats are in `benchmark-api31/`.
 
 G-03 passes locally: the paired 5 × 1,000-frame jank run, capture peak memory,
-collector slices and trigger-to-composer are within budget. Thermal/ANR soak
-and TalkBack remain release-hardening items.
+collector slices and trigger-to-composer are within budget. A short 40-swipe
+stress left the process alive at 33.8 °C battery with no ANR/crash entries;
+a longer thermal soak and TalkBack remain release-hardening items.
 
 ## Pending because the device disconnected
 
