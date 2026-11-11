@@ -160,6 +160,13 @@ external/physical/legal/publication gates recorded in
   `secret_scanning_validity_checks` remain disabled after API attempts; the
   repository reports them as unavailable rather than silently claiming they
   are on.
+- The first 28 commits used `maintainer@users.noreply.github.com`, which GitHub
+  maps to an unrelated account named `maintainer`. History was rewritten to the
+  repository owner's GitHub noreply address
+  (`<id>+login@users.noreply.github.com`) with the display name
+  `ReproParcel Maintainer`; the tree hash is unchanged. `AGENTS.md` now states
+  the accepted identity forms explicitly. A local bundle backup of the old
+  history exists outside the repository and was not pushed.
 
 ## Resume/rollback notes
 

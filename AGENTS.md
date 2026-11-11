@@ -12,7 +12,9 @@ This repository is public. Every commit, file, test fixture, screenshot, log, is
 - Never include real user reports, production data, credentials, tokens, API keys, keystores or private application code.
 - Never include a private adopter application's name, package ID, screenshots, identifiers or references in code, tests, fixtures, docs, handoffs, commit messages or issues. Use generic descriptions such as "private host application" and synthetic data.
 - Handoffs contain only project-relevant technical facts and verification evidence. Omit personal context, private-adopter details and unnecessary narrative.
-- Use a project-neutral Git identity. Never commit a personal email address.
+- Use a project-neutral display name. Commit with a GitHub noreply address
+  (`<id>+<login>@users.noreply.github.com`) or a project-neutral address; never
+  commit a personal email address.
 - Run the public-hygiene scan before every commit and phase gate. A suspected leak blocks the commit. If in doubt, omit.
 
 ## 1. Mission and load-bearing invariants
