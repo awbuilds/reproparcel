@@ -13,6 +13,8 @@ import com.awbuilds.reproparcel.core.parcel.ParcelWriter
 import com.awbuilds.reproparcel.core.result.ErrorCode
 import java.io.File
 import java.io.IOException
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 public sealed interface ExportOutcome {
     public data object FileSaved : ExportOutcome
@@ -27,40 +29,45 @@ public class ExportManager(private val context: Context) {
     public fun buildParcel(manifest: Manifest, payload: ParcelPayload): ByteArray? =
         ParcelWriter.writeToBytes(manifest, payload)
 
-    public fun saveToUri(uri: Uri, manifest: Manifest, payload: ParcelPayload): ExportOutcome {
-        val bytes = buildParcel(manifest, payload) ?: return ExportOutcome.Failed(ErrorCode.SERIALIZATION_FAILED)
-        return try {
-            context.contentResolver.openOutputStream(uri, "w").use { stream ->
-                if (stream == null) return ExportOutcome.Failed(ErrorCode.EXPORT_FAILED)
-                stream.write(bytes)
-                stream.flush()
+    public suspend fun saveToUri(uri: Uri, manifest: Manifest, payload: ParcelPayload): ExportOutcome =
+        withContext(Dispatchers.IO) {
+            val bytes = buildParcel(manifest, payload) ?: return@withContext ExportOutcome.Failed(ErrorCode.SERIALIZATION_FAILED)
+            try {
+                context.contentResolver.openOutputStream(uri, "w").use { stream ->
+                    if (stream == null) return@withContext ExportOutcome.Failed(ErrorCode.EXPORT_FAILED)
+                    stream.write(bytes)
+                    stream.flush()
+                }
+                ExportOutcome.FileSaved
+            } catch (_: IOException) {
+                ExportOutcome.Failed(ErrorCode.EXPORT_FAILED)
+            } catch (_: SecurityException) {
+                ExportOutcome.Failed(ErrorCode.EXPORT_FAILED)
             }
-            ExportOutcome.FileSaved
-        } catch (_: IOException) {
-            ExportOutcome.Failed(ErrorCode.EXPORT_FAILED)
-        } catch (_: SecurityException) {
-            ExportOutcome.Failed(ErrorCode.EXPORT_FAILED)
         }
-    }
 
-    public fun share(
+    public suspend fun share(
         activity: Activity,
         manifest: Manifest,
         payload: ParcelPayload,
         fileName: String = "report.reproparcel",
     ): ExportOutcome {
-        val bytes = buildParcel(manifest, payload) ?: return ExportOutcome.Failed(ErrorCode.SERIALIZATION_FAILED)
+        val bytes = withContext(Dispatchers.Default) {
+            buildParcel(manifest, payload)
+        } ?: return ExportOutcome.Failed(ErrorCode.SERIALIZATION_FAILED)
         val safeName = fileName.filter { it.isLetterOrDigit() || it == '.' || it == '-' || it == '_' }
             .ifEmpty { "report.reproparcel" }
-        val file = try {
-            exportsDirectory.mkdirs()
-            cleanupOldExports()
-            val target = File(exportsDirectory, safeName)
-            target.writeBytes(bytes)
-            target
-        } catch (_: IOException) {
-            return ExportOutcome.Failed(ErrorCode.EXPORT_FAILED)
-        }
+        val file = withContext(Dispatchers.IO) {
+            try {
+                exportsDirectory.mkdirs()
+                cleanupOldExports()
+                val target = File(exportsDirectory, safeName)
+                target.writeBytes(bytes)
+                target
+            } catch (_: IOException) {
+                null
+            }
+        } ?: return ExportOutcome.Failed(ErrorCode.EXPORT_FAILED)
         val uri = try {
             FileProvider.getUriForFile(
                 context,
@@ -75,20 +82,22 @@ public class ExportManager(private val context: Context) {
             putExtra(Intent.EXTRA_STREAM, uri)
             addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
         }
-        return try {
-            activity.startActivity(Intent.createChooser(intent, "Share report"))
-            ExportOutcome.ShareLaunched
-        } catch (_: ActivityNotFoundException) {
-            ExportOutcome.Failed(ErrorCode.EXPORT_FAILED)
-        } catch (_: SecurityException) {
-            ExportOutcome.Failed(ErrorCode.EXPORT_FAILED)
+        return withContext(Dispatchers.Main) {
+            try {
+                activity.startActivity(Intent.createChooser(intent, "Share report"))
+                ExportOutcome.ShareLaunched
+            } catch (_: ActivityNotFoundException) {
+                ExportOutcome.Failed(ErrorCode.EXPORT_FAILED)
+            } catch (_: SecurityException) {
+                ExportOutcome.Failed(ErrorCode.EXPORT_FAILED)
+            }
         }
     }
 
     public fun clearExports(): Int {
         val files = exportsDirectory.listFiles()?.size ?: 0
         exportsDirectory.deleteRecursively()
-        return files
+        return if (exportsDirectory.exists()) -1 else files
     }
 
     private fun cleanupOldExports() {

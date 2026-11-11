@@ -307,6 +307,7 @@ class RuntimeTest {
         assertEquals(SdkResult.Success, ReproParcel.recordBreadcrumb(Breadcrumb("navigation", actionId = "open")))
         assertEquals(SdkResult.Success, ReproParcel.deleteLocalReports())
         assertTrue(store.list().isEmpty())
+        assertTrue(!java.io.File(context.noBackupFilesDir, "reproparcel/drafts").exists())
         assertTrue(ReproParcel.eventSnapshotForTest().isEmpty())
     }
 

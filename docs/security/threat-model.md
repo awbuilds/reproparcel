@@ -3,8 +3,9 @@
 - Status: Draft; must be reviewed independently before release
 - Scope: Android SDK, reporter UI, encrypted drafts, parcel export, desktop
   validator/viewer and read-only MCP server
-- Out of scope: future relay/server (Phase 6), iOS/React Native/Flutter
-  reference implementations, host application security
+- Relay reference (`server/`) is in scope as reference code; deployment/TLS is
+  blocked. iOS/React Native/Flutter reference code and host application security
+  remain out of scope for Android v1.
 
 ## Assets
 
@@ -57,6 +58,9 @@ control and may forward content to a cloud model.
 | Repository/CI artifact leak | Scan contents, file names, binaries/EXIF and commit identities; require explicit binary allowlist; run in CI/pre-commit |
 | Share outcome overstated | Distinguish `ShareLaunched` from `FileSaved`; never claim receiving-app completion or remote receipt |
 | MCP egress exceeds user expectation | Warn before import/access that the client may send content to a cloud model; recommend a local client for sensitive evidence |
+| Relay credential confusion | Enforce distinct project/admin tokens; project token is write-only; admin token required for read/delete; test equality rejection |
+| Relay evidence at rest | AES-256-GCM with server key; no plaintext DB content; bounded body/rate/quota; content-free audit |
+| Tracker token leakage | Token stays server-side; GitHub adapter creates a private link/issue; never embed in APK; public issue is not the default |
 
 ## Abuse and misuse cases
 

@@ -153,14 +153,14 @@
   "199": {
     "artifact": "reproparcel-compose ReporterActivity",
     "evidence": "Text/image review and privacy note; full category/retention panel incomplete",
-    "notes": "Review shows text/image, omission and retention info; categories removable",
-    "status": "PASS"
+    "notes": "Review panel does not yet show every structured evidence category/capture limitation",
+    "status": "BLOCKED"
   },
   "202": {
     "artifact": "docs/adr/0011-export-share-outcomes.md",
     "evidence": "FileSaved vs ShareLaunched; UI text; tests",
-    "notes": "",
-    "status": "PASS"
+    "notes": "No delete control in the reporter UI; runtime API exists",
+    "status": "BLOCKED"
   },
   "22": {
     "artifact": "docs/PRD.md",
@@ -214,8 +214,8 @@
   "258": {
     "artifact": "docs/PROJECT_STATE.md",
     "evidence": "Module responsibility implemented or reference scaffold present",
-    "notes": "Module responsibility implemented or reference scaffold present",
-    "status": "PASS"
+    "notes": "benchmark module not present",
+    "status": "BLOCKED"
   },
   "259": {
     "artifact": "docs/PROJECT_STATE.md",
@@ -544,8 +544,8 @@
   "372": {
     "artifact": "reproparcel-android ExportManager",
     "evidence": "FileProvider write test; parcel writer test; outcome messages",
-    "notes": "FileProvider/SAF + parcel writer tests",
-    "status": "PASS"
+    "notes": "SAF cancellation/system chooser automation not tested",
+    "status": "BLOCKED"
   },
   "373": {
     "artifact": "desktop/src/parcel.ts",
@@ -573,7 +573,7 @@
   },
   "377": {
     "artifact": "server/src/server.ts",
-    "evidence": "5 relay tests: auth/quota/idempotency/encryption/GitHub",
+    "evidence": "6 relay tests: auth/quota/idempotency/encryption/GitHub",
     "notes": "Reference implementation; no deployment.",
     "status": "PASS"
   },
@@ -817,8 +817,8 @@
   "520": {
     "artifact": "docs/PROJECT_STATE.md",
     "evidence": "Test layer exists; manual items recorded where applicable",
-    "notes": "Test layer exists; manual items recorded where applicable",
-    "status": "PASS"
+    "notes": "Full Compose accessibility/IME/back test matrix not present",
+    "status": "BLOCKED"
   },
   "521": {
     "artifact": "docs/PROJECT_STATE.md",
@@ -841,8 +841,8 @@
   "524": {
     "artifact": "docs/PROJECT_STATE.md",
     "evidence": "Test layer exists; manual items recorded where applicable",
-    "notes": "Test layer exists; manual items recorded where applicable",
-    "status": "PASS"
+    "notes": "Performance test layer/measurements not present",
+    "status": "BLOCKED"
   },
   "525": {
     "artifact": "docs/PROJECT_STATE.md",
@@ -1225,8 +1225,8 @@
   "635": {
     "artifact": "docs/integration/evidence-adapters.md",
     "evidence": "Adapters + docs",
-    "notes": "Golden parcels are produced by Phase 4.",
-    "status": "PASS"
+    "notes": "No complete golden parcel matrix across every category",
+    "status": "BLOCKED"
   },
   "637": {
     "artifact": "docs/decisions/phase-3-go-no-go.md",
@@ -1345,8 +1345,8 @@
   "667": {
     "artifact": "docs/api-freeze.md, README, docs",
     "evidence": "Schema/API/docs/security policy present; notices incomplete",
-    "notes": "Schema/API freeze/docs/notices summary complete",
-    "status": "PASS"
+    "notes": "Full generated notices/license review incomplete",
+    "status": "BLOCKED"
   },
   "668": {
     "artifact": "scripts/release-local.sh",
@@ -1513,8 +1513,8 @@
   "725": {
     "artifact": "NOTICE",
     "evidence": "Summary notice present; full generated dependency notices pending",
-    "notes": "NOTICE summary present; full generated notices are a release task",
-    "status": "PASS"
+    "notes": "NOTICE is a summary; full generated dependency notices pending",
+    "status": "BLOCKED"
   },
   "726": {
     "artifact": "CONTRIBUTING.md, SECURITY.md, CHANGELOG.md",

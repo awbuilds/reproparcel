@@ -56,7 +56,16 @@ public object CaptureController {
         surfaceId: String,
     ): CaptureOutcome {
         if (!policy.screenshotEnabled) return CaptureOutcome.Omitted(OmissionReason.POLICY_DISABLED)
-        if (surfaceId !in policy.eligibleSurfaces) {
+        val authoritative = ReproParcel.currentCapturePolicy()
+            ?: return CaptureOutcome.Omitted(OmissionReason.POLICY_DISABLED)
+        if (!ReproParcel.isScreenshotCollectionEnabled() ||
+            authoritative.policyVersion != policy.policyVersion ||
+            authoritative.screenshotEnabled != policy.screenshotEnabled ||
+            authoritative.maskRegions != policy.maskRegions
+        ) {
+            return CaptureOutcome.Omitted(OmissionReason.POLICY_CHANGED)
+        }
+        if (surfaceId !in authoritative.eligibleSurfaces) {
             return CaptureOutcome.Omitted(OmissionReason.UNSUPPORTED_SURFACE)
         }
         if (surfaceId in policy.sensitiveSurfaces || surfaceId in policy.excludedSurfaces) {
@@ -94,6 +103,7 @@ public object CaptureController {
         val attemptToken = java.util.UUID.randomUUID().toString()
         val windowToken = decor.windowToken
         val policyVersion = policy.policyVersion
+        val maskDigest = policy.maskRegions.toString()
         val started = SystemClock.elapsedRealtime()
         val bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
         val handler = Handler(Looper.getMainLooper())
@@ -138,7 +148,8 @@ public object CaptureController {
         }
         if (generationOf(decor) != generation ||
             decor.windowToken != windowToken ||
-            policy.policyVersion != policyVersion ||
+            ReproParcel.currentCapturePolicy()?.policyVersion != policyVersion ||
+            ReproParcel.currentCapturePolicy()?.maskRegions.toString() != maskDigest ||
             isSecure(window) ||
             activity.isFinishing ||
             activity.isDestroyed

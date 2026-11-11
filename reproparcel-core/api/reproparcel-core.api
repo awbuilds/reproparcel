@@ -1079,6 +1079,11 @@ public final class com/awbuilds/reproparcel/core/parcel/ParcelWriter {
 	public final fun writeToBytes (Lcom/awbuilds/reproparcel/core/model/Manifest;Lcom/awbuilds/reproparcel/core/parcel/ParcelPayload;)[B
 }
 
+public final class com/awbuilds/reproparcel/core/parcel/PngValidator {
+	public static final field INSTANCE Lcom/awbuilds/reproparcel/core/parcel/PngValidator;
+	public final fun validate ([B)Z
+}
+
 public final class com/awbuilds/reproparcel/core/parcel/Rfc3339 {
 	public static final field INSTANCE Lcom/awbuilds/reproparcel/core/parcel/Rfc3339;
 	public final fun isUtcInstant (Ljava/lang/String;)Z

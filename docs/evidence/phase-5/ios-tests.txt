@@ -1,0 +1,56 @@
+Building for debugging...
+[Planning deferred tasks]
+[28 / 52]
+[29 / 53] ReproParcelCore
+[38 / 92]
+[39 / 92]
+[41 / 92]
+[46 / 92]
+[48 / 92]
+[51 / 92]
+[53 / 92]
+[55 / 92]
+[57 / 92]
+[60 / 92]
+[62 / 92]
+[63 / 92]
+[68 / 92] ReproParcelCore
+[76 / 92] ReproParcelCore
+[80 / 92] ReproParcelCoreTests-product
+[82 / 93] ReproParcelCoreTests-product
+[95 / 129]
+[98 / 129]
+[104 / 129]
+[106 / 129]
+[108 / 129]
+[111 / 129]
+[114 / 129]
+[115 / 129]
+[118 / 129] ReproParcelCoreTests-product
+[123 / 129] ReproParcelCoreTests-product
+[125 / 129] ReproParcelCoreTests-product
+[129 / 129] ReproParcelCoreTests-product
+Build complete! (10.19 sec)
+Test Suite 'All tests' started at 2026-11-11 06:50:22.569.
+Test Suite 'ReproParcelCoreTests.xctest' started at 2026-11-11 06:50:22.577.
+Test Suite 'CoreTests' started at 2026-11-11 06:50:22.577.
+Test Case '-[ReproParcelCoreTests.CoreTests testImageBudget]' started.
+Test Case '-[ReproParcelCoreTests.CoreTests testImageBudget]' passed (0.001 seconds).
+Test Case '-[ReproParcelCoreTests.CoreTests testManifestRoundTripAndUnknownOptionalFields]' started.
+Test Case '-[ReproParcelCoreTests.CoreTests testManifestRoundTripAndUnknownOptionalFields]' passed (0.001 seconds).
+Test Case '-[ReproParcelCoreTests.CoreTests testRedactorDropsSecretsAndKeepsAllowlist]' started.
+Test Case '-[ReproParcelCoreTests.CoreTests testRedactorDropsSecretsAndKeepsAllowlist]' passed (0.001 seconds).
+Test Case '-[ReproParcelCoreTests.CoreTests testReportRoundTrip]' started.
+Test Case '-[ReproParcelCoreTests.CoreTests testReportRoundTrip]' passed (0.000 seconds).
+Test Case '-[ReproParcelCoreTests.CoreTests testSessionStateMachine]' started.
+Test Case '-[ReproParcelCoreTests.CoreTests testSessionStateMachine]' passed (0.000 seconds).
+Test Suite 'CoreTests' passed at 2026-11-11 06:50:22.581.
+	 Executed 5 tests, with 0 failures (0 unexpected) in 0.004 (0.004) seconds
+Test Suite 'ReproParcelCoreTests.xctest' passed at 2026-11-11 06:50:22.581.
+	 Executed 5 tests, with 0 failures (0 unexpected) in 0.004 (0.004) seconds
+Test Suite 'All tests' passed at 2026-11-11 06:50:22.581.
+	 Executed 5 tests, with 0 failures (0 unexpected) in 0.004 (0.012) seconds
+◇ Test run started.
+↳ Testing Library Version: 2403
+↳ Target Platform: arm64e-apple-macos14.0
+✔ Test run with 0 tests in 0 suites passed after 0.001 seconds.

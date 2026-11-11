@@ -379,6 +379,17 @@ public object ReproParcel {
         }
     }
 
+    public fun clearEvidence(): SdkResult {
+        synchronized(lock) {
+            if (runtimeState == RuntimeState.UNINITIALIZED) return SdkResult.NotInitialized
+            eventBuffer?.clear()
+            logBuffer?.clear()
+            networkBuffer?.clear()
+            semanticNodes.clear()
+            return SdkResult.Success
+        }
+    }
+
     public fun deleteLocalReports(): SdkResult {
         val context = synchronized(lock) {
             if (runtimeState == RuntimeState.UNINITIALIZED) return SdkResult.NotInitialized
@@ -386,8 +397,12 @@ public object ReproParcel {
         } ?: return SdkResult.NotInitialized
         return try {
             val retention = synchronized(lock) { config?.retention } ?: return SdkResult.Failure(ErrorCode.STORAGE_FAILED)
-            com.awbuilds.reproparcel.android.draft.DraftStore(context, retention).deleteAll()
-            com.awbuilds.reproparcel.android.export.ExportManager(context).clearExports()
+            val legacy = java.io.File(context.filesDir, "reproparcel/drafts")
+            legacy.deleteRecursively()
+            val drafts = com.awbuilds.reproparcel.android.draft.DraftStore(context, retention).deleteAll()
+            val exports = com.awbuilds.reproparcel.android.export.ExportManager(context).clearExports()
+            if (drafts < 0 || exports < 0) return SdkResult.Failure(ErrorCode.STORAGE_FAILED)
+            com.awbuilds.reproparcel.android.capture.ReporterHandoff.clear()
             synchronized(lock) {
                 eventBuffer?.clear()
                 logBuffer?.clear()

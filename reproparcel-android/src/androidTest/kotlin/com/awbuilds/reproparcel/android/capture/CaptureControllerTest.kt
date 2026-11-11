@@ -44,6 +44,7 @@ class CaptureControllerTest {
                     policyVersion = "synthetic-test",
                     screenshotEnabled = true,
                     eligibleSurfaces = setOf("capture_test"),
+                    maskRegions = listOf(MaskRegion(10, 10, 80, 80)),
                 ),
                 evidence = EvidenceConfig(screenshotEnabled = true),
             ),
@@ -58,9 +59,9 @@ class CaptureControllerTest {
     private fun policy(
         enabled: Boolean = true,
         surfaces: Set<String> = setOf("capture_test"),
-        masks: List<MaskRegion> = emptyList(),
+        masks: List<MaskRegion> = listOf(MaskRegion(10, 10, 80, 80)),
     ) = CapturePolicy(
-        policyVersion = "synthetic-v1",
+        policyVersion = "synthetic-test",
         screenshotEnabled = enabled,
         eligibleSurfaces = surfaces,
         maskRegions = masks,
@@ -110,10 +111,28 @@ class CaptureControllerTest {
             scenario.onActivity { activity = it }
             val result = runBlocking {
                 withContext(Dispatchers.Main) {
-                    CaptureController.capture(activity!!, policy(surfaces = setOf("other")), "capture_test")
+                    CaptureController.capture(activity!!, policy(), "other_surface")
                 }
             }
             assertEquals(CaptureOutcome.Omitted(OmissionReason.UNSUPPORTED_SURFACE), result)
+        }
+    }
+
+    @Test
+    fun mismatchedPolicyVersionIsRejected() {
+        ActivityScenario.launch(CaptureTestActivity::class.java).use { scenario ->
+            var activity: CaptureTestActivity? = null
+            scenario.onActivity { activity = it }
+            val result = runBlocking {
+                withContext(Dispatchers.Main) {
+                    CaptureController.capture(
+                        activity!!,
+                        policy().copy(policyVersion = "different-policy"),
+                        "capture_test",
+                    )
+                }
+            }
+            assertEquals(CaptureOutcome.Omitted(OmissionReason.POLICY_CHANGED), result)
         }
     }
 

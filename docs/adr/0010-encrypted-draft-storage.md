@@ -9,9 +9,9 @@
 Drafts use a small app-private file store, not Room:
 
 ```text
-files/reproparcel/drafts/index.json       id, createdAtMs, encrypted size only
-files/reproparcel/drafts/<id>/report.enc  AES-GCM
-files/reproparcel/drafts/<id>/image.enc   AES-GCM (optional flattened PNG)
+<noBackupFilesDir>/reproparcel/drafts/index.json       id, createdAtMs, encrypted size only
+<noBackupFilesDir>/reproparcel/drafts/<id>/report.enc  AES-GCM
+<noBackupFilesDir>/reproparcel/drafts/<id>/image.enc   AES-GCM (optional flattened PNG)
 ```
 
 - Key: Android Keystore alias `reproparcel.draft.v1`, AES-256-GCM, randomized

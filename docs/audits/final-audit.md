@@ -3,7 +3,7 @@
 - PRD lines: 868
 - Ledger rows: 868
 - Applicable rows: 868
-- Status counts: `{"BLOCKED": 74, "N/A": 594, "PASS": 200}`
+- Status counts: `{"BLOCKED": 83, "N/A": 594, "PASS": 191}`
 
 ## Result
 

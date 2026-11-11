@@ -15,6 +15,7 @@ import com.awbuilds.reproparcel.core.model.ProducerInfo
 import com.awbuilds.reproparcel.core.model.Report
 import com.awbuilds.reproparcel.core.parcel.ParcelPayload
 import java.io.File
+import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
 import org.junit.Before
@@ -42,7 +43,9 @@ class ExportManagerTest {
             "${context.packageName}.reproparcel.fileprovider",
             target,
         )
-        val result = manager.saveToUri(uri, manifest(), ParcelPayload(Report(description = "Synthetic")))
+        val result = runBlocking {
+            manager.saveToUri(uri, manifest(), ParcelPayload(Report(description = "Synthetic")))
+        }
         assertEquals(ExportOutcome.FileSaved, result)
         assertTrue(target.length() > 0L)
     }

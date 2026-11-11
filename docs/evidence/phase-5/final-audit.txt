@@ -1,3 +1,3 @@
-{"BLOCKED": 74, "N/A": 594, "PASS": 200}
+{"BLOCKED": 83, "N/A": 594, "PASS": 191}
 wrote docs/audits/final-audit.md
 prd-audit: PASS

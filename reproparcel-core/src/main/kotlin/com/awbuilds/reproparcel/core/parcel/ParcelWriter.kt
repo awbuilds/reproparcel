@@ -36,6 +36,23 @@ public object ParcelWriter {
         payload: ParcelPayload,
         destination: OutputStream,
     ): SdkResult {
+        if (payload.report.description.isBlank() ||
+            payload.report.description.length > 20_000 ||
+            payload.report.title.length > 200 ||
+            payload.report.screenId?.length?.let { it > 128 } == true ||
+            payload.report.reproSteps?.let { it.length > 20_000 } == true ||
+            payload.events.size > 50 ||
+            payload.events.any { it.offsetMs < 0 || it.sequence < 0 } ||
+            payload.semantics?.nodes?.any {
+                it.nodeId.length > 64 || it.role.length > 64 ||
+                    it.parentId?.length?.let { parent -> parent > 64 } == true ||
+                    it.bounds.left < 0 || it.bounds.top < 0 ||
+                    it.bounds.right < it.bounds.left || it.bounds.bottom < it.bounds.top
+            } == true ||
+            payload.semantics?.nodes?.size?.let { it > Limits.MAX_SEMANTIC_NODES } == true
+        ) {
+            return SdkResult.Failure(ErrorCode.VALIDATION_FAILED)
+        }
         val entries = linkedMapOf<String, ByteArray>()
         val reportBytes = encode(Report.serializer(), payload.report) ?: return failure()
         entries["report.json"] = reportBytes
@@ -50,10 +67,28 @@ public object ParcelWriter {
         payload.semantics?.let { semantics ->
             val semanticsBytes = encode(SemanticsSnapshot.serializer(), semantics)
                 ?: return failure()
+            if (semanticsBytes.size > Limits.MAX_SEMANTIC_BYTES) {
+                return SdkResult.Failure(ErrorCode.LIMIT_EXCEEDED)
+            }
+            var maxDepth = 0
+            semantics.nodes.forEach { node ->
+                var depth = 0
+                var parent = node.parentId
+                while (parent != null && depth <= Limits.MAX_SEMANTIC_DEPTH) {
+                    depth += 1
+                    parent = semantics.nodes.firstOrNull { it.nodeId == parent }?.parentId
+                }
+                maxDepth = maxOf(maxDepth, depth)
+            }
+            if (maxDepth > Limits.MAX_SEMANTIC_DEPTH) {
+                return SdkResult.Failure(ErrorCode.LIMIT_EXCEEDED)
+            }
             entries["semantics.json"] = semanticsBytes
         }
         payload.imagePng?.let { image ->
-            if (image.size > Limits.MAX_PARCEL_UNCOMPRESSED_BYTES) return failure()
+            if (image.size > Limits.MAX_PARCEL_UNCOMPRESSED_BYTES || !PngValidator.validate(image)) {
+                return SdkResult.Failure(ErrorCode.VALIDATION_FAILED)
+            }
             entries["attachments/screen.png"] = image
         }
 
