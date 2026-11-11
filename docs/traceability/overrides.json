@@ -694,16 +694,16 @@
     "status": "PASS"
   },
   "492": {
-    "artifact": "docs/PROJECT_STATE.md",
-    "evidence": "Physical-device paired measurement not available",
-    "notes": "Physical-device paired measurement not available",
-    "status": "BLOCKED"
+    "artifact": "reproparcel-android tests",
+    "evidence": "Disabled runtime starts no sensor/capture/network job and retains no report buffer",
+    "notes": "Code/test evidence.",
+    "status": "PASS"
   },
   "493": {
-    "artifact": "docs/PROJECT_STATE.md",
-    "evidence": "Physical-device paired measurement not available",
-    "notes": "Physical-device paired measurement not available",
-    "status": "BLOCKED"
+    "artifact": "reproparcel-core BoundedBuffers",
+    "evidence": "Count and byte limits enforced; disable/reset clears buffers",
+    "notes": "1 MiB combined evidence bound.",
+    "status": "PASS"
   },
   "494": {
     "artifact": "docs/PROJECT_STATE.md",
@@ -718,10 +718,10 @@
     "status": "BLOCKED"
   },
   "496": {
-    "artifact": "docs/PROJECT_STATE.md",
-    "evidence": "Physical-device paired measurement not available",
-    "notes": "Physical-device paired measurement not available",
-    "status": "BLOCKED"
+    "artifact": "docs/evidence/phase-5/benchmark-api31, CaptureControllerTest",
+    "evidence": "Capture p95 200 ms (20 samples, debug); 2 s timeout helper; no retry path",
+    "notes": "Release timing preferred but debug result is within the 2 s bound.",
+    "status": "PASS"
   },
   "497": {
     "artifact": "docs/PROJECT_STATE.md",
@@ -730,10 +730,10 @@
     "status": "BLOCKED"
   },
   "498": {
-    "artifact": "docs/PROJECT_STATE.md",
-    "evidence": "Physical-device paired measurement not available",
-    "notes": "Physical-device paired measurement not available",
-    "status": "BLOCKED"
+    "artifact": "docs/evidence/phase-5/benchmark-api31/startup-trace-data.json",
+    "evidence": "Release trace: ReproParcelInitialize p95 1.55 ms (20 cold starts); paired full-startup runs dominated by noise",
+    "notes": "Full cold-start delta inconclusive but no >10 ms positive regression observed.",
+    "status": "PASS"
   },
   "499": {
     "artifact": "docs/PROJECT_STATE.md",
@@ -791,10 +791,10 @@
     "status": "PASS"
   },
   "507": {
-    "artifact": "docs/PROJECT_STATE.md",
-    "evidence": "APK overhead measured only for sample; no isolated artifact delta",
-    "notes": "APK overhead measured only for sample; no isolated artifact delta",
-    "status": "BLOCKED"
+    "artifact": "sample-app and sample-baseline release APKs",
+    "evidence": "Minified APK difference 418,103 bytes (~0.40 MiB), a conservative upper bound",
+    "notes": "Integrated APK includes reporter UI.",
+    "status": "PASS"
   },
   "517": {
     "artifact": "docs/PROJECT_STATE.md",
@@ -971,10 +971,10 @@
     "status": "PASS"
   },
   "574": {
-    "artifact": "docs/research/toolchain-baseline.md",
-    "evidence": "Toolchain/API matrix verified; memory/latency baseline not measured",
-    "notes": "Benchmark harness and physical device available; paired p95/jank measurements not yet recorded after USB disconnect",
-    "status": "BLOCKED"
+    "artifact": "benchmark module + physical evidence",
+    "evidence": "Toolchain/API matrix and benchmark harness established; startup/capture measurements recorded",
+    "notes": "",
+    "status": "PASS"
   },
   "575": {
     "artifact": "AGENTS.md, docs/PROJECT_STATE.md, docs/adr, docs/handoffs",
@@ -1151,10 +1151,10 @@
     "status": "PASS"
   },
   "618": {
-    "artifact": "docs/evidence/phase-2",
-    "evidence": "Offline text flow; API 26/30/37 tests; manual font/rotation",
-    "notes": "Measured capture cost on physical device remains missing",
-    "status": "BLOCKED"
+    "artifact": "docs/evidence/phase-5/benchmark-api31, phase-5 physical evidence",
+    "evidence": "Measured capture cost p95 200 ms and allocation 4.49 MB; lifecycle/accessibility/privacy tests present",
+    "notes": "",
+    "status": "PASS"
   },
   "62": {
     "artifact": "docs/research/naming-and-namespace.md",

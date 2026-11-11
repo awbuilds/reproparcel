@@ -4,6 +4,7 @@ package com.awbuilds.reproparcel.android
 import android.app.Activity
 import android.content.Context
 import android.os.Looper
+import android.os.Trace
 import androidx.annotation.MainThread
 import com.awbuilds.reproparcel.core.buffer.BoundedEventBuffer
 import com.awbuilds.reproparcel.core.buffer.BoundedLogBuffer
@@ -99,6 +100,19 @@ public object ReproParcel {
         context: Context,
         config: ReproParcelConfig,
         dispatchers: ReproParcelDispatchers = ReproParcelDispatchers(),
+    ): SdkResult {
+        Trace.beginSection("ReproParcelInitialize")
+        return try {
+            initializeInternal(context, config, dispatchers)
+        } finally {
+            Trace.endSection()
+        }
+    }
+
+    private fun initializeInternal(
+        context: Context,
+        config: ReproParcelConfig,
+        dispatchers: ReproParcelDispatchers,
     ): SdkResult {
         val validation = ConfigValidator.validate(config)
         if (validation is ConfigValidation.Invalid) {

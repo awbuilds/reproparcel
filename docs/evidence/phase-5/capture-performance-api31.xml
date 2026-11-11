@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<testsuites tests="1" failures="0" errors="0" skipped="0" time="0.000" timestamp="2026-11-11T08:57:39" hostname="localhost">
+  <testsuite name="com.awbuilds.reproparcel.android.capture.CapturePerformanceTest" tests="1" failures="0" errors="0" skipped="0" time="3.553" timestamp="2026-11-11T08:57:39" hostname="localhost">
+    <properties>
+      <property name="device" value="physical-device" />
+    </properties>
+    <testcase name="captureLatencyAndAllocationStayWithinBudget" classname="com.awbuilds.reproparcel.android.capture.CapturePerformanceTest" time="3.553" />
+  </testsuite>
+</testsuites>

@@ -1,0 +1,273 @@
+{
+    "context": {
+        "build": {
+            "brand": "motorola",
+            "device": "hanoip",
+            "fingerprint": "motorola/hanoip_retail/hanoip:12/S2RI32.32-20-9-9-2/1591b-5bf47:user/release-keys",
+            "id": "S2RI32.32-20-9-9-2",
+            "model": "moto g(40) fusion",
+            "type": "user",
+            "version": {
+                "codename": "REL",
+                "sdk": 31
+            }
+        },
+        "cpuCoreCount": 8,
+        "cpuLocked": false,
+        "cpuMaxFreqHz": 2304000000,
+        "memTotalBytes": 3828129792,
+        "sustainedPerformanceModeEnabled": false,
+        "artMainlineVersion": 372042720,
+        "osCodenameAbbreviated": "S",
+        "compilationMode": "verify",
+        "payload": {}
+    },
+    "benchmarks": [
+        {
+            "name": "coldStartupIntegrated",
+            "params": {},
+            "className": "com.awbuilds.reproparcel.benchmark.StartupBenchmark",
+            "totalRunTimeNs": 69921525820,
+            "metrics": {
+                "timeToInitialDisplayMs": {
+                    "minimum": 609.959176,
+                    "maximum": 747.632627,
+                    "median": 676.636994,
+                    "coefficientOfVariation": 0.059294462337142084,
+                    "runs": [
+                        660.732045,
+                        609.959176,
+                        684.490328,
+                        667.279285,
+                        695.079809,
+                        719.254134,
+                        719.389446,
+                        747.632627,
+                        644.558189,
+                        668.78366
+                    ]
+                }
+            },
+            "sampledMetrics": {},
+            "warmupIterations": 0,
+            "repeatIterations": 10,
+            "thermalThrottleSleepSeconds": 0,
+            "profilerOutputs": [
+                {
+                    "type": "PerfettoTrace",
+                    "label": "Trace Iteration 0",
+                    "filename": "StartupBenchmark_coldStartupIntegrated_iter000_2026-11-11-08-19-54.perfetto-trace"
+                },
+                {
+                    "type": "PerfettoTrace",
+                    "label": "Trace Iteration 1",
+                    "filename": "StartupBenchmark_coldStartupIntegrated_iter001_2026-11-11-08-19-59.perfetto-trace"
+                },
+                {
+                    "type": "PerfettoTrace",
+                    "label": "Trace Iteration 2",
+                    "filename": "StartupBenchmark_coldStartupIntegrated_iter002_2026-11-11-08-20-04.perfetto-trace"
+                },
+                {
+                    "type": "PerfettoTrace",
+                    "label": "Trace Iteration 3",
+                    "filename": "StartupBenchmark_coldStartupIntegrated_iter003_2026-11-11-08-20-08.perfetto-trace"
+                },
+                {
+                    "type": "PerfettoTrace",
+                    "label": "Trace Iteration 4",
+                    "filename": "StartupBenchmark_coldStartupIntegrated_iter004_2026-11-11-08-20-13.perfetto-trace"
+                },
+                {
+                    "type": "PerfettoTrace",
+                    "label": "Trace Iteration 5",
+                    "filename": "StartupBenchmark_coldStartupIntegrated_iter005_2026-11-11-08-20-18.perfetto-trace"
+                },
+                {
+                    "type": "PerfettoTrace",
+                    "label": "Trace Iteration 6",
+                    "filename": "StartupBenchmark_coldStartupIntegrated_iter006_2026-11-11-08-20-23.perfetto-trace"
+                },
+                {
+                    "type": "PerfettoTrace",
+                    "label": "Trace Iteration 7",
+                    "filename": "StartupBenchmark_coldStartupIntegrated_iter007_2026-11-11-08-20-28.perfetto-trace"
+                },
+                {
+                    "type": "PerfettoTrace",
+                    "label": "Trace Iteration 8",
+                    "filename": "StartupBenchmark_coldStartupIntegrated_iter008_2026-11-11-08-20-33.perfetto-trace"
+                },
+                {
+                    "type": "PerfettoTrace",
+                    "label": "Trace Iteration 9",
+                    "filename": "StartupBenchmark_coldStartupIntegrated_iter009_2026-11-11-08-20-38.perfetto-trace"
+                }
+            ]
+        },
+        {
+            "name": "coldStartupSdkAbsentBaseline",
+            "params": {},
+            "className": "com.awbuilds.reproparcel.benchmark.StartupBenchmark",
+            "totalRunTimeNs": 66460596100,
+            "metrics": {
+                "timeToInitialDisplayMs": {
+                    "minimum": 603.247196,
+                    "maximum": 744.574605,
+                    "median": 675.3624374999999,
+                    "coefficientOfVariation": 0.05755043664435089,
+                    "runs": [
+                        676.751839,
+                        603.247196,
+                        682.574547,
+                        686.465953,
+                        629.464542,
+                        673.973036,
+                        702.786997,
+                        652.507305,
+                        744.574605,
+                        671.673713
+                    ]
+                }
+            },
+            "sampledMetrics": {},
+            "warmupIterations": 0,
+            "repeatIterations": 10,
+            "thermalThrottleSleepSeconds": 0,
+            "profilerOutputs": [
+                {
+                    "type": "PerfettoTrace",
+                    "label": "Trace Iteration 0",
+                    "filename": "StartupBenchmark_coldStartupSdkAbsentBaseline_iter000_2026-11-11-08-21-04.perfetto-trace"
+                },
+                {
+                    "type": "PerfettoTrace",
+                    "label": "Trace Iteration 1",
+                    "filename": "StartupBenchmark_coldStartupSdkAbsentBaseline_iter001_2026-11-11-08-21-08.perfetto-trace"
+                },
+                {
+                    "type": "PerfettoTrace",
+                    "label": "Trace Iteration 2",
+                    "filename": "StartupBenchmark_coldStartupSdkAbsentBaseline_iter002_2026-11-11-08-21-13.perfetto-trace"
+                },
+                {
+                    "type": "PerfettoTrace",
+                    "label": "Trace Iteration 3",
+                    "filename": "StartupBenchmark_coldStartupSdkAbsentBaseline_iter003_2026-11-11-08-21-18.perfetto-trace"
+                },
+                {
+                    "type": "PerfettoTrace",
+                    "label": "Trace Iteration 4",
+                    "filename": "StartupBenchmark_coldStartupSdkAbsentBaseline_iter004_2026-11-11-08-21-22.perfetto-trace"
+                },
+                {
+                    "type": "PerfettoTrace",
+                    "label": "Trace Iteration 5",
+                    "filename": "StartupBenchmark_coldStartupSdkAbsentBaseline_iter005_2026-11-11-08-21-27.perfetto-trace"
+                },
+                {
+                    "type": "PerfettoTrace",
+                    "label": "Trace Iteration 6",
+                    "filename": "StartupBenchmark_coldStartupSdkAbsentBaseline_iter006_2026-11-11-08-21-32.perfetto-trace"
+                },
+                {
+                    "type": "PerfettoTrace",
+                    "label": "Trace Iteration 7",
+                    "filename": "StartupBenchmark_coldStartupSdkAbsentBaseline_iter007_2026-11-11-08-21-37.perfetto-trace"
+                },
+                {
+                    "type": "PerfettoTrace",
+                    "label": "Trace Iteration 8",
+                    "filename": "StartupBenchmark_coldStartupSdkAbsentBaseline_iter008_2026-11-11-08-21-42.perfetto-trace"
+                },
+                {
+                    "type": "PerfettoTrace",
+                    "label": "Trace Iteration 9",
+                    "filename": "StartupBenchmark_coldStartupSdkAbsentBaseline_iter009_2026-11-11-08-21-47.perfetto-trace"
+                }
+            ]
+        },
+        {
+            "name": "coldStartupSdkUninitializedPaired",
+            "params": {},
+            "className": "com.awbuilds.reproparcel.benchmark.StartupBenchmark",
+            "totalRunTimeNs": 102168728459,
+            "metrics": {
+                "timeToInitialDisplayMs": {
+                    "minimum": 427.899679,
+                    "maximum": 743.920908,
+                    "median": 597.869747,
+                    "coefficientOfVariation": 0.13790045253728608,
+                    "runs": [
+                        743.920908,
+                        589.023392,
+                        610.925061,
+                        623.847875,
+                        427.899679,
+                        539.644793,
+                        606.716102,
+                        624.524593,
+                        565.507243,
+                        536.334793
+                    ]
+                }
+            },
+            "sampledMetrics": {},
+            "warmupIterations": 0,
+            "repeatIterations": 10,
+            "thermalThrottleSleepSeconds": 0,
+            "profilerOutputs": [
+                {
+                    "type": "PerfettoTrace",
+                    "label": "Trace Iteration 0",
+                    "filename": "StartupBenchmark_coldStartupSdkUninitializedPaired_iter000_2026-11-11-08-22-16.perfetto-trace"
+                },
+                {
+                    "type": "PerfettoTrace",
+                    "label": "Trace Iteration 1",
+                    "filename": "StartupBenchmark_coldStartupSdkUninitializedPaired_iter001_2026-11-11-08-22-52.perfetto-trace"
+                },
+                {
+                    "type": "PerfettoTrace",
+                    "label": "Trace Iteration 2",
+                    "filename": "StartupBenchmark_coldStartupSdkUninitializedPaired_iter002_2026-11-11-08-22-56.perfetto-trace"
+                },
+                {
+                    "type": "PerfettoTrace",
+                    "label": "Trace Iteration 3",
+                    "filename": "StartupBenchmark_coldStartupSdkUninitializedPaired_iter003_2026-11-11-08-23-01.perfetto-trace"
+                },
+                {
+                    "type": "PerfettoTrace",
+                    "label": "Trace Iteration 4",
+                    "filename": "StartupBenchmark_coldStartupSdkUninitializedPaired_iter004_2026-11-11-08-23-05.perfetto-trace"
+                },
+                {
+                    "type": "PerfettoTrace",
+                    "label": "Trace Iteration 5",
+                    "filename": "StartupBenchmark_coldStartupSdkUninitializedPaired_iter005_2026-11-11-08-23-10.perfetto-trace"
+                },
+                {
+                    "type": "PerfettoTrace",
+                    "label": "Trace Iteration 6",
+                    "filename": "StartupBenchmark_coldStartupSdkUninitializedPaired_iter006_2026-11-11-08-23-15.perfetto-trace"
+                },
+                {
+                    "type": "PerfettoTrace",
+                    "label": "Trace Iteration 7",
+                    "filename": "StartupBenchmark_coldStartupSdkUninitializedPaired_iter007_2026-11-11-08-23-20.perfetto-trace"
+                },
+                {
+                    "type": "PerfettoTrace",
+                    "label": "Trace Iteration 8",
+                    "filename": "StartupBenchmark_coldStartupSdkUninitializedPaired_iter008_2026-11-11-08-23-25.perfetto-trace"
+                },
+                {
+                    "type": "PerfettoTrace",
+                    "label": "Trace Iteration 9",
+                    "filename": "StartupBenchmark_coldStartupSdkUninitializedPaired_iter009_2026-11-11-08-23-29.perfetto-trace"
+                }
+            ]
+        }
+    ]
+}
