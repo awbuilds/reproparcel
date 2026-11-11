@@ -99,8 +99,17 @@ difference            418,103 bytes (about 0.40 MiB)
 The integrated APK also contains the reporter UI, so the difference is a
 conservative upper bound; it remains below the 1 MiB core+Android target.
 
+## Post-benchmark stress check
+
+After the benchmark runs, the release ScrollActivity with the SDK enabled was
+driven through 40 rapid swipes. The process stayed alive (`pid` present), battery
+temperature was 33.8 °C, GPU temperature 40.2–45.4 °C, and the event/log buffers
+contained no `am_anr`, `am_crash`, `FATAL EXCEPTION` or `ANR in` entries.
+
+This is a short stress check, not a multi-hour thermal/ANR soak.
+
 ## Still open
 
-- thermal/ANR soak beyond the benchmark window;
+- longer thermal/ANR soak;
 - TalkBack manual matrix;
 - release-path capture timing (debug timing used here).
