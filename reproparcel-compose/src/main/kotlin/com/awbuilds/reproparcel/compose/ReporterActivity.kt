@@ -150,6 +150,10 @@ private fun ReporterScreen() {
         onDispose { capturedBitmap?.recycle() }
     }
 
+    LaunchedEffect(Unit) {
+        ReporterLaunchTiming.markComposerShown()
+    }
+
     LaunchedEffect(title, description, expected, actual, repro, finalPng, includeImage) {
         reviewed = false
         frozenPayload = null

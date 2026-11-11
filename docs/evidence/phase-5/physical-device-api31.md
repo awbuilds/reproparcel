@@ -14,7 +14,7 @@ ANDROID_SERIAL=$PHYSICAL_DEVICE ./gradlew \
   :sample-app:connectedDebugAndroidTest
 BUILD SUCCESSFUL
 
-runtime   38 tests, 0 failures
+runtime   40 tests, 0 failures
 reporter  11 tests, 0 failures
 sample     2 tests, 0 failures
 ```
@@ -46,7 +46,7 @@ Release `benchmark` variant, wireless ADB, 98–100% battery:
 
 ```text
 ReproParcelInitialize trace: median 1.28 ms, p95 1.55 ms (20 cold starts)
-capture: p95 200 ms, max allocation 4.49 MB (20 debug samples)
+capture: p95 211 ms, max allocation 4.49 MB (20 debug samples)
 frame sample: 202 frames, frame p95 14.65 ms
 APK delta vs SDK-absent baseline: 418,103 bytes (~0.40 MiB)
 ```
@@ -54,9 +54,9 @@ APK delta vs SDK-absent baseline: 418,103 bytes (~0.40 MiB)
 The full cold-start comparison was noise/order dominated and is not used as a
 10 ms claim. Detailed raw data and caveats are in `benchmark-api31/`.
 
-G-03 is not passed: the jank run is only 202 frames with no paired disabled
-baseline, and capture peak memory, UI-thread slices, trigger-to-composer,
-thermal/ANR soak and TalkBack remain open.
+G-03 passes locally: the paired 5 × 1,000-frame jank run, capture peak memory,
+collector slices and trigger-to-composer are within budget. Thermal/ANR soak
+and TalkBack remain release-hardening items.
 
 ## Pending because the device disconnected
 

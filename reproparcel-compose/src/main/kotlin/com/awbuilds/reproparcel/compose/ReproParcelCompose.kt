@@ -43,6 +43,7 @@ public object ReproParcelCompose {
             launching.set(false)
             return SdkResult.HostUnavailable
         }
+        ReporterLaunchTiming.markRequested()
         lifecycleOwner.lifecycleScope.launch {
             try {
             val capture = if (policy?.screenshotEnabled == true && ReproParcel.isScreenshotCollectionEnabled()) {

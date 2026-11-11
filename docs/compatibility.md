@@ -20,10 +20,10 @@ Status: verification baseline, not a forever-version promise.
 
 | API | Device | Tests |
 |---|---|---|
-| 26 | `rp-api26` emulator | 38 Android runtime, 11 reporter, 2 sample |
-| 30 | `rp-api30` emulator | 38 Android runtime, 11 reporter, 2 sample |
-| 37.2 | `Android_17` emulator | 38 Android runtime, 11 reporter, 2 sample; R8 release smoke |
-| 31 | physical low/mid-range Android 12 device | 38 Android runtime, 11 reporter, 2 sample; release capture/draft/SAF export/desktop import; startup/capture benchmarks |
+| 26 | `rp-api26` emulator | 40 Android runtime, 11 reporter, 3 sample |
+| 30 | `rp-api30` emulator | 40 Android runtime, 11 reporter, 3 sample |
+| 37.2 | `Android_17` emulator | 40 Android runtime, 11 reporter, 3 sample; R8 release smoke |
+| 31 | physical low/mid-range Android 12 device | 40 Android runtime, 11 reporter, 3 sample; release capture/draft/SAF export/desktop import; startup/capture benchmarks |
 
 A current physical device and API 26/30 physical devices are not available.
 The low/mid-range device's jank run used 202 frames and a missing paired

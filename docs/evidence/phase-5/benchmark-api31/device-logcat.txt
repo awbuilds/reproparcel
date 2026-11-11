@@ -1,0 +1,4 @@
+--------- beginning of main
+collector networkP95Us=152 (n=1000)
+collector breadcrumbP95Us=185 logP95Us=137 (n=1000 each)
+capture n=20 p50=143ms p95=211ms max=229ms allocationMaxBytes=4492800 sourceBytes=10627200 estimatedPeakBytes=15120000 nativeDeltaMaxBytes=15153712

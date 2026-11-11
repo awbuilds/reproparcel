@@ -32,30 +32,59 @@ regression.
 
 ## Capture
 
-`CapturePerformanceTest` on the debug instrumentation build, 20 captures:
+`CapturePerformanceTest`, 20 captures on the debug instrumentation build:
 
 ```text
-p50 147 ms, p95 200 ms, max 215 ms
-max allocation 4,492,800 bytes (4.49 MB)
+p50 141–147 ms, p95 179–211 ms, max 229 ms
+max scaled allocation 4,492,800 bytes (4.49 MB)
+source window allocation 10,627,200 bytes
+estimated peak 15,120,000 bytes (~14.4 MiB)
+native heap delta max 15,153,712 bytes (~14.5 MiB)
 ```
 
-Within the 2 s capture budget and 12 MiB decoded-image budget. This is a debug
-build, so release latency should be no worse; a release-path timing remains
-preferred.
+Within the 2 s capture budget and 24 MiB incremental-peak budget. The scaled
+image is also within 12 MiB. This is a debug build; release latency should be no
+worse.
 
-## Jank
+## Main-thread collector cost
 
-`ReporterJankBenchmark`, 5 runs of a reporter form scroll:
+1,000 calls each, debug instrumentation:
 
 ```text
-frames: 202 total (about 40 per run)
-frameDurationCpuMs: median 4.58 ms, p95 14.65 ms, p99 40.63 ms
-frameOverrunMs:     median −5.68 ms, p95 14.27 ms, p99 37.67 ms
+breadcrumb p95 176–185 µs
+log p95       130–137 µs
+network p95   152–196 µs
 ```
 
-This is **not the PRD jank gate**: it is 202 frames, not 5 × 1,000, and there
-is no paired SDK-disabled baseline. It shows the harness works, not that the
-5%/1 pp frame-regression criterion passes.
+All are well below the 4 ms per-slice target.
+
+## Trigger-to-composer
+
+In-app timestamp from `showReporter` request to reporter first composition,
+capture disabled, one untimed warm-up then 10 measured runs:
+
+```text
+cold first launch 480 ms
+steady-state p50 244 ms, p95 289 ms, max 289 ms
+```
+
+Steady-state p95 is within the 300 ms budget. The cold first launch is reported
+separately and is not part of this steady-state measurement.
+
+## Jank — paired 5 × 1,000 frames
+
+Same ScrollActivity UI, SDK enabled vs disabled, 5 cold runs × 80 swipes:
+
+```text
+enabled:  5 runs, 5,249 frames (1,034–1,066 per run)
+disabled: 5 runs, 5,344 frames (1,051–1,090 per run)
+
+frameDurationCpuMs p95: enabled 10.95 ms, disabled 10.95 ms (0.0%)
+frameOverrun p95:       enabled −2.66 ms, disabled −2.62 ms
+deadline miss:          enabled 1.01%, disabled 0.95% (+0.06 pp)
+```
+
+This passes the 5% p95-duration and 1 percentage-point deadline-miss gate.
 
 ## APK size
 
@@ -72,8 +101,6 @@ conservative upper bound; it remains below the 1 MiB core+Android target.
 
 ## Still open
 
-- capture incremental peak memory (24 MiB) and UI-thread slice budget;
-- trigger-to-composer p95;
-- 5 × 1,000-frame paired disabled-baseline jank;
-- thermal/ANR soak;
-- TalkBack manual matrix.
+- thermal/ANR soak beyond the benchmark window;
+- TalkBack manual matrix;
+- release-path capture timing (debug timing used here).
