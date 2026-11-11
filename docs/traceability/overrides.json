@@ -14,7 +14,7 @@
   "111": {
     "artifact": "docs/decisions/phase-5-go-no-go.md",
     "evidence": "Provider/config tests; no physical fault matrix",
-    "notes": "Physical fault-injection matrix not available",
+    "notes": "Physical API 31 low/mid-range functional tests pass; paired performance/jank rerun pending; initial 18.8 ms median delta exceeds the 10 ms target",
     "status": "BLOCKED"
   },
   "112": {
@@ -871,7 +871,7 @@
   "532": {
     "artifact": "docs/PROJECT_STATE.md",
     "evidence": "Full release matrix/import not verified on physical devices",
-    "notes": "Capture/mask tests pass on API 26/30/37 and release export/import is verified on API 37; full per-API release export/import matrix remains",
+    "notes": "Release capture/draft/SAF export/desktop import passed on physical API 31; full per-API physical matrix remains",
     "status": "BLOCKED"
   },
   "533": {
@@ -919,7 +919,7 @@
   "541": {
     "artifact": "docs/compatibility.md",
     "evidence": "API 26/30/37 emulators; no physical device",
-    "notes": "Physical low/mid-range and current physical device evidence not available",
+    "notes": "Physical API 31 low/mid-range device functional/release-flow checked; current and API 26/30 physical devices and final performance matrix missing",
     "status": "BLOCKED"
   },
   "564": {
@@ -973,7 +973,7 @@
   "574": {
     "artifact": "docs/research/toolchain-baseline.md",
     "evidence": "Toolchain/API matrix verified; memory/latency baseline not measured",
-    "notes": "Memory/latency benchmark baseline not measured",
+    "notes": "Benchmark harness and physical device available; paired p95/jank measurements not yet recorded after USB disconnect",
     "status": "BLOCKED"
   },
   "575": {
@@ -1333,7 +1333,7 @@
   "665": {
     "artifact": "docs/evidence/phase-5/release-smoke.txt",
     "evidence": "R8 capture/editor/review/draft smoke; full matrix/budgets incomplete",
-    "notes": "Release text-only export/import and capture/mask tests pass; full matrix/budget measurements remain",
+    "notes": "Physical API 31 release capture/draft/export/import passed; paired performance, jank and full matrix remain",
     "status": "BLOCKED"
   },
   "666": {

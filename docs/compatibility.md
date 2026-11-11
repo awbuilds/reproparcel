@@ -24,9 +24,10 @@ Status: verification baseline, not a forever-version promise.
 | 30 | `rp-api30` emulator | 37 Android runtime, 2 reporter, 2 sample |
 | 37.2 | `Android_17` emulator | 37 Android runtime, 2 reporter, 2 sample; R8 release smoke |
 
-A physical low/mid-range device and a current physical device are **not
-available**; physical performance, thermal and OEM rendering evidence is
-blocked.
+A physical low/mid-range Android 12 device is available for functional and
+release-flow testing. Its performance/jank p95 rerun is pending after a USB
+disconnect; a current physical device and API 26/30 physical devices are not
+available.
 
 ## Compose support
 

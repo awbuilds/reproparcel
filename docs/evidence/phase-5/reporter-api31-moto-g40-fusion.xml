@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<testsuites tests="11" failures="0" errors="0" skipped="0" time="0.000" timestamp="2026-11-11T07:06:14" hostname="localhost">
+  <testsuite name="com.awbuilds.reproparcel.compose.AccessibilityTest" tests="2" failures="0" errors="0" skipped="0" time="6.581" timestamp="2026-11-11T07:06:14" hostname="localhost">
+    <properties>
+      <property name="device" value="physical-device" />
+    </properties>
+    <testcase name="formRemainsUsableInLandscape" classname="com.awbuilds.reproparcel.compose.AccessibilityTest" time="2.817" />
+    <testcase name="formRemainsUsableAtTwoHundredPercentFontScale" classname="com.awbuilds.reproparcel.compose.AccessibilityTest" time="3.764" />
+  </testsuite>
+  <testsuite name="com.awbuilds.reproparcel.compose.BitmapFlattenerTest" tests="1" failures="0" errors="0" skipped="0" time="0.022" timestamp="2026-11-11T07:06:14" hostname="localhost">
+    <properties>
+      <property name="device" value="physical-device" />
+    </properties>
+    <testcase name="maskIsBakedIntoSavedPixels" classname="com.awbuilds.reproparcel.compose.BitmapFlattenerTest" time="0.022" />
+  </testsuite>
+  <testsuite name="com.awbuilds.reproparcel.compose.ReporterFlowTest" tests="6" failures="0" errors="0" skipped="0" time="12.749" timestamp="2026-11-11T07:06:14" hostname="localhost">
+    <properties>
+      <property name="device" value="physical-device" />
+    </properties>
+    <testcase name="textOnlyFormReviewsAndSavesDraft" classname="com.awbuilds.reproparcel.compose.ReporterFlowTest" time="3.337" />
+    <testcase name="shakeEntryCanBeEnabledAndDisabledOnARealActivity" classname="com.awbuilds.reproparcel.compose.ReporterFlowTest" time="0.615" />
+    <testcase name="withoutHandoffStartsTextOnly" classname="com.awbuilds.reproparcel.compose.ReporterFlowTest" time="1.862" />
+    <testcase name="recreationLosesSensitiveStateButReporterRemainsUsable" classname="com.awbuilds.reproparcel.compose.ReporterFlowTest" time="3.676" />
+    <testcase name="reviewShowsTitleAndReproFields" classname="com.awbuilds.reproparcel.compose.ReporterFlowTest" time="2.561" />
+    <testcase name="finishedHostReturnsHostUnavailableFromReporterEntry" classname="com.awbuilds.reproparcel.compose.ReporterFlowTest" time="0.698" />
+  </testsuite>
+  <testsuite name="com.awbuilds.reproparcel.compose.ReporterSemanticsTest" tests="2" failures="0" errors="0" skipped="0" time="4.691" timestamp="2026-11-11T07:06:14" hostname="localhost">
+    <properties>
+      <property name="device" value="physical-device" />
+    </properties>
+    <testcase name="primaryControlsMeetMinimumTouchTargets" classname="com.awbuilds.reproparcel.compose.ReporterSemanticsTest" time="1.695" />
+    <testcase name="textOnlyReviewRequiresDescriptionAndAnExplicitApproval" classname="com.awbuilds.reproparcel.compose.ReporterSemanticsTest" time="2.996" />
+  </testsuite>
+</testsuites>

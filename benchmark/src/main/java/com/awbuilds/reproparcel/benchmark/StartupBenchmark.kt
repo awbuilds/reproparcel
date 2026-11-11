@@ -1,11 +1,11 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 package com.awbuilds.reproparcel.benchmark
 
+import android.content.Intent
 import androidx.benchmark.macro.junit4.MacrobenchmarkRule
 import androidx.benchmark.macro.StartupMode
 import androidx.benchmark.macro.StartupTimingMetric
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import androidx.test.uiautomator.uiAutomator
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -16,10 +16,40 @@ class StartupBenchmark {
     val benchmarkRule = MacrobenchmarkRule()
 
     @Test
-    fun coldStartup() = benchmarkRule.measureRepeated(
+    fun coldStartupIntegrated() = benchmarkRule.measureRepeated(
         packageName = "com.awbuilds.reproparcel.sample",
         metrics = listOf(StartupTimingMetric()),
-        iterations = 5,
+        iterations = 10,
+        startupMode = StartupMode.COLD,
+    ) {
+        pressHome()
+        startActivityAndWait()
+    }
+
+    @Test
+    fun coldStartupSdkUninitializedPaired() = benchmarkRule.measureRepeated(
+        packageName = "com.awbuilds.reproparcel.sample",
+        metrics = listOf(StartupTimingMetric()),
+        iterations = 10,
+        startupMode = StartupMode.COLD,
+    ) {
+        pressHome()
+        startActivityAndWait(
+            Intent(Intent.ACTION_MAIN).apply {
+                setClassName(
+                    "com.awbuilds.reproparcel.sample",
+                    "com.awbuilds.reproparcel.sample.MainActivity",
+                )
+                putExtra("reproparcel_benchmark_skip_init", true)
+            },
+        )
+    }
+
+    @Test
+    fun coldStartupSdkAbsentBaseline() = benchmarkRule.measureRepeated(
+        packageName = "com.awbuilds.reproparcel.baseline",
+        metrics = listOf(StartupTimingMetric()),
+        iterations = 10,
         startupMode = StartupMode.COLD,
     ) {
         pressHome()
