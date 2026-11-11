@@ -1,0 +1,42 @@
+# Phase 7 — React Native Android host build evidence
+
+Date: 2026-11-11
+Host: `react-native/ReproParcelHost`, React Native 0.88.1, Android API 37.2 emulator.
+
+## Build
+
+```text
+cd react-native/ReproParcelHost/android
+./gradlew :app:assembleRelease
+BUILD SUCCESSFUL
+```
+
+Release APK installed and launched on the API 37.2 emulator.
+
+## Observed UI
+
+```text
+ReproParcel RN host
+Synthetic integration host. No real report data.
+Initialized disabled
+ENABLE SDK
+RECORD BREADCRUMB
+OPEN REPORTER
+DELETE LOCAL REPORTS
+```
+
+After tapping Enable SDK: `Enabled`.
+
+After tapping Record breadcrumb: `Breadcrumb recorded`.
+
+`OPEN REPORTER` returned `Reporter unavailable` in the release host. The bridge
+build/initialize/breadcrumb path is verified; reporter launch and lifecycle/
+Hermes matrix remain **BLOCKED** for Phase 7 support claims.
+
+## Notes
+
+- Autolinking found `ReproParcelPackage`.
+- Host Kotlin 2.4.21 is required for the published 2.4.21 Android artifacts.
+- `debug.keystore` was not committed; generated host build/cache directories are
+  ignored.
+- No real report data was used.

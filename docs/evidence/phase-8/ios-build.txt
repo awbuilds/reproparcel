@@ -1,0 +1,37 @@
+# Phase 8 — iOS simulator/device build evidence
+
+Date: 2026-11-11
+Host: Xcode 27.2, iPhone 18 Pro simulator, iOS 27.0 SDK.
+
+## Builds
+
+```text
+cd ios
+xcodebuild -scheme ReproParcel \
+  -destination 'platform=iOS Simulator,name=iPhone 18 Pro,OS=27.0' build
+BUILD SUCCEEDED
+
+xcodebuild -scheme ReproParcel \
+  -destination 'generic/platform=iOS' CODE_SIGNING_ALLOWED=NO build
+BUILD SUCCEEDED
+```
+
+`IOSCapture.swift` (UIKit capture behind `#if canImport(UIKit)`) compiled in
+both targets.
+
+## Tests
+
+```text
+xcodebuild test -scheme ReproParcel \
+  -destination 'platform=iOS Simulator,name=iPhone 18 Pro,OS=27.0'
+Executed 5 tests, with 0 failures
+TEST SUCCEEDED
+```
+
+## Limitations
+
+- No physical iOS device capture, Keychain draft storage, multi-scene lifecycle,
+  accessibility or App Store policy validation.
+- UIKit capture is a reference implementation; secure-text/subtree omissions
+  still need host policy and device tests.
+- No RN iOS module or Apple signing/TestFlight/App Store assets.

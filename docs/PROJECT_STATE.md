@@ -21,7 +21,7 @@ integration exists.
   local-first reviewed evidence parcels; read-only local agent consumption.
 - [AGENTS.md](../AGENTS.md) — engineering contract, public-repository hygiene,
   exception boundaries, standards and handoff protocol.
-- [Latest handoff](handoffs/0009-2026-11-11-final-audit-corrections.md).
+- [Latest handoff](handoffs/0010-2026-11-11-internal-gaps-and-hosts.md).
 - [Traceability ledger](traceability/prd-lines.jsonl), [Phase 0 audit](audits/phase-0-audit.md),
   [Phase 1 audit](audits/phase-1-audit.md), [Phase 3 audit](audits/phase-3-audit.md) and
   [Final audit](audits/final-audit.md).
@@ -69,7 +69,9 @@ Phase 2/3: 43 core JVM tests, 2 OkHttp tests, 30 Android runtime tests, 7
 reporter tests and 2 sample tests on API 26/30/37. Phase 4: 15 desktop tests.
 Phase 5: local four-artifact publication, clean consumer assemble, R8 release
 flow and 1.2 MiB sample APK. Phase 6 relay: 6 Node tests. Phase 8 Swift: 5
-XCTest tests. Phase 9 Dart: 4 tests + analyzer. `scripts/ci.sh` passes.
+XCTest tests. Phase 9 Dart: 4 tests + analyzer. Real hosts: RN release build/init/breadcrumb,
+Flutter debug APK, iOS simulator/device build + 5 simulator tests. `scripts/ci.sh`
+passes.
 Phase 0: 10 capture tests on API 26/30/37 plus minified API 26/37 smoke. Exact
 commands and evidence are in `docs/evidence/` and the latest handoff. External interviews, physical-device
 tests, legal/trademark review, Sonatype verification, Maven publication,

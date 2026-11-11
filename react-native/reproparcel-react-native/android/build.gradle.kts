@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 plugins {
-    id("com.android.library") version "9.5.1"
+    id("com.android.library")
+    id("org.jetbrains.kotlin.android")
 }
 
 android {

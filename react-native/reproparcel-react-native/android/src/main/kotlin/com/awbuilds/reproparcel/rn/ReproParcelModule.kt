@@ -42,7 +42,7 @@ class ReproParcelModule(reactContext: ReactApplicationContext) :
                     versionName = json.getString("versionName"),
                     versionCode = json.getLong("versionCode"),
                     variant = json.getString("variant"),
-                    gitCommit = json.optString("gitCommit").takeIf { it.isNotBlank() },
+                    gitCommit = if (json.isNull("gitCommit")) null else json.optString("gitCommit").takeIf { it.isNotBlank() },
                 ),
                 capturePolicy = policy,
                 evidence = EvidenceConfig(
@@ -64,7 +64,7 @@ class ReproParcelModule(reactContext: ReactApplicationContext) :
 
     @ReactMethod
     fun showReporter(surfaceId: String, promise: Promise) {
-        val activity = currentActivity
+        val activity = reactApplicationContext.currentActivity
         if (activity == null) {
             promise.resolve(false)
             return
@@ -77,9 +77,9 @@ class ReproParcelModule(reactContext: ReactApplicationContext) :
     fun recordBreadcrumb(json: String, promise: Promise) {
         try {
             val value = JSONObject(json)
-            val attributes = value.optJSONObject("attributes")?.let { object ->
+            val attributes = value.optJSONObject("attributes")?.let { obj ->
                 buildMap {
-                    object.keys().forEach { key -> put(key, object.optString(key)) }
+                    obj.keys().forEach { key -> put(key, obj.optString(key)) }
                 }
             }.orEmpty()
             val result = ReproParcel.recordBreadcrumb(
@@ -101,9 +101,9 @@ class ReproParcelModule(reactContext: ReactApplicationContext) :
     fun recordLog(json: String, promise: Promise) {
         try {
             val value = JSONObject(json)
-            val attributes = value.optJSONObject("attributes")?.let { object ->
+            val attributes = value.optJSONObject("attributes")?.let { obj ->
                 buildMap {
-                    object.keys().forEach { key -> put(key, object.optString(key)) }
+                    obj.keys().forEach { key -> put(key, obj.optString(key)) }
                 }
             }.orEmpty()
             val result = ReproParcel.recordLog(
