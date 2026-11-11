@@ -145,6 +145,22 @@ external/physical/legal/publication gates recorded in
 `docs/audits/final-audit.md`. Do not tag, release, publish, deploy or create
 `main` without an explicit instruction.
 
+## Follow-up from the first push
+
+- CodeQL's first Java/Kotlin run failed at `sdkmanager` because the runner's
+  stable channel does not expose `platforms;android-37`. The workflow now uses
+  the same Gradle/AGP SDK resolution as the passing CI job and analyzes
+  `core`, `android`, `compose` and `okhttp`. CodeQL now passes both jobs.
+- Dependabot opened 17 PRs on the first push, mostly major upgrades. The config
+  now groups minor/patch updates per ecosystem, caps open PRs and ignores
+  semver-major updates; major migrations need an explicit reviewed change.
+  Dependabot closed the ignored PRs; the remaining zod major proposal was
+  closed manually with a reason. Two grouped minor/patch PRs remain open.
+- `secret_scanning_non_provider_patterns` and
+  `secret_scanning_validity_checks` remain disabled after API attempts; the
+  repository reports them as unavailable rather than silently claiming they
+  are on.
+
 ## Resume/rollback notes
 
 Read `AGENTS.md`, `docs/PROJECT_STATE.md`, this handoff and the final audit.
